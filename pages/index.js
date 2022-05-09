@@ -1,14 +1,16 @@
 import Head from 'next/head'
 import Image from 'next/image'
 
-import BannerHome from '../components/BannerHome/BannerHome'
-import GridTextIcons from '../components/GridTextIcons/GridTextIcons'
-import Carousel from '../components/Carousel/Carousel'
-import CallToAction from '../components/CallToAction/CallToAction'
-import OngNumbers from '../components/OngNumbers/OngNumbers'
-import Footer from '../components/Footer/Footer'
-import DonationTypes from '../components/DonationTypes/DonationTypes'
-import Missions from '../components/Missions/Missions'
+import BannerHome from '../components/BannerHome'
+import GridTextIcons from '../components/GridTextIcons'
+import Carousel from '../components/Carousel'
+import CallToAction from '../components/CallToAction'
+import OngNumbers from '../components/OngNumbers'
+import Footer from '../components/Footer'
+import DonationTypes from '../components/DonationTypes'
+import Missions from '../components/Missions'
+import LinksImagesList from '../components/LinksImagesList'
+import Accordion from '../components/Accordion'
 
 
 export default function Home() {
@@ -27,6 +29,8 @@ export default function Home() {
       <OngNumbers />
       <DonationTypes />
       <CallToAction />
+      <LinksImagesList />
+      <Accordion />
 
 
       {/* background: repeating-linear-gradient( 120deg, #f3f4f6, #f3f4f6 10px, #ffffff 15px, #ffffff 11px ); */}
