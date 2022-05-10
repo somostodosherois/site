@@ -25,7 +25,7 @@ export default function Home() {
       <BannerHome />
       <GridTextIcons />
       {/* <Carousel /> */}
-      <Missions />
+      <Missions variation='home' />
       <OngNumbers />
       <DonationTypes />
       <CallToAction />
