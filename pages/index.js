@@ -11,6 +11,9 @@ import DonationTypes from '../components/DonationTypes'
 import Missions from '../components/Missions'
 import LinksImagesList from '../components/LinksImagesList'
 import Accordion from '../components/Accordion'
+import ODS from '../components/ODS'
+import ShapeDivider from '../components/ShapeDivider'
+import NewsList from '../components/NewsList/NewsList'
 
 
 export default function Home() {
@@ -24,11 +27,18 @@ export default function Home() {
 
       <BannerHome />
       <GridTextIcons />
+      <ODS />
+      <ShapeDivider graus={180} />
       {/* <Carousel /> */}
       <Missions variation='home' />
       <OngNumbers />
       <DonationTypes />
       <CallToAction />
+
+      <ShapeDivider graus={180}/>
+      <NewsList />
+      <ShapeDivider graus={0} />
+
       <LinksImagesList />
       <Accordion />
 
