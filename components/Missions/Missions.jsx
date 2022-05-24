@@ -1,6 +1,7 @@
 import React from 'react';
-
 import { BsCurrencyDollar, BsCalendarDate } from "react-icons/bs";
+
+import TitleSession from '../TitleSession/TitleSession';
 
 const callouts = [
   {
@@ -143,13 +144,6 @@ const callouts = [
 const inProgress = (callouts.length && callouts.filter(obj => obj.totalDays !== 0)) || []
 const isFinished = (callouts.length && callouts.filter(obj => obj.totalDays === 0)) || []
 
-const TitleSession = ({ title }) => (
-  <div className="max-w-2xl mx-auto py-16 sm:py-24 lg:py-16 lg:max-w-none">
-    <h2 className="text-4xl text-gray-700">Missões {title}</h2>
-    <span className="w-32 my-4 h-2 bg-red-500 border rounded-xl block"></span>
-  </div>
-)
-
 const Cards = ({ items }) => (
   <div className="space-y-12 lg:space-y-0 lg:grid lg:grid-cols-4 lg:gap-x-8 lg:gap-y-8">
     {items.map(({ name, imageAlt, imageSrc, href, description, total, totalDays }) => (
@@ -229,8 +223,8 @@ const ContainerMissions = ({ items, title }) => (
 
 const Missions = ({ variation }) => (
   <>
-    <ContainerMissions items={inProgress} title='em andamento' />
-    {variation !== 'home' && <ContainerMissions items={isFinished} title='finalizadas' />}
+    <ContainerMissions items={inProgress} title='Missões em andamento' />
+    {variation !== 'home' && <ContainerMissions items={isFinished} title='Missões finalizadas' />}
   </>
 )
 

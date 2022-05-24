@@ -26,13 +26,21 @@ export default function Home() {
       </Head>
 
       <BannerHome />
+
       <GridTextIcons />
+
       <ODS />
+
       <ShapeDivider graus={180} />
-      {/* <Carousel /> */}
+
       <Missions variation='home' />
+
       <OngNumbers />
+      <ShapeDivider graus={0} />
+
+
       <DonationTypes />
+
       <CallToAction />
 
       <ShapeDivider graus={180}/>
@@ -40,15 +48,8 @@ export default function Home() {
       <ShapeDivider graus={0} />
 
       <LinksImagesList />
+
       <Accordion />
-
-
-      {/* background: repeating-linear-gradient( 120deg, #f3f4f6, #f3f4f6 10px, #ffffff 15px, #ffffff 11px ); */}
-
-
-      {/* <div className="relative bg-gray-100 overflow-hidden text-center pt-16">
-        <Image src='/Fluxo-CestaAmpla.png' height={600} width={800} />
-      </div> */}
 
       <Footer />
 

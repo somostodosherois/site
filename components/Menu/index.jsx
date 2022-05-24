@@ -1,3 +1,3 @@
-import GridTextIcons from './GridTextIcons'
+import Menu from './Menu'
 
-export default GridTextIcons
+export default Menu
