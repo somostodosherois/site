@@ -16,7 +16,7 @@ export default function Missoes() {
         <link rel="icon" href="https://sth.org.br/wp-content/themes/sth/images/favicon.png" />
       </Head>
       <Menu />
-      <Banner graus={90} />
+      {/* <Banner graus={90} /> */}
       {/* <ShapeDivider graus={180} /> */}
       <Missions />
       <Footer />

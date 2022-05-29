@@ -29,7 +29,6 @@ export default function Home() {
 
       <GridTextIcons />
 
-      <ODS />
 
       <ShapeDivider graus={180} />
 
@@ -40,6 +39,9 @@ export default function Home() {
 
 
       <DonationTypes />
+
+      <ODS />
+
 
       <CallToAction />
 
