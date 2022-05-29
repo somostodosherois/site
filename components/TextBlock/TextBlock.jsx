@@ -9,13 +9,15 @@ const TextBlock = ({ title, description, isAboutUs, background }) => (
       <TitleSession title={title} />
       {isAboutUs
         ?
-        <div className='flex gap-x-8'>
-          <div className='flex max-w-3xl'>
+        <div className='sm:grid lg:flex gap-x-8'>
+          <div className='max-w-3xl'>
             <p className="text-2xl text-gray-600 lg:mx-auto">
               {description}
             </p>
           </div>
-          <ReactPlayer url='https://www.youtube.com/watch?v=476hJXDHsoI&ab_channel=SomosTodosHer%C3%B3is' />
+          <div className='container-about-us sm:mt-12'>
+            <ReactPlayer url='https://www.youtube.com/watch?v=476hJXDHsoI&ab_channel=SomosTodosHer%C3%B3is' className='w-10' />
+          </div>
         </div>
         :
         <p className="text-2xl text-gray-600 lg:mx-auto">
