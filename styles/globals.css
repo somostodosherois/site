@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @media (max-width: 690px) {
-  .container-about-us {
-    display: none;
+  .container-about-us div:first-child{
+    width: 100% !important;
   }
 }

@@ -41,9 +41,9 @@ const CardsIconsText = () => (
         <h2 className="text-4xl text-white">Nossos valores</h2>
       </div>
 
-      <div className="lg:grid lg:grid-cols-5 lg:gap-x-12 lg:gap-y-32">
+      <div className="xl:grid xl:grid-cols-5 xl:gap-x-12 xl:gap-y-32">
         {features.map((feature) => (
-          <div className='bg-white py-8 my-8 lg:my-0 items-center content-center text-center border border-transparent rounded-md'>
+          <div className='bg-white py-8 my-8 xl:my-0 items-center content-center text-center border border-transparent rounded-md'>
             <div className='flex' style={{ justifyContent: 'center' }}>
               <feature.icon className="h-10 w-10" fill="#DC2626" />
             </div>
