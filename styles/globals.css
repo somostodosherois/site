@@ -7,3 +7,15 @@
     width: 100% !important;
   }
 }
+
+@media (min-width: 360px) and (max-width: 574px) {
+  .onu-grid {
+    grid-template-columns: repeat(2, minmax(0, 2fr)) !important;
+  }
+}
+
+@media (min-width: 575px) and (max-width: 640px) {
+  .onu-grid {
+    grid-template-columns: repeat(3, minmax(0, 3fr)) !important;
+  }
+}

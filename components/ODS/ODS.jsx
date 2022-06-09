@@ -40,7 +40,7 @@ const ODS = () => {
         </div>
 
         <div className="mt-16">
-          <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-5 md:gap-y-10">
+          <dl className="md:space-y-0 grid grid-cols-1 gap-y-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 onu-grid">
             {ods.map(({ number, image }, index) => (
               <div key={index} className="relative">
                 <Card number={number} image={image} />

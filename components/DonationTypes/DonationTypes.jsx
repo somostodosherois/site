@@ -8,7 +8,7 @@ const features = [
         text: "As doações mensais são destinadas a contribuir com o crescimento da ONG e impactar mais crianças."
       },
       {
-        text: "Ao se tornar um guardião você estará fazendo a diferença na vida de várias crianças mês a mês. E como gesto de gratidão pelo seu ato heróico, a ONG te manda um <b>mimo a cada 6 meses.</b>"
+        text: "Ao se tornar um guardião você estará fazendo a diferença na vida de várias crianças mês a mês. E como gesto de gratidão pelo seu ato heróico, a ONG te manda um mimo a cada 6 meses."
       }
     ]
   },

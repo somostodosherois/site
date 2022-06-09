@@ -35,7 +35,7 @@ const features = [
 ]
 
 const CardsIconsText = () => (
-  <div className="bg-red-600 pb-16 px-4">
+  <div className="bg-red-500 pb-16 px-4">
     <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 items-center content-center text-center">
       <div className="grid max-w-2xl mx-auto py-8 sm:py-24 lg:py-12 lg:max-w-none">
         <h2 className="text-4xl text-white">Nossos valores</h2>
