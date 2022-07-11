@@ -25,20 +25,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/ajuda": [
+    "/portal-transparencia": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/ajuda.js"
-    ],
-    "/missoes": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/missoes.js"
-    ],
-    "/sobrenos": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/sobrenos.js"
+      "static/chunks/pages/portal-transparencia.js"
     ]
   },
   "ampFirstPages": []
