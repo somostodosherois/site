@@ -60,28 +60,28 @@ export default function NavBar() {
           >
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
               <li className="text-white hover:text-black">
-                <a href="javascript:void(0)">Sobre nós</a>
+                <a href="/sobrenos">Sobre nós</a>
               </li>
               <li className="text-white hover:text-black">
-                <a href="javascript:void(0)">Transparência</a>
+                <a href="/">Transparência</a>
               </li>
               <li className="text-white hover:text-black">
-                <a href="javascript:void(0)">Missões</a>
+                <a href="/missoes">Missões</a>
               </li>
               <li className="text-white hover:text-black">
-                <a href="javascript:void(0)">Loja</a>
+                <a href="/">Loja</a>
               </li>
             </ul>
 
             <div className="mt-3 space-y-2 lg:hidden md:inline-block">
               <a
-                href="javascript:void(0)"
+                href="/login"
                 className="inline-block w-full px-4 py-2 text-center text-white bg-red-400 rounded-md shadow hover:bg-gray-800"
               >
                 Login
               </a>
               <a
-                href="javascript:void(0)"
+                href="/doar"
                 className="inline-block w-full px-4 py-2 text-center text-red-600 bg-white rounded-md shadow hover:bg-red-100"
               >
                 Doar
