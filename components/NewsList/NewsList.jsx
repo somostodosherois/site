@@ -5,7 +5,7 @@ const callouts = [
     url: 'https://g1.globo.com/sp/sao-carlos-regiao/noticia/plataforma-de-financiamento-permite-dar-poderes-para-criancas-que-precisam-de-tratamento-medico.ghtml',
     title: 'Plataforma de financiamento permite dar poderes para crianças que precisam de tratamento médico',
     description: 'Escudos, capas e anéis mágicos estão entre os itens que podem ser adquiridos. Para criador, site é uma forma de engajar os mais jovens.',
-    author: 'Por Raquel Baes*, do G1 São Carlos e Araraquara',
+    author: 'Por Raquel Baes, do G1 São Carlos e Araraquara',
     date: '23/03/2017 07h32'
   },
   {
@@ -50,6 +50,7 @@ const NewsList = () => (
               <p className="text-lg text-gray-700 pb-8">{callout.description}</p>
               <p className="text-sm text-gray-700">{callout.author}</p>
               <p className="text-sm text-gray-700">{callout.date}</p>
+              <p className="text-xs text-blue-600 mt-6">{callout.url}</p>
             </div>
           </a>
         ))}

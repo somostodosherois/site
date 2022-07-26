@@ -11,7 +11,7 @@ const callouts = [
     totalDays: '30 dias restantes',
     imageSrc: 'https://sth.org.br/images/2022/03/Design-sem-nome-5.png',
     imageAlt: 'Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.',
-    href: '#',
+    href: '1234',
   },
   {
     name: 'Super Maria Alyce',
@@ -20,7 +20,7 @@ const callouts = [
     totalDays: '30 dias restantes',
     imageSrc: 'https://sth.org.br/images/2021/11/WhatsAppImage2021-10-27at21.34.42-300x300.jpeg',
     imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
-    href: '#',
+    href: '2132',
   },
   {
     name: 'Mega Heitor',
@@ -29,7 +29,7 @@ const callouts = [
     totalDays: '30 dias restantes',
     imageSrc: 'https://sth.org.br/images/2021/11/20210831_102743-300x300.jpg',
     imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
-    href: '#',
+    href: '4343',
   },
   {
     name: 'Mega Otavio',
@@ -38,7 +38,7 @@ const callouts = [
     totalDays: '30 dias restantes',
     imageSrc: 'https://sth.org.br/images/2022/03/Design-sem-nome-5.png',
     imageAlt: 'Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.',
-    href: '#',
+    href: '434332',
   },
   {
     name: 'Super Maria Alyce',
@@ -158,7 +158,7 @@ const Cards = ({ items }) => (
 
         <div className='p-4'>
           <h3 className="mt-4 text-base font-semibold text-gray-900">
-            <a href={href}>
+            <a href={'missoes/'+href}>
               <span className="absolute inset-0" />
               {name}
             </a>
@@ -189,9 +189,20 @@ const Cards = ({ items }) => (
             <div className="rounded-md mt-6 shadow">
               <a
                 href="#"
-                className="flex items-center justify-center border border-red-700 text-base rounded-md text-red-600 hover:bg-red-700 md:py-1 md:text-lg md:px-4"
+                className="flex items-center justify-center bg-red-600 text-base uppercase rounded-md text-white md:py-1 md:text-lg md:px-4"
               >
                 Ajudar este herói
+              </a>
+            </div>
+          }
+
+          {totalDays !== 0 &&
+            <div className="rounded-md mt-6 shadow">
+              <a
+                href="#"
+                className="flex items-center justify-center bg-red-100 text-base uppercase rounded-md text-red-500 md:py-1 md:text-lg md:px-4"
+              >
+                Doar por Pix rápido
               </a>
             </div>
           }

@@ -3,7 +3,6 @@ import Image from 'next/image'
 
 import BannerHome from '../components/BannerHome'
 import GridTextIcons from '../components/GridTextIcons'
-import Carousel from '../components/Carousel'
 import CallToAction from '../components/CallToAction'
 import OngNumbers from '../components/OngNumbers'
 import Footer from '../components/Footer'
@@ -14,6 +13,7 @@ import Accordion from '../components/Accordion'
 import ODS from '../components/ODS'
 import ShapeDivider from '../components/ShapeDivider'
 import NewsList from '../components/NewsList/NewsList'
+import Menu from '../components/Menu'
 
 
 export default function Home() {
@@ -25,6 +25,8 @@ export default function Home() {
         <link rel="icon" href="https://sth.org.br/wp-content/themes/sth/images/favicon.png" />
       </Head>
 
+      <Menu />
+      
       <BannerHome />
 
       <GridTextIcons />
