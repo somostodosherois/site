@@ -3,7 +3,7 @@ import Menu from '../Menu';
 
 const BannerHome = () => {
   return (
-    <div className="relative bg-white overflow-hidden">
+    <div className="relative bg-white overflow-hidden p-20">
       <div className="max-w-7xl mx-auto">
         <main className="mt-10 px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28 flex">
           <div className="sm:text-center lg:text-left max-w-xl">

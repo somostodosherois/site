@@ -6,7 +6,7 @@ import GridTextIcons from '../components/GridTextIcons'
 import CallToAction from '../components/CallToAction'
 import OngNumbers from '../components/OngNumbers'
 import Footer from '../components/Footer'
-import DonationTypes from '../components/DonationTypes'
+import CardDonationTypes from '../components/CardDonationTypes'
 import Missions from '../components/Missions'
 import LinksImagesList from '../components/LinksImagesList'
 import Accordion from '../components/Accordion'
@@ -40,7 +40,7 @@ export default function Home() {
       <ShapeDivider graus={0} />
 
 
-      <DonationTypes />
+      <CardDonationTypes />
 
       <ODS />
 

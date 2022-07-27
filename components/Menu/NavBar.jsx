@@ -5,7 +5,7 @@ export default function NavBar() {
   const [navbar, setNavbar] = useState(false);
 
   return (
-    <nav className="w-full bg-red-600 shadow">
+    <nav className="w-full bg-red-600 shadow fixed z-50">
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
@@ -91,13 +91,13 @@ export default function NavBar() {
         </div>
         <div className="hidden space-x-2 md:inline-block">
           <a
-            href="javascript:void(0)"
+            href="/"
             className="px-4 py-2 text-white bg-red-400 rounded-md shadow hover:bg-gray-800"
           >
             Login
           </a>
           <a
-            href="javascript:void(0)"
+            href="/"
             className="px-4 py-2 text-red-600 bg-white rounded-md shadow hover:bg-red-100"
           >
             Doar 

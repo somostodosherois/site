@@ -19,3 +19,8 @@
     grid-template-columns: repeat(3, minmax(0, 3fr)) !important;
   }
 }
+
+p { 
+  line-height: 2rem;
+  font-size: large;
+}

@@ -25,7 +25,7 @@ const features = [
   },
 ]
 
-const DonationTypes = () => {
+const CardDonationTypes = () => {
   return (
     <div className="pt-20 pb-16 bg-white" >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -62,4 +62,4 @@ const DonationTypes = () => {
   )
 }
 
-export default DonationTypes
+export default CardDonationTypes

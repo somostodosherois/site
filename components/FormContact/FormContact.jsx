@@ -11,20 +11,20 @@ const FormContact = () => (
             <p className="mt-1 text-sm text-white pb-16">Fale com um dos responsáveis pela ONG para que possamos esclarecer tudo para você.</p>
 
             <div className='grid gap-y-8'>
-              <a href="#!" class="text-white text-lg">
-                <span class="flex gap-2">
+              <a href="#!" className="text-white text-lg">
+                <span className="flex gap-2">
                   <BsWhatsapp className='mt-1' /> WhatsApp
                 </span>
-                <span class="lg:grid font-bold hover:text-gray-600" style={{ alignItems: 'center' }}>
+                <span className="lg:grid font-bold hover:text-gray-600" style={{ alignItems: 'center' }}>
                   (32) 9 9954-5487
                 </span>
               </a>
 
-              <a href="#!" class="text-white text-lg">
-                <span class="flex gap-2">
+              <a href="#!" className="text-white text-lg">
+                <span className="flex gap-2">
                   <BsFolder className='mt-1' /> E-mail
                 </span>
-                <span class="mb-4 font-bold hover:text-gray-600" style={{ alignItems: 'center' }}>
+                <span className="mb-4 font-bold hover:text-gray-600" style={{ alignItems: 'center' }}>
                   contato@sth.org.br
                 </span>
               </a>

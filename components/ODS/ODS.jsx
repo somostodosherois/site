@@ -24,8 +24,8 @@ const ods = [
 ]
 
 const Card = ({ number, image }) => (
-  <div id="sdg-3" class="rounded-xl w-40 h-40 bg-cover rounded shadow-xl hover:animate-bounce" style={{ backgroundImage: `url('${image}')` }}>
-    <span class="sr-only">sdg-{number}</span>
+  <div id="sdg-3" className="rounded-xl w-40 h-40 bg-cover rounded shadow-xl hover:animate-bounce" style={{ backgroundImage: `url('${image}')` }}>
+    <span className="sr-only">sdg-{number}</span>
   </div>
 )
 

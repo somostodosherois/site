@@ -166,8 +166,8 @@ const Cards = ({ items }) => (
           <p className="mt-2 text-sm text-gray-500 h-24">{description}</p>
 
           {totalDays !== 0 &&
-            <div class="w-full bg-gray-200 rounded-full dark:bg-gray-700 mt-4">
-              <div class="bg-green-500 text-3xs font-medium text-white text-center p-0.5 leading-none rounded-full" style={{ width: '45%' }}> 45%</div>
+            <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700 mt-4">
+              <div className="bg-green-500 text-3xs font-medium text-white text-center p-0.5 leading-none rounded-full" style={{ width: '45%' }}> 45%</div>
             </div>
           }
 
@@ -213,7 +213,7 @@ const Cards = ({ items }) => (
 )
 
 const ContainerMissions = ({ items, title }) => (
-  <div className="bg-gray-100 pb-12 px-4">
+  <div className="bg-gray-100 pb-12 px-4 ">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:items-center">
       <TitleSession title={title} />
       <Cards items={items} />
