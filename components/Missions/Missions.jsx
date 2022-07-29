@@ -145,10 +145,10 @@ const inProgress = (callouts.length && callouts.filter(obj => obj.totalDays !== 
 const isFinished = (callouts.length && callouts.filter(obj => obj.totalDays === 0)) || []
 
 const Cards = ({ items }) => (
-  <div className="space-y-12 lg:space-y-0 lg:grid lg:grid-cols-4 lg:gap-x-8 lg:gap-y-8">
+  <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-8">
     {items.map(({ name, imageAlt, imageSrc, href, description, total, totalDays }) => (
       <div key={name} className="group relative bg-white border border-transparent rounded-xl">
-        <div className="relative w-full h-110 bg-white overflow-hidden -group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
+        <div className="relative bg-white overflow-hidden -group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 h-50 lg:aspect-w-1 lg:aspect-h-1">
           <img
             src={imageSrc}
             alt={imageAlt}
@@ -189,7 +189,7 @@ const Cards = ({ items }) => (
             <div className="rounded-md mt-6 shadow">
               <a
                 href="#"
-                className="flex items-center justify-center bg-red-600 text-base uppercase rounded-md text-white md:py-1 md:text-lg md:px-4"
+                className="flex items-center justify-center bg-red-600 text-lg uppercase rounded-md text-white py-1 px-4"
               >
                 Ajudar este herói
               </a>
@@ -197,10 +197,10 @@ const Cards = ({ items }) => (
           }
 
           {totalDays !== 0 &&
-            <div className="rounded-md mt-6 shadow">
+            <div className="rounded-md mt-4 shadow">
               <a
                 href="#"
-                className="flex items-center justify-center bg-red-100 text-base uppercase rounded-md text-red-500 md:py-1 md:text-lg md:px-4"
+                className="flex items-center justify-center bg-red-100 text-lg uppercase rounded-md text-red-500 py-1 px-4"
               >
                 Doar por Pix rápido
               </a>

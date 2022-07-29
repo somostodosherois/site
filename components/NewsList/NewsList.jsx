@@ -38,7 +38,7 @@ const NewsList = () => (
 
       <div className="space-y-4 pb-16 gap-y-16">
         {callouts.map((callout) => (
-          <a href={callout.url} target='_blank' className="flex bg-white justify-content align-center border border-transparent rounded-xl lg:grid lg:grid-cols-2 hover:border hover:border-red-500 border:shadow">
+          <a href={callout.url} target='_blank' className="grid lg:flex bg-white justify-content align-center border border-transparent rounded-xl lg:grid lg:grid-cols-2 hover:border hover:border-red-500 border:shadow">
             <div className="text-center p-8">
               <img
                 src={callout.imageSrc}
@@ -46,11 +46,11 @@ const NewsList = () => (
               />
             </div>
             <div className="block p-8">
-              <h3 className="text-2xl text-extrabold text-gray-700 pb-8">{callout.title}</h3>
-              <p className="text-lg text-gray-700 pb-8">{callout.description}</p>
+              <h3 className="text-2xl text-extrabold text-gray-700 pb-4 lg:pb-8">{callout.title}</h3>
+              <p className="text-lg text-gray-700 pb-4 lg:pb-8">{callout.description}</p>
               <p className="text-sm text-gray-700">{callout.author}</p>
               <p className="text-sm text-gray-700">{callout.date}</p>
-              <p className="text-xs text-blue-600 mt-6">{callout.url}</p>
+              <p className="text-xs text-blue-600 mt-4 lg:mt-6">{callout.url}</p>
             </div>
           </a>
         ))}

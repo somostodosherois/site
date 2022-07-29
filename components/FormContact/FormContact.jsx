@@ -2,7 +2,7 @@ import React from 'react'
 import { BsWhatsapp, BsFolder, BsInstagram, BsFacebook, BsLinkedin } from "react-icons/bs";
 
 const FormContact = () => (
-  <div className="bg-red-500 py-8 px-4">
+  <div className="bg-red-600 py-8 px-4">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:items-center">
       <div className="md:grid md:grid-cols-3 md:gap-6">
         <div className="md:col-span-1">

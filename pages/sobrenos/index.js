@@ -21,7 +21,6 @@ export default function Missoes() {
         <link rel="icon" href="https://sth.org.br/wp-content/themes/sth/images/favicon.png" />
       </Head>
       <Menu />
-      <div className='p-8'></div>
 
       <TextBlock title={'A Somos Todos Heróis'} background='gray-100' isAboutUs={true} description={'A Somos Todos Heróis é uma ONG jovem e digital que transforma a vida de crianças que necessitam de tratamentos médicos ao redor do país. Unimos pessoas como você, que estão dispostas a fazer a diferença na vida de alguém, incentivando a prática solidária por meio de doações diretas e resgatando o heroísmo que reside em cada um de nós. Trazemos ao processo toda a temática dos super-heróis, que remete a muitas memórias de infância e, ao mesmo tempo, transforma o feito de ajudar numa ação leve, divertida e impactante.'} />
       {/* <ShapeDivider graus={0} /> */}

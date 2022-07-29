@@ -34,7 +34,7 @@ const ODS = () => {
     <div className="pb-16 bg-white" >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:text-center">
-          <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-red-600 sm:text-2xl uppercase">
+          <p className="mt-2 text-xl leading-8 font-extrabold tracking-tight text-red-600 sm:text-2xl lg:sm:text-3xl uppercase">
             A Somos Todos Heróis contribui com os seguintes Objetivos de Desenvolvimento Sustentável da ONU
           </p>
         </div>
@@ -42,7 +42,7 @@ const ODS = () => {
         <div className="mt-16">
           <dl className="md:space-y-0 grid grid-cols-1 gap-y-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 onu-grid">
             {ods.map(({ number, image }, index) => (
-              <div key={index} className="relative">
+              <div key={index} className="flex justify-center">
                 <Card number={number} image={image} />
               </div>
             ))}

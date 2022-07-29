@@ -30,7 +30,7 @@ const CardDonationTypes = () => {
     <div className="pt-20 pb-16 bg-white" >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:text-center">
-          <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-red-600 sm:text-3xl uppercase">
+          <p className="mt-2 text-xl leading-8 font-extrabold tracking-tight text-red-600 sm:text-2xl lg:sm:text-3xl uppercase">
             Escolha a modalidade de doação que melhor combina com você
           </p>
         </div>
@@ -39,18 +39,18 @@ const CardDonationTypes = () => {
           {features.map((feature) => (
             <div className='bg-white py-8 items-center content-center text-center border border-red-500 rounded-md'>
               <div className="lg:text-center">
-                <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-600 sm:text-3xl uppercase">
+                <p className="mt-2 text-2xl leading-8 font-extrabold tracking-tight text-gray-600 md:text-2xl lg:text-3xl uppercase">
                   {feature.title}
                 </p>
                 <span className="w-30 my-4 mx-56 h-2 bg-red-500 border rounded-xl block"></span>
               </div>
-              <h5 className="mt-2 px-6 text-2xl text-left tracking-tight text-gray-900 sm:text-2xl">
+              <h5 className="mt-2 px-6 text-2xl text-left tracking-tight text-gray-900 lg:text-2xl">
                 {feature.description.map(({ text }, index) => (
                   <div className="flex mt-4">
-                    <h2 className="mt-4 mx-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+                    <h2 className="mt-4 mx-4 text-2xl font-bold tracking-tight text-gray-900 md:text-2xl lg:text-3xl">
                       <span className="block text-red-500">{index+1}</span>
                     </h2>
-                    <span className="block text-gray-500">{text}</span>
+                    <span className="block text-gray-500 text-xl md:text-2xl lg:text-3xl">{text}</span>
                   </div>
                 ))}
               </h5>

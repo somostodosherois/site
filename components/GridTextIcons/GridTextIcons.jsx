@@ -39,7 +39,7 @@ const GridTextIcons = () => {
           <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-red-600 sm:text-4xl uppercase">
             Somos Todos Heróis
           </p>
-          <p className="mt-4 max-w-6xl text-2xl text-gray-600 lg:mx-auto">
+          <p className="mt-4 max-w-6xl text-xl lg:text-2xl text-gray-600 lg:mx-auto">
             A <b>Somos Todos Heróis</b> é uma ONG jovem e digital que transforma a vida de crianças que necessitam de tratamentos médicos ao redor do país. Unimos pessoas como você, que estão dispostas a fazer a diferença na vida de alguém, incentivando a prática solidária por meio de doações diretas e resgatando o heroísmo que reside em cada um de nós. 
           </p>
         </div>
@@ -49,12 +49,12 @@ const GridTextIcons = () => {
             {features.map((feature, index) => (
               <div key={feature.name} className="relative">
                 <dd>
-                  <h2 className="text-5xl font-bold tracking-tight sm:text-5xl">
+                  <h2 className="text-3xl font-bold tracking-tight md:text-5xl">
                     <span className="block text-red-600">{index+1}</span>
                   </h2>
-                  <p className="ml-10 text-3xl leading-6 font-medium text-gray-800">{feature.name}</p>
+                  <p className="ml-10 text-2xl md:text-3xl leading-6 font-medium text-gray-800">{feature.name}</p>
                 </dd>
-                <dd className="mt-2 ml-10 text-xl text-gray-500">{feature.description}</dd>
+                <dd className="mt-2 ml-10 text-lg md:text-xl text-gray-500">{feature.description}</dd>
               </div>
             ))}
           </dl>

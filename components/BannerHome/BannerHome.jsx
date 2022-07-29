@@ -3,10 +3,10 @@ import Menu from '../Menu';
 
 const BannerHome = () => {
   return (
-    <div className="relative bg-white overflow-hidden p-20">
-      <div className="max-w-7xl mx-auto">
-        <main className="mt-10 px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28 flex">
-          <div className="sm:text-center lg:text-left max-w-xl">
+    <div className="relative bg-white overflow-hidden pt-12 lg:p-20">
+      <div className="max-w-7xl mx-auto sm:text-center lg:text-left">
+        <main className="mt-10 sm:mt-12 md:mt-16 lg:mt-20 xl:mt-28 px-4 sm:px-6 lg:px-8 lg:flex grid">
+          <div className="lg:max-w-xl">
             <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
               <span className="block xl:inline">Precisamos da sua doação </span>
               <span className="block text-red-600 xl:inline">para salvar vidas</span>
@@ -33,7 +33,8 @@ const BannerHome = () => {
               </div>
             </div>
           </div>
-          <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+          <div className="pt-6 lg:pt-0 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+            
             {/* <img
                 className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
                 src="https://lunetas.com.br/wp-content/uploads/2020/05/meninos-herois-brincando.jpg"

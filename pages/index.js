@@ -31,7 +31,6 @@ export default function Home() {
 
       <GridTextIcons />
 
-
       <ShapeDivider graus={180} />
 
       <Missions variation='home' />
