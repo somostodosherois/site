@@ -65,27 +65,29 @@ const data = [
 ]
 
 const VerticalTimelineComponent = () => (
-  <VerticalTimeline lineColor={'red'}>
-    {data.map(({ title, description, date, icon, setBackground }, index) => (
-      <VerticalTimelineElement
-        className="vertical-timeline-element--work"
-        date={date}
-        contentStyle={!setBackground ? { border: '3px solid #DC2626' } : { borderBottom: '3px solid #DC2626'  }}
-        contentArrowStyle={{ borderRight: '13px solid #DC2626' }}
-        iconStyle={{ background: '#DC2626', color: '#fff' }}
-        icon={icon}
-        key={index}
-      >
-        <h3 className="vertical-timeline-element-title font-bold text-2xl">{title}</h3>
-        <p>{description}</p>
-      </VerticalTimelineElement>
-    ))}
+  <div className='max-w-7xl mx-auto w-100'>
+    <VerticalTimeline lineColor={'red'}>
+      {data.map(({ title, description, date, icon, setBackground }, index) => (
+        <VerticalTimelineElement
+          className="vertical-timeline-element--work"
+          date={date}
+          contentStyle={!setBackground ? { border: '3px solid #DC2626' } : { borderBottom: '3px solid #DC2626' }}
+          contentArrowStyle={{ borderRight: '13px solid #DC2626' }}
+          iconStyle={{ background: '#DC2626', color: '#fff' }}
+          icon={icon}
+          key={index}
+        >
+          <h3 className="vertical-timeline-element-title font-bold text-2xl">{title}</h3>
+          <p>{description}</p>
+        </VerticalTimelineElement>
+      ))}
 
-    {/* <VerticalTimelineElement
+      {/* <VerticalTimelineElement
       iconStyle={{ background: 'rgb(16, 204, 82)', color: '#fff' }}
       icon={''}
     /> */}
-  </VerticalTimeline>
+    </VerticalTimeline>
+  </div>
 )
 
 export default VerticalTimelineComponent

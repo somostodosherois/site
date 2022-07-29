@@ -33,7 +33,7 @@ const NewsList = () => (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:items-center">
       <div className="max-w-2xl mx-auto py-16 sm:py-24 lg:py-16 lg:max-w-none">
         <h2 className="text-4xl text-gray-700">Últimas notícias</h2>
-        <span className="w-32 my-4 h-2 bg-red-500 border rounded-xl block"></span>
+        <span className="w-32 my-4 h-2 bg-red-600 border rounded-xl block"></span>
       </div>
 
       <div className="space-y-4 pb-16 gap-y-16">

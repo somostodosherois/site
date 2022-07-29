@@ -42,7 +42,7 @@ const CardDonationTypes = () => {
                 <p className="mt-2 text-2xl leading-8 font-extrabold tracking-tight text-gray-600 md:text-2xl lg:text-3xl uppercase">
                   {feature.title}
                 </p>
-                <span className="w-30 my-4 mx-56 h-2 bg-red-500 border rounded-xl block"></span>
+                <span className="w-30 my-4 mx-56 h-2 bg-red-600 border rounded-xl block"></span>
               </div>
               <h5 className="mt-2 px-6 text-2xl text-left tracking-tight text-gray-900 lg:text-2xl">
                 {feature.description.map(({ text }, index) => (

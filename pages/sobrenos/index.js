@@ -30,21 +30,21 @@ export default function Missoes() {
 
           <div className='md:grid lg:flex justify-center items-center gap-x-24 text-center'>
             <div className='w-20 pb-4'>
-              <h2 className="text-4xl text-gray-700 font-bold">Missão</h2>
-              <span className="w-16 my-2 h-1 bg-red-500 border rounded-xl block"></span>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl text-gray-700 font-bold">Missão</h2>
+              <span className="w-16 my-2 h-1 bg-red-600 border rounded-xl block"></span>
             </div>
 
-            <p className="text-2xl text-gray-600">
+            <p className="text-xl md:text-2xl text-gray-600">
               {'Transformar a vida de milhares de crianças e adolescentes que precisam de tratamento médico ao redor do mundo, resgatando o herói que cada um de nós tem dentro de si.'}
             </p>
           </div>
 
           <div className='md:grid lg:flex justify-center items-center text-center gap-x-24'>
             <div className='w-20 pb-4'>
-              <h2 className="text-4xl text-gray-700 font-bold">Visão</h2>
-              <span className="w-16 my-2 h-1 bg-red-500 border rounded-xl block"></span>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl text-gray-700 font-bold">Visão</h2>
+              <span className="w-16 my-2 h-1 bg-red-600 border rounded-xl block"></span>
             </div>
-            <p className="text-2xl text-gray-600">
+            <p className="text-xl md:text-2xl text-gray-600">
               {'Imaginamos um mundo onde as crianças não tenham mais que abrir mão da sua diversão, vitalidade e educação devido a ausência de recursos e tratamentos que garantem a sua saúde.'}
             </p>
           </div>
