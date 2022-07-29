@@ -1,6 +1,7 @@
 import React from 'react'
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import { BsGraphUp, BsLightbulb, BsSuitHeart, BsThermometerHigh, BsPeople } from "react-icons/bs";
+import { isMobile } from 'react-device-detect';
 
 import 'react-vertical-timeline-component/style.min.css';
 
@@ -66,7 +67,7 @@ const data = [
 
 const VerticalTimelineComponent = () => (
   <div className='max-w-7xl mx-auto w-100'>
-    <VerticalTimeline lineColor={'red'}>
+    <VerticalTimeline lineColor={'red'} animate={isMobile ? false : true} >
       {data.map(({ title, description, date, icon, setBackground }, index) => (
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
