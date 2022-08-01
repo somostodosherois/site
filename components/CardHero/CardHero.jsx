@@ -24,8 +24,8 @@ const CardHero = () => {
   // }
 
   return (
-    <div className='max-w-7xl mx-auto px-4 sm:px-6 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:gap-y-6 pt-8 md:pt-20 lg:flex'>
-      <div className='p-6 w-2xl bg-gray-100'>
+    <div className='max-w-7xl mx-auto px-4 pt-12 sm:px-6 space-y-16 lg:grid lg:grid-cols-3 lg:gap-x-6 pt-20 lg:flex'>
+      <div className='p-6 w-2xl bg-gray-100 mt-4 md:mt-12'>
         <center>
           <img src={hero.image}></img>
           <h1 className='mt-4 text-2xl leading-8 font-extrabold text-center tracking-tight text-red-600 sm:text-2xl uppercase'>{hero.name}</h1>

@@ -46,9 +46,9 @@ const DonationBlock = () => {
 
   return (
     <div className='max-w-7xl mx-auto px-4 px-6 space-y-12'>
-      <div className='lg:flex space-y-0 grid lg:grid lg:grid-cols-4 gap-x-6 gap-y-6 pt-20'>
+      <div className='space-x-0 space-y-0 grid sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-6 pt-20'>
         {items.map(({ name, image, value, description }, index) => (
-          <div className='grid bg-gray-100 p-4' key={index}>
+          <div className='grid bg-gray-100 p-4 justify-center' key={index}>
             <img src={image} />
             <span className='font-bold mt-4 mb-2'>{name}</span>
             {description
@@ -91,17 +91,17 @@ const DonationBlock = () => {
       <div className=''>
         <div className='flex'>
           <FcOk className="h-5 w-5 mt-1 mr-2" aria-hidden="true" />
-          <p> Não cobramos taxa das doações. </p>
+          <p className='w-full'> Não cobramos taxa das doações. </p>
         </div>
 
         <div className='flex '>
           <FcOk className="h-5 w-5 mt-1 mr-2" aria-hidden="true" />
-          <p> <b>100% do valor doado</b> é direcionado para as missões. </p>
+          <p className='w-full'> <b>100% do valor doado</b> é direcionado para as missões. </p>
         </div>
 
         <div className='flex'>
           <FcOk className="h-5 w-5 mt-1 mr-2" aria-hidden="true" />
-          <p> Nós pagamos <b>diretamente</b> o tratamento médico ou equipamento que a criança necessita. </p>
+          <p className='w-full'> Nós pagamos <b>diretamente</b> o tratamento médico ou equipamento que a criança necessita. </p>
         </div>
       </div>
     </div>
