@@ -15,7 +15,7 @@ const TextBlock = ({ title, description, isAboutUs, background }) => (
               {description}
             </p>
           </div>
-          <div className='container-about-us mt-4 lg:mt-12 lg:mt-0'>
+          <div className='container-about-us'>
             <ReactPlayer url='https://www.youtube.com/watch?v=476hJXDHsoI&ab_channel=SomosTodosHer%C3%B3is' className='w-10' />
           </div>
         </div>
