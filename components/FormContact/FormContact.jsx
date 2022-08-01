@@ -2,13 +2,13 @@ import React from 'react'
 import { BsWhatsapp, BsFolder, BsInstagram, BsFacebook, BsLinkedin } from "react-icons/bs";
 
 const FormContact = () => (
-  <div className="bg-red-600 py-8 px-4">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:items-center">
+  <div className="bg-red-600 py-8 px-4 pt-20">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:items-center pt-12">
       <div className="md:grid md:grid-cols-3 md:gap-6">
         <div className="md:col-span-1">
           <div className="px-4 sm:px-0">
             <h2 className="text-3xl lg:text-6xl font-bold text-white">Ficou com alguma dúvida?</h2>
-            <p className="mt-1 text-sm text-white pb-16">Fale com um dos responsáveis pela ONG para que possamos esclarecer tudo para você.</p>
+            <p className="mt-1 text-sm text-white pb-8 sm:pb-16">Fale com um dos responsáveis pela ONG para que possamos esclarecer tudo para você.</p>
 
             <div className='grid gap-y-8'>
               <a href="#!" className="text-white text-lg">
