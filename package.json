@@ -9,10 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
     "@headlessui/react": "^1.6.0",
     "@heroicons/react": "^1.0.6",
     "@heroicons/vue": "^1.0.6",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/lab": "^5.0.0-alpha.93",
+    "@mui/material": "^5.9.3",
     "headlessui": "^0.0.0",
+    "mdi-material-ui": "^7.4.0",
+    "mui": "^0.0.1",
     "next": "12.1.5",
     "react": "18.1.0",
     "react-device-detect": "^2.2.2",

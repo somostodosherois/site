@@ -91,7 +91,7 @@ export default function NavBar() {
         </div>
         <div className="hidden space-x-2 lg:inline-block">
           <a
-            href="/"
+            href="/login"
             className="px-4 py-2 text-white bg-red-400 rounded-md shadow hover:bg-gray-800"
           >
             Login
