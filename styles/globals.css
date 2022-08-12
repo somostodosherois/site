@@ -24,3 +24,11 @@ p {
   line-height: 2rem;
   font-size: large;
 }
+
+.css-1cnilsh-MuiButtonBase-root-MuiTab-root.Mui-selected {
+  color: #DC2626;
+}
+
+.MuiTabs-indicator {
+  background-color: #DC2626;
+}
