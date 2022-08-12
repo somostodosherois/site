@@ -24,17 +24,17 @@ export default function Login() {
               <div class="mt-8">
                 <form>
                   <div>
-                    <label for="email" class="block mb-2 text-xl md:text-2xl text-gray-600 dark:text-gray-200">Email</label>
-                    <input type="email" name="email" id="email" placeholder="example@example.com" class="block w-full px-6 py-4 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:text-gray-300 dark:border-gray-700 focus:border-red-300 dark:focus:border-red-300 focus:ring-red-300 focus:outline-none focus:ring focus:ring-opacity-40" />
+                    <label for="email" class="block mb-2 text-xl md:text-2xl text-gray-600">Email</label>
+                    <input type="email" name="email" id="email" placeholder="example@example.com" class="block w-full px-6 py-4 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-red-300 focus:ring-red-300 focus:outline-none focus:ring focus:ring-opacity-40" />
                   </div>
 
                   <div class="mt-6">
                     <div class="flex justify-between mb-2">
-                      <label for="password" class="text-xl md:text-2xl text-gray-600 dark:text-gray-200">Senha</label>
+                      <label for="password" class="text-xl md:text-2xl text-gray-600">Senha</label>
                       <a href="#" class="text-lg md:text-xl text-gray-400 focus:text-blue-500 hover:text-blue-500 hover:underline">Esqueceu sua senha?</a>
                     </div>
 
-                    <input type="password" name="password" id="password" placeholder="********" class="block w-full px-6 py-4 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-red-300 dark:focus:border-red-300 focus:ring-red-300 focus:outline-none focus:ring focus:ring-opacity-40" />
+                    <input type="password" name="password" id="password" placeholder="********" class="block w-full px-6 py-4 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-red-300 focus:ring-red-300 focus:outline-none focus:ring focus:ring-opacity-40" />
                   </div>
 
                   <div class="mt-6">
