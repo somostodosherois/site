@@ -13,24 +13,24 @@ import FormControl from '@mui/material/FormControl';
 
 export default function Login() {
 
-  const [IsMenuVisible, setIsMenuVisible] = useState(true);
-  const [isPasswordLogin, setisPasswordLogin] = useState(true);
-  const [isTokenLogin, setisTokenLogin] = useState(false);
+  const [isMenuVisible, setIsMenuVisible] = useState(true);
+  const [isPasswordLogin, setIsPasswordLogin] = useState(true);
+  const [isTokenLogin, setIsTokenLogin] = useState(false);
   const [nextStep, setNextStep] = useState(false)
 
   const handlePasswordLogin = () => {
-    setisPasswordLogin(true);
-    setisTokenLogin(false)
+    setIsPasswordLogin(true);
+    setIsTokenLogin(false)
   }
 
   const handleTokenLogin = () => {
-    setisTokenLogin(true);
-    setisPasswordLogin(false)
+    setIsTokenLogin(true);
+    setIsPasswordLogin(false)
   }
 
   const handleCancel = () => {
-    setisTokenLogin(false);
-    setisPasswordLogin(true);
+    setIsTokenLogin(false);
+    setIsPasswordLogin(true);
     setNextStep(false);
     setIsMenuVisible(true);
   }
@@ -114,7 +114,7 @@ export default function Login() {
               </div>
               <label htmlFor="email" className="pb-8 block text-md text-gray-700">Faça seu login e torne-se já um herói de alguém.</label>
 
-              {IsMenuVisible &&
+              {isMenuVisible &&
                 <>
                   <Grid item xs={12} sm={6}>
                     <TextField
