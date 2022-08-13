@@ -1,11 +1,102 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head'
 
 import Logo from '../../public/logo.svg'
-import Mascote from '../../public/mascote.png'
+
+import Grid from '@mui/material/Grid'
+import TextField from '@mui/material/TextField'
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
 
 
 export default function Login() {
+
+  const [isMenuVisible, setIsMenuVisible] = useState(true);
+  const [isPasswordLogin, setIsPasswordLogin] = useState(true);
+  const [isTokenLogin, setIsTokenLogin] = useState(false);
+  const [nextStep, setNextStep] = useState(false)
+
+  const handlePasswordLogin = () => {
+    setIsPasswordLogin(true);
+    setIsTokenLogin(false)
+  }
+
+  const handleTokenLogin = () => {
+    setIsTokenLogin(true);
+    setIsPasswordLogin(false)
+  }
+
+  const handleCancel = () => {
+    setIsTokenLogin(false);
+    setIsPasswordLogin(true);
+    setNextStep(false);
+    setIsMenuVisible(true);
+  }
+
+  const handleNextStep = () => {
+    setNextStep(!nextStep)
+    setIsMenuVisible(false)
+  }
+
+  const FormPassword = () => (
+    <div>
+      <form>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            fullWidth
+            type='password'
+            label='Senha'
+            placeholder='*********'
+            color='error'
+            className='mb-2'
+          />
+        </Grid>
+        <a href="#" className="text-md text-gray-400 focus:text-red-600 hover:text-red-600">Esqueceu sua senha?</a>
+
+        <div className="mt-6">
+          <button
+            className="w-full mt-4 px-4 py-2 tracking-wide text-white text-xl md:text-2xl transition-colors duration-200 transform bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:bg-red-700 focus:ring focus:ring-red-700 focus:ring-opacity-50">
+            Entrar
+          </button>
+        </div>
+      </form>
+
+      <div className="text-center mt-2">
+        <button onClick={handleCancel} className="text-md text-gray-400">Voltar</button>
+      </div>
+    </div>
+  )
+
+  const FormToken = () => (
+    <div>
+      <form>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            fullWidth
+            type='text'
+            label='Token'
+            placeholder='Digite o token'
+            color='error'
+            className='mb-2'
+          />
+        </Grid>
+
+        <div className="mt-6">
+          <button
+            className="w-full mt-4 px-4 py-2 tracking-wide text-white text-xl md:text-2xl transition-colors duration-200 transform bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:bg-red-700 focus:ring focus:ring-red-700 focus:ring-opacity-50">
+            Entrar
+          </button>
+        </div>
+      </form>
+
+      <div className="text-center mt-2">
+        <button onClick={handleCancel} className="text-md text-gray-400">Voltar</button>
+      </div>
+    </div>
+  )
+
   return (
     <div>
       <Head>
@@ -13,47 +104,61 @@ export default function Login() {
         <meta name="description" content="Somos Todos Heróis" />
         <link rel="icon" href="https://sth.org.br/wp-content/themes/sth/images/favicon.png" />
       </Head>
-      <div class="bg-white">
-        <div class="flex justify-center h-screen">
-          <div class="flex items-center w-full max-w-3xl px-6 mx-auto">
-            <div class="flex-1 lg:ml-20">
-              <div>
-                <img src={Logo.src} width='700' />
+      <div className='bg-gray-100'>
+        <div className="flex justify-center h-screen">
+          <div className="flex items-center justify-center w-full max-w-3xl px-6 mx-auto">
+
+            <div className="items-center justify-center lg:ml-20">
+              <div className='pb-2 flex items-center justify-center '>
+                <img src={Logo.src} width='300' />
               </div>
+              <label htmlFor="email" className="pb-8 block text-md text-gray-700">Faça seu login e torne-se já um herói de alguém.</label>
 
-              <div class="mt-8">
-                <form>
-                  <div>
-                    <label for="email" class="block mb-2 text-xl md:text-2xl text-gray-600">Email</label>
-                    <input type="email" name="email" id="email" placeholder="example@example.com" class="block w-full px-6 py-4 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-red-300 focus:ring-red-300 focus:outline-none focus:ring focus:ring-opacity-40" />
-                  </div>
+              {isMenuVisible &&
+                <>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      fullWidth
+                      type='email'
+                      label='Email'
+                      placeholder='tony-stark@email.com'
+                      color='error'
+                    />
+                  </Grid>
 
-                  <div class="mt-6">
-                    <div class="flex justify-between mb-2">
-                      <label for="password" class="text-xl md:text-2xl text-gray-600">Senha</label>
-                      <a href="#" class="text-lg md:text-xl text-gray-400 focus:text-blue-500 hover:text-blue-500 hover:underline">Esqueceu sua senha?</a>
-                    </div>
+                  <FormControl>
+                    <RadioGroup
+                      row
+                      aria-labelledby="demo-row-radio-buttons-group-label"
+                      name="row-radio-buttons-group"
+                      className='mt-4'
+                      defaultValue="password"
+                    >
+                      <FormControlLabel value="password" control={<Radio color='error' onChange={handlePasswordLogin} />} label="Entrar com senha" />
+                      <FormControlLabel value="token" control={<Radio color='error' onChange={handleTokenLogin} />} label="Entrar com token" />
+                    </RadioGroup>
+                  </FormControl>
 
-                    <input type="password" name="password" id="password" placeholder="********" class="block w-full px-6 py-4 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-red-300 focus:ring-red-300 focus:outline-none focus:ring focus:ring-opacity-40" />
-                  </div>
-
-                  <div class="mt-6">
+                  <Grid item xs={12} sm={6}>
                     <button
-                      class="w-full px-6 py-4 tracking-wide text-white text-xl md:text-2xl transition-colors duration-200 transform bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:bg-red-700 focus:ring focus:ring-red-700 focus:ring-opacity-50">
-                      Entrar
+                      onClick={handleNextStep}
+                      className="w-full mt-4 px-4 py-2 tracking-wide text-white text-xl md:text-2xl transition-colors duration-200 transform bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:bg-red-700 focus:ring focus:ring-red-700 focus:ring-opacity-50">
+                      Continuar
                     </button>
-                  </div>
+                    <p className="mt-4 text-md text-center text-gray-400">
+                      <a href="#" className="text-red-600 focus:outline-none focus:underline hover:underline">Criar uma nova conta</a>
+                    </p>
+                  </Grid>
+                </>
+              }
 
-                </form>
+              {nextStep && isPasswordLogin &&
+                <FormPassword />
+              }
 
-                <p class="mt-6 text-xl md:text-2xl text-center text-gray-400"><a href="#" class="text-red-600 focus:outline-none focus:underline hover:underline">Criar uma nova conta</a>.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="hidden bg-white lg:block lg:w-2/3" style={{ background: 'linear-gradient(to right, transparent 0%, transparent 40%, #C80000 40%, #C80000 100%)' }}>
-            <div class="flex justify-center h-full">
-              {/* <img src={Mascote.src}></img> */}
+              {nextStep && isTokenLogin &&
+                <FormToken />
+              }
             </div>
           </div>
         </div>
