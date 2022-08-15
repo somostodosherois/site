@@ -27,7 +27,11 @@ import PencilLine from '../../public/icons/PencilLine.svg'
 import Image1 from '../../public/image-1.jpeg'
 import Image2 from '../../public/image-2.jpeg'
 import Image3 from '../../public/image-3.jpeg'
+import childs from '../../public/fundoCriancas.jpeg'
+
+import Accordion from '../../components/Accordion'
 import BannerNumbers from '../../components/BannerNumbers/BannerNumbers';
+import TextImageBlock from '../../components/TextImageBlock/TextImageBlock';
 
 
 
@@ -314,8 +318,13 @@ export default function PortalTransparencia() {
               </div>
             </div>
           </div>
+
         </div>
+        <TextImageBlock title='POR QUE SER UM GUARDIÃO?' description='É um gesto de cidadania e solidariedade ajudar a quem mais precisa. As crianças de nossa Plataforma são carentes de tratamentos de saúde e necessitam de ajuda da comunidade em geral. Como prezamos pela transparência, nossos guardiões conseguem vivenciar e acompanhar nosso crescimento, a distribuição do recurso que ele nos doa e as missões concluídas no período. Tudo isso através de e-mail, mensagens, informativos e pelo Portal da Transparência.' button='Se tornar guardião' image={childs.src} />
+
       </div>
+
+      <Accordion />
       <Footer />
     </div>
   )
