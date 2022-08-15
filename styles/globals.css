@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @media (max-width: 690px) {
-  .container-about-us div:first-child{
+  .container-about-us div:first-child {
     width: 100% !important;
   }
 }
@@ -20,7 +20,7 @@
   }
 }
 
-p { 
+p {
   line-height: 2rem;
   font-size: large;
 }
@@ -32,3 +32,4 @@ p {
 .MuiTabs-indicator {
   background-color: #DC2626;
 }
+

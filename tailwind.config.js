@@ -6,7 +6,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'heros': "url('/public/fundoCriancas.jpeg')",
+        'fundo-criancas': "url('../public/fundoCriancas.jpeg')",
+        'fundo-herois': "url('../public/background-2.jpeg')",
       }
     },
   },
