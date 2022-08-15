@@ -129,18 +129,18 @@ export default function PortalTransparencia() {
                 <span><b>Entrega da missão:</b> Se possível, a equipe da STH visita a criança para a entrega da missão. A entregas das missões dependem da necessidade de cada criança, veja as modalidade a seguir:</span>
               </div>
             </div>
-            <Grid className='flex mt-6 mb-6 m-24 gap-x-8'>
-              <Grid>
+            <Grid className='block lg:flex mt-6 mb-6 m-14 gap-x-8'>
+              <Grid className='mb-4 lg:mb-0'>
                 <div className='sm:flex w-full	rounded-lg	items-center justify-center border-2 border-red-600 gap-x-6 p-4'>
                   <span><b>Itens básicos:</b> É realizada a compra e entrega de remédios, fraldas e etc.</span>
                 </div>
               </Grid>
-              <Grid>
+              <Grid className='mb-4 lg:mb-0'>
                 <div className='sm:flex w-full	rounded-lg	items-center justify-center border-2 border-red-600 gap-x-6 p-4'>
                   <span><b>Terapias:</b> É feita acontratação do serviço junto à clínica que realizará os procedimentos.</span>
                 </div>
               </Grid>
-              <Grid>
+              <Grid className='mb-4 lg:mb-0'>
                 <div className='sm:flex w-full	rounded-lg	items-center justify-center border-2 border-red-600 gap-x-6 p-4'>
                   <span><b>Equipamentos:</b> A equipe da STH compra o equipamento providencia o envio.</span>
                 </div>
