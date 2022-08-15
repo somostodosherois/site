@@ -27,6 +27,7 @@ import PencilLine from '../../public/icons/PencilLine.svg'
 import Image1 from '../../public/image-1.jpeg'
 import Image2 from '../../public/image-2.jpeg'
 import Image3 from '../../public/image-3.jpeg'
+import BannerNumbers from '../../components/BannerNumbers/BannerNumbers';
 
 
 
@@ -47,22 +48,22 @@ export default function PortalTransparencia() {
 
       {/* <ShapeDivider graus={180} /> */}
       <div className="max-w-7xl mx-auto lg:items-center">
-        <div className="max-w-2xl mx-auto lg:max-w-none ml-8 mr-4 sm:mr-0 text-lg md:text-xl text-gray-800">
+        <div className="max-w-2xl mx-auto lg:max-w-none ml-8 mr-4 md:mr-0 text-lg md:text-xl text-gray-800">
           <dd>
             <p className=" text-xl md:text-2xl leading-6 font-medium text-red-600 uppercase">DESTINO DAS DOAÇÕES</p>
           </dd>
           <dd className="mt-2">Nossa receita é composta por doações para missões e doações para a STH, que podem ser:</dd>
 
-          <Grid className='block sm:flex mt-8 gap-x-24'>
-            <Grid className='flex items-center justify-left sm:justify-center gap-x-4'>
+          <Grid className='block md:flex mt-8 gap-x-24'>
+            <Grid className='flex items-center justify-left md:justify-center gap-x-4'>
               <img src={Calendar.src} />
               <span>Doações Mensais</span>
             </Grid>
-            <Grid className='flex items-center justify-left sm:justify-center gap-x-4'>
+            <Grid className='flex items-center justify-left md:justify-center gap-x-4'>
               <img src={PushPin.src} />
               <span>Doações Pontuais</span>
             </Grid>
-            <Grid className='flex items-center justify-left sm:justify-center gap-x-4'>
+            <Grid className='flex items-center justify-left md:justify-center gap-x-4'>
               <img src={Handshake.src} />
               <span>Parceirias</span>
             </Grid>
@@ -157,9 +158,18 @@ export default function PortalTransparencia() {
             </div>
           </div>
 
+        </div>
+      </div>
+
+
+      <BannerNumbers />
+
+      <div className="max-w-7xl mx-auto lg:items-center">
+        <div className="max-w-2xl mx-auto lg:max-w-none ml-8 mr-4 sm:mr-0 text-lg md:text-xl text-gray-800">
+
 
           <dd className='mt-16'>
-            <p className=" text-xl md:text-2xl leading-6 font-medium text-red-600 uppercase">ARQUIVOS DE DOCUMENTOS</p>
+            <p className=" text-xl md:text-2xl leading-6 text-red-600 uppercase">ARQUIVOS DE DOCUMENTOS</p>
           </dd>
           <dd className="mt-2">Os arquivos abaixo são... (ver texto)</dd>
 
