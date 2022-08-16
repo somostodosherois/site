@@ -17,6 +17,7 @@
     "@mui/icons-material": "^5.8.4",
     "@mui/lab": "^5.0.0-alpha.93",
     "@mui/material": "^5.9.3",
+    "axios": "^0.27.2",
     "headlessui": "^0.0.0",
     "mdi-material-ui": "^7.4.0",
     "mui": "^0.0.1",

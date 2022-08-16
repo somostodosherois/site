@@ -83,7 +83,7 @@ export default function PortalTransparencia() {
 
 
           <dd className='mt-16'>
-            <p className=" text-xl md:text-2xl leading-6 font-medium text-red-600 uppercase">COMO AS DOAÇÕES ACONTECEM</p>
+            <p className=" text-xl md:text-2xl leading-6 font-medium text-red-600 uppercase">COMO AS missões ACONTECEM</p>
           </dd>
 
           <div className='border-l-2 border-red-600 ml-6 sm:ml-16 mt-8'>

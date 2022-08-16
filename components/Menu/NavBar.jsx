@@ -1,8 +1,31 @@
-import { useState } from "react";
-import Logo from '../../public/logoText.svg'
+import React, { useContext, useState } from "react";
 
-export default function NavBar() {
+import Logo from '../../public/logoText.svg'
+import CartPreview from "../CartPreview/CartPreview";
+
+import { BsCart } from "react-icons/bs";
+
+
+import {
+  CartStateContext,
+  CartDispatchContext,
+  toggleCartPopup
+} from "../../contexts/cart";
+
+const NavBar = (props) => {
   const [navbar, setNavbar] = useState(false);
+  const { items: cartItems, isCartOpen } = useContext(CartStateContext);
+  const cartDispatch = useContext(CartDispatchContext);
+  const cartQuantity = cartItems.length;
+  const cartTotal = cartItems
+    .map((item) => item.price * item.quantity)
+    .reduce((prev, current) => prev + current, 0);
+
+
+  const handleCartButton = (event) => {
+    event.preventDefault();
+    return toggleCartPopup(cartDispatch);
+  };
 
   return (
     <nav className="w-full bg-red-600 shadow fixed z-50">
@@ -103,7 +126,32 @@ export default function NavBar() {
             Doar
           </a>
         </div>
+
+        <div className="cart">
+          <div className="cart-info">
+            <table>
+              <tbody>
+                <tr>
+                  <td>Sub Total</td>
+                  <td>:</td>
+                  <td>
+                    <strong>{cartTotal}</strong>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <a className="cart-icon" href="#" onClick={handleCartButton}>
+            <div className="flex">
+              <span className="cart-count text-white mt-1 mr-2">{cartQuantity ? cartQuantity : 0}</span>
+              <BsCart className="h-8 w-8" fill="white" aria-hidden="true" />
+            </div>
+          </a>
+          <CartPreview />
+        </div>
       </div>
     </nav>
   );
 }
+
+export default NavBar
