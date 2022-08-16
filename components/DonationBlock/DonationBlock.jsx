@@ -38,18 +38,7 @@ const items = [
   }
 ]
 
-const DonationBlock = ({ idHero }) => {
-
-  const [quantity, setQuantity] = useState([])
-
-  const handleChange = (event, id) => {
-    quantity[id] = event.target.value
-  }
-
-  const handleSubmit = (event, id) => {
-    event.preventDefault();
-    window.location.href = `/carrinho/?qtd=${quantity[id]}&item=${id}&heroi=${idHero}&action=add&submit=`
-  }
+const DonationBlock = ({ hero }) => {
 
   return (
     <div className='max-w-7xl mx-auto px-4 space-y-12'>
@@ -58,7 +47,7 @@ const DonationBlock = ({ idHero }) => {
       </dd>
       <div className='space-x-0 space-y-0 grid sm:grid sm:grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-6'>
         {items.map((item, index) => (
-          <Item item={item} index={index} />
+          <Item item={item} index={index} hero={hero} />
         ))}
       </div>
 

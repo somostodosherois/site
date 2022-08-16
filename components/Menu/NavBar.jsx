@@ -131,26 +131,13 @@ const NavBar = (props) => {
         </div>
 
         <div className="cart">
-          <div className="cart-info">
-            <table>
-              <tbody>
-                <tr>
-                  <td>Sub Total</td>
-                  <td>:</td>
-                  <td>
-                    <strong>{cartTotal}</strong>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
           <a className="cart-icon" href="#" onClick={handleCartButton}>
             <div className="flex">
               <span className="cart-count text-white mt-1 mr-2">{cartQuantity ? cartQuantity : 0}</span>
               <BsCart className="h-8 w-8" fill="white" aria-hidden="true" />
             </div>
           </a>
-          <CartPreview />
+          <CartPreview cartTotal={cartTotal} />
         </div>
       </div>
     </nav>

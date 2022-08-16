@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { CartDispatchContext, addToCart } from "../../contexts/cart";
 
-const Item = ({ item, index }) => {
+const Item = ({ item, index, hero }) => {
     const { id, name, image, price, description } = item || {}
     const dispatch = useContext(CartDispatchContext);
 
@@ -10,7 +10,7 @@ const Item = ({ item, index }) => {
     }
   
     const handleAddToCart = () => {
-      const product = { ...item, quantity: 1 };
+      const product = { ...item, quantity: 1, hero: hero };
       addToCart(dispatch, product);
     };
 
