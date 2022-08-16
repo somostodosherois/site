@@ -1,9 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { CartDispatchContext, addToCart } from "../../contexts/cart";
 
 const Item = ({ item, index }) => {
     const { id, name, image, price, description } = item || {}
     const dispatch = useContext(CartDispatchContext);
+
+    const handleChange = (e) => {
+        item.price = e.target.value
+    }
   
     const handleAddToCart = () => {
       const product = { ...item, quantity: 1 };
@@ -18,27 +22,28 @@ const Item = ({ item, index }) => {
                 ? <span className='text-sm text-blue-700'>{description}</span>
                 : <span className='font-bold text-blue-700'>R$ {price},00</span>
             }
-            {price !== '1' &&
+            {id === '4' &&
                 <input
                     class="form-control
-                block 
-                w-full
-                px-3
-                py-1.5
-                mt-4
-                text-base
-                font-normal
-                text-gray-700
-                bg-white bg-clip-padding
-                border border-solid border-gray-300
-                rounded
-                transition
-                ease-in-out
-                m-0
-                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-              "
-                    type='number'
-                    // onChange={(e) => handleChange(e, id)} 
+                            block 
+                            w-full
+                            px-3
+                            py-1.5
+                            mt-4
+                            text-base
+                            font-normal
+                            text-gray-700
+                            bg-white bg-clip-padding
+                            border border-solid border-gray-300
+                            rounded
+                            transition
+                            ease-in-out
+                            m-0
+                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+                        "
+                    type='text'
+                    placeholder="R$ 0,00"
+                    onChange={(e) => handleChange(e)} 
                 />
             }
             <a

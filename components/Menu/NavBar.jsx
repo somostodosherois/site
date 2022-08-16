@@ -16,7 +16,10 @@ const NavBar = (props) => {
   const [navbar, setNavbar] = useState(false);
   const { items: cartItems, isCartOpen } = useContext(CartStateContext);
   const cartDispatch = useContext(CartDispatchContext);
-  const cartQuantity = cartItems.length;
+  const cartQuantity = cartItems
+  .map((item) => item.quantity)
+  .reduce((prev, current) => prev + current, 0);
+
   const cartTotal = cartItems
     .map((item) => item.price * item.quantity)
     .reduce((prev, current) => prev + current, 0);
