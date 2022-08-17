@@ -17,8 +17,8 @@ const NavBar = (props) => {
   const { items: cartItems, isCartOpen } = useContext(CartStateContext);
   const cartDispatch = useContext(CartDispatchContext);
   const cartQuantity = cartItems
-  .map((item) => item.quantity)
-  .reduce((prev, current) => prev + current, 0);
+    .map((item) => item.quantity)
+    .reduce((prev, current) => prev + current, 0);
 
   const cartTotal = cartItems
     .map((item) => item.price * item.quantity)
@@ -112,15 +112,24 @@ const NavBar = (props) => {
               >
                 Doar
               </a>
+              <div className="cart">
+                <a className="cart-icon" href="#" onClick={handleCartButton}>
+                  <div className="flex">
+                    <span className="cart-count text-white mt-1 mr-2">{cartQuantity ? cartQuantity : 0}</span>
+                    <BsCart className="h-8 w-8" fill="white" aria-hidden="true" />
+                  </div>
+                </a>
+                <CartPreview cartTotal={cartTotal} />
+              </div>
             </div>
           </div>
         </div>
-        <div className="hidden space-x-2 lg:inline-block">
+        <div className="hidden space-x-2 lg:flex">
           <a
             href="/login"
             className="px-4 py-2 text-white bg-red-400 rounded-md shadow hover:bg-gray-800"
           >
-            Login
+            Login2
           </a>
           <a
             href="/"
@@ -128,16 +137,15 @@ const NavBar = (props) => {
           >
             Doar
           </a>
-        </div>
-
-        <div className="cart">
-          <a className="cart-icon" href="#" onClick={handleCartButton}>
-            <div className="flex">
-              <span className="cart-count text-white mt-1 mr-2">{cartQuantity ? cartQuantity : 0}</span>
-              <BsCart className="h-8 w-8" fill="white" aria-hidden="true" />
-            </div>
-          </a>
-          <CartPreview cartTotal={cartTotal} />
+          <div className="cart mt-1">
+            <a className="cart-icon" href="#" onClick={handleCartButton}>
+              <div className="flex">
+                <span className="cart-count text-white mt-1 mr-2">{cartQuantity ? cartQuantity : 0}</span>
+                <BsCart className="h-8 w-8" fill="white" aria-hidden="true" />
+              </div>
+            </a>
+            <CartPreview cartTotal={cartTotal} />
+          </div>
         </div>
       </div>
     </nav>

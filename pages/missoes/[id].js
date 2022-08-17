@@ -11,7 +11,8 @@ import TimelineMission from '../../components/TimelineMission/TimelineMission';
 export default function Missoes() {
   const hero = {
     id: 3239,
-    image: 'https://sth.org.br/images/2021/11/Design-sem-nome-8.png'
+    image: 'https://sth.org.br/images/2021/11/Design-sem-nome-8.png',
+    name: 'Gabriel Hulk'
   }
   
   return (
