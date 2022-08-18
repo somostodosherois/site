@@ -166,7 +166,7 @@ const Cards = ({ items }) => (
           <p className="mt-2 text-sm text-gray-500 h-24">{description}</p>
 
           {totalDays !== 0 &&
-            <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700 mt-4">
+            <div className="w-full bg-gray-200 rounded-full mt-4">
               <div className="bg-green-500 text-3xs font-medium text-white text-center p-0.5 leading-none rounded-full" style={{ width: '45%' }}> 45%</div>
             </div>
           }

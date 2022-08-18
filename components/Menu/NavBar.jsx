@@ -1,8 +1,34 @@
-import { useState } from "react";
-import Logo from '../../public/logoText.svg'
+import React, { useContext, useState } from "react";
 
-export default function NavBar() {
+import Logo from '../../public/logoText.svg'
+import CartPreview from "../CartPreview/CartPreview";
+
+import { BsCart } from "react-icons/bs";
+
+
+import {
+  CartStateContext,
+  CartDispatchContext,
+  toggleCartPopup
+} from "../../contexts/cart";
+
+const NavBar = (props) => {
   const [navbar, setNavbar] = useState(false);
+  const { items: cartItems, isCartOpen } = useContext(CartStateContext);
+  const cartDispatch = useContext(CartDispatchContext);
+  const cartQuantity = cartItems
+    .map((item) => item.quantity)
+    .reduce((prev, current) => prev + current, 0);
+
+  const cartTotal = cartItems
+    .map((item) => item.price * item.quantity)
+    .reduce((prev, current) => prev + current, 0);
+
+
+  const handleCartButton = (event) => {
+    event.preventDefault();
+    return toggleCartPopup(cartDispatch);
+  };
 
   return (
     <nav className="w-full bg-red-600 shadow fixed z-50">
@@ -86,15 +112,24 @@ export default function NavBar() {
               >
                 Doar
               </a>
+              <div className="cart">
+                <a className="cart-icon" href="#" onClick={handleCartButton}>
+                  <div className="flex">
+                    <span className="cart-count text-white mt-1 mr-2">{cartQuantity ? cartQuantity : 0}</span>
+                    <BsCart className="h-8 w-8" fill="white" aria-hidden="true" />
+                  </div>
+                </a>
+                <CartPreview cartTotal={cartTotal} />
+              </div>
             </div>
           </div>
         </div>
-        <div className="hidden space-x-2 lg:inline-block">
+        <div className="hidden space-x-2 lg:flex">
           <a
             href="/login"
             className="px-4 py-2 text-white bg-red-400 rounded-md shadow hover:bg-gray-800"
           >
-            Login
+            Login2
           </a>
           <a
             href="/"
@@ -102,8 +137,19 @@ export default function NavBar() {
           >
             Doar
           </a>
+          <div className="cart mt-1">
+            <a className="cart-icon" href="#" onClick={handleCartButton}>
+              <div className="flex">
+                <span className="cart-count text-white mt-1 mr-2">{cartQuantity ? cartQuantity : 0}</span>
+                <BsCart className="h-8 w-8" fill="white" aria-hidden="true" />
+              </div>
+            </a>
+            <CartPreview cartTotal={cartTotal} />
+          </div>
         </div>
       </div>
     </nav>
   );
 }
+
+export default NavBar

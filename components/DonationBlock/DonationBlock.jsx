@@ -1,90 +1,53 @@
 import React, { useState } from 'react'
 import { FcOk } from "react-icons/fc";
+import Item from '../Item/Item';
 
 
 const items = [
   {
+    id: '1',
     name: 'Escudo STH',
     image: 'https://sth.org.br/images/itens/escudo.png',
-    value: '10'
+    price: '10'
   },
   {
+    id: '2',
     name: 'Capa',
     image: 'https://sth.org.br/images/itens/capa.png',
-    value: '30'
+    price: '30'
   },
   {
+    id: '3',
     name: 'Colete Protetor',
     image: 'https://sth.org.br/images/itens/colete-anna-karla.png',
-    value: '45'
+    price: '45'
   },
   {
+    id: '4',
     name: 'Caixa Surpresa',
     image: 'https://sth.org.br/images/itens/secreto.png',
     description: 'E você quem determina o valor',
-    value: '0'
+    price: '0'
   },
   {
+    id: '5',
     name: 'Baú da Esperança',
     image: 'https://sth.org.br/images/itens/matador.gif',
     description: 'Finalize esta missão!',
-    value: '1'
+    price: '1'
   }
 ]
 
-const DonationBlock = () => {
-
-  const [quantity, setQuantity] = useState(0)
-
-  const handleChange = (event) => {
-    setQuantity({ quantity: event.target.value });
-  }
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-  }
+const DonationBlock = ({ hero }) => {
 
   return (
-    <div className='max-w-7xl mx-auto px-4 px-6 space-y-12'>
-      <div className='space-x-0 space-y-0 grid sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-6 pt-20'>
-        {items.map(({ name, image, value, description }, index) => (
-          <div className='grid bg-gray-100 p-4 justify-center' key={index}>
-            <img src={image} />
-            <span className='font-bold mt-4 mb-2'>{name}</span>
-            {description
-              ? <span className='text-sm text-blue-700'>{description}</span>
-              : <span className='font-bold text-blue-700'>R$ {value},00</span>
-            }
-            {value !== '1' &&
-              <input
-                class="form-control
-                block 
-                w-full
-                px-3
-                py-1.5
-                mt-4
-                text-base
-                font-normal
-                text-gray-700
-                bg-white bg-clip-padding
-                border border-solid border-gray-300
-                rounded
-                transition
-                ease-in-out
-                m-0
-                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-              "
-                type='number'
-                onChange={handleChange} />
-            }
-            <a
-              href="#"
-              onClick={() => handleSubmit()}
-              className="inline-flex mt-4 items-center justify-center px-7 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700"
-            >
-              Doar
-            </a>
-          </div>
+    <div className='max-w-7xl mx-auto px-4 space-y-12'>
+      <dd className='mt-12'>
+        <p className="text-xl md:text-2xl font-bold text-red-600">Doe um item virtual que simboliza seu carinho e apoio à missão. 💝</p>
+      </dd>
+      <div className='space-x-0 space-y-0 grid sm:grid sm:grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-6'>
+        {items.map((item, index) => (
+          <Item item={item} index={index} hero={hero} />
         ))}
       </div>
 
