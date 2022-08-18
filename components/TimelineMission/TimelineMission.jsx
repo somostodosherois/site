@@ -4,7 +4,7 @@ import TitleSession from '../TitleSession/TitleSession'
 const TimelineMission = () => {
 
   return (
-    <div className='max-w-7xl mx-auto'>
+    <div className='max-w-7xl p-8 lg:p-0 mx-auto'>
       <TitleSession title='Últimos Atos Heroicos da Missão 💫' />
       <ol class="relative">
         <li class="mb-10 ml-10">
