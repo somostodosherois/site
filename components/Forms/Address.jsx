@@ -1,5 +1,6 @@
-import TextField from '@mui/material/TextField'
 import { useState } from 'react'
+import TextField from '@mui/material/TextField'
+import InputMask from "react-input-mask";
 
 const FormAddress = () => {
     const [logradouro, setLogradouro] = useState('')
@@ -36,16 +37,22 @@ const FormAddress = () => {
             <div className="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
 
                 <div className="sm:col-span-2 flex gap-x-4">
-                    <TextField
-                        type='text'
-                        size='small'
-                        label='CEP'
-                        placeholder='Digite o CEP'
-                        color='error'
-                        className='mb-2'
-                        helperText='campo obrigatório'
+                    <InputMask
+                        mask="99999-999"
                         onChange={handleCep}
-                    />
+                    >
+                        {() =>
+                            <TextField
+                                type='text'
+                                size='small'
+                                label='CEP'
+                                placeholder='Digite o CEP'
+                                color='error'
+                                className='mb-2'
+                                required
+                            />
+                        }
+                    </InputMask>
 
                     <TextField
                         type='text'
@@ -118,16 +125,22 @@ const FormAddress = () => {
                         value={uf}
                     />
 
-                    <TextField
-                        type='text'
-                        size='small'
-                        label='Telefone'
-                        placeholder='Digite o telefone'
-                        color='error'
-                        className='mb-2'
-                        helperText='campo obrigatório'
-                        fullWidth={true}
-                    />
+                    <InputMask
+                        mask="(99) 99999-9999"
+                    >
+                        {() =>
+                            <TextField
+                                type='text'
+                                size='small'
+                                label='Telefone'
+                                placeholder='Digite o telefone'
+                                color='error'
+                                className='mb-2'
+                                required
+                                fullWidth={true}
+                            />
+                        }
+                    </InputMask>
                 </div>
 
             </div>

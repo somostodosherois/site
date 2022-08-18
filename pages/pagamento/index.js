@@ -1,5 +1,7 @@
 import { useState, useContext } from 'react'
 import { BsTrash } from "react-icons/bs";
+import TextField from '@mui/material/TextField'
+import InputMask from "react-input-mask";
 
 import Footer from '../../components/Footer'
 import Menu from '../../components/Menu'
@@ -17,6 +19,7 @@ export default function Pagamento() {
 
   const { items: cartItems } = useContext(CartStateContext);
   const dispatch = useContext(CartDispatchContext);
+  const [cpf, setCpf] = useState('')
 
   const cartQuantity = cartItems
     .map((item) => item.quantity)
@@ -30,6 +33,10 @@ export default function Pagamento() {
     return removeFromCart(dispatch, productId);
   };
 
+  const handleCpf = (e) => (
+    setCpf(e.target.value)
+  )
+
   return (
     <div className="bg-gray-50">
       <Menu />
@@ -40,6 +47,31 @@ export default function Pagamento() {
 
           <form className="lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
             <div>
+              <div className="mt-10 pt-4">
+                <h2 className="text-lg font-medium text-gray-900">Dados pessoais</h2>
+
+                <div className="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
+
+                  <div className="sm:col-span-2 flex gap-x-4">
+                    <InputMask
+                      mask="999.999.999-99"
+                      onChange={handleCpf}
+                    >
+                      {() =>
+                        <TextField
+                          type='text'
+                          size='small'
+                          label='CPF'
+                          placeholder='Digite o CPF'
+                          color='error'
+                          className='mb-2'
+                          required
+                        />
+                      }
+                    </InputMask>
+                  </div>
+                </div>
+              </div>
               <FormAddress />
               <FormPayment />
             </div>
