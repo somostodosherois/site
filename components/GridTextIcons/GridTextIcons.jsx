@@ -15,7 +15,7 @@ const GridTextIcons = ({ object, features }) => {
 
         <div className="mt-16">
           <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-8 md:gap-y-10">
-            {features.map((feature, index) => (
+            {features && features.map((feature, index) => (
               <div key={feature.name} className="relative">
                 <dd>
                   <h2 className="text-3xl font-bold tracking-tight md:text-5xl">
