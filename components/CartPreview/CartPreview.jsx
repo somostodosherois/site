@@ -35,7 +35,7 @@ const CartPreview = ({ cartTotal }) => {
           <ul className="cart-items">
             {items.map((product) => {
               return (
-                <li className="cart-item p-2" key={product.id+'-'+product.hero.id}>
+                <li className="cart-item p-2" key={product.id}>
                   <img className="product-image" src={product.hero.image} />
                   <img className="product-image" src={product.image} />
                   <div className="text-base ml-4 min-w-[35%]">
@@ -49,7 +49,7 @@ const CartPreview = ({ cartTotal }) => {
                     </p>
                     <p className="text-md text-green-600">{formatCurrent(product.quantity * product.price)}</p>
                   </div>
-                  <BsTrash className="ml-2 mt-4 h-5 w-5 cursor-pointer" fill="red" onClick={() => handleRemove(product.id+'-'+product.hero.id)} />
+                  <BsTrash className="ml-2 mt-4 h-5 w-5 cursor-pointer" fill="red" onClick={() => handleRemove(product.id)} />
                 </li>
               );
             })}

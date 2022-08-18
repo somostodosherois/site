@@ -52,7 +52,7 @@ export default function Pagamento() {
                 <h3 className="sr-only">Items in your cart</h3>
                 <ul role="list" className="divide-y divide-gray-200">
                   {cartItems.map((product) => (
-                    <li key={product.id + '-' + product.hero.id} className="flex py-6 px-4 sm:px-6">
+                    <li key={product.id} className="flex py-6 px-4 sm:px-6">
                       <div className="flex-shrink-0">
                         <img src={product.image} className="w-20 rounded-md" />
                       </div>
@@ -67,7 +67,7 @@ export default function Pagamento() {
                           </div>
 
                           <div className="ml-4 flex-shrink-0 flow-root">
-                            <BsTrash className="ml-2 mt-4 h-5 w-5 cursor-pointer" onClick={() => handleRemove(product.id + '-' + product.hero.id)} />
+                            <BsTrash className="ml-2 mt-4 h-5 w-5 cursor-pointer" onClick={() => handleRemove(product.id)} />
                           </div>
                         </div>
 
