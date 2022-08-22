@@ -21,7 +21,7 @@ export default function Home() {
   const object = {
     helperText: 'Saiba mais sobre a ong',
     title: 'Somos Todos Heróis',
-    description: 'A <b>Somos Todos Heróis</b> é uma ONG jovem e digital que transforma a vida de crianças que necessitam de tratamentos médicos ao redor do país. Unimos pessoas como você, que estão dispostas a fazer a diferença na vida de alguém, incentivando a prática solidária por meio de doações diretas e resgatando o heroísmo que reside em cada um de nós. ',
+    description: 'A Somos Todos Heróis é uma ONG jovem e digital que transforma a vida de crianças que necessitam de tratamentos médicos ao redor do país. Unimos pessoas como você, que estão dispostas a fazer a diferença na vida de alguém, incentivando a prática solidária por meio de doações diretas e resgatando o heroísmo que reside em cada um de nós. ',
   }
   
   const features = [
@@ -57,7 +57,7 @@ export default function Home() {
       
       <BannerHome />
 
-      <GridTextIcons object={object} feature={features} />
+      <GridTextIcons object={object} features={features} />
 
       <ShapeDivider graus={180} />
 

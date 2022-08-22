@@ -129,7 +129,7 @@ const NavBar = (props) => {
             href="/login"
             className="px-4 py-2 text-white bg-red-400 rounded-md shadow hover:bg-gray-800"
           >
-            Login2
+            Login
           </a>
           <a
             href="/"
