@@ -24,6 +24,7 @@ const CartPreview = ({ cartTotal }) => {
 
   const handleProceedCheckout = () => {
     toggleCartPopup(dispatch);
+    window.location.href = '/pagamento'
     // history.push("/checkout");
   };
 
@@ -59,7 +60,7 @@ const CartPreview = ({ cartTotal }) => {
           <center>
             <div>
               <a
-                className="inline-flex px-5 py-2 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 hover:text-white"
+                className="inline-flex px-5 py-2 cursor-pointer border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 hover:text-white"
                 onClick={handleProceedCheckout}
               >
                 Prosseguir doação

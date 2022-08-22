@@ -117,7 +117,7 @@ export default function Pagamento() {
                   </div>
                   <div className="flex items-center justify-between">
                     <dt className="text-sm">Taxas</dt>
-                    <dd className="text-sm font-medium text-gray-900">$5.52</dd>
+                    <dd className="text-sm font-medium text-gray-900">R$ 0,00</dd>
                   </div>
                   <div className="flex items-center justify-between border-t border-gray-200 pt-6">
                     <dt className="text-base font-medium">Total</dt>
