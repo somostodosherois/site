@@ -2,13 +2,8 @@ import React from 'react';
 import Head from 'next/head'
 
 import Footer from '../../components/Footer'
-import Missions from '../../components/Missions'
-import ShapeDivider from '../../components/ShapeDivider';
-import MenuVertical from '../../components/MenuVertical/MenuVertical';
-import BannerPage from '../../components/BannerPage/BannerPage';
 import Menu from '../../components/Menu';
-import { Grid, Icon } from '@mui/material';
-import TitleSession from '../../components/TitleSession/TitleSession';
+import { Grid } from '@mui/material';
 import TextBlock from '../../components/TextBlock/TextBlock';
 
 //icons

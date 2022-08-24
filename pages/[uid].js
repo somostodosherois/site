@@ -1,4 +1,6 @@
 import { SliceZone } from '@prismicio/react'
+import * as prismicH from '@prismicio/helpers'
+
 import Menu from '../components/Menu'
 
 import { createClient, linkResolver } from '../prismicio'
@@ -11,8 +13,8 @@ const Page = ({ page, menu, metaTitle, metaDescription }) => {
         <title>{metaTitle}</title>
         <meta name="description" content={metaDescription} />
       </Head>
-      <Menu />
-      {/* <SliceZone slices={page} components={components} /> */}
+      <Menu menu={menu} />
+      <SliceZone slices={page} components={components} />
     </>
   )
 }
@@ -31,7 +33,7 @@ export async function getStaticProps({ params, previewData }) {
       menu: menu.data,
       metaTitle: page.data.meta_title,
       metaDescription: page.data.meta_description,
-      // slices: page.data.body
+      slices: page.data.page_content
     },
   }
 }
