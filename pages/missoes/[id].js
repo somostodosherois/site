@@ -3,7 +3,7 @@ import Head from 'next/head'
 
 import Footer from '../../components/Footer'
 import Menu from '../../components/Menu';
-import CallToAction from '../../components/CallToAction';
+// import CallToAction from '../../components/CallToAction';
 import CardHero from '../../components/CardHero/CardHero';
 import DonationBlock from '../../components/DonationBlock/DonationBlock';
 import TimelineMission from '../../components/TimelineMission/TimelineMission';
