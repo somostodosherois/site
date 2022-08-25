@@ -20,14 +20,14 @@ const CallToAction = ({ slice }) => {
     <div className="pt-12 pb-12">
       <div className="max-w-7xl p-8 bg-gray-100 rounded-xl mx-auto grid lg:flex gap-x-8 sm:items-center justify-center md:justify-between">
         <div className='flex gap-x-8'>
-          <h2 className="text-3xl tracking-tight text-gray-900 sm:text-3xl">
+          <h2 className="text-2xl tracking-tight text-gray-900">
             <span className="block text-red-600 font-extrabold">{titleBlack}</span>
             <span className="block text-gray-800 font-bold text-2xl">{titleRed}</span>
           </h2>
 
           {reference &&
           <div className='flex mt-8 md:mt-4'>
-            <GoQuote className="h-8 w-8 lg:h-10 lg:w-10" fill="#DC2626" />
+            <GoQuote className="h-6 w-6 lg:h-8 lg:w-8" fill="#DC2626" />
             <span className="block text-gray-800 ml-2 text-3xl font-extrabold">{reference}</span>
           </div>
         }
@@ -37,7 +37,7 @@ const CallToAction = ({ slice }) => {
           {buttonLabel1 && buttonLink1 &&
             <a
               href={buttonLink1?.url}
-              className="text-center px-3 py-3 text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700"
+              className="text-center px-2 py-2 text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700"
             >
               {buttonLabel1}
             </a>
@@ -45,7 +45,7 @@ const CallToAction = ({ slice }) => {
           {buttonLabel2 && buttonLink2 &&
             <a
               href={buttonLink2?.url}
-              className="text-center sm:ml-8 px-3 py-3 text-base font-medium rounded-md text-red-600 bg-white border border-red-600 hover:bg-gray-100"
+              className="text-center sm:ml-8 px-2 py-2 text-base font-medium rounded-md text-red-600 bg-white border border-red-600 hover:bg-gray-100"
             >
               {buttonLabel2}
             </a>

@@ -60,6 +60,40 @@
       "default": {
         "primary": {}
       }
+    },
+    "OngNumbersImage": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "Files": {
+      "default": {
+        "primary": {},
+        "items": {
+          "buttons_links": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          },
+          "buttons_labels": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    },
+    "TextImageBlock": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "TextBlock": {
+      "default": {
+        "primary": {}
+      }
     }
   },
   "_cts": {

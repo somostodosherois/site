@@ -233,10 +233,8 @@ const ContainerMissions = ({ items, title }) => (
 
 const Missions = ({ slice }) => {
 
-  if (!slice) return null
-
   const variation = slice?.primary?.variation
-  const title = slice?.primary?.title
+  const title = slice?.primary?.title || 'Missões em Andamento'
 
   return (
     <>

@@ -259,6 +259,129 @@
           }
         }
       },
+      "files": {
+        "library": "slices",
+        "id": "files",
+        "name": "Files",
+        "description": "Files",
+        "model": {
+          "id": "files",
+          "type": "SharedSlice",
+          "name": "Files",
+          "description": "Files",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "Files",
+              "primary": {
+                "title": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Title",
+                    "placeholder": ""
+                  }
+                },
+                "description": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Description",
+                    "placeholder": ""
+                  }
+                }
+              },
+              "items": {
+                "image": {
+                  "type": "Image",
+                  "config": {
+                    "label": "Image",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                },
+                "title": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Title",
+                    "placeholder": ""
+                  }
+                },
+                "buttons_labels": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Buttons Labels",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "single": "list-item"
+                  }
+                },
+                "buttons_links": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Buttons Links",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "single": "hyperlink,list-item"
+                  }
+                }
+              },
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {
+                "image": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": null,
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1591012911207-0dbac31f37da"
+                },
+                "title": "willing",
+                "buttons_labels": [
+                  {
+                    "type": "paragraph",
+                    "text": "Ea et adipisicing minim. Sunt sit magna tempor enim sint sit laborum eiusmod ad esse.",
+                    "spans": []
+                  }
+                ],
+                "buttons_links": [
+                  {
+                    "type": "paragraph",
+                    "text": "Aute cillum labore consectetur reprehenderit tempor incididunt quis et voluptate cupidatat velit. Duis consectetur nostrud eu voluptate aute velit elit pariatur proident. Nisi eiusmod pariatur consequat Lorem ullamco dolore proident incididunt sit eu laborum sit.",
+                    "spans": []
+                  }
+                ]
+              }
+            ],
+            "primary": {
+              "title": "definition",
+              "description": "continued"
+            },
+            "slice_type": "files"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {
+          "default": {
+            "path": "/Users/thayslacerda/Documents/site/slices/Files/default/preview.png",
+            "width": 2862,
+            "height": 1056
+          }
+        }
+      },
       "grid_text": {
         "library": "slices",
         "id": "grid_text",
@@ -789,6 +912,136 @@
             "path": "/Users/thayslacerda/Documents/site/slices/OngNumbers/default/preview.png",
             "width": 1026,
             "height": 493
+          }
+        }
+      },
+      "ong_numbers_image": {
+        "library": "slices",
+        "id": "ong_numbers_image",
+        "name": "OngNumbersImage",
+        "description": "OngNumbersImage",
+        "model": {
+          "id": "ong_numbers_image",
+          "type": "SharedSlice",
+          "name": "OngNumbersImage",
+          "description": "OngNumbersImage",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "OngNumbersImage",
+              "primary": {
+                "title": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Title",
+                    "placeholder": ""
+                  }
+                }
+              },
+              "items": {
+                "description": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Description",
+                    "placeholder": ""
+                  }
+                }
+              },
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {
+                "description": "evidence"
+              }
+            ],
+            "primary": {
+              "title": "original"
+            },
+            "slice_type": "ong_numbers_image"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {
+          "default": {
+            "path": "/Users/thayslacerda/Documents/site/slices/OngNumbersImage/default/preview.png",
+            "width": 2862,
+            "height": 856
+          }
+        }
+      },
+      "text_image_block": {
+        "library": "slices",
+        "id": "text_image_block",
+        "name": "TextBlock",
+        "description": "TextImageBlock",
+        "model": {
+          "id": "text_image_block",
+          "type": "SharedSlice",
+          "name": "TextBlock",
+          "description": "TextImageBlock",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "TextImageBlock",
+              "primary": {
+                "title": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Title",
+                    "placeholder": ""
+                  }
+                },
+                "description": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Description",
+                    "placeholder": ""
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "title": "walk",
+              "description": "book"
+            },
+            "slice_type": "text_image_block"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {
+          "default": {
+            "path": "/Users/thayslacerda/Documents/site/slices/TextBlock/default/preview.png",
+            "width": 2426,
+            "height": 346
           }
         }
       }
