@@ -10,6 +10,7 @@ import { components } from '../slices'
 
 const Page = ({ page, menu, metaTitle, metaDescription, slices  }) => {
   if (!page) return null
+  console.log(menu)
 
   return (
     <>

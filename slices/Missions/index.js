@@ -142,7 +142,6 @@ const callouts = [
 ]
 
 const inProgress = (callouts.length && callouts.filter(obj => obj.totalDays !== 0)) || []
-const isFinished = (callouts.length && callouts.filter(obj => obj.totalDays === 0)) || []
 
 const Cards = ({ items }) => (
   <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-8">
@@ -216,34 +215,18 @@ const ContainerMissions = ({ items, title }) => (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:items-center">
       <TitleSession title={title} />
       <Cards items={items} />
-
-      {items === isFinished &&
-        <div className="rounded-md mx-auto items-center content-center text-center mt-16 w-64">
-          <a
-            href="#"
-            className="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-lg md:px-10"
-          >
-            Ver todas as missões
-          </a>
-        </div>
-      }
     </div>
   </div>
 )
 
 const Missions = ({ slice }) => {
 
-  if (!slice) return null
-
-  const variation = slice?.primary?.variation
   const title = slice?.primary?.title
 
-  return (
-    <>
-      <ContainerMissions items={inProgress} title={title} />
-      {variation !== 'Home' && <ContainerMissions items={isFinished} title='Missões finalizadas' />}
-    </>
-  )
+  if (!title) return null
+
+
+  return <ContainerMissions items={inProgress} title={title} />
 }
 
 export default Missions

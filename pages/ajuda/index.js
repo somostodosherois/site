@@ -1,25 +1,47 @@
-import React from 'react';
+import { SliceZone } from '@prismicio/react'
 import Head from 'next/head'
 
 import Footer from '../../components/Footer'
-import Menu from '../../components/Menu';
-import Accordion from '../../components/Accordion';
-import CallToAction from '../../components/CallToAction';
-import FormContact from '../../components/FormContact/FormContact';
+import FormContact from '../../components/FormContact/FormContact'
+import Menu from '../../components/Menu'
+import { createClient } from '../../prismicio'
+import { components } from '../../slices'
 
-export default function Ajuda() {
-  return (
-    <div>
-      <Head>
-        <title>Somos Todos Heróis</title>
-        <meta name="description" content="Somos Todos Heróis" />
-        <link rel="icon" href="https://sth.org.br/wp-content/themes/sth/images/favicon.png" />
-      </Head>
-      <Menu />
-      <FormContact />
-      <Accordion />
-      <CallToAction />
-      <Footer />
-    </div>
-  )
+const Page = ({ page, menu, metaTitle, metaDescription, slices }) => {
+    if (!page || !menu) return null
+
+    const data = page?.data || {}
+
+    return (
+        <>
+            <Head>
+                <title>{metaTitle}</title>
+                <meta name="description" content={metaDescription} />
+            </Head>
+            <Menu menu={menu} />
+            <FormContact data={data}/>
+
+            <SliceZone slices={slices} components={components} />
+            <Footer />
+        </>
+    )
+}
+
+export default Page
+
+export async function getStaticProps({ previewData }) {
+    const client = createClient({ previewData })
+
+    const page = await client.getSingle('help')
+    const menu = await client.getSingle("menu");
+
+    return {
+        props: {
+            page,
+            menu: menu.data,
+            metaTitle: page.data.meta_title,
+            metaDescription: page.data.meta_description,
+            slices: page.data.body || []
+        },
+    }
 }
