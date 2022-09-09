@@ -8,10 +8,7 @@ import {
   toggleCartPopup
 } from "../../contexts/cart";
 
-const NavBar = ({ slice }) => {
-
-  console.log(slice)
-
+const NavBar = (props) => {
   const [navbar, setNavbar] = useState(false);
   const { items: cartItems, isCartOpen } = useContext(CartStateContext);
   const cartDispatch = useContext(CartDispatchContext);
