@@ -1,7 +1,7 @@
 const Accountable = () => {
   return (
     <div className="mx-auto max-w-sm md:max-w-lg px-4">
-      <p className="text-gray-500 text-center">Preencha os dados abaixo sobre o RESPONSÁVEL LEGAL da criança</p>
+      <p className="text-gray-500 text-center text-base">Preencha os dados abaixo sobre o RESPONSÁVEL LEGAL da criança</p>
       <br />
 
       <form>

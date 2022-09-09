@@ -35,7 +35,7 @@ const MissionForm = () => {
 
   return(
 
-    <div className="mx-auto bg-white pb-2 max-w-32">
+    <div className="mx-auto bg-white pb-2 max-w-32 py-16">
 
       <div className="text-center text-gray-800 text-center text-gray-800">  
         <h1 className="font-bold text-3xl">Cadastro de missão</h1>
@@ -47,7 +47,7 @@ const MissionForm = () => {
 
       <br/>
 
-      <div className="mx-auto md:w-1/2">
+      <div className="mx-auto border rounded p-4 shadow-sm" style={{ height: '320px', overflowX: 'auto' }}>
         { showFinalStep ? <FinalStep/> : stepDisplay()}
       </div>
 
