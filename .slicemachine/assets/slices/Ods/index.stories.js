@@ -1,0 +1,9 @@
+import MyComponent from '../../../../slices/Ods';
+
+export default {
+  title: 'slices/Ods'
+}
+
+
+export const _Default = () => <MyComponent slice={{"variation":"default","version":"sktwi1xtmkfgx8626","items":[{"image":{"dimensions":{"width":900,"height":500},"alt":null,"copyright":null,"url":"https://images.unsplash.com/photo-1596195689404-24d8a8d1c6ea"},"link":{"link_type":"Web","url":"https://prismic.io"}}],"primary":{"title":"shut"},"slice_type":"ods","id":"_Default"}} />
+_Default.storyName = ''

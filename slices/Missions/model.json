@@ -1,0 +1,38 @@
+{
+  "id": "missions",
+  "type": "SharedSlice",
+  "name": "Missions",
+  "description": "Missions",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Missions",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "variation": {
+          "type": "Select",
+          "config": {
+            "label": "Variation",
+            "placeholder": "",
+            "options": [
+              "Home",
+              "Demais páginas"
+            ],
+            "default_value": "Home"
+          }
+        }
+      },
+      "items": {},
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    }
+  ]
+}

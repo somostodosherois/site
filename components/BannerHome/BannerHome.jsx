@@ -1,7 +1,45 @@
 import React from 'react';
-import Menu from '../Menu';
+import { PrismicRichText } from "@prismicio/react"
 
-const BannerHome = () => {
+const BannerHome = ({ data }) => {
+  if (!data) return null
+
+  const buttons = data?.buttons || []
+  const dataBanner = data?.homepage_banner[0] || {}
+  const title = dataBanner.title
+  const description = dataBanner.description
+
+  const renderButtons = () => {
+    if (!buttons) return null
+
+    const button1 = buttons[0] || {}
+    const button2 = buttons[1] || {}
+
+    return (
+      <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+        <div className="rounded-md shadow">
+          <a
+            href={button1?.link?.url}
+            className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-lg md:px-10"
+          >
+            {button1?.label}
+          </a>
+        </div>
+        {button2 &&
+          <div className="mt-3 sm:mt-0 sm:ml-3">
+            <a
+              href={button2?.link?.url}
+              className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-red-700 bg-red-100 hover:bg-red-200 md:py-4 md:text-lg md:px-10"
+            >
+              {button2?.label}
+            </a>
+          </div>
+        }
+
+      </div>
+    )
+  }
+
   return (
     <div className="relative bg-white overflow-hidden pt-12 lg:p-20">
       <div className="max-w-7xl mx-auto sm:text-center lg:text-left">
@@ -12,29 +50,12 @@ const BannerHome = () => {
               <span className="block text-red-600 xl:inline">para salvar vidas</span>
             </h1>
             <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-              [algo motivador]
+              <PrismicRichText field={description} />
             </p>
-            <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-              <div className="rounded-md shadow">
-                <a
-                  href="#"
-                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-lg md:px-10"
-                >
-                  Realizar doação
-                </a>
-              </div>
-              <div className="mt-3 sm:mt-0 sm:ml-3">
-                <a
-                  href="#"
-                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-red-700 bg-red-100 hover:bg-red-200 md:py-4 md:text-lg md:px-10"
-                >
-                  Saiba mais
-                </a>
-              </div>
-            </div>
+            {renderButtons()}
           </div>
           <div className="pt-6 lg:pt-0 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-            
+
             {/* <img
                 className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
                 src="https://lunetas.com.br/wp-content/uploads/2020/05/meninos-herois-brincando.jpg"

@@ -1,0 +1,117 @@
+{
+  "slices": {
+    "Accordion": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "GridText": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "Missions": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "OngNumbers": {
+      "default": {
+        "primary": {},
+        "items": {}
+      }
+    },
+    "CardDonationTypes": {
+      "default": {
+        "primary": {
+          "title": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        },
+        "items": {
+          "description": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    },
+    "Ods": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "CallToAction": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "NewsList": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "ImagesList": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "OngNumbersImage": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "Files": {
+      "default": {
+        "primary": {},
+        "items": {
+          "buttons_links": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          },
+          "buttons_labels": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    },
+    "TextImageBlock": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "TextBlock": {
+      "default": {
+        "primary": {}
+      }
+    }
+  },
+  "_cts": {
+    "homepage": {
+      "homepage_banner": {
+        "title": {
+          "config": {
+            "patternType": "HEADING",
+            "blocks": 1
+          }
+        },
+        "description": {
+          "config": {
+            "patternType": "PARAGRAPH",
+            "blocks": 1
+          }
+        }
+      }
+    }
+  }
+}

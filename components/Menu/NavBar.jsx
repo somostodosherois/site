@@ -1,11 +1,7 @@
 import React, { useContext, useState } from "react";
-
-import Logo from '../../public/logoText.svg'
-import CartPreview from "../CartPreview/CartPreview";
-
 import { BsCart } from "react-icons/bs";
 
-
+import CartPreview from "../CartPreview/CartPreview";
 import {
   CartStateContext,
   CartDispatchContext,
@@ -86,7 +82,7 @@ const NavBar = (props) => {
           >
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
               <li className="text-white hover:text-black">
-                <a href="/sobrenos">Sobre nós</a>
+                <a href="/sobre-nos">Sobre nós</a>
               </li>
               <li className="text-white hover:text-black">
                 <a href="/portal-transparencia">Transparência</a>

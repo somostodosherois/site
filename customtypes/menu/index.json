@@ -1,0 +1,70 @@
+{
+  "id": "menu",
+  "label": "Menu",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "placeholder": "Menu title...",
+          "single": "heading1"
+        }
+      },
+      "image": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "image"
+        }
+      },
+      "menu_links": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "label": {
+              "type": "StructuredText",
+              "config": {
+                "single": "paragraph",
+                "label": "Link Label",
+                "placeholder": "Link Label..."
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "Select a Link...",
+                "select": null
+              }
+            }
+          },
+          "label": "Menu Links"
+        }
+      },
+      "button_links": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label"
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "select": null
+              }
+            }
+          },
+          "label": "Button Links"
+        }
+      }
+    }
+  }
+}

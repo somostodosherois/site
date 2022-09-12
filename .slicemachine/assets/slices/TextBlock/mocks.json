@@ -1,0 +1,14 @@
+[
+  {
+    "variation": "default",
+    "version": "sktwi1xtmkfgx8626",
+    "items": [
+      {}
+    ],
+    "primary": {
+      "title": "walk",
+      "description": "book"
+    },
+    "slice_type": "text_image_block"
+  }
+]

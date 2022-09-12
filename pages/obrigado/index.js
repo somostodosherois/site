@@ -1,50 +1,52 @@
-import React from 'react';
+import { PrismicRichText, SliceZone } from '@prismicio/react'
 import Head from 'next/head'
+import { Grid } from '@mui/material';
 
 import Footer from '../../components/Footer'
-import Menu from '../../components/Menu';
-import GridTextIcons from '../../components/GridTextIcons';
+import Menu from '../../components/Menu'
+import TextBlock from '../../components/TextBlock/TextBlock'
 
-export default function Missoes() {
-  const object = {
-    helperText: '',
-    title: 'Obrigado, Herói! Você salvou o dia da missão ! 👏',
-    description: 'Abaixo você consegue conferir os próximos passos a serem realizados por nós para que possamos finalizar a missão da Criança(s) X',
-  }
-  
-  const features = [
-    {
-      name: 'Arrecadação na plataforma',
-      description:
-        'A campanha de financiamento coletivo dura 50 dias com doações realizadas a partir da plataforma da STH. Todo valor arrecadado em missões específica é 100% destinado à mesma.',
-    },
-    {
-      name: 'Aquisição da necessidade',
-      description:
-        'Compra os itens e/ou serviços necessitados por nossas crianças, como: Itens básicos (remédios, fraldas e etc), Terapias e/ou Equipamentos.',
-    },
-    {
-      name: 'Finalização da missão',
-      description:
-        'Ao final da aquisição é realizado a entrega a família e assinado o Termo de Quitação e a missão é finalizada.',
+import { createClient } from '../../prismicio'
+import { components } from '../../slices'
+
+const Page = ({ page, menu, metaTitle, metaDescription, slices }) => {
+    if (!page || !menu) return null
+
+    const data = page?.data || {}
+
+    return (
+        <>
+            <Head>
+                <title>{metaTitle}</title>
+                <meta name="description" content={metaDescription} />
+            </Head>
+            <Menu menu={menu} />
+            <div className='pt-16 pb-16'>
+                <SliceZone slices={slices} components={components} />
+                <center>
+                    <img src="https://i.giphy.com/khf7rqmlf5YLwOGIiO.gif" class="img-responsive" />
+                </center>
+            </div>
+            <Footer />
+        </>
+    )
+}
+
+export default Page
+
+export async function getStaticProps({ previewData }) {
+    const client = createClient({ previewData })
+
+    const page = await client.getSingle('thank_you')
+    const menu = await client.getSingle("menu");
+
+    return {
+        props: {
+            page,
+            menu: menu.data,
+            metaTitle: page.data.meta_title,
+            metaDescription: page.data.meta_description,
+            slices: page.data.body || []
+        },
     }
-  ]
-
-  return (
-    <div>
-      <Head>
-        <title>Somos Todos Heróis</title>
-        <meta name="description" content="Somos Todos Heróis" />
-        <link rel="icon" href="https://sth.org.br/wp-content/themes/sth/images/favicon.png" />
-      </Head>
-      <Menu />
-      
-      <div className='pt-16'></div>
-      <GridTextIcons object={object} features={features} />
-      <center><img src="https://i.giphy.com/khf7rqmlf5YLwOGIiO.gif" class="img-responsive"/></center>
-      <div className='pb-16'></div>
-
-      <Footer />
-    </div>
-  )
 }

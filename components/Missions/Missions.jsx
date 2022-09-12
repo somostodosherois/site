@@ -1,7 +1,7 @@
 import React from 'react';
 import { BsCurrencyDollar, BsCalendarDate } from "react-icons/bs";
+import TitleSession from '../../components/TitleSession/TitleSession';
 
-import TitleSession from '../TitleSession/TitleSession';
 
 const callouts = [
   {
@@ -148,7 +148,7 @@ const Cards = ({ items }) => (
   <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-8">
     {items.map(({ name, imageAlt, imageSrc, href, description, total, totalDays }) => (
       <div key={name} className="group relative bg-white border border-transparent rounded-xl">
-        <div className="relative bg-white overflow-hidden -group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 h-50 lg:aspect-w-1 lg:aspect-h-1">
+        <div className="hidden sm:block bg-white -group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 h-50 lg:aspect-w-1 lg:aspect-h-1">
           <img
             src={imageSrc}
             alt={imageAlt}
@@ -158,8 +158,7 @@ const Cards = ({ items }) => (
 
         <div className='p-4'>
           <h3 className="mt-4 text-base font-semibold text-gray-900">
-            <a href={'missoes/'+href}>
-              <span className="absolute inset-0" />
+            <a href={'missoes/' + href}>
               {name}
             </a>
           </h3>
@@ -232,11 +231,17 @@ const ContainerMissions = ({ items, title }) => (
   </div>
 )
 
-const Missions = ({ variation }) => (
-  <>
-    <ContainerMissions items={inProgress} title='Missões em andamento' />
-    {variation !== 'home' && <ContainerMissions items={isFinished} title='Missões finalizadas' />}
-  </>
-)
+const Missions = ({ slice }) => {
+
+  const variation = slice?.primary?.variation
+  const title = slice?.primary?.title || 'Missões em Andamento'
+
+  return (
+    <>
+      <ContainerMissions items={inProgress} title={title} />
+      {variation !== 'Home' && <ContainerMissions items={isFinished} title='Missões finalizadas' />}
+    </>
+  )
+}
 
 export default Missions

@@ -1,0 +1,54 @@
+{
+  "id": "mock-doc-id",
+  "url": null,
+  "type": "homepage",
+  "href": null,
+  "tags": [],
+  "first_publication_date": "1970-01-01T00:00:01+0000",
+  "last_publication_date": "1970-01-01T00:00:01+0000",
+  "slugs": [],
+  "linked_documents": [],
+  "lang": "en-us",
+  "alternate_languages": [],
+  "data": {
+    "homepage_banner": [
+      {
+        "title": [
+          {
+            "type": "heading1",
+            "text": "Symbol",
+            "spans": []
+          }
+        ],
+        "description": [
+          {
+            "type": "paragraph",
+            "text": "Laborum magna amet id.",
+            "spans": []
+          }
+        ],
+        "image": {
+          "dimensions": {
+            "width": 2000,
+            "height": 500
+          },
+          "alt": null,
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1589321599763-d66926c29613"
+        }
+      }
+    ],
+    "buttons": [
+      {
+        "label": "how",
+        "link": {
+          "link_type": "Web",
+          "url": "https://prismic.io"
+        }
+      }
+    ],
+    "page_content": [],
+    "meta_title": "joy",
+    "meta_description": "hand"
+  }
+}

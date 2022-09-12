@@ -14,7 +14,9 @@ export default function Missoes() {
         <link rel="icon" href="https://sth.org.br/wp-content/themes/sth/images/favicon.png" />
       </Head>
       <Menu />
-      <Missions />
+      <div className='pt-16'>
+        <Missions />
+      </div>
       <Footer />
     </div>
   )
