@@ -94,6 +94,12 @@
       "default": {
         "primary": {}
       }
+    },
+    "GridTextWithButton": {
+      "default": {
+        "primary": {},
+        "items": {}
+      }
     }
   },
   "_cts": {

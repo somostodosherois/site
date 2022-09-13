@@ -5,6 +5,7 @@ import CallToAction from './CallToAction';
 import CardDonationTypes from './CardDonationTypes';
 import Files from './Files';
 import GridText from './GridText';
+import GridTextWithButton from './GridTextWithButton';
 import ImagesList from './ImagesList';
 import Missions from './Missions';
 import NewsList from './NewsList';
@@ -19,6 +20,7 @@ export {
 	CardDonationTypes,
 	Files,
 	GridText,
+	GridTextWithButton,
 	ImagesList,
 	Missions,
 	NewsList,
@@ -34,6 +36,7 @@ export const components = {
 	card_donation_types: CardDonationTypes,
 	files: Files,
 	grid_text: GridText,
+	grid_text_with_button: GridTextWithButton,
 	images_list: ImagesList,
 	missions: Missions,
 	news_list: NewsList,

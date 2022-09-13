@@ -9,12 +9,12 @@ import { components } from '../slices'
 const Page = ({ page, menu, metaTitle, metaDescription }) => {
   return (
     <>
-      <Head>
+      {/* <Head>
         <title>{metaTitle}</title>
         <meta name="description" content={metaDescription} />
       </Head>
-      <Menu menu={menu} />
-      <SliceZone slices={page} components={components} />
+      <Menu menu={menu} /> */}
+      {/* <SliceZone slices={page} components={components} /> */}
     </>
   )
 }
@@ -24,16 +24,16 @@ export default Page
 export async function getStaticProps({ params, previewData }) {
   const client = createClient({ previewData })
 
-  const page = await client.getByUID('page', params.uid)
-  const menu = await client.getSingle("menu");
+  // const page = await client.getByUID('page', params.uid)
+  // const menu = await client.getSingle("menu");
 
   return {
     props: {
-      page,
-      menu: menu.data,
-      metaTitle: page.data.meta_title,
-      metaDescription: page.data.meta_description,
-      slices: page.data.page_content
+      // page,
+      // menu: menu.data,
+      // metaTitle: page.data.meta_title,
+      // metaDescription: page.data.meta_description,
+      // slices: page.data.page_content
     },
   }
 }

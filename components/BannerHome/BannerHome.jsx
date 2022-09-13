@@ -1,6 +1,8 @@
 import React from 'react';
 import { PrismicRichText } from "@prismicio/react"
 
+import ImageBanner from '../../public/bannerHome.png'
+
 const BannerHome = ({ data }) => {
   if (!data) return null
 
@@ -43,7 +45,7 @@ const BannerHome = ({ data }) => {
   return (
     <div className="relative bg-white overflow-hidden pt-12 lg:p-20">
       <div className="max-w-7xl mx-auto sm:text-center lg:text-left">
-        <main className="mt-10 sm:mt-12 md:mt-16 lg:mt-20 xl:mt-28 px-4 sm:px-6 lg:px-8 lg:flex grid">
+        <main className="mt-10 sm:mt-12 md:mt-16 lg:mt-20 px-4 sm:px-6 lg:px-8 lg:flex grid flex justify-center items-center">
           <div className="lg:max-w-xl">
             <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
               <span className="block xl:inline">Precisamos da sua doação </span>
@@ -54,13 +56,12 @@ const BannerHome = ({ data }) => {
             </p>
             {renderButtons()}
           </div>
-          <div className="pt-6 lg:pt-0 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-
-            {/* <img
-                className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-                src="https://lunetas.com.br/wp-content/uploads/2020/05/meninos-herois-brincando.jpg"
-                alt=""
-              /> */}
+          <div className="pt-8 lg:pt-0 lg:relative lg:right-0 lg:w-1/2">
+            <img
+                className="w-full"
+                src={ImageBanner.src}
+                alt="Somos Todos Heróis"
+              />
           </div>
         </main>
       </div>
