@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { BsTrash } from "react-icons/bs";
 import TextField from '@mui/material/TextField'
 import InputMask from "react-input-mask";
@@ -14,12 +14,18 @@ import {
   removeFromCart,
 } from "../../contexts/cart";
 
+import { useCoins } from '../../contexts/coins';
+import swal from 'sweetalert';
+import Router from 'next/router';
 
 export default function Pagamento() {
 
   const { items: cartItems } = useContext(CartStateContext);
   const dispatch = useContext(CartDispatchContext);
   const [cpf, setCpf] = useState('')
+
+  const [amount, setAmount] = useState(0);
+  const { coins, setCoins } = useCoins();
 
   const cartQuantity = cartItems
     .map((item) => item.quantity)
@@ -37,6 +43,16 @@ export default function Pagamento() {
     setCpf(e.target.value)
   )
 
+  const handleRecharge = (e, amount) => {
+
+    e.preventDefault();
+    const sum = parseInt(coins) + parseInt(amount);
+    localStorage.setItem('coins', sum);
+    setCoins(parseInt(sum));
+    swal('Recarga realizada com sucesso!')
+    Router.push('/')
+  }
+
   return (
     <div className="bg-gray-50">
       <Menu />
@@ -48,6 +64,27 @@ export default function Pagamento() {
           <form className="lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
             <div>
               <div className="mt-10 pt-4">
+
+                <h2 className="text-lg font-medium text-gray-900">Valor</h2>
+
+                <div className="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4"></div>
+
+                <div className="sm:col-span-2 flex gap-x-4 mb-8">
+                 
+                  <TextField
+                    type='text'
+                    size='small'
+                    label='Valor'
+                    placeholder='Valor'
+                    color='error'
+                    className='mb-2'
+                    value={amount}
+                    onChange={(e) => setAmount(e.target.value)}
+                    required
+                  />
+
+                </div>
+
                 <h2 className="text-lg font-medium text-gray-900">Dados pessoais</h2>
 
                 <div className="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
@@ -113,7 +150,7 @@ export default function Pagamento() {
                 <dl className="border-t border-gray-200 py-6 px-4 space-y-6 sm:px-6">
                   <div className="flex items-center justify-between">
                     <dt className="text-sm">Subtotal</dt>
-                    <dd className="text-sm font-medium text-gray-900">{formatCurrent(cartTotal)}</dd>
+                    <dd className="text-sm font-medium text-gray-900">{formatCurrent(amount)}</dd>
                   </div>
                   <div className="flex items-center justify-between">
                     <dt className="text-sm">Taxas</dt>
@@ -121,16 +158,17 @@ export default function Pagamento() {
                   </div>
                   <div className="flex items-center justify-between border-t border-gray-200 pt-6">
                     <dt className="text-base font-medium">Total</dt>
-                    <dd className="text-base font-medium text-gray-900">{formatCurrent(cartTotal)}</dd>
+                    <dd className="text-base font-medium text-gray-900">{formatCurrent(amount)}</dd>
                   </div>
                 </dl>
 
                 <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
                   <button
+                    onClick={(e) => handleRecharge(e, amount)}
                     type="submit"
                     className="w-full bg-red-600 border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-red-500"
                   >
-                    Confirmar doação
+                    Confirmar recarga
                   </button>
                 </div>
               </div>
