@@ -33,6 +33,10 @@ p {
   background-color: #DC2626;
 }
 
+/* #content-hero p:first-child { 
+  display: flex;
+  justify-content: center;
+} */
 
 #sdg-3 {
   height: 15vh;

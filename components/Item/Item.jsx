@@ -84,7 +84,7 @@ const Item = ({ item, index, hero }) => {
             }
             {id === '4' &&
                 <input
-                    class="form-control
+                    className="form-control
                             block 
                             w-full
                             px-3

@@ -1,19 +1,15 @@
 import React from 'react'
+import ReactDOM from 'react-dom';
+
 import { BsCurrencyDollar, BsCalendarDate } from "react-icons/bs";
 
-const CardHero = () => {
-  const hero = {
-    name: 'Gabriel Hulk',
-    meta: 'Sessões de Estimulação Magnética Transcraniana',
-    value: '3.311,00',
-    percentage: '67',
-    dateFinal: '29/07/2022',
-    image: 'https://sth.org.br/images/2021/11/Design-sem-nome-8.png',
-    text: `<div className="link mbottom"><p style="line-height: 35px; text-align: center;">Olá! Me chamo&nbsp;Gabriel, mas pode me chamar de&nbsp;<strong>Gabriel Hulk!&nbsp;</strong>Eu nasci&nbsp;com&nbsp;<a id="fprsl" className="gL9Hy" href="https://www.einstein.br/especialidades/medicina-fetal/material-de-apoio-ao-paciente/mielomeningocele-cartilha-orientacao-apos-alta#:~:text=A%20mielomeningocele%20%C3%A9%20um%20defeito,ainda%20n%C3%A3o%20%C3%A9%20bem%20definida." data-ved="2ahUKEwiQ_r63o7HzAhVaq5UCHR5XD3cQkeECKAB6BAgBEDY">Mielomeningocele</a></p>
-    <p style="line-height: 35px; text-align: center;">e&nbsp;<a href="https://www.medtronic.com/br-pt/your-health/conditions/hydrocephalus/o-que-e-hidrocefalia.html#:~:text=A%20Hidrocefalia%20%C3%A9%20derivada%20de,%2C%20referindo%2Dse%20%C3%A0%20cabe%C3%A7a.&amp;text=A%20hidrocefalia%20implica%20uma%20quantidade,do%20c%C3%A9rebro%2C%20conhecidas%20como%20ventr%C3%ADculos.">Hidrocefalia</a>&nbsp;e&nbsp;já passei por 5 cirurgias nos&nbsp;meus 5 anos de vida. Hoje, Recentemente passei por uma avaliação na clínica intensiva para um tratamento que auxiliará seu&nbsp;desenvolvimento motor e um possível desfralde.&nbsp;Moro&nbsp;na cidade de&nbsp;Mogi Guaçu, no estado de São Paulo e esse tratamento com &nbsp;<a href="https://www.neurologiaintegrada.com.br/estimulacao-magnetica-transcraniana-tms/">TMS (Estimulação Magnética Transcraniana)</a>&nbsp;custa R$900,00 cada sessão.</p>
-    <p style="text-align: center;"><b>Por isso, eu gostaria de ganhar 9 sessões de&nbsp;TMS.</b></p>
-    <p style="text-align: right;">Com carinho,&nbsp;Gabriel Hulk.</p></div>`
+const CardHero = ({ hero }) => {
+
+  function createContent() {
+    return {__html: hero.content};
   }
+
+  // ReactDOM.render(<Pai />, document.querySelector('#content-hero'))
 
   // const diffDates = () => {
 
@@ -25,7 +21,7 @@ const CardHero = () => {
 
   return (
     <div className='bg-gray-100 pb-8'>
-      <div className='max-w-7xl mx-auto px-4 pt-12 sm:px-6 space-y-16 lg:grid lg:grid-cols-3 lg:gap-x-6 pt-20 lg:flex'>
+      <div className='max-w-7xl mx-auto px-4 pt-12 sm:px-6 space-y-16 lg:grid lg:grid-cols-3 lg:gap-x-6 pt-20'>
         <div className='p-6 w-2xl mt-4 md:mt-12'>
           <center>
             <img src={hero.image}></img>
@@ -49,11 +45,8 @@ const CardHero = () => {
           </div>
 
         </div>
-        <div className='col-span-2'>
-          <p>Olá! Me chamo Gabriel, mas pode me chamar de Gabriel Hulk!</p>
-          <p className='mt-4'>Eu nasci com Mielomeningocele e Hidrocefalia e já passei por 5 cirurgias nos meus 5 anos de vida. Hoje, Recentemente passei por uma avaliação na clínica intensiva para um tratamento que auxiliará seu desenvolvimento motor e um possível desfralde. Moro na cidade de Mogi Guaçu, no estado de São Paulo e esse tratamento com  TMS (Estimulação Magnética Transcraniana) custa R$900,00 cada sessão. Por isso, eu gostaria de ganhar 9 sessões de TMS. </p>
-          <center><img className='mt-4' src='https://sth.org.br/images/2021/10/IMG_20210725_194253003_HDR-e1633368207861.jpg' /></center>
-          <p className='text-right mt-4'>Com carinho, Gabriel Hulk.</p>
+        <div id="content-hero" className='col-span-2'>
+          <div dangerouslySetInnerHTML={createContent()} />
         </div>
       </div>
     </div>
