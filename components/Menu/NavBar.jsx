@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { BsCart } from "react-icons/bs";
 
 import CartPreview from "../CartPreview/CartPreview";
@@ -7,6 +7,9 @@ import {
   CartDispatchContext,
   toggleCartPopup
 } from "../../contexts/cart";
+
+import { FaCoins } from "react-icons/fa";
+import { useCoins } from "../../contexts/coins";
 
 const NavBar = (props) => {
   const [navbar, setNavbar] = useState(false);
@@ -25,6 +28,17 @@ const NavBar = (props) => {
     event.preventDefault();
     return toggleCartPopup(cartDispatch);
   };
+
+  const { coins, setCoins } = useCoins();
+
+  useEffect(() => {
+
+    const coinsQtd = localStorage.getItem('coins');
+
+    if (coinsQtd) {
+      setCoins(coinsQtd);
+    }
+  }, []);
 
   return (
     <nav className="w-full bg-red-600 shadow fixed z-50">
@@ -108,7 +122,15 @@ const NavBar = (props) => {
               >
                 Doar
               </a>
-              <div className="cart">
+              <div className="coins">
+                <a className="coins-icon" href="#">
+                  <div className="flex">
+                    <span className="coins text-white mt-1 mr-2">{coins}</span>
+                    <FaCoins className="h-8 w-6" fill="white" aria-hidden="true" />
+                  </div>
+                </a>
+              </div>
+              {/* <div className="cart">
                 <a className="cart-icon" href="#" onClick={handleCartButton}>
                   <div className="flex">
                     <span className="cart-count text-white mt-1 mr-2">{cartQuantity ? cartQuantity : 0}</span>
@@ -116,7 +138,7 @@ const NavBar = (props) => {
                   </div>
                 </a>
                 <CartPreview cartTotal={cartTotal} />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -133,7 +155,15 @@ const NavBar = (props) => {
           >
             Doar
           </a>
-          <div className="cart mt-1">
+          <div className="coins mt-1">
+            <a className="coins-icon" href="#" >
+              <div className="flex">
+                <span className="coins text-white mt-1 mr-2">{coins}</span>
+                <FaCoins className="h-8 w-6" fill="white" aria-hidden="true" />
+              </div>
+            </a>
+          </div>
+          {/* <div className="cart mt-1">
             <a className="cart-icon" href="#" onClick={handleCartButton}>
               <div className="flex">
                 <span className="cart-count text-white mt-1 mr-2">{cartQuantity ? cartQuantity : 0}</span>
@@ -141,7 +171,7 @@ const NavBar = (props) => {
               </div>
             </a>
             <CartPreview cartTotal={cartTotal} />
-          </div>
+          </div> */}
         </div>
       </div>
     </nav>

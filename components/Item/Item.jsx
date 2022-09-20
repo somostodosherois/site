@@ -1,18 +1,78 @@
 import React, { useContext, useState } from "react";
-import { CartDispatchContext, addToCart } from "../../contexts/cart";
+// import { CartDispatchContext, addToCart } from "../../contexts/cart";
+
+import { useCoins } from "../../contexts/coins";
+import swal from 'sweetalert';
+import Router from 'next/router';
 
 const Item = ({ item, index, hero }) => {
     const { id, name, image, price, description } = item || {}
-    const dispatch = useContext(CartDispatchContext);
+    // const dispatch = useContext(CartDispatchContext);
 
     const handleChange = (e) => {
         item.price = e.target.value
     }
-  
-    const handleAddToCart = () => {
-      const product = { ...item, quantity: 1, hero: hero };
-      addToCart(dispatch, product);
+
+    // const handleAddToCart = () => {
+    //     const product = { ...item, quantity: 1, hero: hero };
+    //     addToCart(dispatch, product);
+    // };
+
+    const { coins, setCoins } = useCoins();
+
+    const handlePurchaseItem = (product, total) => {
+
+        if (total < 0) {
+            swal({
+                title: "Moedas insuficientes. Deseja recarregar?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+                buttons: ["Agora não", "Sim"],
+            }).then((value) => {
+                if (value) {
+                    if (value) {
+                        Router.push('/pagamento')
+                    }
+                }
+              });
+        } else {
+            setCoins(total);
+            localStorage.setItem('coins', total);
+            swal({
+                title: "Doação realizada com sucesso!",
+                text: "Nós agradecemos o ato heróico!",
+                icon: "success",
+                button: false,
+              });
+        }
     };
+
+    const handleAlert = () => {
+        swal({
+            title: "Deseja confirmar a doação?",
+            buttons: true,
+            dangerMode: true,
+            buttons: ["Cancelar", "Confirmar"],
+        }).then((value) => {
+            if (value) {
+                if (value) {
+                    handlePurchaseItem();
+                }
+            }
+          });
+    }
+
+    const handleValue = () => {
+        const product = { ...item, quantity: 1, hero: hero };
+        const total = (coins - product.price);
+
+        if (total < 0) {
+            handlePurchaseItem(product, total);
+        }else {
+            handleAlert();
+        }
+    }
 
     return (
         <div className='grid p-4 border border-gray-200 justify-center' key={index}>
@@ -43,17 +103,18 @@ const Item = ({ item, index, hero }) => {
                         "
                     type='text'
                     placeholder="R$ 0,00"
-                    onChange={(e) => handleChange(e)} 
+                    onChange={(e) => handleChange(e)}
                 />
             }
             <a
                 href="#"
-                onClick={handleAddToCart}
+                // onClick={handleAddToCart}
+                onClick={handleValue}
                 className="inline-flex mt-4 items-center justify-center px-7 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700"
             >
                 Doar
             </a>
-        </div> 
+        </div>
     )
 }
 
