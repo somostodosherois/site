@@ -49,8 +49,18 @@ export default function Pagamento() {
     const sum = parseInt(coins) + parseInt(amount);
     localStorage.setItem('coins', sum);
     setCoins(parseInt(sum));
-    swal('Recarga realizada com sucesso!')
-    Router.push('/')
+    swal({
+      title: "Recarga realizada com sucesso!",
+      text: "Agora você já pode realizar as doações. Vamos juntos?",
+      icon: "success",
+      button: "Vamos",
+    }).then((value) => {
+      if (value) {
+          if (value) {
+            Router.push('/')
+          }
+      }
+    });
   }
 
   return (
