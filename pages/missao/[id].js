@@ -11,31 +11,36 @@ import { useRouter } from 'next/router';
 import api from '../api/config'
 
 
-const Missao = () => {
-  const [hero, setHero] = useState({})
-  const router = useRouter()
-  const { id } = router.query
+export default function Missao({ hero }) {
 
-  useEffect(() => {
-    api.get(`posts?slug=${id}`)
-      .then((response) => {
-        response.data.map(({ id, title, content }) => (
-          setHero({
-            id: id,
-            name: title?.rendered,
-            image: 'https://sth.org.br/images/2021/11/Design-sem-nome-8.png',
-            content: content.rendered,
-            meta: 'Sessões de Estimulação Magnética Transcraniana',
-            value: '3.311,00',
-            percentage: '67',
-            dateFinal: '29/07/2022',
-          })
-        ))
-      })
-      .catch((err) => {
-        return console.error("ops! ocorreu um erro : " + err);
-      })
-  }, id)
+  console.log(hero)
+  // const [hero, setHero] = useState({})
+  // const router = useRouter()
+  // const { id } = router.query
+
+  // useEffect(() => {
+  //   if (id && !hero.id) {
+  //     api.get(`missions.php?slug=${id}`)
+  //       .then((response) => {
+  //         console.log(response)
+  //         response.map(({ id, name, metadesc, post_title, post_content, meta, prazo, post_date }) => (
+  //           setHero({
+  //             id: id,
+  //             name: name,
+  //             image: 'https://sth.org.br/images/2021/11/Design-sem-nome-8.png',
+  //             content: post_content,
+  //             meta: metadesc,
+  //             value: meta,
+  //             percentage: '67',
+  //             dateFinal: post_date,
+  //           })
+  //         ))
+  //       })
+  //       .catch((err) => {
+  //         return console.error("ops! ocorreu um erro : " + err);
+  //       })
+  //   }
+  // }, id)
 
   return (
     <div>
@@ -45,12 +50,45 @@ const Missao = () => {
         <link rel="icon" href="https://sth.org.br/wp-content/themes/sth/images/favicon.png" />
       </Head>
       <Menu />
-      <CardHero hero={hero} />
-      <DonationBlock hero={hero} />
+      {hero &&
+        <>
+          <CardHero hero={hero} />
+          <DonationBlock hero={hero} />
+        </>
+      }
       <TimelineMission />
       <Footer />
     </div>
   )
 }
 
-export default Missao
+export async function getStaticPaths() {
+  // Return a list of possible value for id
+  // const heros = await fetch('https://sth.org.br/missions.php').then(res => res.json());
+  // const paths = heros.map(hero => {
+  //   const heroId = hero.slug;
+  //   return {
+  //     params: {
+  //       heroId
+  //     }
+  //   }
+  // })
+
+  // console.log(paths)
+
+  return {
+    paths: [],
+    fallback: false
+  }
+}
+
+export async function getStaticProps({ params }) {
+  // Fetch necessary data for the blog post using params.id
+  const heroId = params.id
+  const results = await fetch(`https://sth.org.br/missions.php?slug=${heroId}`).then(res => res.json());
+  return {
+    props: {
+      hero: results[0]
+    }
+  }
+}

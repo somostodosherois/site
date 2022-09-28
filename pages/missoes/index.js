@@ -5,7 +5,7 @@ import Footer from '../../components/Footer'
 import Missions from '../../components/Missions'
 import Menu from '../../components/Menu';
 
-export default function Missoes() {
+export default function Missoes({ heros }) {
   return (
     <div>
       <Head>
@@ -15,9 +15,19 @@ export default function Missoes() {
       </Head>
       <Menu />
       <div className='pt-16'>
-        <Missions />
+        <Missions heros={heros}/>
       </div>
       <Footer />
     </div>
   )
+}
+
+export async function getStaticProps() {
+  // Fetch necessary data for the blog post using params.id
+  const results = await fetch(`https://sth.org.br/missions.php`).then(res => res.json());
+  return {
+    props: {
+      heros: results
+    }
+  }
 }

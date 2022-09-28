@@ -1,212 +1,59 @@
 import React from 'react';
-import { BsCurrencyDollar, BsCalendarDate } from "react-icons/bs";
+import { BsCashCoin, BsCalendarDate } from "react-icons/bs";
 import TitleSession from '../../components/TitleSession/TitleSession';
-
-
-const callouts = [
-  {
-    name: 'Mega Otavio',
-    description: 'Olá! Meu nome é Luis Otavio, mas pode me chamar de Mega Otavio! Tenho 6 anos, moro em Francisco Beltrão no estado do Paraná, e possuo ...',
-    total: 'R$ 3.495,00 arrecadados',
-    totalDays: '30 dias restantes',
-    imageSrc: 'https://sth.org.br/images/2022/03/Design-sem-nome-5.png',
-    imageAlt: 'Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.',
-    href: '1234',
-  },
-  {
-    name: 'Super Maria Alyce',
-    description: 'Querido Papai Noel, me chamo Maria Alyce, mas pode me chamar de Super Maria Alyce! Tenho 6 anos, moro em Francisco Beltrão no estado do Paraná.',
-    total: 'R$ 1.591,50 arrecadados',
-    totalDays: '30 dias restantes',
-    imageSrc: 'https://sth.org.br/images/2021/11/WhatsAppImage2021-10-27at21.34.42-300x300.jpeg',
-    imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
-    href: '2132',
-  },
-  {
-    name: 'Mega Heitor',
-    description: 'Olá! Me chamo Heitor, mas pode me chamar de Mega Heitor! Tenho 2 aninhos, moro em São João de Meriti no estado do Rio de Janeiro, e...',
-    total: 'R$ 1.591,50 arrecadados',
-    totalDays: '30 dias restantes',
-    imageSrc: 'https://sth.org.br/images/2021/11/20210831_102743-300x300.jpg',
-    imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
-    href: '4343',
-  },
-  {
-    name: 'Mega Otavio',
-    description: 'Olá! Meu nome é Luis Otavio, mas pode me chamar de Mega Otavio! Tenho 6 anos, moro em Francisco Beltrão no estado do Paraná, e possuo ...',
-    total: 'R$ 3.495,00 arrecadados',
-    totalDays: '30 dias restantes',
-    imageSrc: 'https://sth.org.br/images/2022/03/Design-sem-nome-5.png',
-    imageAlt: 'Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.',
-    href: '434332',
-  },
-  {
-    name: 'Super Maria Alyce',
-    description: 'Querido Papai Noel, me chamo Maria Alyce, mas pode me chamar de Super Maria Alyce! Tenho 6 anos, moro em Francisco Beltrão no estado do Paraná.',
-    total: 'R$ 1.591,50 arrecadados',
-    totalDays: '30 dias restantes',
-    imageSrc: 'https://sth.org.br/images/2021/11/WhatsAppImage2021-10-27at21.34.42-300x300.jpeg',
-    imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
-    href: '#',
-  },
-  {
-    name: 'Mega Heitor',
-    description: 'Olá! Me chamo Heitor, mas pode me chamar de Mega Heitor! Tenho 2 aninhos, moro em São João de Meriti no estado do Rio de Janeiro, e...',
-    total: 'R$ 1.994,00 arrecadados',
-    totalDays: '30 dias restantes',
-    imageSrc: 'https://sth.org.br/images/2021/11/20210831_102743-300x300.jpg',
-    imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
-    href: '#',
-  },
-  {
-    name: 'Mega Otavio',
-    description: 'Olá! Meu nome é Luis Otavio, mas pode me chamar de Mega Otavio! Tenho 6 anos, moro em Francisco Beltrão no estado do Paraná, e possuo ...',
-    total: 'R$ 3.495,00 arrecadados',
-    totalDays: '30 dias restantes',
-    imageSrc: 'https://sth.org.br/images/2022/03/Design-sem-nome-5.png',
-    imageAlt: 'Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.',
-    href: '#',
-  },
-  {
-    name: 'Super Maria Alyce',
-    description: 'Querido Papai Noel, me chamo Maria Alyce, mas pode me chamar de Super Maria Alyce! Tenho 6 anos, moro em Francisco Beltrão no estado do Paraná.',
-    total: 'R$ 1.591,50 arrecadados',
-    totalDays: 0,
-    imageSrc: 'https://sth.org.br/images/2021/11/WhatsAppImage2021-10-27at21.34.42-300x300.jpeg',
-    imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
-    href: '#',
-  },
-  {
-    name: 'Mega Heitor',
-    description: 'Olá! Me chamo Heitor, mas pode me chamar de Mega Heitor! Tenho 2 aninhos, moro em São João de Meriti no estado do Rio de Janeiro, e...',
-    total: 'R$ 1.591,50 arrecadados',
-    totalDays: 0,
-    imageSrc: 'https://sth.org.br/images/2021/11/20210831_102743-300x300.jpg',
-    imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
-    href: '#',
-  },
-  {
-    name: 'Mega Otavio',
-    description: 'Olá! Meu nome é Luis Otavio, mas pode me chamar de Mega Otavio! Tenho 6 anos, moro em Francisco Beltrão no estado do Paraná, e possuo ...',
-    total: 'R$ 3.495,00 arrecadados',
-    totalDays: 0,
-    imageSrc: 'https://sth.org.br/images/2022/03/Design-sem-nome-5.png',
-    imageAlt: 'Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.',
-    href: '#',
-  },
-  {
-    name: 'Super Maria Alyce',
-    description: 'Querido Papai Noel, me chamo Maria Alyce, mas pode me chamar de Super Maria Alyce! Tenho 6 anos, moro em Francisco Beltrão no estado do Paraná.',
-    total: 'R$ 1.591,50 arrecadados',
-    totalDays: 0,
-    imageSrc: 'https://sth.org.br/images/2021/11/WhatsAppImage2021-10-27at21.34.42-300x300.jpeg',
-    imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
-    href: '#',
-  },
-  {
-    name: 'Mega Heitor',
-    description: 'Olá! Me chamo Heitor, mas pode me chamar de Mega Heitor! Tenho 2 aninhos, moro em São João de Meriti no estado do Rio de Janeiro, e...',
-    total: 'R$ 1.994,00 arrecadados',
-    totalDays: 0,
-    imageSrc: 'https://sth.org.br/images/2021/11/20210831_102743-300x300.jpg',
-    imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
-    href: '#',
-  },
-  {
-    name: 'Mega Heitor',
-    description: 'Olá! Me chamo Heitor, mas pode me chamar de Mega Heitor! Tenho 2 aninhos, moro em São João de Meriti no estado do Rio de Janeiro, e...',
-    total: 'R$ 1.994,00 arrecadados',
-    totalDays: 0,
-    imageSrc: 'https://sth.org.br/images/2021/11/20210831_102743-300x300.jpg',
-    imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
-    href: '#',
-  },
-  {
-    name: 'Mega Heitor',
-    description: 'Olá! Me chamo Heitor, mas pode me chamar de Mega Heitor! Tenho 2 aninhos, moro em São João de Meriti no estado do Rio de Janeiro, e...',
-    total: 'R$ 1.994,00 arrecadados',
-    totalDays: 0,
-    imageSrc: 'https://sth.org.br/images/2021/11/20210831_102743-300x300.jpg',
-    imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
-    href: '#',
-  },
-  {
-    name: 'Mega Heitor',
-    description: 'Olá! Me chamo Heitor, mas pode me chamar de Mega Heitor! Tenho 2 aninhos, moro em São João de Meriti no estado do Rio de Janeiro, e...',
-    total: 'R$ 1.994,00 arrecadados',
-    totalDays: 0,
-    imageSrc: 'https://sth.org.br/images/2021/11/20210831_102743-300x300.jpg',
-    imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
-    href: '#',
-  },
-]
-
-const inProgress = (callouts.length && callouts.filter(obj => obj.totalDays !== 0)) || []
-const isFinished = (callouts.length && callouts.filter(obj => obj.totalDays === 0)) || []
+import diffDates from '../../hooks/diffDates';
+import formatCurrent from '../../hooks/formatCurrent';
 
 const Cards = ({ items }) => (
   <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-8">
-    {items.map(({ name, imageAlt, imageSrc, href, description, total, totalDays }) => (
-      <div key={name} className="group relative bg-white border border-transparent rounded-xl">
-        <div className="hidden sm:block bg-white -group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 h-50 lg:aspect-w-1 lg:aspect-h-1">
-          <img
-            src={imageSrc}
-            alt={imageAlt}
-            className="w-full h-full object-center object-cover"
-          />
-        </div>
-
-        <div className='p-4'>
-          <h3 className="mt-4 text-base font-semibold text-gray-900">
-            <a href={'missoes/' + href}>
-              {name}
-            </a>
-          </h3>
-          <p className="mt-2 text-sm text-gray-500 h-24">{description}</p>
-
-          {totalDays !== 0 &&
-            <div className="w-full bg-gray-200 rounded-full mt-4">
-              <div className="bg-green-500 text-3xs font-medium text-white text-center p-0.5 leading-none rounded-full" style={{ width: '45%' }}> 45%</div>
-            </div>
-          }
-
-
-          <div className='flex mt-4 justify-content'>
-            <BsCurrencyDollar className="h-6 w-6 text-green-600" aria-hidden="true" />
-            <p className="px-1 text-gray-500">{total}</p>
+    {items.map(({ id, name, image, slug, status, metadesc, meta, arrecadado, prazo }) => (
+      <a href={'missao/' + slug}>
+        <div key={id} className="group relative bg-white border border-transparent rounded-xl h-full">
+          <div className="hidden  sm:block bg-white -group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 lg:aspect-w-1 lg:aspect-h-1">
+            <img
+              src={image}
+              alt={name}
+              className="w-full h-full object-center object-cover"
+              style={{ height: '35vh' }}
+            />
           </div>
 
-          {totalDays !== 0 &&
+          <div className='p-4'>
+            <h3 className="mt-4 text-base font-semibold text-gray-900">{name}</h3>
+            <p className="mt-2 text-sm text-gray-500 h-8 description-card-heros">Meta: {metadesc}</p>
+
+            {status === 'open' &&
+              <div className="w-full bg-gray-200 rounded-full mt-4">
+                <div className="bg-green-500 text-3xs font-medium text-white text-center p-0.5 leading-none rounded-full" style={{ width: parseInt((arrecadado * 100) / meta) + '%' }}> { parseInt((arrecadado * 100) / meta)}%</div>
+              </div>
+            }
+
             <div className='flex mt-4 justify-content'>
-              <BsCalendarDate className="h-6 w-6 text-blue-400" aria-hidden="true" />
-              <p className="px-2 text-gray-500">{totalDays}</p>
+              <BsCashCoin className="h-6 w-6 text-green-600 mt-1" aria-hidden="true" />
+              <p className="px-2 text-gray-500 text-base"><b>{formatCurrent(arrecadado)}</b> arrecadados</p>
             </div>
-          }
+
+            {status === 'open' &&
+              <div className='flex mt-4 justify-content'>
+                <BsCalendarDate className="h-6 w-6 text-blue-400 mt-1" aria-hidden="true" />
+                <p className="px-2 text-gray-500">{diffDates(prazo) - 1} {(diffDates(prazo) - 1)  > 1 ? 'dias restantes' : 'dia restante'}</p>
+              </div>
+            }
 
 
-          {totalDays !== 0 &&
-            <div className="rounded-md mt-6 shadow">
-              <a
-                href="#"
-                className="flex items-center justify-center bg-red-600 text-lg uppercase rounded-md text-white py-1 px-4"
-              >
-                Ajudar este herói
-              </a>
-            </div>
-          }
-
-          {totalDays !== 0 &&
-            <div className="rounded-md mt-4 shadow">
-              <a
-                href="#"
-                className="flex items-center justify-center bg-red-100 text-lg uppercase rounded-md text-red-500 py-1 px-4"
-              >
-                Doar por Pix rápido
-              </a>
-            </div>
-          }
+            {status === 'open' &&
+              <div className="rounded-md mt-6 shadow">
+                <a
+                  href={'missao/' + slug}
+                  className="flex items-center justify-center bg-red-600 text-lg uppercase rounded-md text-white py-1 px-4"
+                >
+                  Ajudar este herói
+                </a>
+              </div>
+            }
+          </div>
         </div>
-      </div>
+      </a>
     ))}
   </div>
 )
@@ -217,7 +64,7 @@ const ContainerMissions = ({ items, title }) => (
       <TitleSession title={title} />
       <Cards items={items} />
 
-      {items === isFinished &&
+      {/* {items === isFinished &&
         <div className="rounded-md mx-auto items-center content-center text-center mt-16 w-64">
           <a
             href="#"
@@ -226,15 +73,18 @@ const ContainerMissions = ({ items, title }) => (
             Ver todas as missões
           </a>
         </div>
-      }
+      } */}
     </div>
   </div>
 )
 
-const Missions = ({ slice }) => {
+const Missions = ({ slice, heros }) => {
 
   const variation = slice?.primary?.variation
   const title = slice?.primary?.title || 'Missões em Andamento'
+
+  const inProgress = (heros.length && heros.filter(obj => obj.status === 'open')) || []
+  const isFinished = (heros.length && heros.filter(obj => obj.status === 'finish')) || []
 
   return (
     <>
