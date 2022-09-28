@@ -20,6 +20,13 @@
   }
 }
 
+.description-card-heros {
+  max-width: 290px; /* Tamanho */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+
 p {
   line-height: 2rem;
   font-size: large;
@@ -33,6 +40,19 @@ p {
   background-color: #DC2626;
 }
 
+#content-hero p {
+  font-size: medium;
+  text-align: left !important;
+}
+
+#content-hero p:first-child { 
+  display: none;
+  /* justify-content: center; */
+}
+
+#content-hero p:last-child { 
+  margin-top: 2rem;
+}
 
 #sdg-3 {
   height: 15vh;

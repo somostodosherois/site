@@ -4,6 +4,7 @@ import React, { useContext, useState } from "react";
 import { useCoins } from "../../contexts/coins";
 import swal from 'sweetalert';
 import Router from 'next/router';
+import formatCurrent from "../../hooks/formatCurrent";
 
 const Item = ({ item, index, hero }) => {
     const { id, name, image, price, description } = item || {}
@@ -48,9 +49,9 @@ const Item = ({ item, index, hero }) => {
         }
     };
 
-    const handleAlert = () => {
+    const handleAlert = (product) => {
         swal({
-            title: "Deseja confirmar a doação?",
+            title: `Deseja confirmar a doação de ${formatCurrent(product)} ?`,
             buttons: true,
             dangerMode: true,
             buttons: ["Cancelar", "Confirmar"],
@@ -70,7 +71,7 @@ const Item = ({ item, index, hero }) => {
         if (total < 0) {
             handlePurchaseItem(product, total);
         }else {
-            handleAlert();
+            handleAlert(product.price);
         }
     }
 
@@ -84,7 +85,7 @@ const Item = ({ item, index, hero }) => {
             }
             {id === '4' &&
                 <input
-                    class="form-control
+                    className="form-control
                             block 
                             w-full
                             px-3

@@ -1,59 +1,82 @@
 import React from 'react'
-import { BsCurrencyDollar, BsCalendarDate } from "react-icons/bs";
+import ReactDOM from 'react-dom';
 
-const CardHero = () => {
-  const hero = {
-    name: 'Gabriel Hulk',
-    meta: 'Sessões de Estimulação Magnética Transcraniana',
-    value: '3.311,00',
-    percentage: '67',
-    dateFinal: '29/07/2022',
-    image: 'https://sth.org.br/images/2021/11/Design-sem-nome-8.png',
-    text: `<div className="link mbottom"><p style="line-height: 35px; text-align: center;">Olá! Me chamo&nbsp;Gabriel, mas pode me chamar de&nbsp;<strong>Gabriel Hulk!&nbsp;</strong>Eu nasci&nbsp;com&nbsp;<a id="fprsl" className="gL9Hy" href="https://www.einstein.br/especialidades/medicina-fetal/material-de-apoio-ao-paciente/mielomeningocele-cartilha-orientacao-apos-alta#:~:text=A%20mielomeningocele%20%C3%A9%20um%20defeito,ainda%20n%C3%A3o%20%C3%A9%20bem%20definida." data-ved="2ahUKEwiQ_r63o7HzAhVaq5UCHR5XD3cQkeECKAB6BAgBEDY">Mielomeningocele</a></p>
-    <p style="line-height: 35px; text-align: center;">e&nbsp;<a href="https://www.medtronic.com/br-pt/your-health/conditions/hydrocephalus/o-que-e-hidrocefalia.html#:~:text=A%20Hidrocefalia%20%C3%A9%20derivada%20de,%2C%20referindo%2Dse%20%C3%A0%20cabe%C3%A7a.&amp;text=A%20hidrocefalia%20implica%20uma%20quantidade,do%20c%C3%A9rebro%2C%20conhecidas%20como%20ventr%C3%ADculos.">Hidrocefalia</a>&nbsp;e&nbsp;já passei por 5 cirurgias nos&nbsp;meus 5 anos de vida. Hoje, Recentemente passei por uma avaliação na clínica intensiva para um tratamento que auxiliará seu&nbsp;desenvolvimento motor e um possível desfralde.&nbsp;Moro&nbsp;na cidade de&nbsp;Mogi Guaçu, no estado de São Paulo e esse tratamento com &nbsp;<a href="https://www.neurologiaintegrada.com.br/estimulacao-magnetica-transcraniana-tms/">TMS (Estimulação Magnética Transcraniana)</a>&nbsp;custa R$900,00 cada sessão.</p>
-    <p style="text-align: center;"><b>Por isso, eu gostaria de ganhar 9 sessões de&nbsp;TMS.</b></p>
-    <p style="text-align: right;">Com carinho,&nbsp;Gabriel Hulk.</p></div>`
+import { BsCurrencyDollar, BsCalendarDate } from "react-icons/bs";
+import formatCurrent from '../../hooks/formatCurrent';
+import diffDates from '../../hooks/diffDates';
+
+const CardHero = ({ hero }) => {
+
+  function convertTotHtml() {
+    return { __html: hero.post_content };
   }
 
-  // const diffDates = () => {
+  // ReactDOM.render(<Pai />, document.querySelector('#content-hero'))
 
-  // }
-
-  // const convertTotHtml = () => {
-
-  // }
+  const calcPercentage = () => {
+    return parseInt((hero.arrecadado * 100) / hero.meta)
+  }
 
   return (
     <div className='bg-gray-100 pb-8'>
-      <div className='max-w-7xl mx-auto px-4 pt-12 sm:px-6 space-y-16 lg:grid lg:grid-cols-3 lg:gap-x-6 pt-20 lg:flex'>
-        <div className='p-6 w-2xl mt-4 md:mt-12'>
-          <center>
-            <img src={hero.image}></img>
-            <h1 className='mt-4 text-2xl leading-8 font-extrabold text-center tracking-tight text-red-600 sm:text-2xl uppercase'>{hero.name}</h1>
 
-            <h3 className='m-2 text-xl leading-6 font-medium text-gray-800'>Meta: {hero.meta}</h3>
+      <div className='max-w-7xl mx-auto px-4 pt-12 sm:px-6 pt-20'>
 
-            <div className='flex mt-4 justify-content'>
-              <BsCurrencyDollar className="h-5 w-5 mt-1 text-green-600 mr-2" aria-hidden="true" />
-              <p className="max-w-6xl text-xl text-gray-600">R$ {hero.value} arrecadados</p>
+
+        <div className='space-y-6 lg:grid lg:grid-cols-3 lg:gap-x-6'>
+          <div className='p-6 w-2xl md:mt-12'>
+            <center>
+              <img src={hero.image} style={{ height: '250px' }} className='rounded-full shadow-xl'></img>
+
+
+              {/* <div className='flex mt-4 justify-content'>
+                <BsCurrencyDollar className="h-5 w-5 mt-1 text-green-600 mr-2" aria-hidden="true" />
+                <p className="max-w-4xl text-xl text-gray-600">{formatCurrent(hero.arrecadado)} arrecadados de {formatCurrent(hero.meta)}</p>
+              </div>
+
+              <div className='flex mt-4 justify-content'>
+                <BsCurrencyDollar className="h-5 w-5 mt-1 text-green-600 mr-2" aria-hidden="true" />
+                <p className="max-w-4xl text-xl text-gray-600">{formatCurrent(hero.arrecadado)} arrecadados de {formatCurrent(hero.meta)}</p>
+              </div>
+
+              <div className='flex mt-4 justify-content'>
+                <BsCalendarDate className="h-5 w-5 mt-1 text-blue-400 mr-2" aria-hidden="true" />
+                <p className="max-w-6xl text-xl text-gray-600">{diffDates()} dias restantes</p>
+              </div> */}
+            </center>
+
+
+
+          </div>
+          <div className='col-span-2'>
+            <h1 className='mt-4 text-2xl leading-8 font-extrabold text-left tracking-tight text-red-600 sm:text-2xl uppercase'>{hero.name}</h1>
+            <h3 className='text-lg leading-6 font-medium text-gray-800 pt-2 pb-2'>Meta: <b>{hero.metadesc}</b></h3>
+
+            <div className='lg:grid lg:grid-cols-3 lg:gap-x-6'>
+              <div className='pt-4'>
+                <p className="text-lg text-gray-800"><b>{formatCurrent(hero.meta)}</b> meta total</p>
+              </div>
+              <div className='pt-4'>
+                <p className="text-lg text-gray-800"><b>{formatCurrent(hero.arrecadado)}</b> arrecadados</p>
+              </div>
+              <div className='pt-4 flex'>
+                <BsCalendarDate className="h-5 w-5 mt-1 text-blue-400 mr-2" aria-hidden="true" />
+                <p className="text-lg text-gray-800"><b>{diffDates(hero.prazo) - 1}</b> dias restantes</p>
+              </div>
             </div>
 
-            <div className='flex mt-4 justify-content'>
-              <BsCalendarDate className="h-5 w-5 mt-1 text-blue-400 mr-2" aria-hidden="true" />
-              <p className="max-w-6xl text-xl text-gray-600">5 dias restantes</p>
+            <div id="content-hero" className='pt-8'>
+              <div className='text-base' dangerouslySetInnerHTML={convertTotHtml()} />
             </div>
-          </center>
 
-          <div className="w-full bg-gray-200 rounded-full mt-6">
-            <div className="bg-green-500 text-sm font-medium text-white text-center p-2 leading-none rounded-full" style={{ width: hero.percentage + '%' }}> {hero.percentage}% da meta atingida</div>
+            <div className='text-center text-sm'>
+              Porcentagem atingida da meta
+              <div className="bg-gray-200 rounded-full mt-2">
+                <div className="bg-green-500 text-sm text-white text-center p-1 leading-none rounded-full" style={{ width: calcPercentage() + '%' }}> {calcPercentage()}%</div>
+              </div>
+            </div>
           </div>
 
-        </div>
-        <div className='col-span-2'>
-          <p>Olá! Me chamo Gabriel, mas pode me chamar de Gabriel Hulk!</p>
-          <p className='mt-4'>Eu nasci com Mielomeningocele e Hidrocefalia e já passei por 5 cirurgias nos meus 5 anos de vida. Hoje, Recentemente passei por uma avaliação na clínica intensiva para um tratamento que auxiliará seu desenvolvimento motor e um possível desfralde. Moro na cidade de Mogi Guaçu, no estado de São Paulo e esse tratamento com  TMS (Estimulação Magnética Transcraniana) custa R$900,00 cada sessão. Por isso, eu gostaria de ganhar 9 sessões de TMS. </p>
-          <center><img className='mt-4' src='https://sth.org.br/images/2021/10/IMG_20210725_194253003_HDR-e1633368207861.jpg' /></center>
-          <p className='text-right mt-4'>Com carinho, Gabriel Hulk.</p>
         </div>
       </div>
     </div>

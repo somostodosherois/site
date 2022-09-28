@@ -24,7 +24,7 @@ const Page = ({ page, menu, metaTitle, metaDescription, slices }) => {
             <div className='pt-16 pb-16'>
                 <SliceZone slices={slices} components={components} />
                 <center>
-                    <img src="https://i.giphy.com/khf7rqmlf5YLwOGIiO.gif" class="img-responsive" />
+                    <img src="https://i.giphy.com/khf7rqmlf5YLwOGIiO.gif" className="img-responsive" />
                 </center>
             </div>
             <Footer />

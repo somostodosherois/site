@@ -2,43 +2,46 @@ import React, { useState } from 'react'
 import { FcOk } from "react-icons/fc";
 import Item from '../Item/Item';
 
-
-const items = [
-  {
-    id: '1',
-    name: 'Escudo STH',
-    image: 'https://sth.org.br/images/itens/escudo.png',
-    price: '10'
-  },
-  {
-    id: '2',
-    name: 'Capa',
-    image: 'https://sth.org.br/images/itens/capa.png',
-    price: '30'
-  },
-  {
-    id: '3',
-    name: 'Colete Protetor',
-    image: 'https://sth.org.br/images/itens/colete-anna-karla.png',
-    price: '45'
-  },
-  {
-    id: '4',
-    name: 'Caixa Surpresa',
-    image: 'https://sth.org.br/images/itens/secreto.png',
-    description: 'E você quem determina o valor',
-    price: '0'
-  },
-  {
-    id: '5',
-    name: 'Baú da Esperança',
-    image: 'https://sth.org.br/images/itens/matador.gif',
-    description: 'Finalize esta missão!',
-    price: '1'
-  }
-]
-
 const DonationBlock = ({ hero }) => {
+
+  const diffBau = () => {
+    return hero.meta - hero.arrecadado
+  }
+  
+  const items = [
+    {
+      id: '1',
+      name: 'Escudo STH',
+      image: 'https://sth.org.br/images/itens/escudo.png',
+      price: 10
+    },
+    {
+      id: '2',
+      name: 'Capa',
+      image: 'https://sth.org.br/images/itens/capa.png',
+      price: 30
+    },
+    {
+      id: '3',
+      name: 'Colete Protetor',
+      image: 'https://sth.org.br/images/itens/colete-anna-karla.png',
+      price: 45
+    },
+    {
+      id: '4',
+      name: 'Caixa Surpresa',
+      image: 'https://sth.org.br/images/itens/secreto.png',
+      description: 'É você quem determina o valor',
+      price: 0
+    },
+    {
+      id: '5',
+      name: 'Baú da Esperança',
+      image: 'https://sth.org.br/images/itens/matador.gif',
+      description: 'Finalize esta missão!',
+      price: diffBau()
+    }
+  ]
 
   return (
     <div className='max-w-7xl mx-auto px-4 space-y-12'>

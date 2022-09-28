@@ -8,7 +8,7 @@ import {
   toggleCartPopup
 } from "../../contexts/cart";
 
-import { FaCoins } from "react-icons/fa";
+import { GiTwoCoins } from "react-icons/gi";
 import { useCoins } from "../../contexts/coins";
 
 const NavBar = (props) => {
@@ -126,7 +126,7 @@ const NavBar = (props) => {
                 <a className="coins-icon" href="#">
                   <div className="flex">
                     <span className="coins text-white mt-1 mr-2">{coins}</span>
-                    <FaCoins className="h-8 w-6" fill="white" aria-hidden="true" />
+                    <GiTwoCoins className="h-8 w-6" fill="white" aria-hidden="true" />
                   </div>
                 </a>
               </div>
@@ -159,7 +159,7 @@ const NavBar = (props) => {
             <a className="coins-icon" href="#" >
               <div className="flex">
                 <span className="coins text-white mt-1 mr-2">{coins}</span>
-                <FaCoins className="h-8 w-6" fill="white" aria-hidden="true" />
+                <GiTwoCoins className="h-8 w-6" fill="white" aria-hidden="true" />
               </div>
             </a>
           </div>
