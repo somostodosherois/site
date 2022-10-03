@@ -27,13 +27,13 @@ export default function Pagamento() {
   const [amount, setAmount] = useState(0);
   const { coins, setCoins } = useCoins();
 
-  const cartQuantity = cartItems
-    .map((item) => item.quantity)
-    .reduce((prev, current) => prev + current, 0);
+  // const cartQuantity = cartItems
+  //   .map((item) => item.quantity)
+  //   .reduce((prev, current) => prev + current, 0);
 
-  const cartTotal = cartItems
-    .map((item) => item.price * item.quantity)
-    .reduce((prev, current) => prev + current, 0);
+  // const cartTotal = cartItems
+  //   .map((item) => item.price * item.quantity)
+  //   .reduce((prev, current) => prev + current, 0);
 
   const handleRemove = (productId) => {
     return removeFromCart(dispatch, productId);
@@ -44,23 +44,23 @@ export default function Pagamento() {
   )
 
   const handleRecharge = (e, amount) => {
-
     e.preventDefault();
-    const sum = parseInt(coins) + parseInt(amount);
+    const sum = parseFloat(coins) + parseFloat(amount);
     localStorage.setItem('coins', sum);
-    setCoins(parseInt(sum));
+    setCoins(parseFloat(sum));
+
     swal({
       title: "Recarga realizada com sucesso!",
-      text: "Agora você já pode realizar as doações. Vamos juntos?",
+      text: "Agora você já pode realizar as doações.",
       icon: "success",
-      button: "Vamos",
-    }).then((value) => {
-      if (value) {
-          if (value) {
-            Router.push('/')
-          }
-      }
-    });
+      button: false,
+    })
+    
+    setTimeout(() => {
+      const hero = localStorage.getItem('hero');
+      swal.close()
+      Router.push(`/missao/${hero}`)
+    }, 1000);
   }
 
   return (

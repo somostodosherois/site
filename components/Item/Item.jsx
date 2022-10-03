@@ -6,8 +6,10 @@ import swal from 'sweetalert';
 import Router from 'next/router';
 import formatCurrent from "../../hooks/formatCurrent";
 
-const Item = ({ item, index, hero }) => {
+const Item = ({ item, hero }) => {
     const { id, name, image, price, description } = item || {}
+    const { coins, setCoins } = useCoins();
+
     // const dispatch = useContext(CartDispatchContext);
 
     const handleChange = (e) => {
@@ -19,10 +21,7 @@ const Item = ({ item, index, hero }) => {
     //     addToCart(dispatch, product);
     // };
 
-    const { coins, setCoins } = useCoins();
-
-    const handlePurchaseItem = (product, total) => {
-
+    const handlePurchaseItem = (total) => {
         if (total < 0) {
             swal({
                 title: "Moedas insuficientes. Deseja recarregar?",
@@ -32,9 +31,8 @@ const Item = ({ item, index, hero }) => {
                 buttons: ["Agora não", "Sim"],
             }).then((value) => {
                 if (value) {
-                    if (value) {
-                        Router.push('/pagamento')
-                    }
+                    localStorage.setItem('hero', hero.slug);
+                    Router.push('/pagamento')
                 }
               });
         } else {
@@ -46,10 +44,14 @@ const Item = ({ item, index, hero }) => {
                 icon: "success",
                 button: false,
               });
+
+              setTimeout(() => {
+                swal.close()
+              }, 1500);
         }
     };
 
-    const handleAlert = (product) => {
+    const handleAlert = (product, total) => {
         swal({
             title: `Deseja confirmar a doação de ${formatCurrent(product)} ?`,
             buttons: true,
@@ -57,9 +59,7 @@ const Item = ({ item, index, hero }) => {
             buttons: ["Cancelar", "Confirmar"],
         }).then((value) => {
             if (value) {
-                if (value) {
-                    handlePurchaseItem();
-                }
+                handlePurchaseItem(total);
             }
           });
     }
@@ -69,14 +69,14 @@ const Item = ({ item, index, hero }) => {
         const total = (coins - product.price);
 
         if (total < 0) {
-            handlePurchaseItem(product, total);
+            handlePurchaseItem(total);
         }else {
-            handleAlert(product.price);
+            handleAlert(product.price, total);
         }
     }
 
     return (
-        <div className='grid p-4 border border-gray-200 justify-center' key={index}>
+        <div className='grid p-4 border border-gray-200 justify-center'>
             <img src={image} />
             <span className='font-bold mt-4 mb-2'>{name}</span>
             {description

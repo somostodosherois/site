@@ -50,7 +50,7 @@ const DonationBlock = ({ hero }) => {
       </dd>
       <div className='space-x-0 space-y-0 grid sm:grid sm:grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-6'>
         {items.map((item, index) => (
-          <Item item={item} index={index} hero={hero} />
+          <Item item={item} key={index} hero={hero} />
         ))}
       </div>
 

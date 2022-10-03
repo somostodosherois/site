@@ -14,9 +14,11 @@ export default function Missoes({ heros }) {
         <link rel="icon" href="https://sth.org.br/wp-content/themes/sth/images/favicon.png" />
       </Head>
       <Menu />
-      <div className='pt-16'>
-        <Missions heros={heros}/>
-      </div>
+      {heros &&
+        <div className='pt-16'>
+          <Missions heros={heros} />
+        </div>
+      }
       <Footer />
     </div>
   )

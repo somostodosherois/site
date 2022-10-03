@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Head from 'next/head'
 
 import Footer from '../../components/Footer'
@@ -6,41 +6,8 @@ import Menu from '../../components/Menu';
 import CardHero from '../../components/CardHero/CardHero';
 import DonationBlock from '../../components/DonationBlock/DonationBlock';
 import TimelineMission from '../../components/TimelineMission/TimelineMission';
-import { useRouter } from 'next/router';
-
-import api from '../api/config'
-
 
 export default function Missao({ hero }) {
-
-  console.log(hero)
-  // const [hero, setHero] = useState({})
-  // const router = useRouter()
-  // const { id } = router.query
-
-  // useEffect(() => {
-  //   if (id && !hero.id) {
-  //     api.get(`missions.php?slug=${id}`)
-  //       .then((response) => {
-  //         console.log(response)
-  //         response.map(({ id, name, metadesc, post_title, post_content, meta, prazo, post_date }) => (
-  //           setHero({
-  //             id: id,
-  //             name: name,
-  //             image: 'https://sth.org.br/images/2021/11/Design-sem-nome-8.png',
-  //             content: post_content,
-  //             meta: metadesc,
-  //             value: meta,
-  //             percentage: '67',
-  //             dateFinal: post_date,
-  //           })
-  //         ))
-  //       })
-  //       .catch((err) => {
-  //         return console.error("ops! ocorreu um erro : " + err);
-  //       })
-  //   }
-  // }, id)
 
   return (
     <div>
