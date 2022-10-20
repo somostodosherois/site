@@ -8,8 +8,6 @@ import {
   toggleCartPopup
 } from "../../contexts/cart";
 
-import { GiTwoCoins } from "react-icons/gi";
-import { useCoins } from "../../contexts/coins";
 
 const NavBar = (props) => {
   const [navbar, setNavbar] = useState(false);
@@ -28,17 +26,6 @@ const NavBar = (props) => {
     event.preventDefault();
     return toggleCartPopup(cartDispatch);
   };
-
-  const { coins, setCoins } = useCoins();
-
-  useEffect(() => {
-
-    const coinsQtd = localStorage.getItem('coins');
-
-    if (coinsQtd) {
-      setCoins(coinsQtd);
-    }
-  }, []);
 
   return (
     <nav className="w-full bg-red-600 shadow fixed z-50">
@@ -122,14 +109,7 @@ const NavBar = (props) => {
               >
                 Doar
               </a>
-              <div className="coins">
-                <a className="coins-icon" href="#">
-                  <div className="flex">
-                    <span className="coins text-white mt-1 mr-2">{coins}</span>
-                    <GiTwoCoins className="h-8 w-6" fill="white" aria-hidden="true" />
-                  </div>
-                </a>
-              </div>
+             
               {/* <div className="cart">
                 <a className="cart-icon" href="#" onClick={handleCartButton}>
                   <div className="flex">
@@ -155,14 +135,6 @@ const NavBar = (props) => {
           >
             Doar
           </a>
-          <div className="coins mt-1">
-            <a className="coins-icon" href="#" >
-              <div className="flex">
-                <span className="coins text-white mt-1 mr-2">{coins}</span>
-                <GiTwoCoins className="h-8 w-6" fill="white" aria-hidden="true" />
-              </div>
-            </a>
-          </div>
           {/* <div className="cart mt-1">
             <a className="cart-icon" href="#" onClick={handleCartButton}>
               <div className="flex">

@@ -1,5 +1,4 @@
 import { useState, useContext, useEffect } from 'react'
-import { BsTrash } from "react-icons/bs";
 import TextField from '@mui/material/TextField'
 import InputMask from "react-input-mask";
 
@@ -8,24 +7,23 @@ import Menu from '../../components/Menu'
 import FormAddress from '../../components/Forms/Address';
 import FormPayment from '../../components/Forms/Payment';
 import formatCurrent from '../../hooks/formatCurrent'
-import {
-  CartStateContext,
-  CartDispatchContext,
-  removeFromCart,
-} from "../../contexts/cart";
+// import {
+//   CartStateContext,
+//   CartDispatchContext,
+//   removeFromCart,
+// } from "../../contexts/cart";
 
-import { useCoins } from '../../contexts/coins';
 import swal from 'sweetalert';
 import Router from 'next/router';
 
 export default function Pagamento() {
 
-  const { items: cartItems } = useContext(CartStateContext);
-  const dispatch = useContext(CartDispatchContext);
+  // const { items: cartItems } = useContext(CartStateContext);
+  // const dispatch = useContext(CartDispatchContext);
   const [cpf, setCpf] = useState('')
 
   const [amount, setAmount] = useState(0);
-  const { coins, setCoins } = useCoins();
+  const [amountMask, setAmountMask] = useState();
 
   // const cartQuantity = cartItems
   //   .map((item) => item.quantity)
@@ -35,9 +33,10 @@ export default function Pagamento() {
   //   .map((item) => item.price * item.quantity)
   //   .reduce((prev, current) => prev + current, 0);
 
-  const handleRemove = (productId) => {
-    return removeFromCart(dispatch, productId);
-  };
+  const handleAmount = (e) => {
+    setAmount(e.target.value)
+    setAmountMask(formatCurrent(e.target.value))
+  }
 
   const handleCpf = (e) => (
     setCpf(e.target.value)
@@ -45,9 +44,8 @@ export default function Pagamento() {
 
   const handleRecharge = (e, amount) => {
     e.preventDefault();
-    const sum = parseFloat(coins) + parseFloat(amount);
-    localStorage.setItem('coins', sum);
-    setCoins(parseFloat(sum));
+
+    //Chamar a API de pagamentos
 
     swal({
       title: "Recarga realizada com sucesso!",
@@ -55,11 +53,9 @@ export default function Pagamento() {
       icon: "success",
       button: false,
     })
-    
+
     setTimeout(() => {
-      const hero = localStorage.getItem('hero');
-      swal.close()
-      Router.push(`/missao/${hero}`)
+      Router.push(`/`)
     }, 1000);
   }
 
@@ -80,19 +76,17 @@ export default function Pagamento() {
                 <div className="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4"></div>
 
                 <div className="sm:col-span-2 flex gap-x-4 mb-8">
-                 
                   <TextField
-                    type='text'
+                    type='number'
                     size='small'
                     label='Valor'
                     placeholder='Valor'
                     color='error'
                     className='mb-2'
-                    value={amount}
-                    onChange={(e) => setAmount(e.target.value)}
                     required
+                    onChange={handleAmount}
+                    value={amount}
                   />
-
                 </div>
 
                 <h2 className="text-lg font-medium text-gray-900">Dados pessoais</h2>
@@ -125,42 +119,11 @@ export default function Pagamento() {
 
             {/* Order summary */}
             <div className="mt-10 lg:mt-0">
-              <h2 className="text-lg font-medium text-gray-900">Order summary</h2>
-
-              <div className="mt-4 bg-white border border-gray-200 rounded-lg shadow-sm">
-                <h3 className="sr-only">Items in your cart</h3>
-                <ul role="list" className="divide-y divide-gray-200">
-                  {cartItems.map((product) => (
-                    <li key={product.id} className="flex py-6 px-4 sm:px-6">
-                      <div className="flex-shrink-0">
-                        <img src={product.image} className="w-20 rounded-md" />
-                      </div>
-
-                      <div className="ml-6 flex-1 flex flex-col">
-                        <div className="flex">
-                          <div className="min-w-0 flex-1">
-                            <h4 className="text-sm font-medium text-gray-700 hover:text-gray-800">
-                              {product.name}
-                            </h4>
-                            <p className="mt-1 text-sm text-gray-500">{product.hero.name}</p>
-                          </div>
-
-                          <div className="ml-4 flex-shrink-0 flow-root">
-                            <BsTrash className="ml-2 mt-4 h-5 w-5 cursor-pointer" onClick={() => handleRemove(product.id)} />
-                          </div>
-                        </div>
-
-                        <div className="flex-1 pt-2 flex items-end justify-between">
-                          <p className="mt-1 text-sm font-medium text-gray-900">{product.price}</p>
-                        </div>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
+              <div className="mt-12 bg-white border border-gray-200 rounded-lg shadow-sm">
                 <dl className="border-t border-gray-200 py-6 px-4 space-y-6 sm:px-6">
                   <div className="flex items-center justify-between">
                     <dt className="text-sm">Subtotal</dt>
-                    <dd className="text-sm font-medium text-gray-900">{formatCurrent(amount)}</dd>
+                    <dd className="text-sm font-medium text-gray-900">{amountMask}</dd>
                   </div>
                   <div className="flex items-center justify-between">
                     <dt className="text-sm">Taxas</dt>
@@ -168,7 +131,7 @@ export default function Pagamento() {
                   </div>
                   <div className="flex items-center justify-between border-t border-gray-200 pt-6">
                     <dt className="text-base font-medium">Total</dt>
-                    <dd className="text-base font-medium text-gray-900">{formatCurrent(amount)}</dd>
+                    <dd className="text-base font-medium text-gray-900">{amountMask}</dd>
                   </div>
                 </dl>
 
@@ -178,7 +141,7 @@ export default function Pagamento() {
                     type="submit"
                     className="w-full bg-red-600 border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-red-500"
                   >
-                    Confirmar recarga
+                    Confirmar doação
                   </button>
                 </div>
               </div>

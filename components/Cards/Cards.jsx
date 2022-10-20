@@ -33,19 +33,19 @@ const Cards = ({ items }) => (
                             <p className="px-2 text-gray-500 text-base"><b>{formatCurrent(arrecadado)}</b> arrecadados</p>
                         </div>
 
-                        {status === 'open' &&
+                        {/* {status === 'open' &&
                             <div className='flex mt-4 justify-content'>
                                 <BsCalendarDate className="h-6 w-6 text-blue-400 mt-1" aria-hidden="true" />
                                 <p className="px-2 text-gray-500">{diffDates(prazo) - 1} {(diffDates(prazo) - 1) > 1 ? 'dias restantes' : 'dia restante'}</p>
                             </div>
-                        }
+                        } */}
 
 
                         {status === 'open' &&
                             <div className="rounded-md mt-6 shadow">
                                 <a
-                                    href={'missao/' + slug}
-                                    className="flex items-center justify-center bg-red-600 text-lg uppercase rounded-md text-white py-1 px-4"
+                                    href={'pagamento/' + slug}
+                                    className="flex items-center justify-center border b-red-600 bg-white text-lg uppercase rounded-md text-red-600 py-1 px-4"
                                 >
                                     Ajudar este herói
                                 </a>

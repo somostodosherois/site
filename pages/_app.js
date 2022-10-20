@@ -9,8 +9,6 @@ import CommonProvider from "../contexts/common";
 import ProductsProvider from "../contexts/products";
 import CartProvider from "../contexts/cart";
 import CheckoutProvider from "../contexts/checkout";
-import { CoinsProvider } from '../contexts/coins';
-
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -26,11 +24,9 @@ function MyApp({ Component, pageProps }) {
         <CommonProvider>
           <ProductsProvider>
             <CartProvider>
-              <CoinsProvider>
-                <CheckoutProvider>
-                  <Component {...pageProps} />
-                </CheckoutProvider>
-              </CoinsProvider>
+              <CheckoutProvider>
+                <Component {...pageProps} />
+              </CheckoutProvider>
             </CartProvider>
           </ProductsProvider>
         </CommonProvider>
