@@ -16,6 +16,7 @@ const Page = ({ page, menu, metaTitle, metaDescription, slices  }) => {
       <Head>
         <title>{metaTitle}</title>
         <meta name="description" content={metaDescription} />
+        <link rel="icon" href="https://sth.org.br/wp-content/themes/sth/images/favicon.png" />
       </Head>
       <Menu menu={menu} />
       <BannerHome data={page?.data} />
