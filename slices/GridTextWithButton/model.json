@@ -11,13 +11,6 @@
       "version": "sktwi1xtmkfgx8626",
       "description": "GridTextWithButton",
       "primary": {
-        "label_text": {
-          "type": "Text",
-          "config": {
-            "label": "Label Text",
-            "placeholder": ""
-          }
-        },
         "title": {
           "type": "Text",
           "config": {
@@ -26,10 +19,12 @@
           }
         },
         "description": {
-          "type": "Text",
+          "type": "StructuredText",
           "config": {
             "label": "Description",
-            "placeholder": ""
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,strong"
           }
         }
       },

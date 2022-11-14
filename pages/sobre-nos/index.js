@@ -15,6 +15,8 @@ const Page = ({ page, menu, metaTitle, metaDescription, slices }) => {
 
     const data = page?.data || {}
 
+    console.log(data)
+
     return (
         <>
             <Head>
@@ -25,6 +27,9 @@ const Page = ({ page, menu, metaTitle, metaDescription, slices }) => {
             <div className='pt-16'>
                 <TextBlock title={data.page_name} description={data.description} video={data.video.embed_url} />
             </div>
+            {/* <div className='pt-16'>
+                <TextBlock title={data.title_2} description={data.description_2} />
+            </div> */}
             <div className="py-16 px-4">
                 <div className="grid max-w-7xl mx-auto sm:px-6 lg:items-center gap-y-24">
 

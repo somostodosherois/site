@@ -5,5 +5,5 @@ export default {
 }
 
 
-export const _Default = () => <MyComponent slice={{"variation":"default","version":"sktwi1xtmkfgx8626","items":[{"title":"ball","description":"sell","button_label":"degree","button_link":{"link_type":"Web","url":"http://google.com"},"image":{"dimensions":{"width":900,"height":500},"alt":null,"copyright":null,"url":"https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72"}}],"primary":{"label_text":"begun","title":"raw","description":"main"},"slice_type":"grid_text_with_button","id":"_Default"}} />
+export const _Default = () => <MyComponent slice={{"variation":"default","version":"sktwi1xtmkfgx8626","items":[{"title":"thin","description":"tell","button_label":"whole","button_link":{"link_type":"Web","url":"http://twitter.com"},"image":{"dimensions":{"width":900,"height":500},"alt":null,"copyright":null,"url":"https://images.unsplash.com/photo-1499951360447-b19be8fe80f5"}}],"primary":{"title":"second","description":[{"type":"paragraph","text":"Cillum veniam laborum eiusmod reprehenderit consectetur culpa deserunt.","spans":[]}]},"slice_type":"grid_text_with_button","id":"_Default"}} />
 _Default.storyName = ''

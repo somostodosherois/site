@@ -490,13 +490,6 @@
               "version": "sktwi1xtmkfgx8626",
               "description": "GridTextWithButton",
               "primary": {
-                "label_text": {
-                  "type": "Text",
-                  "config": {
-                    "label": "Label Text",
-                    "placeholder": ""
-                  }
-                },
                 "title": {
                   "type": "Text",
                   "config": {
@@ -505,10 +498,12 @@
                   }
                 },
                 "description": {
-                  "type": "Text",
+                  "type": "StructuredText",
                   "config": {
                     "label": "Description",
-                    "placeholder": ""
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "single": "paragraph,strong"
                   }
                 }
               },
@@ -561,12 +556,12 @@
             "version": "sktwi1xtmkfgx8626",
             "items": [
               {
-                "title": "ball",
-                "description": "sell",
-                "button_label": "degree",
+                "title": "thin",
+                "description": "tell",
+                "button_label": "whole",
                 "button_link": {
                   "link_type": "Web",
-                  "url": "http://google.com"
+                  "url": "http://twitter.com"
                 },
                 "image": {
                   "dimensions": {
@@ -575,14 +570,19 @@
                   },
                   "alt": null,
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72"
+                  "url": "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5"
                 }
               }
             ],
             "primary": {
-              "label_text": "begun",
-              "title": "raw",
-              "description": "main"
+              "title": "second",
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Cillum veniam laborum eiusmod reprehenderit consectetur culpa deserunt.",
+                  "spans": []
+                }
+              ]
             },
             "slice_type": "grid_text_with_button"
           }
@@ -591,7 +591,13 @@
           "fileName": "index",
           "extension": "js"
         },
-        "screenshotPaths": {}
+        "screenshotPaths": {
+          "default": {
+            "path": "/Users/thayslacerda/Documents/site/slices/GridTextWithButton/default/preview.png",
+            "width": 1364,
+            "height": 542
+          }
+        }
       },
       "images_list": {
         "library": "slices",
