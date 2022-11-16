@@ -64,7 +64,7 @@ const AccountSettings = () => {
 
   return (
     <div className='bg-gray-100'>
-      <Header metaTitle={metaTitle} metaDescription={metaDescription} menu={menu} />
+      <Header metaTitle='STH - Minha conta' metaDescription='teste' />
 
       <div className='pt-12'></div>
       <div className="pt-20 pb-16">
