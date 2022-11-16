@@ -1,10 +1,9 @@
 import { PrismicRichText, SliceZone } from '@prismicio/react'
-import Head from 'next/head'
 import { Grid } from '@mui/material';
 
 import Footer from '../../components/Footer'
-import Menu from '../../components/Menu'
 import TextBlock from '../../components/TextBlock'
+import Header from '../../components/Header'
 
 import { createClient } from '../../prismicio'
 import { components } from '../../slices'
@@ -17,11 +16,8 @@ const Page = ({ page, menu, metaTitle, metaDescription, slices }) => {
 
     return (
         <>
-            <Head>
-                <title>{metaTitle}</title>
-                <meta name="description" content={metaDescription} />
-            </Head>
-            <Menu menu={menu} />
+            <Header metaTitle={metaTitle} metaDescription={metaDescription} menu={menu} />
+
             <div className='pt-16'>
                 <TextBlock title={data.page_name} description={data.description[0]?.text} />
             </div>

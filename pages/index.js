@@ -1,24 +1,18 @@
 import { SliceZone } from '@prismicio/react'
-import Head from 'next/head'
 
 import BannerHome from '../components/BannerHome'
 import Footer from '../components/Footer'
-import Menu from '../components/Menu'
+import Header from '../components/Header/Header'
 
 import { createClient } from '../prismicio'
 import { components } from '../slices'
 
-const Page = ({ page, menu, metaTitle, metaDescription, slices  }) => {
+const Page = ({ page, menu, metaTitle, metaDescription, slices }) => {
   if (!page) return null
 
   return (
     <>
-      <Head>
-        <title>{metaTitle}</title>
-        <meta name="description" content={metaDescription} />
-        <link rel="icon" href="https://sth.org.br/wp-content/themes/sth/images/favicon.png" />
-      </Head>
-      <Menu menu={menu} />
+      <Header metaTitle={metaTitle} metaDescription={metaDescription} menu={menu} />
       <BannerHome data={page?.data} />
       <SliceZone slices={slices} components={components} />
       <Footer />

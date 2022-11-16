@@ -1,8 +1,7 @@
 import { SliceZone } from '@prismicio/react'
-import Head from 'next/head'
 
 import Footer from '../../components/Footer'
-import Menu from '../../components/Menu'
+import Header from '../../components/Header'
 import TextBlock from '../../components/TextBlock'
 import CardsIconsText from '../../components/CardsIconsText'
 import Timeline from '../../components/Timeline'
@@ -15,16 +14,10 @@ const Page = ({ page, menu, metaTitle, metaDescription, slices }) => {
 
     const data = page?.data || {}
 
-    // console.log(data)
-
-    
     return (
         <>
-            <Head>
-                <title>{metaTitle}</title>
-                <meta name="description" content={metaDescription} />
-            </Head>
-            <Menu menu={menu} />
+            <Header metaTitle={metaTitle} metaDescription={metaDescription} menu={menu} />
+
             <div className='pt-16'>
                 <TextBlock title={data.page_name} description={data.description} isRichText={true} video={data.video.embed_url} />
             </div>
