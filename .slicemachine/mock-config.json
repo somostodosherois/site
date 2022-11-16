@@ -69,20 +69,7 @@
     "Files": {
       "default": {
         "primary": {},
-        "items": {
-          "buttons_links": {
-            "config": {
-              "patternType": "PARAGRAPH",
-              "blocks": 1
-            }
-          },
-          "buttons_labels": {
-            "config": {
-              "patternType": "PARAGRAPH",
-              "blocks": 1
-            }
-          }
-        }
+        "items": {}
       }
     },
     "TextImageBlock": {
@@ -97,7 +84,14 @@
     },
     "GridTextWithButton": {
       "default": {
-        "primary": {},
+        "primary": {
+          "description": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        },
         "items": {}
       }
     }

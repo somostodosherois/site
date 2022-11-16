@@ -18,23 +18,16 @@
             "placeholder": ""
           }
         },
-        "description": {
-          "type": "Text",
+        "image": {
+          "type": "Image",
           "config": {
-            "label": "Description",
-            "placeholder": ""
+            "label": "Imagem de fundo",
+            "constraint": {},
+            "thumbnails": []
           }
         }
       },
       "items": {
-        "image": {
-          "type": "Image",
-          "config": {
-            "label": "Image",
-            "constraint": {},
-            "thumbnails": []
-          }
-        },
         "title": {
           "type": "Text",
           "config": {
@@ -42,22 +35,12 @@
             "placeholder": ""
           }
         },
-        "buttons_labels": {
-          "type": "StructuredText",
+        "link": {
+          "type": "Link",
           "config": {
-            "label": "Buttons Labels",
+            "label": "Link",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "single": "list-item"
-          }
-        },
-        "buttons_links": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Buttons Links",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "single": "hyperlink,list-item"
+            "select": null
           }
         }
       },

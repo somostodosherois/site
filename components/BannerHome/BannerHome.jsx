@@ -27,7 +27,7 @@ const BannerHome = ({ data }) => {
             {button1?.label}
           </a>
         </div>
-        {button2 &&
+        {button2.label &&
           <div className="mt-3 sm:mt-0 sm:ml-3">
             <a
               href={button2?.link?.url}
@@ -47,13 +47,13 @@ const BannerHome = ({ data }) => {
       <div className="max-w-7xl mx-auto sm:text-center lg:text-left">
         <main className="mt-10 sm:mt-12 md:mt-16 lg:mt-20 px-4 sm:px-6 lg:px-8 lg:flex grid flex justify-center items-center">
           <div className="lg:max-w-xl">
-            <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-              <span className="block xl:inline">Precisamos da sua doação </span>
-              <span className="block text-red-600 xl:inline">para salvar vidas</span>
+            <h1 className="text-3xl pb-4 tracking-tight font-extrabold text-gray-900 sm:text-4xl md:text-5xl">
+              <span className="block xl:inline">Seja um herói na vida de </span>
+              <span className="block text-red-600 xl:inline">crianças por todo o Brasil</span>
             </h1>
-            <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+            {/* <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
               <PrismicRichText field={description} />
-            </p>
+            </p> */}
             {renderButtons()}
           </div>
           <div className="pt-8 lg:pt-0 lg:relative lg:right-0 lg:w-1/2">

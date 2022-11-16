@@ -1,9 +1,9 @@
+import { PrismicRichText } from '@prismicio/react';
 import React from 'react';
 
 const GridTextWithButton = ({ slice }) => {
   if (!slice) return null
 
-  const label = slice?.primary?.label_text
   const title = slice?.primary?.title
   const description = slice?.primary?.description
   const items = slice?.items
@@ -13,11 +13,8 @@ const GridTextWithButton = ({ slice }) => {
     <div className="pt-6 pb-16 bg-white" >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:text-center">
-          <h2 className="text-base text-gray-900 font-semibold tracking-wide uppercase">{label}</h2>
-          <p className="mt-2 text-2xl sm:text-3xl leading-8 font-extrabold tracking-tight text-red-600 uppercase">
-            {title}
-          </p>
-          <p className="mt-4 max-w-6xl text-lg md:text-xl text-gray-600 lg:mx-auto"> {description} </p>
+          <h2 className="text-xl md:text-2xl font-medium text-black tracking-wide pb-4">{title}</h2>
+          <PrismicRichText field={description} className="max-w-6xl text-lg md:text-xl text-gray-600 lg:mx-auto" />
         </div>
 
         <div className="mt-16">

@@ -1,8 +1,7 @@
 import { SliceZone } from '@prismicio/react'
-import Head from 'next/head'
 
 import Footer from '../../components/Footer'
-import Menu from '../../components/Menu'
+import Header from '../../components/Header'
 import TextBlock from '../../components/TextBlock'
 import CardsIconsText from '../../components/CardsIconsText'
 import Timeline from '../../components/Timeline'
@@ -17,15 +16,15 @@ const Page = ({ page, menu, metaTitle, metaDescription, slices }) => {
 
     return (
         <>
-            <Head>
-                <title>{metaTitle}</title>
-                <meta name="description" content={metaDescription} />
-            </Head>
-            <Menu menu={menu} />
+            <Header metaTitle={metaTitle} metaDescription={metaDescription} menu={menu} />
+
             <div className='pt-16'>
-                <TextBlock title={data.page_name} description={data.description} video={data.video.embed_url} />
+                <TextBlock title={data.page_name} description={data.description} isRichText={true} video={data.video.embed_url} />
             </div>
-            <div className="py-16 px-4">
+            <div className='pt-4 pb-12'>
+                <TextBlock title={data.title_2} description={data.description_2} isRichText={true} />
+            </div>
+            {/* <div className="py-16 px-4">
                 <div className="grid max-w-7xl mx-auto sm:px-6 lg:items-center gap-y-24">
 
                     {data.session.map(({ title, content }, index) => (
@@ -38,7 +37,7 @@ const Page = ({ page, menu, metaTitle, metaDescription, slices }) => {
                         </div>
                     ))}
                 </div>
-            </div>
+            </div> */}
 
             <CardsIconsText items={data.session_values} />
             <Timeline description={data.timeline_description} data={data.timeline_content} />

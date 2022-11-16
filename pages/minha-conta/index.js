@@ -1,10 +1,9 @@
 // ** React Imports
 import { useState } from 'react'
 
-import Head from 'next/head'
 
 import Footer from '../../components/Footer'
-import Menu from '../../components/Menu';
+import Header from '../../components/Header'
 
 // ** MUI Imports
 import Box from '@mui/material/Box'
@@ -65,12 +64,8 @@ const AccountSettings = () => {
 
   return (
     <div className='bg-gray-100'>
-      <Head>
-        <title>Somos Todos Heróis</title>
-        <meta name="description" content="Somos Todos Heróis" />
-        <link rel="icon" href="https://sth.org.br/wp-content/themes/sth/images/favicon.png" />
-      </Head>
-      <Menu />
+      <Header metaTitle='STH - Minha conta' metaDescription='teste' />
+
       <div className='pt-12'></div>
       <div className="pt-20 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

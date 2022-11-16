@@ -18,7 +18,7 @@ const CardHero = ({ hero }) => {
   }
 
   return (
-    <div className='bg-gray-100 pb-8'>
+    <div className='pb-8'>
 
       <div className='max-w-7xl mx-auto px-4 pt-12 sm:px-6 pt-20'>
 

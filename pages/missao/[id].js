@@ -1,29 +1,23 @@
 import React from 'react';
-import Head from 'next/head'
 
 import Footer from '../../components/Footer'
-import Menu from '../../components/Menu';
+import Header from '../../components/Header'
 import CardHero from '../../components/CardHero/CardHero';
 import DonationBlock from '../../components/DonationBlock/DonationBlock';
 import TimelineMission from '../../components/TimelineMission/TimelineMission';
 
 export default function Missao({ hero }) {
-
   return (
     <div>
-      <Head>
-        <title>Somos Todos Heróis</title>
-        <meta name="description" content="Somos Todos Heróis" />
-        <link rel="icon" href="https://sth.org.br/wp-content/themes/sth/images/favicon.png" />
-      </Head>
-      <Menu />
+      <Header metaTitle={'STH - ' + hero.name} metaDescription='teste' />
+
       {hero &&
         <>
           <CardHero hero={hero} />
           <DonationBlock hero={hero} />
         </>
       }
-      <TimelineMission />
+      {/* <TimelineMission /> */}
       <Footer />
     </div>
   )
