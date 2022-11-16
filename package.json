@@ -8,8 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "slicemachine": "start-slicemachine",
-    "deploy": "aws s3 sync . s3://sth.org.br --acl public-read",
-    "generate:sitemap": "node ./scripts/generate-sitemap.js"
+    "deploy": "aws s3 sync . s3://sth.org.br --acl public-read"
   },
   "dependencies": {
     "@emotion/react": "^11.10.0",
@@ -32,7 +31,7 @@
     "mdi-material-ui": "^7.4.0",
     "mui": "^0.0.1",
     "next": "^12.1.5",
-    "next-sitemap": "^3.1.22",
+    "next-sitemap": "^3.1.23",
     "on": "^1.3.0",
     "prismic-reactjs": "^1.3.4",
     "project": "^0.1.6",
