@@ -4,10 +4,11 @@ import { Grid } from '@mui/material';
 
 import Footer from '../../components/Footer'
 import Menu from '../../components/Menu'
-import TextBlock from '../../components/TextBlock/TextBlock'
+import TextBlock from '../../components/TextBlock'
 
 import { createClient } from '../../prismicio'
 import { components } from '../../slices'
+import TitleSession from '../../components/TitleSession/TitleSession';
 
 const Page = ({ page, menu, metaTitle, metaDescription, slices }) => {
     if (!page || !menu) return null
@@ -22,15 +23,17 @@ const Page = ({ page, menu, metaTitle, metaDescription, slices }) => {
             </Head>
             <Menu menu={menu} />
             <div className='pt-16'>
-                <TextBlock title={data.page_name} />
+                <TextBlock title={data.page_name} description={data.description[0]?.text} />
             </div>
 
             <div className="max-w-7xl mx-auto lg:items-center">
                 <div className="max-w-2xl mx-auto lg:max-w-none ml-8 mr-4 md:mr-0 text-lg md:text-xl text-gray-800">
-                    <dd>
-                        <p className=" text-xl md:text-2xl leading-6 font-medium text-red-600 uppercase">{data.donations_title}</p>
-                    </dd>
-                    <dd className="mt-2">{data.donations_description1}</dd>
+                    {/* Destino das doacoes */}
+
+                    <TitleSession title={data.donations_title} />
+                    <p className="text-lg md:text-xl text-gray-600 lg:mx-auto leading-8">
+                        {data.donations_description1}
+                    </p>
 
                     <Grid className='block md:flex mt-8 gap-x-24'>
                         {data.donations_type.map(({ image, label }, index) => (
@@ -41,20 +44,24 @@ const Page = ({ page, menu, metaTitle, metaDescription, slices }) => {
                         ))}
                     </Grid>
 
-                    <dd className="mt-8">{data.donations_description2}</dd>
+                    <p className="text-lg md:text-xl text-gray-600 lg:mx-auto leading-8 mt-8">
+                        {data.donations_description2}
+                    </p>
+
+                </div>
+            </div>
 
 
-                    <dd className='mt-16'>
-                        <p className=" text-xl md:text-2xl leading-6 font-medium text-red-600">{data.session2_title}</p>
-                    </dd>
-                    <dd className="mt-2">{data.session2_description}</dd>
+
+            <SliceZone slices={slices} components={components} />
 
 
-                    <dd className='mt-16'>
-                        <p className=" text-xl md:text-2xl leading-6 font-medium text-red-600 uppercase">{data.session3_title}</p>
-                    </dd>
 
-                    <div className='border-l-2 border-red-600 ml-6 sm:ml-16 mt-8'>
+            <div className="max-w-7xl mx-auto lg:items-center">
+                <div className="max-w-2xl mx-auto lg:max-w-none ml-8 mr-4 md:mr-0 text-lg md:text-xl text-gray-800">
+                    <TitleSession title={data.session3_title} />
+
+                    <div className='border-l-2 border-red-600 ml-6 sm:ml-12'>
                         {data.processo_das_missoes.map(({ image, description, subitems }, index) => (
                             <>
                                 <div className='flex items-center justify-center mt-8'>
@@ -82,7 +89,6 @@ const Page = ({ page, menu, metaTitle, metaDescription, slices }) => {
                 </div>
             </div>
 
-            <SliceZone slices={slices} components={components} />
             <Footer />
         </>
     )

@@ -284,23 +284,16 @@
                     "placeholder": ""
                   }
                 },
-                "description": {
-                  "type": "Text",
+                "image": {
+                  "type": "Image",
                   "config": {
-                    "label": "Description",
-                    "placeholder": ""
+                    "label": "Imagem de fundo",
+                    "constraint": {},
+                    "thumbnails": []
                   }
                 }
               },
               "items": {
-                "image": {
-                  "type": "Image",
-                  "config": {
-                    "label": "Image",
-                    "constraint": {},
-                    "thumbnails": []
-                  }
-                },
                 "title": {
                   "type": "Text",
                   "config": {
@@ -308,22 +301,12 @@
                     "placeholder": ""
                   }
                 },
-                "buttons_labels": {
-                  "type": "StructuredText",
+                "link": {
+                  "type": "Link",
                   "config": {
-                    "label": "Buttons Labels",
+                    "label": "Link",
                     "placeholder": "",
-                    "allowTargetBlank": true,
-                    "single": "list-item"
-                  }
-                },
-                "buttons_links": {
-                  "type": "StructuredText",
-                  "config": {
-                    "label": "Buttons Links",
-                    "placeholder": "",
-                    "allowTargetBlank": true,
-                    "single": "hyperlink,list-item"
+                    "select": null
                   }
                 }
               },
@@ -337,35 +320,24 @@
             "version": "sktwi1xtmkfgx8626",
             "items": [
               {
-                "image": {
-                  "dimensions": {
-                    "width": 900,
-                    "height": 500
-                  },
-                  "alt": null,
-                  "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1591012911207-0dbac31f37da"
-                },
-                "title": "willing",
-                "buttons_labels": [
-                  {
-                    "type": "paragraph",
-                    "text": "Ea et adipisicing minim. Sunt sit magna tempor enim sint sit laborum eiusmod ad esse.",
-                    "spans": []
-                  }
-                ],
-                "buttons_links": [
-                  {
-                    "type": "paragraph",
-                    "text": "Aute cillum labore consectetur reprehenderit tempor incididunt quis et voluptate cupidatat velit. Duis consectetur nostrud eu voluptate aute velit elit pariatur proident. Nisi eiusmod pariatur consequat Lorem ullamco dolore proident incididunt sit eu laborum sit.",
-                    "spans": []
-                  }
-                ]
+                "title": "root",
+                "link": {
+                  "link_type": "Web",
+                  "url": "https://prismic.io"
+                }
               }
             ],
             "primary": {
-              "title": "definition",
-              "description": "continued"
+              "title": "rise",
+              "image": {
+                "dimensions": {
+                  "width": 900,
+                  "height": 500
+                },
+                "alt": null,
+                "copyright": null,
+                "url": "https://images.unsplash.com/photo-1544731612-de7f96afe55f"
+              }
             },
             "slice_type": "files"
           }
@@ -377,8 +349,8 @@
         "screenshotPaths": {
           "default": {
             "path": "/Users/thayslacerda/Documents/site/slices/Files/default/preview.png",
-            "width": 2862,
-            "height": 1056
+            "width": 530,
+            "height": 458
           }
         }
       },

@@ -31,6 +31,12 @@
 p {
   line-height: 2rem;
   font-size: large;
+  margin-bottom: 1rem;
+}
+
+.paragraph-rich-text p {
+  line-height: 2rem;
+  margin-bottom: 1rem;
 }
 
 @media (min-width: 1024px) {

@@ -9,11 +9,11 @@ const TextBlock = ({ title, description, isRichText, background, video }) => (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:items-center">
       <TitleSession title={title} />
       {isRichText ?
-        <div className='paragraph-rich-text text-gray-600 lg:mx-auto indent-5'>
+        <div className='paragraph-rich-text text-gray-600 lg:mx-auto'>
           <PrismicRichText field={description} />
         </div>
         :
-        <p className="text-lg md:text-xl text-gray-600 lg:mx-auto">
+        <p className="text-lg md:text-xl text-gray-600 lg:mx-auto leading-8">
           {description}
         </p>
       }
