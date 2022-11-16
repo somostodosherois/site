@@ -21,7 +21,8 @@
 }
 
 .description-card-heros {
-  max-width: 290px; /* Tamanho */
+  max-width: 290px;
+  /* Tamanho */
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap
@@ -30,6 +31,20 @@
 p {
   line-height: 2rem;
   font-size: large;
+}
+
+@media (min-width: 1024px) {
+  .paragraph-rich-text p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .paragraph-rich-text p {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
 }
 
 .css-1cnilsh-MuiButtonBase-root-MuiTab-root.Mui-selected {
@@ -45,12 +60,12 @@ p {
   text-align: left !important;
 }
 
-#content-hero p:first-child { 
+#content-hero p:first-child {
   display: none;
   /* justify-content: center; */
 }
 
-#content-hero p:last-child { 
+#content-hero p:last-child {
   margin-top: 2rem;
 }
 
@@ -58,8 +73,6 @@ p {
   height: 15vh;
   width: 15vh;
 }
-
-
 
 .cart-preview {
   display: none;

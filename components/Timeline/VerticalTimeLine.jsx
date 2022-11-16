@@ -11,7 +11,7 @@ const VerticalTimelineComponent = ({ data }) => (
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
           date={year}
-          contentStyle={{ border: '3px solid #DC2626' }}
+          contentStyle={{ borderBottom: '3px solid #DC2626' }}
           contentArrowStyle={{ borderRight: '13px solid #DC2626' }}
           iconStyle={{ background: '#DC2626', color: '#fff' }}
           // icon={icon}

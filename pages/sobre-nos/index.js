@@ -15,8 +15,9 @@ const Page = ({ page, menu, metaTitle, metaDescription, slices }) => {
 
     const data = page?.data || {}
 
-    console.log(data)
+    // console.log(data)
 
+    
     return (
         <>
             <Head>
@@ -25,12 +26,12 @@ const Page = ({ page, menu, metaTitle, metaDescription, slices }) => {
             </Head>
             <Menu menu={menu} />
             <div className='pt-16'>
-                <TextBlock title={data.page_name} description={data.description} video={data.video.embed_url} />
+                <TextBlock title={data.page_name} description={data.description} isRichText={true} video={data.video.embed_url} />
             </div>
-            {/* <div className='pt-16'>
-                <TextBlock title={data.title_2} description={data.description_2} />
-            </div> */}
-            <div className="py-16 px-4">
+            <div className='pt-4 pb-12'>
+                <TextBlock title={data.title_2} description={data.description_2} isRichText={true} />
+            </div>
+            {/* <div className="py-16 px-4">
                 <div className="grid max-w-7xl mx-auto sm:px-6 lg:items-center gap-y-24">
 
                     {data.session.map(({ title, content }, index) => (
@@ -43,7 +44,7 @@ const Page = ({ page, menu, metaTitle, metaDescription, slices }) => {
                         </div>
                     ))}
                 </div>
-            </div>
+            </div> */}
 
             <CardsIconsText items={data.session_values} />
             <Timeline description={data.timeline_description} data={data.timeline_content} />
