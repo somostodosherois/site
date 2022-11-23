@@ -1,8 +1,9 @@
 import React from 'react';
-import { BsCashCoin, BsCalendarDate } from "react-icons/bs";
 
 import diffDates from '../../hooks/diffDates';
 import formatCurrent from '../../hooks/formatCurrent';
+import ImageCoin from "../../public/moeda.gif"
+
 
 const Cards = ({ items }) => (
     <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-8">
@@ -23,8 +24,8 @@ const Cards = ({ items }) => (
                     <p className="mt-2 text-sm text-gray-500 h-8">Meta: Ajudar nossa ONG a custear as despesas e a impactar mais crianças.</p>
 
                     <div className='flex mt-12 justify-content'>
-                        <BsCashCoin className="h-6 w-6 text-green-600 mt-1" aria-hidden="true" />
-                        <p className="px-2 text-gray-500 text-base"><b>{formatCurrent(0)}</b> arrecadados</p>
+                        <img src={ImageCoin.src} className="moeda-gif" />
+                        <p className="px-2 mt-1 text-gray-500 text-base"><b>{formatCurrent(0)}</b> arrecadados</p>
                     </div>
 
                     <div className="rounded-md mt-6 shadow">
@@ -62,8 +63,8 @@ const Cards = ({ items }) => (
                         }
 
                         <div className='flex mt-4 justify-content'>
-                            <BsCashCoin className="h-6 w-6 text-green-600 mt-1" aria-hidden="true" />
-                            <p className="px-2 text-gray-500 text-base"><b>{formatCurrent(arrecadado)}</b> arrecadados</p>
+                            <img src={ImageCoin.src} className="moeda-gif" />
+                            <p className="px-2 mt-1 text-gray-500 text-base"><b>{formatCurrent(arrecadado)}</b> arrecadados</p>
                         </div>
 
                         {/* {status === 'open' &&

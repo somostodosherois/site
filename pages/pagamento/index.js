@@ -22,10 +22,13 @@ export default function Pagamento() {
 
   const { items: cartItems } = useContext(CartStateContext);
   const dispatch = useContext(CartDispatchContext);
-  const [cpf, setCpf] = useState('')
-
-  const [amount, setAmount] = useState(0);
   const { coins, setCoins } = useCoins();
+
+  const [cpf, setCpf] = useState('')
+  const [amount, setAmount] = useState(0);
+  const [convertCoins, setConvertCoins] = useState(0)
+  const [isOpenField, setIsOpenField] = useState(false);
+  const [isDonationCheck, setIsDonationCheck] = useState(true);
 
   // const cartQuantity = cartItems
   //   .map((item) => item.quantity)
@@ -35,32 +38,66 @@ export default function Pagamento() {
   //   .map((item) => item.price * item.quantity)
   //   .reduce((prev, current) => prev + current, 0);
 
-  const handleRemove = (productId) => {
-    return removeFromCart(dispatch, productId);
-  };
+  // const handleRemove = (productId) => {
+  //   return removeFromCart(dispatch, productId);
+  // };
 
   const handleCpf = (e) => (
     setCpf(e.target.value)
   )
 
+  const handleField = () => (
+    setIsOpenField(!isOpenField)
+  )
+
+  const handleCheck = () => {
+    setIsDonationCheck(!isDonationCheck)
+  }
+
+  const handleAmount = (value) => {
+    setAmount(value)
+  }
+
+
   const handleRecharge = (e, amount) => {
     e.preventDefault();
-    const sum = parseFloat(coins) + parseFloat(amount);
-    localStorage.setItem('coins', sum);
-    setCoins(parseFloat(sum));
 
     swal({
-      title: "Recarga realizada com sucesso!",
-      text: "Agora você já pode realizar as doações.",
-      icon: "success",
-      button: false,
-    })
-    
-    setTimeout(() => {
-      const hero = localStorage.getItem('hero');
-      swal.close()
-      Router.push(`/missao/${hero}`)
-    }, 1000);
+      title: "Precisamos desse ato heróico constantemente para que possamos atingir o maior número de crianças possíveis. Deseja tornar essa doação recorrente?",
+      text: 'Ao tornar essa doação recorrente você estará ajudando a custear as despesas da ONG e as missões em andamento de forma mensal. ',
+      icon: "info",
+      buttons: true,
+      dangerMode: true,
+      buttons: ["Agora não", "Sim"],
+    }).then((value) => {
+
+      // Armazenar o value
+      // - O value == true => Cadastrar um subscription, pois entrará como doaçao mensal
+      // - O value == false => Proseguir com a doacao pontual, normalmente
+
+      const sum = parseFloat(coins) + parseFloat(amount);
+
+      if (isDonationCheck) {
+        localStorage.setItem('coins', sum / 2);
+        setCoins(parseFloat(sum / 2));
+      } else {
+        localStorage.setItem('coins', sum);
+        setCoins(parseFloat(sum));
+      }
+
+      swal({
+        title: "Recarga realizada com sucesso!",
+        text: "Agora você já pode realizar as doações.",
+        icon: "success",
+        button: false,
+      })
+
+      setTimeout(() => {
+        const hero = localStorage.getItem('hero');
+        swal.close()
+        Router.push(`/missao/${hero}`)
+      }, 1000);
+    });
   }
 
   return (
@@ -77,25 +114,64 @@ export default function Pagamento() {
 
                 <h2 className="text-lg font-medium text-gray-900">Valor</h2>
 
-                <div className="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4"></div>
+                <div className="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
 
-                <div className="sm:col-span-2 flex gap-x-4 mb-8">
-                 
-                  <TextField
-                    type='text'
-                    size='small'
-                    label='Valor'
-                    placeholder='Valor'
-                    color='error'
-                    className='mb-2'
-                    value={amount}
-                    onChange={(e) => setAmount(e.target.value)}
-                    required
-                  />
+                  <button
+                    value={30}
+                    onClick={(e) => handleAmount(e.target.value)}
+                    type="submit"
+                    className="w-full bg-transparent border border-red-600 rounded-md shadow-sm py-3 px-4 text-base font-medium text-red-600 hover:bg-red-600 hover:text-white"
+                  >
+                    R$ 30,00
+                  </button>
 
+                  <button
+                    value={50}
+                    onClick={(e) => handleAmount(e.target.value)}
+                    type="submit"
+                    className="w-full bg-transparent border border-red-600 rounded-md shadow-sm py-3 px-4 text-base font-medium text-red-600 hover:bg-red-600 hover:text-white active-button-white"
+                  >
+                    R$ 50,00
+                  </button>
+
+                  <button
+                    value={100}
+                    onClick={(e) => handleAmount(e.target.value)}
+                    type="submit"
+                    className="w-full bg-transparent border border-red-600 rounded-md shadow-sm py-3 px-4 text-base font-medium text-red-600 hover:bg-red-600 hover:text-white"
+                  >
+                    R$ 100,00
+                  </button>
+
+                  <button
+                    onClick={() => handleField()}
+                    type="submit"
+                    className="w-full bg-transparent border border-red-600 rounded-md shadow-sm py-3 px-4 text-base font-medium text-red-600 hover:bg-red-600 hover:text-white"
+                  >
+                    Outro valor
+                  </button>
                 </div>
 
-                <h2 className="text-lg font-medium text-gray-900">Dados pessoais</h2>
+                <div className='mt-4'>
+                  <input type='checkbox' onChange={() => handleCheck()} checked={isDonationCheck ? true : false} />
+                  <span className='ml-2 text-sm'>Concordo em doar metade do valor para a ONG Somos Todos Heróis para ajudar a custear suas despesas e impactar mais crianças.</span>
+                </div>
+
+                {isOpenField &&
+                  <div className="sm:col-span-2 flex gap-x-4 mt-8 mb-8">
+                    <TextField
+                      type='value'
+                      size='small'
+                      label='Valor'
+                      color='error'
+                      className='mb-2'
+                      onChange={(e) => handleAmount(e.target.value)}
+                    />
+                  </div>
+                }
+
+
+                <h2 className="text-lg font-medium mt-8 text-gray-900">Dados pessoais</h2>
 
                 <div className="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
 
@@ -128,7 +204,7 @@ export default function Pagamento() {
               <h2 className="text-lg font-medium text-gray-900">Order summary</h2>
 
               <div className="mt-4 bg-white border border-gray-200 rounded-lg shadow-sm">
-                <h3 className="sr-only">Items in your cart</h3>
+                {/* <h3 className="sr-only">Items in your cart</h3>
                 <ul role="list" className="divide-y divide-gray-200">
                   {cartItems.map((product) => (
                     <li key={product.id} className="flex py-6 px-4 sm:px-6">
@@ -156,23 +232,15 @@ export default function Pagamento() {
                       </div>
                     </li>
                   ))}
-                </ul>
-                <dl className="border-t border-gray-200 py-6 px-4 space-y-6 sm:px-6">
+                </ul> */}
+                <dl className="py-6 px-4 space-y-6 sm:px-6">
                   <div className="flex items-center justify-between">
-                    <dt className="text-sm">Subtotal</dt>
-                    <dd className="text-sm font-medium text-gray-900">{formatCurrent(amount)}</dd>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <dt className="text-sm">Taxas</dt>
-                    <dd className="text-sm font-medium text-gray-900">R$ 0,00</dd>
-                  </div>
-                  <div className="flex items-center justify-between border-t border-gray-200 pt-6">
                     <dt className="text-base font-medium">Total</dt>
-                    <dd className="text-base font-medium text-gray-900">{formatCurrent(amount)}</dd>
+                    <dd className="text-base font-medium text-gray-900">R$ {amount},00</dd>
                   </div>
                 </dl>
 
-                <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
+                <div className="py-6 px-4 sm:px-6">
                   <button
                     onClick={(e) => handleRecharge(e, amount)}
                     type="submit"

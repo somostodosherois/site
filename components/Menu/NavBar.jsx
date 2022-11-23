@@ -10,6 +10,7 @@ import {
 
 import { GiTwoCoins } from "react-icons/gi";
 import { useCoins } from "../../contexts/coins";
+import ImageCoin from "../../public/moeda.gif"
 
 const NavBar = (props) => {
   const [navbar, setNavbar] = useState(false);
@@ -109,27 +110,27 @@ const NavBar = (props) => {
               </li>
             </ul>
 
-            <div className="m-3 flex space-x-6 lg:hidden inline-block">
+            <div className="m-2 flex space-x-3 lg:hidden inline-block">
               <a
                 href="/login"
-                className="inline-block w-full px-4 py-2 text-center text-white bg-red-400 rounded-md shadow hover:bg-gray-800"
+                className="inline-block w-full px-3 py-2 text-center text-white bg-red-400 rounded-md shadow hover:bg-gray-800"
               >
                 Login
               </a>
               <a
                 href="/doar"
-                className="inline-block w-full px-4 py-2 text-center text-red-600 bg-white rounded-md shadow hover:bg-red-100"
+                className="inline-block w-full px-3 py-2 text-center text-red-600 bg-white rounded-md shadow hover:bg-red-100"
               >
                 Doar
               </a>
-              <div className="coins">
+              {/* <div className="coins"> */}
                 <a className="coins-icon" href="#">
                   <div className="flex">
-                    <span className="coins text-white mt-1 mr-2">{coins}</span>
-                    <GiTwoCoins className="h-8 w-6" fill="white" aria-hidden="true" />
+                    <img src={ImageCoin.src} style={{ height: '25px', width: '25px' }}/>
+                    <span className="coins text-white mt-1 ml-1">{coins}</span>
                   </div>
                 </a>
-              </div>
+              {/* </div> */}
               {/* <div className="cart">
                 <a className="cart-icon" href="#" onClick={handleCartButton}>
                   <div className="flex">
@@ -158,8 +159,8 @@ const NavBar = (props) => {
           <div className="coins mt-1">
             <a className="coins-icon" href="#" >
               <div className="flex">
-                <span className="coins text-white mt-1 mr-2">{coins}</span>
-                <GiTwoCoins className="h-8 w-6" fill="white" aria-hidden="true" />
+                <img src={ImageCoin.src} className="moeda-gif ml-4" />
+                <span className="coins text-white mt-1 ml-1">{coins}</span>
               </div>
             </a>
           </div>
