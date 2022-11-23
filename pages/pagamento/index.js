@@ -2,6 +2,10 @@ import { useState, useContext, useEffect } from 'react'
 import { BsTrash } from "react-icons/bs";
 import TextField from '@mui/material/TextField'
 import InputMask from "react-input-mask";
+import Select from '@mui/material/Select'
+import MenuItem from '@mui/material/MenuItem'
+import FormControl from '@mui/material/FormControl'
+import InputLabel from '@mui/material/InputLabel'
 
 import Footer from '../../components/Footer'
 import Menu from '../../components/Menu'
@@ -62,42 +66,28 @@ export default function Pagamento() {
   const handleRecharge = (e, amount) => {
     e.preventDefault();
 
+    const sum = parseFloat(coins) + parseFloat(amount);
+
+    if (isDonationCheck) {
+      localStorage.setItem('coins', sum / 2);
+      setCoins(parseFloat(sum / 2));
+    } else {
+      localStorage.setItem('coins', sum);
+      setCoins(parseFloat(sum));
+    }
+
     swal({
-      title: "Precisamos desse ato heróico constantemente para que possamos atingir o maior número de crianças possíveis. Deseja tornar essa doação recorrente?",
-      text: 'Ao tornar essa doação recorrente você estará ajudando a custear as despesas da ONG e as missões em andamento de forma mensal. ',
-      icon: "info",
-      buttons: true,
-      dangerMode: true,
-      buttons: ["Agora não", "Sim"],
-    }).then((value) => {
+      title: "Recarga realizada com sucesso!",
+      text: "Agora você já pode realizar as doações.",
+      icon: "success",
+      button: false,
+    })
 
-      // Armazenar o value
-      // - O value == true => Cadastrar um subscription, pois entrará como doaçao mensal
-      // - O value == false => Proseguir com a doacao pontual, normalmente
-
-      const sum = parseFloat(coins) + parseFloat(amount);
-
-      if (isDonationCheck) {
-        localStorage.setItem('coins', sum / 2);
-        setCoins(parseFloat(sum / 2));
-      } else {
-        localStorage.setItem('coins', sum);
-        setCoins(parseFloat(sum));
-      }
-
-      swal({
-        title: "Recarga realizada com sucesso!",
-        text: "Agora você já pode realizar as doações.",
-        icon: "success",
-        button: false,
-      })
-
-      setTimeout(() => {
-        const hero = localStorage.getItem('hero');
-        swal.close()
-        Router.push(`/missao/${hero}`)
-      }, 1000);
-    });
+    setTimeout(() => {
+      const hero = localStorage.getItem('hero');
+      swal.close()
+      Router.push(`/missao/${hero}`)
+    }, 1000);
   }
 
   return (
@@ -152,9 +142,19 @@ export default function Pagamento() {
                   </button>
                 </div>
 
-                <div className='mt-4'>
-                  <input type='checkbox' onChange={() => handleCheck()} checked={isDonationCheck ? true : false} />
-                  <span className='ml-2 text-sm'>Concordo em doar metade do valor para a ONG Somos Todos Heróis para ajudar a custear suas despesas e impactar mais crianças.</span>
+                <div className='mt-12'>
+                  <FormControl fullWidth>
+                    <InputLabel>Recorrência da doação</InputLabel>
+                    <Select
+                      label="Recorrência da doação"
+                      color='error'
+                      defaultValue='mensal'
+                    >
+                      <MenuItem value='mensal'>Mensal</MenuItem>
+                      <MenuItem value='trimestral'>Trimestral</MenuItem>
+                      <MenuItem value='pontual'>Pontual</MenuItem>
+                    </Select>
+                  </FormControl>
                 </div>
 
                 {isOpenField &&
