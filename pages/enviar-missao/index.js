@@ -1,37 +1,41 @@
 import React from 'react';
-import Menu from '../../components/Menu';
-import Head from 'next/head'
+
 import MissionForm from '../../components/MissionForm/MissionForm';
 import Footer from '../../components/Footer'
+import Header from '../../components/Header';
+import TextBlock from '../../components/TextBlock';
+import TitleSession from '../../components/TitleSession/TitleSession';
 
 
 export default function EnviarMissao() {
   return (
     <div>
-      <Head>
-        <title>Somos Todos Heróis</title>
-        <meta name="description" content="Somos Todos Heróis" />
-        <link rel="icon" href="https://sth.org.br/wp-content/themes/sth/images/favicon.png" />
-      </Head>
-      <Menu />
-      <div className="pt-16"></div>
-      <div className='flex bg-gray-100'>
-        <div className="mx-auto py-16 px-8 max-w-screen-md text-center">
+      <Header metaTitle='STH - Enviar missão' metaDescription='teste' />
 
-          <h1 className="font-bold text-center text-3xl"> Enviar Missão </h1>
-          <br />
-          <p>Você é pai, mãe, responsável legal ou conhece alguma <u>criança</u> que precisa de ajuda para tratamentos médicos?</p>
-          <p className="text-red-500">Envie sua missão para a STH.</p>
-          <br />
-          <p className="text-base">
-            Bem vindo(a) a primeira etapa de seleção missões das crianças: o formulário online. É fundamental que você preencha todos os dados corretamente. A sua missão será analisada pela nossa super equipe de psicólogos e assistentes sociais. Assim que analisado, entraremos em contato <u>através do seu email</u>. Você não está sozinho(a) nesta luta. Sabemos o quão difícil é esse momento, lembre-se que os heróis são aqueles que têm a paciência e a perseverança para prosperar. ❤
-          </p>
-          <p className="text-base">Saiba mais sobre as <u>Etapas de Seleção</u>.</p>
-          <br />
-          <p className="text-base">Preencha o formulário abaixo, mas antes de começar, baixe a nossa autorização de uso de imagem e arrecadação! Caso você não tenha algum documento na hora da inscrição, nossa equipe entrará em contato com você para pedir o que falta!</p>
+      <div className='pt-16'>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:items-center pt-6 px-4">
+          <TitleSession title='Enviar Missão' />
         </div>
-        <MissionForm />
       </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:items-center">
+        <p className="text-lg md:text-xl text-gray-600 lg:mx-auto leading-8">
+          Bem vindo(a) a primeira etapa de seleção missões das crianças: o formulário online.
+          É fundamental que você preencha todos os dados corretamente.
+          A sua missão será analisada pela nossa super equipe de psicólogos e assistentes sociais. Assim que analisado,
+          entraremos em contato através do seu email. Você não está sozinho(a) nesta luta. Sabemos o quão difícil é esse momento,
+          lembre-se que os heróis são aqueles que têm a paciência e a perseverança para prosperar. ❤
+        </p>
+
+        <p className="text-lg md:text-xl text-gray-600 lg:mx-auto leading-8">
+          Preencha o formulário abaixo, mas antes de começar, baixe a nossa autorização de uso de imagem e arrecadação!
+          Caso você não tenha algum documento na hora da inscrição, nossa equipe entrará em contato com você para pedir o que falta!
+        </p>
+      </div>
+
+      <TextBlock title='Primeira etapa: Formulário' description='Você é pai, mãe, responsável legal ou conhece alguma criança que precisa de ajuda para tratamentos médicos? Preencha o formulário abaixo e envie agora sua missão para a STH!' />
+
+      <MissionForm />
 
       <Footer />
     </div>

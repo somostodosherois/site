@@ -33,12 +33,12 @@ const Cards = ({ items }) => (
                             <p className="px-2 text-gray-500 text-base"><b>{formatCurrent(arrecadado)}</b> arrecadados</p>
                         </div>
 
-                        {status === 'open' &&
+                        {/* {status === 'open' &&
                             <div className='flex mt-4 justify-content'>
                                 <BsCalendarDate className="h-6 w-6 text-blue-400 mt-1" aria-hidden="true" />
                                 <p className="px-2 text-gray-500">{diffDates(prazo) - 1} {(diffDates(prazo) - 1) > 1 ? 'dias restantes' : 'dia restante'}</p>
                             </div>
-                        }
+                        } */}
 
 
                         {status === 'open' &&

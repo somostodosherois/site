@@ -59,10 +59,10 @@ const CardHero = ({ hero }) => {
               <div className='pt-4'>
                 <p className="text-lg text-gray-800"><b>{formatCurrent(hero.arrecadado)}</b> arrecadados</p>
               </div>
-              <div className='pt-4 flex'>
+              {/* <div className='pt-4 flex'>
                 <BsCalendarDate className="h-5 w-5 mt-1 text-blue-400 mr-2" aria-hidden="true" />
                 <p className="text-lg text-gray-800"><b>{diffDates(hero.prazo) - 1}</b> dias restantes</p>
-              </div>
+              </div> */}
             </div>
 
             <div id="content-hero" className='pt-8'>
