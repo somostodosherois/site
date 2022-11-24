@@ -44,7 +44,7 @@ const DonationBlock = ({ hero }) => {
   ]
 
   return (
-    <div className='max-w-7xl mx-auto px-4 space-y-12'>
+    <div className='max-w-7xl mx-auto px-4 space-y-12 pb-16'>
       <dd className='mt-12'>
         <p className="text-xl md:text-2xl font-bold text-red-600">Doe um item virtual que simboliza seu carinho e apoio à missão. 💝</p>
       </dd>
@@ -54,7 +54,7 @@ const DonationBlock = ({ hero }) => {
         ))}
       </div>
 
-      <div className=''>
+      {/* <div className=''>
         <div className='flex'>
           <FcOk className="h-5 w-5 mt-1 mr-2" aria-hidden="true" />
           <p className='w-full'> Não cobramos taxa das doações. </p>
@@ -69,7 +69,7 @@ const DonationBlock = ({ hero }) => {
           <FcOk className="h-5 w-5 mt-1 mr-2" aria-hidden="true" />
           <p className='w-full'> Nós pagamos <b>diretamente</b> o tratamento médico ou equipamento que a criança necessita. </p>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }

@@ -39,6 +39,16 @@ p {
   margin-bottom: 1rem;
 }
 
+.moeda-gif{
+  height: 30px !important;
+  width: auto;
+}
+
+.active-button-white:active{
+  color: #FFF;
+  background-color: #DC2626 !important;
+}
+
 @media (min-width: 1024px) {
   .paragraph-rich-text p {
     margin-left: auto;

@@ -1,5 +1,5 @@
 function formatCurrent(value) {
-    return value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+    return value.toLocaleString('pt-br',{currency: 'BRL'});
 }
 
 export default formatCurrent

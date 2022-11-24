@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import { BsCurrencyDollar, BsCalendarDate } from "react-icons/bs";
 import formatCurrent from '../../hooks/formatCurrent';
 import diffDates from '../../hooks/diffDates';
+import ImageCoin from "../../public/moeda.gif"
 
 const CardHero = ({ hero }) => {
 
@@ -53,11 +54,13 @@ const CardHero = ({ hero }) => {
             <h3 className='text-lg leading-6 font-medium text-gray-800 pt-2 pb-2'>Meta: <b>{hero.metadesc}</b></h3>
 
             <div className='lg:grid lg:grid-cols-3 lg:gap-x-6'>
-              <div className='pt-4'>
-                <p className="text-lg text-gray-800"><b>{formatCurrent(hero.meta)}</b> meta total</p>
+              <div className='flex pt-4'>
+                <img src={ImageCoin.src} className="moeda-gif mr-2" />
+                <p className="text-lg text-gray-800 mt-1"><b>{formatCurrent(hero.meta)}</b> meta total</p>
               </div>
-              <div className='pt-4'>
-                <p className="text-lg text-gray-800"><b>{formatCurrent(hero.arrecadado)}</b> arrecadados</p>
+              <div className='flex pt-4'>
+                <img src={ImageCoin.src} className="moeda-gif mr-2" />
+                <p className="text-lg text-gray-800 mt-1"><b>{formatCurrent(hero.arrecadado)}</b> arrecadados</p>
               </div>
               {/* <div className='pt-4 flex'>
                 <BsCalendarDate className="h-5 w-5 mt-1 text-blue-400 mr-2" aria-hidden="true" />

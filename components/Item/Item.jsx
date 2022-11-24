@@ -5,6 +5,8 @@ import { useCoins } from "../../contexts/coins";
 import swal from 'sweetalert';
 import Router from 'next/router';
 import formatCurrent from "../../hooks/formatCurrent";
+import ImageCoin from "../../public/moeda.gif"
+
 
 const Item = ({ item, hero }) => {
     const { id, name, image, price, description } = item || {}
@@ -81,7 +83,11 @@ const Item = ({ item, hero }) => {
             <span className='font-bold mt-4 mb-2'>{name}</span>
             {description
                 ? <span className='text-sm text-blue-700'>{description}</span>
-                : <span className='font-bold text-blue-700'>R$ {price},00</span>
+                :
+                    <div className="flex">                 
+                        <img src={ImageCoin.src} className="moeda-gif mr-2" />
+                        <span className='text-lg mt-1 font-bold text-blue-700'>{price} HeroCoins</span>
+                    </div>
             }
             {id === '4' &&
                 <input
