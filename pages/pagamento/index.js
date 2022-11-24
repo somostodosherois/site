@@ -8,7 +8,7 @@ import FormControl from '@mui/material/FormControl'
 import InputLabel from '@mui/material/InputLabel'
 
 import Footer from '../../components/Footer'
-import Menu from '../../components/Menu'
+import Header from '../../components/Header'
 import FormAddress from '../../components/Forms/Address';
 import FormPayment from '../../components/Forms/Payment';
 import formatCurrent from '../../hooks/formatCurrent'
@@ -92,7 +92,7 @@ export default function Pagamento() {
 
   return (
     <div className="bg-gray-50">
-      <Menu />
+      <Header metaTitle={'STH - Pagamento'} />
 
       <main className="max-w-7xl mx-auto pt-16 pb-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto lg:max-w-none">
