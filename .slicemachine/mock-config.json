@@ -94,6 +94,11 @@
         },
         "items": {}
       }
+    },
+    "TestimonialCarousel": {
+      "default": {
+        "primary": {}
+      }
     }
   },
   "_cts": {

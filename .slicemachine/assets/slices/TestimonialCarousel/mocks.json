@@ -1,0 +1,17 @@
+[
+  {
+    "variation": "default",
+    "version": "sktwi1xtmkfgx8626",
+    "items": [
+      {
+        "description": "camera",
+        "author": "torn",
+        "children": "usual"
+      }
+    ],
+    "primary": {
+      "title": "understanding"
+    },
+    "slice_type": "testimonial_carousel"
+  }
+]

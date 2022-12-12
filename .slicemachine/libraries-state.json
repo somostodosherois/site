@@ -1080,6 +1080,88 @@
           }
         }
       },
+      "testimonial_carousel": {
+        "library": "slices",
+        "id": "testimonial_carousel",
+        "name": "TestimonialCarousel",
+        "description": "TestimonialCarousel",
+        "model": {
+          "id": "testimonial_carousel",
+          "type": "SharedSlice",
+          "name": "TestimonialCarousel",
+          "description": "TestimonialCarousel",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "TestimonialCarousel",
+              "primary": {
+                "title": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Title",
+                    "placeholder": ""
+                  }
+                }
+              },
+              "items": {
+                "description": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Descrição",
+                    "placeholder": ""
+                  }
+                },
+                "author": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Nome do autor",
+                    "placeholder": ""
+                  }
+                },
+                "children": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Nome da criança",
+                    "placeholder": ""
+                  }
+                }
+              },
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {
+                "description": "camera",
+                "author": "torn",
+                "children": "usual"
+              }
+            ],
+            "primary": {
+              "title": "understanding"
+            },
+            "slice_type": "testimonial_carousel"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {
+          "default": {
+            "path": "/Users/thayslacerda/Documents/site/slices/TestimonialCarousel/default/preview.png",
+            "width": 1179,
+            "height": 527
+          }
+        }
+      },
       "text_image_block": {
         "library": "slices",
         "id": "text_image_block",

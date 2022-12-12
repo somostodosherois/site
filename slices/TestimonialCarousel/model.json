@@ -1,0 +1,48 @@
+{
+  "id": "testimonial_carousel",
+  "type": "SharedSlice",
+  "name": "TestimonialCarousel",
+  "description": "TestimonialCarousel",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "TestimonialCarousel",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Descrição",
+            "placeholder": ""
+          }
+        },
+        "author": {
+          "type": "Text",
+          "config": {
+            "label": "Nome do autor",
+            "placeholder": ""
+          }
+        },
+        "children": {
+          "type": "Text",
+          "config": {
+            "label": "Nome da criança",
+            "placeholder": ""
+          }
+        }
+      },
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    }
+  ]
+}

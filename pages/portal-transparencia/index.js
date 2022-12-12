@@ -7,6 +7,7 @@ import Header from '../../components/Header'
 
 import { createClient } from '../../prismicio'
 import { components } from '../../slices'
+import TitlePage from '../../components/TitlePage';
 import TitleSession from '../../components/TitleSession/TitleSession';
 
 const Page = ({ page, menu, metaTitle, metaDescription, slices }) => {
@@ -19,7 +20,7 @@ const Page = ({ page, menu, metaTitle, metaDescription, slices }) => {
             <Header metaTitle={metaTitle} metaDescription={metaDescription} menu={menu} />
 
             <div className='pt-16'>
-                <TextBlock title={data.page_name} description={data.description[0]?.text} />
+                <TitlePage title={data.page_name} description={data.description[0]?.text} />
             </div>
 
             <div className="max-w-7xl mx-auto lg:items-center">

@@ -20,6 +20,14 @@
   }
 }
 
+.tab-campanhas button{
+  color: black;
+}
+
+.Mui-selected{
+  color: #DC2626 !important;
+}
+
 .description-card-heros {
   max-width: 290px;
   /* Tamanho */
@@ -37,6 +45,20 @@ p {
 .paragraph-rich-text p {
   line-height: 2rem;
   margin-bottom: 1rem;
+}
+
+.slick-prev:before {
+  color: #DC2626 !important;
+  font-size: 30px !important;
+}
+
+.slick-next:before {
+  color: #DC2626 !important;
+  font-size: 30px !important;
+}
+
+.slick-prev {
+  left: -40px !important;
 }
 
 .moeda-gif{

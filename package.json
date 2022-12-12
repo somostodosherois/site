@@ -46,9 +46,11 @@
     "react-input-mask": "^2.0.4",
     "react-player": "^2.10.1",
     "react-router-dom": "^6.4.0",
+    "react-slick": "^0.29.0",
     "react-vertical-timeline-component": "^3.5.2",
     "redeploy": "^1.0.1",
     "sitemap": "^7.1.1",
+    "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.5",
     "sweetalert": "^2.1.2",
     "the": "^1.0.2"

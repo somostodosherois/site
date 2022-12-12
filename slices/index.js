@@ -12,6 +12,7 @@ import NewsList from './NewsList';
 import Ods from './Ods';
 import OngNumbers from './OngNumbers';
 import OngNumbersImage from './OngNumbersImage';
+import TestimonialCarousel from './TestimonialCarousel';
 import TextBlock from './TextBlock';
 
 export {
@@ -27,6 +28,7 @@ export {
 	Ods,
 	OngNumbers,
 	OngNumbersImage,
+ 	TestimonialCarousel,
 	TextBlock,
 };
 
@@ -43,5 +45,6 @@ export const components = {
 	ods: Ods,
 	ong_numbers: OngNumbers,
 	ong_numbers_image: OngNumbersImage,
+	testimonial_carousel: TestimonialCarousel,
 	text_image_block: TextBlock,
 };
