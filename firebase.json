@@ -3,7 +3,6 @@
     "public": "pages",
     "ignore": [
       "firebase.json",
-      "**/.*",
       "**/node_modules/**"
     ]
   }
