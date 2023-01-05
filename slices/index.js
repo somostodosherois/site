@@ -3,6 +3,7 @@
 import Accordion from './Accordion';
 import CallToAction from './CallToAction';
 import CardDonationTypes from './CardDonationTypes';
+import Carousel from './Carousel';
 import Files from './Files';
 import GridText from './GridText';
 import GridTextWithButton from './GridTextWithButton';
@@ -13,11 +14,13 @@ import Ods from './Ods';
 import OngNumbers from './OngNumbers';
 import OngNumbersImage from './OngNumbersImage';
 import TextBlock from './TextBlock';
+import Timeline from './Timeline';
 
 export {
 	Accordion,
 	CallToAction,
 	CardDonationTypes,
+	Carousel,
 	Files,
 	GridText,
 	GridTextWithButton,
@@ -28,12 +31,14 @@ export {
 	OngNumbers,
 	OngNumbersImage,
 	TextBlock,
+	Timeline,
 };
 
 export const components = {
 	accordion: Accordion,
 	call_to_action: CallToAction,
 	card_donation_types: CardDonationTypes,
+	testimonial_carousel: Carousel,
 	files: Files,
 	grid_text: GridText,
 	grid_text_with_button: GridTextWithButton,
@@ -44,4 +49,5 @@ export const components = {
 	ong_numbers: OngNumbers,
 	ong_numbers_image: OngNumbersImage,
 	text_image_block: TextBlock,
+	timeline: Timeline,
 };

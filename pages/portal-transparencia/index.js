@@ -1,12 +1,11 @@
 import { PrismicRichText, SliceZone } from '@prismicio/react'
 import { Grid } from '@mui/material';
 
-import Footer from '../../components/Footer'
-import TextBlock from '../../components/TextBlock'
-import Header from '../../components/Header'
-
 import { createClient } from '../../prismicio'
 import { components } from '../../slices'
+import Footer from '../../components/Footer'
+import Header from '../../components/Header'
+import TitlePage from '../../components/TitlePage';
 import TitleSession from '../../components/TitleSession/TitleSession';
 
 const Page = ({ page, menu, metaTitle, metaDescription, slices }) => {
@@ -18,13 +17,11 @@ const Page = ({ page, menu, metaTitle, metaDescription, slices }) => {
         <>
             <Header metaTitle={metaTitle} metaDescription={metaDescription} menu={menu} />
 
-            <div className='pt-16'>
-                <TextBlock title={data.page_name} description={data.description[0]?.text} />
-            </div>
-
             <div className="max-w-7xl mx-auto lg:items-center">
                 <div className="max-w-2xl mx-auto lg:max-w-none ml-8 mr-4 md:mr-0 text-lg md:text-xl text-gray-800">
-                    {/* Destino das doacoes */}
+                    <div className='pt-24'>
+                        <TitlePage title={data.page_name} description={data.description[0]?.text} />
+                    </div>
 
                     <TitleSession title={data.donations_title} />
                     <p className="text-lg md:text-xl text-gray-600 lg:mx-auto leading-8">

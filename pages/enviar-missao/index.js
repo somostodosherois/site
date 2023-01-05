@@ -4,7 +4,7 @@ import MissionForm from '../../components/MissionForm/MissionForm';
 import Footer from '../../components/Footer'
 import Header from '../../components/Header';
 import TextBlock from '../../components/TextBlock';
-import TitleSession from '../../components/TitleSession/TitleSession';
+import TitlePage from '../../components/TitlePage';
 
 
 export default function EnviarMissao() {
@@ -14,7 +14,7 @@ export default function EnviarMissao() {
 
       <div className='pt-16'>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:items-center pt-6 px-4">
-          <TitleSession title='Enviar Missão' />
+          <TitlePage title='Enviar Missão' />
         </div>
       </div>
 

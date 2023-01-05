@@ -11,10 +11,10 @@ const OngNumbers = ({ slice }) => {
   const items = slice?.items || []
 
   return (
-    <div className="bg-gray-100 py-8">
+    <div className="bg-gray-100">
       <div className="lg:flex max-w-7xl mx-auto px-4 sm:px-6 lg:py-8 lg:px-6 lg:items-center lg:justify-between lg:gap-x-12">
         <h2 className="text-3xl lg:text-6xl font-bold text-gray-700">{title}</h2>
-        <div className="mt-16 lg:space-y-0 lg:grid lg:grid-cols-2 gap-x-8 gap-y-8">
+        <div className="lg:space-y-0 lg:grid lg:grid-cols-2 gap-x-8 gap-y-8">
           {items && items.map(({ icon, description }, index) => (
             <div className='bg-white py-8 mb-8 lg:mb-0 items-center content-center text-center border border-transparent rounded-md min-h-full'>
               <div className='flex' style={{ justifyContent: 'center' }}>

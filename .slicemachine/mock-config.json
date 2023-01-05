@@ -94,6 +94,22 @@
         },
         "items": {}
       }
+    },
+    "TestimonialCarousel": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "Timeline": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "Carousel": {
+      "default": {
+        "primary": {},
+        "items": {}
+      }
     }
   },
   "_cts": {

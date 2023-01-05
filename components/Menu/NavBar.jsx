@@ -103,7 +103,7 @@ const NavBar = (props) => {
                 <a href="/portal-transparencia">Transparência</a>
               </li>
               <li className="text-white hover:text-black">
-                <a href="/missoes">Missões</a>
+                <a href="/campanhas">Campanhas</a>
               </li>
               <li className="text-white hover:text-black">
                 <a href="/ajuda">Ajuda</a>

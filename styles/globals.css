@@ -20,6 +20,14 @@
   }
 }
 
+.tab-campanhas button{
+  color: black;
+}
+
+.Mui-selected{
+  color: #DC2626 !important;
+}
+
 .description-card-heros {
   max-width: 290px;
   /* Tamanho */
@@ -39,9 +47,46 @@ p {
   margin-bottom: 1rem;
 }
 
+.slick-prev:before {
+  color: #DC2626 !important;
+  font-size: 30px !important;
+}
+
+.slick-next:before {
+  color: #DC2626 !important;
+  font-size: 30px !important;
+}
+
+.slick-prev {
+  left: -40px !important;
+}
+
 .moeda-gif{
-  height: 30px !important;
+  height: 25px !important;
   width: auto;
+}
+
+
+@media (max-width: 768px) {
+  .carousel-wrapper button{
+    display: none !important;
+  }
+}
+
+.indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  font-size: 2.2em;
+  font-weight: 100;
+  color: #555;
+  user-select: none;
 }
 
 .active-button-white:active{
