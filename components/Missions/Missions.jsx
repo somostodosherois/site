@@ -3,7 +3,6 @@ import ContainerMissions from '../ContainerMissions'
 
 const Missions = ({ slice, heros }) => {
 
-  const variation = slice?.primary?.variation
   const title = slice?.primary?.title || 'Missões em Andamento'
 
   const inProgress = (heros.length && heros.filter(obj => obj.status === 'open')) || []
@@ -12,7 +11,7 @@ const Missions = ({ slice, heros }) => {
   return (
     <>
       <ContainerMissions items={inProgress} title={title} />
-      {variation !== 'Home' && <ContainerMissions items={isFinished} title='Missões finalizadas' />}
+      <ContainerMissions items={isFinished} title='Missões finalizadas' />
     </>
   )
 }

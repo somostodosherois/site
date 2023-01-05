@@ -1,13 +1,15 @@
 import React from 'react';
 import Slider from "react-slick";
+import Moment from 'moment';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import TitleSession from '../../components/TitleSession/TitleSession';
 import QuotationImage from '../../public/quotation_marks.svg'
+import { isMobile } from 'react-device-detect';
 
-const TestimonialCarousel = ({ slice }) => {
+const Carousel = ({ slice }) => {
   if (!slice) return null
 
   const { title } = slice?.primary
@@ -19,28 +21,27 @@ const TestimonialCarousel = ({ slice }) => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: isMobile ? 1 : 3,
     slidesToScroll: 1
   };
 
   return (
-    <>
+    <div className='carousel-wrapper'>
       <TitleSession title={title} />
       <Slider {...settings}>
-        {items.map(({ description, author, children }, index) => (
+        {items.map(({ image, description, date }, index) => (
           <div className='p-4' key={index}>
-            <div className='bg-white border rounded-lg shadow p-8' style={{ height: '20rem' }}>
-              <img src={QuotationImage.src} width='20' />
-              <p className='mt-4 text-md'>{description}</p>
-              <span className='text-sm'>{author}</span>
-              <p className='text-sm mt-2'>{children}</p>
+            <div className='bg-white border rounded-lg shadow p-2' style={{ height: '30rem' }}>
+              <img src={image.url}  />
+              <p className='mt-4 text-base'>{description}</p>
+              <span className='text-sm'>{Moment(date).format("DD/MM/YYYY")}</span>
             </div>
           </div>
         ))}
       </Slider>
 
-    </>
+    </div>
   )
 }
 
-export default TestimonialCarousel
+export default Carousel

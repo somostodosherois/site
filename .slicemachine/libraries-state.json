@@ -259,6 +259,97 @@
           }
         }
       },
+      "testimonial_carousel": {
+        "library": "slices",
+        "id": "testimonial_carousel",
+        "name": "Carousel",
+        "description": "TestimonialCarousel",
+        "model": {
+          "id": "testimonial_carousel",
+          "type": "SharedSlice",
+          "name": "Carousel",
+          "description": "TestimonialCarousel",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "TestimonialCarousel",
+              "primary": {
+                "title": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Title",
+                    "placeholder": ""
+                  }
+                }
+              },
+              "items": {
+                "image": {
+                  "type": "Image",
+                  "config": {
+                    "label": "Image",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                },
+                "description": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Descrição",
+                    "placeholder": ""
+                  }
+                },
+                "date": {
+                  "type": "Date",
+                  "config": {
+                    "label": "Date",
+                    "placeholder": ""
+                  }
+                }
+              },
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {
+                "image": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": null,
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1560762484-813fc97650a0"
+                },
+                "description": "any",
+                "date": "2022-02-22"
+              }
+            ],
+            "primary": {
+              "title": "claws"
+            },
+            "slice_type": "testimonial_carousel"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {
+          "default": {
+            "path": "/Users/thayslacerda/Documents/site/slices/Carousel/default/preview.png",
+            "width": 1179,
+            "height": 527
+          }
+        }
+      },
       "files": {
         "library": "slices",
         "id": "files",
@@ -1080,88 +1171,6 @@
           }
         }
       },
-      "testimonial_carousel": {
-        "library": "slices",
-        "id": "testimonial_carousel",
-        "name": "TestimonialCarousel",
-        "description": "TestimonialCarousel",
-        "model": {
-          "id": "testimonial_carousel",
-          "type": "SharedSlice",
-          "name": "TestimonialCarousel",
-          "description": "TestimonialCarousel",
-          "variations": [
-            {
-              "id": "default",
-              "name": "Default",
-              "docURL": "...",
-              "version": "sktwi1xtmkfgx8626",
-              "description": "TestimonialCarousel",
-              "primary": {
-                "title": {
-                  "type": "Text",
-                  "config": {
-                    "label": "Title",
-                    "placeholder": ""
-                  }
-                }
-              },
-              "items": {
-                "description": {
-                  "type": "Text",
-                  "config": {
-                    "label": "Descrição",
-                    "placeholder": ""
-                  }
-                },
-                "author": {
-                  "type": "Text",
-                  "config": {
-                    "label": "Nome do autor",
-                    "placeholder": ""
-                  }
-                },
-                "children": {
-                  "type": "Text",
-                  "config": {
-                    "label": "Nome da criança",
-                    "placeholder": ""
-                  }
-                }
-              },
-              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
-            }
-          ]
-        },
-        "mocks": {
-          "default": {
-            "variation": "default",
-            "version": "sktwi1xtmkfgx8626",
-            "items": [
-              {
-                "description": "camera",
-                "author": "torn",
-                "children": "usual"
-              }
-            ],
-            "primary": {
-              "title": "understanding"
-            },
-            "slice_type": "testimonial_carousel"
-          }
-        },
-        "meta": {
-          "fileName": "index",
-          "extension": "js"
-        },
-        "screenshotPaths": {
-          "default": {
-            "path": "/Users/thayslacerda/Documents/site/slices/TestimonialCarousel/default/preview.png",
-            "width": 1179,
-            "height": 527
-          }
-        }
-      },
       "text_image_block": {
         "library": "slices",
         "id": "text_image_block",
@@ -1223,6 +1232,96 @@
             "path": "/Users/thayslacerda/Documents/site/slices/TextBlock/default/preview.png",
             "width": 2426,
             "height": 346
+          }
+        }
+      },
+      "timeline": {
+        "library": "slices",
+        "id": "timeline",
+        "name": "Timeline",
+        "description": "Timeline",
+        "model": {
+          "id": "timeline",
+          "type": "SharedSlice",
+          "name": "Timeline",
+          "description": "Timeline",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "Timeline",
+              "primary": {
+                "title": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Title",
+                    "placeholder": ""
+                  }
+                }
+              },
+              "items": {
+                "description": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Description",
+                    "placeholder": ""
+                  }
+                },
+                "author": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Author",
+                    "placeholder": ""
+                  }
+                },
+                "subtitle": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Subtitle",
+                    "placeholder": ""
+                  }
+                },
+                "date": {
+                  "type": "Date",
+                  "config": {
+                    "label": "Date",
+                    "placeholder": ""
+                  }
+                }
+              },
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {
+                "description": "torn",
+                "author": "weight",
+                "subtitle": "simplest",
+                "date": "2014-03-03"
+              }
+            ],
+            "primary": {
+              "title": "sugar"
+            },
+            "slice_type": "timeline"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {
+          "default": {
+            "path": "/Users/thayslacerda/Documents/site/slices/Timeline/default/preview.png",
+            "width": 494,
+            "height": 988
           }
         }
       }

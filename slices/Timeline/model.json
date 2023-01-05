@@ -1,15 +1,15 @@
 {
-  "id": "testimonial_carousel",
+  "id": "timeline",
   "type": "SharedSlice",
-  "name": "TestimonialCarousel",
-  "description": "TestimonialCarousel",
+  "name": "Timeline",
+  "description": "Timeline",
   "variations": [
     {
       "id": "default",
       "name": "Default",
       "docURL": "...",
       "version": "sktwi1xtmkfgx8626",
-      "description": "TestimonialCarousel",
+      "description": "Timeline",
       "primary": {
         "title": {
           "type": "Text",
@@ -23,21 +23,28 @@
         "description": {
           "type": "Text",
           "config": {
-            "label": "Descrição",
+            "label": "Description",
             "placeholder": ""
           }
         },
         "author": {
           "type": "Text",
           "config": {
-            "label": "Nome do autor",
+            "label": "Author",
             "placeholder": ""
           }
         },
-        "children": {
+        "subtitle": {
           "type": "Text",
           "config": {
-            "label": "Nome da criança",
+            "label": "Subtitle",
+            "placeholder": ""
+          }
+        },
+        "date": {
+          "type": "Date",
+          "config": {
+            "label": "Date",
             "placeholder": ""
           }
         }

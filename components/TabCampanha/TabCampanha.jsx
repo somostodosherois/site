@@ -1,11 +1,13 @@
-import TestimonialCarousel from "../TestimonialCarousel/TestimonialCarousel"
+import GridCampanhas from "../GridCampanhas/GridCampanhas"
 
-const TabCampanha = ({ items }) => {
-    console.log(items)
+const TabCampanha = ({ items, description }) => {
 
-    return(
+    return (
         <div>
-            {items && <TestimonialCarousel title='Missões em andamento' items={items} />}
+            <p className="text-md md:text-lg text-gray-600 text-left">
+                {description}
+            </p>
+            {items && <GridCampanhas title='Missões em andamento' items={items} />}
         </div>
     )
 }
