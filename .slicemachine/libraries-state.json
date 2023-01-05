@@ -259,23 +259,23 @@
           }
         }
       },
-      "testimonial_carousel": {
+      "carousel": {
         "library": "slices",
-        "id": "testimonial_carousel",
+        "id": "carousel",
         "name": "Carousel",
-        "description": "TestimonialCarousel",
+        "description": "Carousel",
         "model": {
-          "id": "testimonial_carousel",
+          "id": "carousel",
           "type": "SharedSlice",
           "name": "Carousel",
-          "description": "TestimonialCarousel",
+          "description": "Carousel",
           "variations": [
             {
               "id": "default",
               "name": "Default",
               "docURL": "...",
               "version": "sktwi1xtmkfgx8626",
-              "description": "TestimonialCarousel",
+              "description": "Carousel",
               "primary": {
                 "title": {
                   "type": "Text",
@@ -286,18 +286,10 @@
                 }
               },
               "items": {
-                "image": {
-                  "type": "Image",
-                  "config": {
-                    "label": "Image",
-                    "constraint": {},
-                    "thumbnails": []
-                  }
-                },
                 "description": {
                   "type": "Text",
                   "config": {
-                    "label": "Descrição",
+                    "label": "Description",
                     "placeholder": ""
                   }
                 },
@@ -306,6 +298,14 @@
                   "config": {
                     "label": "Date",
                     "placeholder": ""
+                  }
+                },
+                "image": {
+                  "type": "Image",
+                  "config": {
+                    "label": "Image",
+                    "constraint": {},
+                    "thumbnails": []
                   }
                 }
               },
@@ -319,6 +319,8 @@
             "version": "sktwi1xtmkfgx8626",
             "items": [
               {
+                "description": "equipment",
+                "date": "2018-06-23",
                 "image": {
                   "dimensions": {
                     "width": 900,
@@ -326,16 +328,14 @@
                   },
                   "alt": null,
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1560762484-813fc97650a0"
-                },
-                "description": "any",
-                "date": "2022-02-22"
+                  "url": "https://images.unsplash.com/photo-1587905069134-008460d7a636"
+                }
               }
             ],
             "primary": {
-              "title": "claws"
+              "title": "furniture"
             },
-            "slice_type": "testimonial_carousel"
+            "slice_type": "carousel"
           }
         },
         "meta": {

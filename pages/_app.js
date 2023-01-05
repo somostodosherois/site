@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }) {
   };
 
   const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+  // const analytics = getAnalytics(app);
 
   return (
     <PrismicProvider
