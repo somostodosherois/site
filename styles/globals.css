@@ -68,12 +68,11 @@ p {
 }
 
 .banner-home .carousel{
-  padding-top: 8vh;
+  padding-top: 9vh;
 }
 
 .banner-campanhas .carousel {
-  padding-top: 8vh;
-  height: 40vh !important;
+  padding-top: 9vh;
 }
 
 @media (max-width: 768px) {

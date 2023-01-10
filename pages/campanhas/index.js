@@ -79,20 +79,23 @@ const tabs = [
 ]
 
 
-const Campanhas = ({ page, menu, metaTitle, metaDescription, slices, items }) => {
+const Campanhas = ({ page, menu, metaTitle, metaDescription, banner, slices, items }) => {
     // ** State
     if (!page || !menu || !items) return null
 
     const data = page?.data || {}
     const [campanha, setCampanha] = useState('food')
-    
+
     return (
         <div>
             <Header metaTitle={metaTitle} metaDescription={metaDescription} />
 
-            <div className='banner-campanhas'>
-                <Banner data={page?.data} />
-            </div>
+            {banner &&
+                <div className='banner-campanhas'>
+                    <Banner banner={banner} />
+                </div>
+            }
+
 
             <div className="pb-16">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -132,6 +135,7 @@ export async function getStaticProps({ previewData }) {
             menu: menu.data,
             metaTitle: page.data.meta_title,
             metaDescription: page.data.meta_description,
+            banner: page.data.banner,
             slices: page.data.body || [],
             items: items
         },

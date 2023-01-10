@@ -7,15 +7,17 @@ import Header from '../components/Header/Header'
 import { createClient } from '../prismicio'
 import { components } from '../slices'
 
-const Page = ({ page, menu, metaTitle, metaDescription, slices }) => {
+const Page = ({ page, menu, metaTitle, metaDescription, banner, slices }) => {
   if (!page) return null
 
   return (
     <>
       <Header metaTitle={metaTitle} metaDescription={metaDescription} menu={menu} />
-      <div className='banner-home'>
-        <Banner data={page?.data} />
-      </div>
+      {banner &&
+        <div className='banner-home'>
+          <Banner banner={banner} />
+        </div>
+      }
       <SliceZone slices={slices} components={components} />
       <Footer />
     </>
@@ -36,6 +38,7 @@ export async function getStaticProps({ previewData }) {
       menu: menu.data,
       metaTitle: page.data.meta_title,
       metaDescription: page.data.meta_description,
+      banner: page.data.banner,
       slices: page.data.page_content
     },
   }
