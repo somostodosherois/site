@@ -97,6 +97,17 @@ p {
   }
 }
 
+@media (min-height: 1110px) {
+  .banner-home .carousel{
+    padding-top: 7vh;
+  }
+
+  .banner-campanhas .carousel{
+    padding-top: 7vh;
+  }
+}
+
+
 /* BANNER */
 
 
