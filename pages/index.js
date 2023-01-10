@@ -1,6 +1,6 @@
 import { SliceZone } from '@prismicio/react'
 
-import BannerHome from '../components/BannerHome'
+import Banner from '../components/Banner'
 import Footer from '../components/Footer'
 import Header from '../components/Header/Header'
 
@@ -13,7 +13,9 @@ const Page = ({ page, menu, metaTitle, metaDescription, slices }) => {
   return (
     <>
       <Header metaTitle={metaTitle} metaDescription={metaDescription} menu={menu} />
-      <BannerHome data={page?.data} />
+      <div className='banner-home'>
+        <Banner data={page?.data} />
+      </div>
       <SliceZone slices={slices} components={components} />
       <Footer />
     </>
