@@ -1,7 +1,6 @@
 import TitleSession from "../TitleSession/TitleSession"
 import GridDonation from "./GridDonation"
 
-
 const tabFood = [
     {
         value: 30,
@@ -77,11 +76,11 @@ const tabMedical = [
 const tabs = (value) => {
     if(value == 'food'){
         return tabFood
-    }else if(value == 'hygiene'){
+    }else if(value == 'personal hygiene'){
         return tabHygiene
     }else if(value == 'accessories'){
         return tabAcessories
-    }else if(value == 'medical'){
+    }else if(value == 'medical treatments'){
         return tabMedical
     }
 }
