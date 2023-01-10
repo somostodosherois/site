@@ -67,13 +67,38 @@ p {
   width: auto;
 }
 
+/* BANNER */
+
 .banner-home .carousel{
   padding-top: 9vh;
 }
 
-.banner-campanhas .carousel {
+.banner-campanhas .carousel{
   padding-top: 9vh;
 }
+
+@media (max-width: 640px) {
+  .banner-home .carousel{
+    padding-top: 7vh;
+  }
+
+  .banner-campanhas .carousel{
+    padding-top: 7vh;
+  }
+}
+
+@media (min-width: 641px) {
+  .banner-home .carousel{
+    padding-top: 8vh;
+  }
+
+  .banner-campanhas .carousel{
+    padding-top: 8vh;
+  }
+}
+
+/* BANNER */
+
 
 @media (max-width: 768px) {
   .carousel-wrapper button{
