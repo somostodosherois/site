@@ -2,9 +2,6 @@
 import { useState } from 'react'
 import { SliceZone } from '@prismicio/react'
 
-// ** Third Party Styles Imports
-import 'react-datepicker/dist/react-datepicker.css'
-
 import { components } from '../../slices'
 import { createClient } from '../../prismicio'
 

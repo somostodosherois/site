@@ -19,9 +19,7 @@ const Page = ({ page, menu, metaTitle, metaDescription, slices }) => {
 
             <div className="max-w-7xl mx-auto lg:items-center">
                 <div className="max-w-2xl mx-auto lg:max-w-none ml-8 mr-4 md:mr-0 text-lg md:text-xl text-gray-800">
-                    <div className='pt-24'>
-                        <TitlePage title={data.page_name} description={data.description[0]?.text} />
-                    </div>
+                    <TitlePage title={data.page_name} description={data.description[0]?.text} />
 
                     <TitleSession title={data.donations_title} />
                     <p className="text-lg md:text-xl text-gray-600 lg:mx-auto leading-8">

@@ -14,7 +14,7 @@ const FormContact = ({ data }) => {
   const [setor, setSetor] = useState('0')
 
   return (
-    <div className="bg-red-600 py-8 px-4 pt-20">
+    <div className="bg-red-600 pb-12 px-4">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:items-center pt-12">
         <div className="md:grid md:grid-cols-3 md:gap-6">
           <div className="md:col-span-1">

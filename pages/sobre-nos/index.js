@@ -18,9 +18,8 @@ const Page = ({ page, menu, metaTitle, metaDescription, slices }) => {
         <>
             <Header metaTitle={metaTitle} metaDescription={metaDescription} menu={menu} />
 
-            <div className='pt-16'>
-                <TextBlock title={data.page_name} description={data.description} isRichText={true} video={data.video.embed_url} />
-            </div>
+            <TextBlock title={data.page_name} description={data.description} isRichText={true} video={data.video.embed_url} />
+            
             <div className='pt-4 pb-12'>
                 <TextBlock title={data.title_2} description={data.description_2} isRichText={true} />
             </div>
