@@ -63,53 +63,9 @@ p {
 }
 
 .moeda-gif{
-  height: 25px !important;
+  height: 24px !important;
   width: auto;
 }
-
-/* BANNER */
-
-.banner-home .carousel{
-  padding-top: 9vh;
-}
-
-.banner-campanhas .carousel{
-  padding-top: 9vh;
-}
-
-@media (max-width: 640px) {
-  .banner-home .carousel{
-    padding-top: 7vh;
-  }
-
-  .banner-campanhas .carousel{
-    padding-top: 7vh;
-  }
-}
-
-@media (min-width: 641px) {
-  .banner-home .carousel{
-    padding-top: 8vh;
-  }
-
-  .banner-campanhas .carousel{
-    padding-top: 8vh;
-  }
-}
-
-@media (min-height: 1110px) {
-  .banner-home .carousel{
-    padding-top: 7vh;
-  }
-
-  .banner-campanhas .carousel{
-    padding-top: 7vh;
-  }
-}
-
-
-/* BANNER */
-
 
 @media (max-width: 768px) {
   .carousel-wrapper button{
@@ -193,7 +149,7 @@ p {
 
 .bg-success {
   --bs-bg-opacity: 1;
-  --bs-success-rgb: 25,135,84;
+  --bs-success-rgb: 70,185,94;
   background-color: rgba(var(--bs-success-rgb),var(--bs-bg-opacity))!important;
 }
 

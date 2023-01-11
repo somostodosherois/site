@@ -5,12 +5,6 @@ import { SliceZone } from '@prismicio/react'
 // ** Third Party Styles Imports
 import 'react-datepicker/dist/react-datepicker.css'
 
-// ** Icons Imports
-import CartHeart from 'mdi-material-ui/CartHeart'
-import Stethoscope from 'mdi-material-ui/Stethoscope'
-import Charity from 'mdi-material-ui/Charity'
-import SilverwareClean from 'mdi-material-ui/SilverwareClean'
-
 import { components } from '../../slices'
 import { createClient } from '../../prismicio'
 
@@ -19,65 +13,34 @@ import Header from '../../components/Header'
 import TitlePage from '../../components/TitlePage'
 import DonationSession from '../../components/DonationSession/DonationSession'
 import Banner from '../../components/Banner'
-import ProgressBarHorizontal from '../../components/ProgressBarHorizontal'
 import Tabs from '../../components/Tabs'
-
-import ImageCoin from "../../public/moeda.gif"
-
-const changeNameCampanha = (value) => {
-    if (value == 'food')
-        return "Alimentos"
-    else if (value == 'personal hygiene')
-        return "Higiene Pessoal"
-    else if (value == 'accessories')
-        return "Acessórios"
-    else if (value == 'medical treatments')
-        return "Assistência médica"
-}
-
-const progressBarra = (name, progress, value) => (
-    <div className='grid md:grid-cols-5 gap-y-4 bg-gray-300 border border-2 border pt-3 pl-5 pr-5 text-center w-full' style={{ position: 'fixed', bottom: 0 }}>
-        <span className='text-xl font-bold text-center col-span-2 md:col-span-1 lg:mt-1'>Campanha: {changeNameCampanha(name)}</span>
-
-        <div className='col-span-2 md:mt-1'>
-            <ProgressBarHorizontal progress={progress} />
-        </div>
-
-        <div className='flex justify-center'>
-            <img src={ImageCoin.src} className="moeda-gif hidden lg:block my-2" />
-            <p className="px-2 py-1 text-black text-md"><b>{value}</b> moedas</p>
-        </div>
-
-        <div className="rounded-md shadow cursor-pointer md:mt-1">
-            <a
-                href={'missao/'}
-                className="flex items-center justify-center bg-red-600 text-base uppercase rounded-md text-white py-1"
-            >
-                Finalizar campanha
-            </a>
-        </div>
-    </div>
-)
 
 const tabs = [
     {
-        value: 'food',
-        description: 'A campanha de Alimentos reúne crianças que necessitam de latas de leite.'
+        id: 'food',
+        description: 'A campanha de Alimentos reúne crianças que necessitam de latas de leite.',
+        value: 1200,
+        progress: 45,
     },
     {
-        value: 'personal hygiene',
-        description: 'A campanha de Higiene Pessoal reúne crianças que necessitam de fraldas; pomadas; lenços umedecidos; entre outros.'
+        id: 'personal hygiene',
+        description: 'A campanha de Higiene Pessoal reúne crianças que necessitam de fraldas; pomadas; lenços umedecidos; entre outros.',
+        value: 2200,
+        progress: 24,
     },
     {
-        value: 'accessories',
-        description: 'A campanha de Acessórios reúne crianças que necessitam de cadeiras de rodas; andadores; banheiras; entre outros.'
+        id: 'accessories',
+        description: 'A campanha de Acessórios reúne crianças que necessitam de cadeiras de rodas; andadores; banheiras; entre outros.',
+        value: 5000,
+        progress: 56,
     },
     {
-        value: 'medical treatments',
-        description: 'A campanha de Tratamentos Médicos reúne crianças que necessitam de sessões de fisioterapia; fonoaudiologia; entre outros.'
+        id: 'medical treatments',
+        description: 'A campanha de Tratamentos Médicos reúne crianças que necessitam de sessões de fisioterapia; fonoaudiologia; entre outros.',
+        value: 8000,
+        progress: 30,
     }
 ]
-
 
 const Campanhas = ({ page, menu, metaTitle, metaDescription, banner, slices, items }) => {
     // ** State
@@ -91,11 +54,8 @@ const Campanhas = ({ page, menu, metaTitle, metaDescription, banner, slices, ite
             <Header metaTitle={metaTitle} metaDescription={metaDescription} />
 
             {banner &&
-                <div className='banner-campanhas'>
-                    <Banner banner={banner} />
-                </div>
+                <Banner banner={banner} />
             }
-
 
             <div className="pb-16">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -114,8 +74,6 @@ const Campanhas = ({ page, menu, metaTitle, metaDescription, banner, slices, ite
                     <SliceZone slices={slices} components={components} />
                 </div>
             </div>
-
-            {progressBarra(campanha, 45, 1200)}
 
             <Footer />
         </div>

@@ -94,105 +94,102 @@ export default function Pagamento() {
     <div className="bg-gray-50">
       <Header metaTitle={'STH - Pagamento'} />
 
-      <main className="max-w-7xl mx-auto pt-16 pb-24 px-4 sm:px-6 lg:px-8">
+      <main className="max-w-7xl mx-auto pt-12 pb-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto lg:max-w-none">
-          <h1 className="sr-only">Checkout</h1>
 
           <form className="lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
             <div>
-              <div className="mt-10 pt-4">
 
-                <h2 className="text-lg font-medium text-gray-900">Valor</h2>
+              <h2 className="text-lg font-medium text-gray-900">Valor</h2>
 
-                <div className="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
+              <div className="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
 
-                  <button
-                    value={30}
-                    onClick={(e) => handleAmount(e.target.value)}
-                    type="submit"
-                    className="w-full bg-transparent border border-red-600 rounded-md shadow-sm py-3 px-4 text-base font-medium text-red-600 hover:bg-red-600 hover:text-white"
+                <button
+                  value={30}
+                  onClick={(e) => handleAmount(e.target.value)}
+                  type="submit"
+                  className="w-full bg-transparent border border-red-600 rounded-md shadow-sm py-3 px-4 text-base font-medium text-red-600 hover:bg-red-600 hover:text-white"
+                >
+                  R$ 30,00
+                </button>
+
+                <button
+                  value={50}
+                  onClick={(e) => handleAmount(e.target.value)}
+                  type="submit"
+                  className="w-full bg-transparent border border-red-600 rounded-md shadow-sm py-3 px-4 text-base font-medium text-red-600 hover:bg-red-600 hover:text-white active-button-white"
+                >
+                  R$ 50,00
+                </button>
+
+                <button
+                  value={100}
+                  onClick={(e) => handleAmount(e.target.value)}
+                  type="submit"
+                  className="w-full bg-transparent border border-red-600 rounded-md shadow-sm py-3 px-4 text-base font-medium text-red-600 hover:bg-red-600 hover:text-white"
+                >
+                  R$ 100,00
+                </button>
+
+                <button
+                  onClick={() => handleField()}
+                  type="submit"
+                  className="w-full bg-transparent border border-red-600 rounded-md shadow-sm py-3 px-4 text-base font-medium text-red-600 hover:bg-red-600 hover:text-white"
+                >
+                  Outro valor
+                </button>
+              </div>
+
+              <div className='mt-12'>
+                <FormControl fullWidth>
+                  <InputLabel>Recorrência da doação</InputLabel>
+                  <Select
+                    label="Recorrência da doação"
+                    color='error'
+                    defaultValue='mensal'
                   >
-                    R$ 30,00
-                  </button>
+                    <MenuItem value='mensal'>Mensal</MenuItem>
+                    <MenuItem value='trimestral'>Trimestral</MenuItem>
+                    <MenuItem value='pontual'>Pontual</MenuItem>
+                  </Select>
+                </FormControl>
+              </div>
 
-                  <button
-                    value={50}
-                    onClick={(e) => handleAmount(e.target.value)}
-                    type="submit"
-                    className="w-full bg-transparent border border-red-600 rounded-md shadow-sm py-3 px-4 text-base font-medium text-red-600 hover:bg-red-600 hover:text-white active-button-white"
-                  >
-                    R$ 50,00
-                  </button>
-
-                  <button
-                    value={100}
-                    onClick={(e) => handleAmount(e.target.value)}
-                    type="submit"
-                    className="w-full bg-transparent border border-red-600 rounded-md shadow-sm py-3 px-4 text-base font-medium text-red-600 hover:bg-red-600 hover:text-white"
-                  >
-                    R$ 100,00
-                  </button>
-
-                  <button
-                    onClick={() => handleField()}
-                    type="submit"
-                    className="w-full bg-transparent border border-red-600 rounded-md shadow-sm py-3 px-4 text-base font-medium text-red-600 hover:bg-red-600 hover:text-white"
-                  >
-                    Outro valor
-                  </button>
+              {isOpenField &&
+                <div className="sm:col-span-2 flex gap-x-4 mt-8 mb-8">
+                  <TextField
+                    type='value'
+                    size='small'
+                    label='Valor'
+                    color='error'
+                    className='mb-2'
+                    onChange={(e) => handleAmount(e.target.value)}
+                  />
                 </div>
-
-                <div className='mt-12'>
-                  <FormControl fullWidth>
-                    <InputLabel>Recorrência da doação</InputLabel>
-                    <Select
-                      label="Recorrência da doação"
-                      color='error'
-                      defaultValue='mensal'
-                    >
-                      <MenuItem value='mensal'>Mensal</MenuItem>
-                      <MenuItem value='trimestral'>Trimestral</MenuItem>
-                      <MenuItem value='pontual'>Pontual</MenuItem>
-                    </Select>
-                  </FormControl>
-                </div>
-
-                {isOpenField &&
-                  <div className="sm:col-span-2 flex gap-x-4 mt-8 mb-8">
-                    <TextField
-                      type='value'
-                      size='small'
-                      label='Valor'
-                      color='error'
-                      className='mb-2'
-                      onChange={(e) => handleAmount(e.target.value)}
-                    />
-                  </div>
-                }
+              }
 
 
-                <h2 className="text-lg font-medium mt-8 text-gray-900">Dados pessoais</h2>
+              <h2 className="text-lg font-medium mt-8 text-gray-900">Dados pessoais</h2>
 
-                <div className="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
+              <div className="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
 
-                  <div className="sm:col-span-2 flex gap-x-4">
-                    <InputMask
-                      mask="999.999.999-99"
-                      onChange={handleCpf}
-                    >
-                      {() =>
-                        <TextField
-                          type='text'
-                          size='small'
-                          label='CPF'
-                          placeholder='Digite o CPF'
-                          color='error'
-                          className='mb-2'
-                          required
-                        />
-                      }
-                    </InputMask>
-                  </div>
+                <div className="sm:col-span-2 flex gap-x-4">
+                  <InputMask
+                    mask="999.999.999-99"
+                    onChange={handleCpf}
+                  >
+                    {() =>
+                      <TextField
+                        type='text'
+                        size='small'
+                        label='CPF'
+                        placeholder='Digite o CPF'
+                        color='error'
+                        className='mb-2'
+                        required
+                      />
+                    }
+                  </InputMask>
                 </div>
               </div>
               <FormAddress />

@@ -13,11 +13,11 @@ const Page = ({ page, menu, metaTitle, metaDescription, banner, slices }) => {
   return (
     <>
       <Header metaTitle={metaTitle} metaDescription={metaDescription} menu={menu} />
+
       {banner &&
-        <div className='banner-home'>
-          <Banner banner={banner} />
-        </div>
+        <Banner banner={banner} />
       }
+
       <SliceZone slices={slices} components={components} />
       <Footer />
     </>

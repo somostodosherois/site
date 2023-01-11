@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 // ** MUI Imports
 import Card from '@mui/material/Card'
 import TabContext from '@mui/lab/TabContext'
@@ -23,9 +21,9 @@ export const countValueCampanha = (items) => {
 }
 
 const renderTabPanel = (tabs, items) => {
-    return tabs.map(({ value, description }, index) => (
-        <TabPanel sx={{ p: 0 }} value={value} className='pt-8' key={index}>
-            <TabCampanha items={filterCampanhas(items, value)} value={countValueCampanha(filterCampanhas(items, value))} description={description} />
+    return tabs.map(({ id, description, value, progress }, index) => (
+        <TabPanel sx={{ p: 0 }} value={id} className='pt-8' key={index}>
+            <TabCampanha items={filterCampanhas(items, id)} value={countValueCampanha(filterCampanhas(items, id))} description={description} value={value} progress={progress} />
         </TabPanel>
     ))
 }

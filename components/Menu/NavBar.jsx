@@ -42,7 +42,7 @@ const NavBar = (props) => {
   }, []);
 
   return (
-    <nav className="w-full bg-red-600 shadow fixed z-50">
+    <nav className="w-full bg-red-600 shadow sticky top-0 z-50">
       <div className="justify-between px-4 mx-auto lg:max-w-7xl lg:items-center lg:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 lg:block">
@@ -110,69 +110,41 @@ const NavBar = (props) => {
               </li>
             </ul>
 
-            <div className="m-2 flex space-x-3 lg:hidden inline-block">
+           {/* MOBILE */}
+
+            <div className="m-2 grid grid-cols-2 space-x-3 lg:hidden inline-block ">
+              <div className="flex mt-6">
+                <img src={ImageCoin.src} style={{ height: '25px', width: '25px' }} />
+                <span className="coins text-white ml-2 text-xl">{coins}</span>
+              </div>
+
               <a
                 href="/login"
-                className="inline-block w-full px-3 py-2 text-center text-white bg-red-400 rounded-md shadow hover:bg-gray-800"
+                className="px-2 py-2 text-center text-red-600 bg-white rounded-md shadow hover:bg-red-100"
               >
                 Login
               </a>
-              <a
-                href="/doar"
-                className="inline-block w-full px-3 py-2 text-center text-red-600 bg-white rounded-md shadow hover:bg-red-100"
-              >
-                Doar
-              </a>
-              {/* <div className="coins"> */}
-                <a className="coins-icon" href="#">
-                  <div className="flex">
-                    <img src={ImageCoin.src} style={{ height: '25px', width: '25px' }}/>
-                    <span className="coins text-white mt-1 ml-1">{coins}</span>
-                  </div>
-                </a>
-              {/* </div> */}
-              {/* <div className="cart">
-                <a className="cart-icon" href="#" onClick={handleCartButton}>
-                  <div className="flex">
-                    <span className="cart-count text-white mt-1 mr-2">{cartQuantity ? cartQuantity : 0}</span>
-                    <BsCart className="h-8 w-8" fill="white" aria-hidden="true" />
-                  </div>
-                </a>
-                <CartPreview cartTotal={cartTotal} />
-              </div> */}
             </div>
           </div>
         </div>
+
+        {/* DESKTOP */}
+
         <div className="hidden space-x-2 lg:flex">
-          <a
-            href="/login"
-            className="px-4 py-2 text-white bg-red-400 rounded-md shadow hover:bg-gray-800"
-          >
-            Login
-          </a>
           <a
             href="/"
             className="px-4 py-2 text-red-600 bg-white rounded-md shadow hover:bg-red-100"
           >
-            Doar
+            Login
           </a>
           <div className="coins mt-1">
             <a className="coins-icon" href="#" >
-              <div className="flex">
-                <img src={ImageCoin.src} className="moeda-gif ml-4" />
-                <span className="coins text-white mt-1 ml-1">{coins}</span>
+              <div className="flex py-1">
+                <img src={ImageCoin.src} className="moeda-gif ml-4 " />
+                <span className="coins text-white ml-2 text-xl">{coins}</span>
               </div>
             </a>
           </div>
-          {/* <div className="cart mt-1">
-            <a className="cart-icon" href="#" onClick={handleCartButton}>
-              <div className="flex">
-                <span className="cart-count text-white mt-1 mr-2">{cartQuantity ? cartQuantity : 0}</span>
-                <BsCart className="h-8 w-8" fill="white" aria-hidden="true" />
-              </div>
-            </a>
-            <CartPreview cartTotal={cartTotal} />
-          </div> */}
         </div>
       </div>
     </nav>
