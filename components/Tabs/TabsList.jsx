@@ -1,7 +1,7 @@
-import { styled } from '@mui/material/styles'
+import { createTheme } from '@mui/material/styles';
+import { red } from '@mui/material/colors';
 
 import TabList from '@mui/lab/TabList'
-import Box from '@mui/material/Box'
 import Tab from '@mui/material/Tab'
 
 // ** Icons Imports
@@ -9,6 +9,14 @@ import CartHeart from 'mdi-material-ui/CartHeart'
 import Stethoscope from 'mdi-material-ui/Stethoscope'
 import Charity from 'mdi-material-ui/Charity'
 import SilverwareClean from 'mdi-material-ui/SilverwareClean'
+
+const theme = createTheme({
+    palette: {
+        primary: {
+            main: red[600]
+        }
+    },
+})
 
 const TabsList = ({ setCampanha }) => {
     const handleChange = (event, newValue) => {
@@ -18,52 +26,37 @@ const TabsList = ({ setCampanha }) => {
     return (
         <TabList
             onChange={handleChange}
-            aria-label='account-settings tabs text-left'
+            aria-label='tabs text-left'
             variant="fullWidth"
-            className='tab-campanhas'
+            theme={theme}
+            textColor={theme.palette.primary.main}
         >
             <Tab
                 value='food'
-                className='flex justify-left'
-                label={
-                    <Box>
-                        <SilverwareClean />
-                        <span className='text-center m-4'>Alimentos</span>
-                    </Box>
-                }
+                icon={<SilverwareClean />}
+                iconPosition="start"
+                label='Alimentos'
             />
 
             <Tab
                 value='personal hygiene'
-                className='flex justify-left'
-                label={
-                    <Box>
-                        <Charity />
-                        <span className='text-center m-4'>Higiene Pessoal</span>
-                    </Box>
-                }
+                icon={<Charity />}
+                iconPosition="start"
+                label='Higiene Pessoal'
             />
 
             <Tab
                 value='accessories'
-                className='flex justify-left'
-                label={
-                    <Box>
-                        <CartHeart />
-                        <span className='text-center m-4'>Acessórios</span>
-                    </Box>
-                }
+                icon={<CartHeart />}
+                iconPosition="start"
+                label='Acessórios'
             />
 
             <Tab
                 value='medical treatments'
-                className='flex justify-left'
-                label={
-                    <Box>
-                        <Stethoscope />
-                        <span className='text-center m-4'>Assistência médica</span>
-                    </Box>
-                }
+                icon={<Stethoscope />}
+                iconPosition="start"
+                label='Assistência médica'
             />
 
         </TabList>

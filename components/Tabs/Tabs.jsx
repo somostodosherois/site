@@ -31,8 +31,8 @@ const renderTabPanel = (tabs, items) => {
 const Tabs = ({ campanha, tabs, items, setCampanha }) => {
 
     return (
-        <Card className='shadow-none'>
-            <TabContext value={campanha} className='shadow-none'>
+        <Card className='card-tabs'>
+            <TabContext value={campanha}>
 
                 <TabsList setCampanha={setCampanha} />
 

@@ -21,14 +21,6 @@
   }
 }
 
-.tab-campanhas button{
-  color: black;
-}
-
-.Mui-selected{
-  color: #DC2626 !important;
-}
-
 .description-card-heros {
   max-width: 290px;
   /* Tamanho */
@@ -174,17 +166,25 @@ p {
 
 
 
+.card-tabs {
+  box-shadow: none !important;
+}
 
+.tab-campanhas button{
+  color: black;
+}
 
-
+.Mui-selected{
+  color: #DC2626 !important;
+}
 
 
 .css-1cnilsh-MuiButtonBase-root-MuiTab-root.Mui-selected {
-  color: #DC2626;
+  color: #DC2626 !important;
 }
 
 .MuiTabs-indicator {
-  background-color: #DC2626;
+  background-color: #DC2626 !important;
 }
 
 #content-hero p {
