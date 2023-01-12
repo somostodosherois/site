@@ -170,8 +170,8 @@ p {
   box-shadow: none !important;
 }
 
-.tab-campanhas button{
-  color: black;
+.MuiTab-textColorPrimary{
+  color: black !important;
 }
 
 .Mui-selected{

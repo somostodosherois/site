@@ -1,6 +1,3 @@
-import { createTheme } from '@mui/material/styles';
-import { red } from '@mui/material/colors';
-
 import TabList from '@mui/lab/TabList'
 import Tab from '@mui/material/Tab'
 
@@ -9,14 +6,7 @@ import CartHeart from 'mdi-material-ui/CartHeart'
 import Stethoscope from 'mdi-material-ui/Stethoscope'
 import Charity from 'mdi-material-ui/Charity'
 import SilverwareClean from 'mdi-material-ui/SilverwareClean'
-
-const theme = createTheme({
-    palette: {
-        primary: {
-            main: red[600]
-        }
-    },
-})
+import { isMobile } from 'react-device-detect'
 
 const TabsList = ({ setCampanha }) => {
     const handleChange = (event, newValue) => {
@@ -28,8 +18,7 @@ const TabsList = ({ setCampanha }) => {
             onChange={handleChange}
             aria-label='tabs text-left'
             variant="fullWidth"
-            theme={theme}
-            textColor={theme.palette.primary.main}
+            orientation= { isMobile ? "vertical" : "horizontal" }
         >
             <Tab
                 value='food'
