@@ -2,22 +2,13 @@ import { styled } from '@mui/material/styles'
 
 import TabList from '@mui/lab/TabList'
 import Box from '@mui/material/Box'
-import MuiTab from '@mui/material/Tab'
+import Tab from '@mui/material/Tab'
 
 // ** Icons Imports
 import CartHeart from 'mdi-material-ui/CartHeart'
 import Stethoscope from 'mdi-material-ui/Stethoscope'
 import Charity from 'mdi-material-ui/Charity'
 import SilverwareClean from 'mdi-material-ui/SilverwareClean'
-
-const Tab = styled(MuiTab)(() => ({
-
-}))
-
-const TabName = styled('span')(() => ({
-    lineHeight: 1.71,
-    fontSize: '1rem'
-}))
 
 const TabsList = ({ setCampanha }) => {
     const handleChange = (event, newValue) => {
@@ -37,7 +28,7 @@ const TabsList = ({ setCampanha }) => {
                 label={
                     <Box>
                         <SilverwareClean />
-                        <TabName className='text-center m-4'>Alimentos</TabName>
+                        <span className='text-center m-4'>Alimentos</span>
                     </Box>
                 }
             />
@@ -48,7 +39,7 @@ const TabsList = ({ setCampanha }) => {
                 label={
                     <Box>
                         <Charity />
-                        <TabName className='text-center m-4'>Higiene Pessoal</TabName>
+                        <span className='text-center m-4'>Higiene Pessoal</span>
                     </Box>
                 }
             />
@@ -59,7 +50,7 @@ const TabsList = ({ setCampanha }) => {
                 label={
                     <Box>
                         <CartHeart />
-                        <TabName className='text-center m-4'>Acessórios</TabName>
+                        <span className='text-center m-4'>Acessórios</span>
                     </Box>
                 }
             />
@@ -70,7 +61,7 @@ const TabsList = ({ setCampanha }) => {
                 label={
                     <Box>
                         <Stethoscope />
-                        <TabName className='text-center m-4'>Assistência médica</TabName>
+                        <span className='text-center m-4'>Assistência médica</span>
                     </Box>
                 }
             />
