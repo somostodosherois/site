@@ -1,24 +1,24 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField'
 
-import HandHeartOutline from 'mdi-material-ui/HandHeartOutline'
 import Close from 'mdi-material-ui/Close'
+import { isMobile } from 'react-device-detect';
 
 
 const style = {
     position: 'absolute',
-    top: '40%',
+    top: isMobile ? '50%' : '40%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 600,
+    width: isMobile ? '80%' : '30%',
     bgcolor: 'background.paper',
     border: '1px solid #000',
     boxShadow: 24,
     p: 4,
+    borderRadius: '2%'
 };
 
 const ModalDetails = ({ open, handleClose, mission }) => {
@@ -39,7 +39,7 @@ const ModalDetails = ({ open, handleClose, mission }) => {
                         {nameHero}
                     </Typography>
 
-                    <Button className='hover:bg-transparent' onClick={handleClose}><Close /></Button>
+                    <button className='hover:bg-transparent' onClick={handleClose}><Close /></button>
                 </div>
                 <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                     {description}
@@ -59,7 +59,7 @@ const ModalDetails = ({ open, handleClose, mission }) => {
 
                     <span className='text-sm mt-1'>100% do valor doado é direcionado para a missão.</span>
 
-                    <Button className='bg-red-600 hover:bg-red-700 text-white mt-4' onClick={handleClose}>Doar</Button>
+                    <button className='bg-red-600 hover:bg-red-700 text-white mt-4 py-2' onClick={handleClose}>Doar</button>
                 </div>
 
             </Box>
