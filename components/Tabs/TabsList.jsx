@@ -10,21 +10,13 @@ import Stethoscope from 'mdi-material-ui/Stethoscope'
 import Charity from 'mdi-material-ui/Charity'
 import SilverwareClean from 'mdi-material-ui/SilverwareClean'
 
-const Tab = styled(MuiTab)(({ theme }) => ({
-    [theme.breakpoints.down('md')]: {
-        minWidth: 100
-    },
-    [theme.breakpoints.down('sm')]: {
-        minWidth: 67
-    },
+const Tab = styled(MuiTab)(() => ({
+
 }))
 
-const TabName = styled('span')(({ theme }) => ({
+const TabName = styled('span')(() => ({
     lineHeight: 1.71,
-    fontSize: '1rem',
-    [theme.breakpoints.down('md')]: {
-        display: 'none'
-    }
+    fontSize: '1rem'
 }))
 
 const TabsList = ({ setCampanha }) => {
