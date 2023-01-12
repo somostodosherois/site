@@ -4,7 +4,7 @@ import ProgressBarHorizontal from '../ProgressBarHorizontal'
 const TabCampanha = ({ items, description, value, progress }) => {
 
     return (
-        <div>
+        <div className='pt-8'>
             <p className="text-md md:text-lg text-gray-600 text-left">
                 {description}
             </p>

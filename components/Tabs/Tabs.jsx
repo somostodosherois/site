@@ -22,7 +22,7 @@ export const countValueCampanha = (items) => {
 
 const renderTabPanel = (tabs, items) => {
     return tabs.map(({ id, description, value, progress }, index) => (
-        <TabPanel sx={{ p: 0 }} value={id} className='pt-8' key={index}>
+        <TabPanel sx={{ p: 0 }} value={id} key={index}>
             <TabCampanha items={filterCampanhas(items, id)} value={countValueCampanha(filterCampanhas(items, id))} description={description} value={value} progress={progress} />
         </TabPanel>
     ))

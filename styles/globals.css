@@ -101,7 +101,7 @@ p {
 }
 
 
-
+/* PROGRESS BAR */
 
 .progress {
     --bs-progress-height: 2rem;
@@ -161,10 +161,10 @@ p {
   }
 }
 
+/* PROGRESS BAR */
 
 
-
-
+/* TABS */
 
 .card-tabs {
   box-shadow: none !important;
@@ -186,6 +186,8 @@ p {
 .MuiTabs-indicator {
   background-color: #DC2626 !important;
 }
+
+/* TABS */
 
 #content-hero p {
   font-size: medium;
