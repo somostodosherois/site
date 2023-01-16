@@ -48,7 +48,8 @@
     },
     "CallToAction": {
       "default": {
-        "primary": {}
+        "primary": {},
+        "items": {}
       }
     },
     "NewsList": {
@@ -109,20 +110,7 @@
   },
   "_cts": {
     "homepage": {
-      "homepage_banner": {
-        "title": {
-          "config": {
-            "patternType": "HEADING",
-            "blocks": 1
-          }
-        },
-        "description": {
-          "config": {
-            "patternType": "PARAGRAPH",
-            "blocks": 1
-          }
-        }
-      }
+      "banner": {}
     }
   }
 }

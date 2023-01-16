@@ -1,39 +1,13 @@
-import React, { useContext, useState, useEffect } from "react";
-import { BsCart } from "react-icons/bs";
+import React, { useState, useEffect } from "react";
 
-import CartPreview from "../CartPreview/CartPreview";
-import {
-  CartStateContext,
-  CartDispatchContext,
-  toggleCartPopup
-} from "../../contexts/cart";
-
-import { GiTwoCoins } from "react-icons/gi";
 import { useCoins } from "../../contexts/coins";
 import ImageCoin from "../../public/moeda.gif"
 
 const NavBar = (props) => {
   const [navbar, setNavbar] = useState(false);
-  const { items: cartItems, isCartOpen } = useContext(CartStateContext);
-  const cartDispatch = useContext(CartDispatchContext);
-  const cartQuantity = cartItems
-    .map((item) => item.quantity)
-    .reduce((prev, current) => prev + current, 0);
-
-  const cartTotal = cartItems
-    .map((item) => item.price * item.quantity)
-    .reduce((prev, current) => prev + current, 0);
-
-
-  const handleCartButton = (event) => {
-    event.preventDefault();
-    return toggleCartPopup(cartDispatch);
-  };
-
   const { coins, setCoins } = useCoins();
 
   useEffect(() => {
-
     const coinsQtd = localStorage.getItem('coins');
 
     if (coinsQtd) {

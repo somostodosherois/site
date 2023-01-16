@@ -1,7 +1,7 @@
 import { SliceZone } from '@prismicio/react'
 
 import Footer from '../../components/Footer'
-import FormContact from '../../components/FormContact/FormContact'
+import FormContact from '../../components/Forms/Contact'
 import Header from '../../components/Header'
 import { createClient } from '../../prismicio'
 import { components } from '../../slices'

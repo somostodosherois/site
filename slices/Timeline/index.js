@@ -23,7 +23,7 @@ const TimelineComp = ({ slice }) => {
   const items = slice?.items || []
 
   return (
-    <div className='mt-8 mb-8'>
+    <div className='mt-8'>
       <TitleSession title={title} />
       <Timeline>
         {renderItems(items)}

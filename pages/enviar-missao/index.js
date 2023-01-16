@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MissionForm from '../../components/MissionForm/MissionForm';
+import MissionForm from '../../components/Forms/RegistrationMission';
 import Footer from '../../components/Footer'
 import Header from '../../components/Header';
 import TextBlock from '../../components/TextBlock';
@@ -12,10 +12,8 @@ export default function EnviarMissao() {
     <div>
       <Header metaTitle='STH - Enviar missão' metaDescription='teste' />
 
-      <div className='pt-16'>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:items-center pt-6 px-4">
-          <TitlePage title='Enviar Missão' />
-        </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:items-center pt-6 px-4">
+        <TitlePage title='Enviar Missão' />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:items-center">

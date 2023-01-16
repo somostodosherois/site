@@ -5,7 +5,7 @@ import { BsWhatsapp, BsFolder, BsInstagram, BsFacebook, BsLinkedin } from "react
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-300 text-gray-600 relative z-50 bottom-0">
+    <footer className="bg-gray-300 text-gray-600 relative z-50 bottom-0 mt-12">
       <div className="mx-6 py-12 lg:px-32">
         <div className="gap-8 grid grid-1 grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
           <div className="">
