@@ -5,67 +5,6 @@
   "status": true,
   "json": {
     "Main": {
-      "homepage_banner": {
-        "type": "Group",
-        "config": {
-          "fields": {
-            "title": {
-              "type": "StructuredText",
-              "config": {
-                "label": "Banner Title",
-                "placeholder": "Site Title...",
-                "allowTargetBlank": true,
-                "single": "heading1"
-              }
-            },
-            "description": {
-              "type": "StructuredText",
-              "config": {
-                "label": "Description",
-                "placeholder": "",
-                "allowTargetBlank": true,
-                "single": "paragraph,strong,em"
-              }
-            },
-            "image": {
-              "type": "Image",
-              "config": {
-                "constraint": {
-                  "width": 2000,
-                  "height": null
-                },
-                "thumbnails": [],
-                "label": "Banner Image"
-              }
-            }
-          },
-          "label": "Homepage Banner",
-          "repeat": false
-        }
-      },
-      "buttons": {
-        "type": "Group",
-        "config": {
-          "label": "Buttons",
-          "fields": {
-            "label": {
-              "type": "Text",
-              "config": {
-                "label": "Label",
-                "placeholder": ""
-              }
-            },
-            "link": {
-              "type": "Link",
-              "config": {
-                "label": "Link",
-                "placeholder": "",
-                "select": null
-              }
-            }
-          }
-        }
-      },
       "page_content": {
         "type": "Slices",
         "fieldset": "Slice Zone",
@@ -273,6 +212,40 @@
         "config": {
           "label": "Meta Description",
           "placeholder": ""
+        }
+      }
+    },
+    "Banner": {
+      "banner": {
+        "type": "Group",
+        "config": {
+          "label": "banner",
+          "fields": {
+            "image": {
+              "type": "Image",
+              "config": {
+                "label": "Image",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "slices2": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {}
         }
       }
     }

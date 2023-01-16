@@ -9,7 +9,7 @@ const Registrant = () => {
       <p className="text-gray-500 text-center text-base">Preencha os campos abaixo com as suas informações</p>
 
       <form action="#" method="POST">
-        <Grid container spacing={5} className='p-8'>
+        <Grid container spacing={2} className='p-8'>
           <Grid item xs={12}>
             <TextField fullWidth label='Nome' size="small" color='error' />
           </Grid>

@@ -29,7 +29,8 @@ const GridTextWithButton = ({ slice }) => {
                 <div className="mt-5 sm:mt-8 flex justify-center">
                   <div className="rounded-md shadow">
                     <a
-                      href={button_link?.link?.url}
+                      href={button_link?.url}
+                      target='_blank'
                       className="w-full cursor-pointer flex items-center justify-center px-8 py-2 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-2 md:text-lg"
                     >
                       {button_label}

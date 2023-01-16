@@ -18,7 +18,7 @@ const NewsList = ({ slice }) => {
 
         <div className="pb-16 grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8">
           {news.map(({ image, title, description, author, date, link }) => (
-            <div className="shadow-lg justify-content align-center rounded-xl border:shadow">
+            <a className="cursor-pointer shadow-lg justify-content align-center rounded-xl border:shadow" href={link.url} target='_blank'>
               <div className="text-center p-4">
                 <img
                   src={image.url}
@@ -33,9 +33,9 @@ const NewsList = ({ slice }) => {
                 </div>
                 <p className="text-sm text-gray-700">{author}</p>
                 <p className="text-sm text-gray-700 mt-2 mb-4">{date}</p>
-                <a className="text-md text-blue-600 flex cursor-pointer" href={link.url}>Ler mais <BsArrowRightShort className='h-6' /></a>
+                <a className="text-md text-blue-600 flex">Ler mais <BsArrowRightShort className='h-6'/></a>
               </div>
-            </div>
+            </a>
           ))}
         </div>
 

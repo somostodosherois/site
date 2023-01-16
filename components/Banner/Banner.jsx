@@ -5,6 +5,10 @@ import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
 const Banner = ({ banner }) => {
+  const handleClick = (e) => (
+    window.location.href = banner[e].link?.url
+  )
+
   return (
     <Carousel
       showArrows={true}
@@ -12,12 +16,14 @@ const Banner = ({ banner }) => {
       infiniteLoop={true}
       showIndicators={false}
       showThumbs={false}
+      className='cursor-pointer'
+      onClickItem={handleClick}
     >
       {banner.map(({ image, link }) => {
         const url = isMobile ? image.mobile.url : image.url
         const altura = isMobile ? image.mobile.dimensions.height : image.dimensions.height
 
-        return <a href={link?.url} className='cursor-pointer'><img src={url} height={altura} /></a>
+        return <img src={url} height={altura} />
       })}
     </Carousel>
   )

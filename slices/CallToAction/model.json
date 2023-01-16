@@ -34,18 +34,19 @@
         }
       },
       "items": {
-        "button_label": {
+        "label": {
           "type": "Text",
           "config": {
             "label": "Button Label",
             "placeholder": ""
           }
         },
-        "button_link": {
+        "link": {
           "type": "Link",
           "config": {
             "label": "Button Link",
             "placeholder": "",
+            "allowTargetBlank": false,
             "select": null
           }
         }

@@ -1,17 +1,24 @@
 import React from 'react';
 
 import Footer from '../../components/Footer'
-import Missions from '../../components/Missions'
 import Header from '../../components/Header'
+import ContainerMissions from '../../components/ContainerMissions'
+
 
 export default function Missoes({ heros }) {
+  const title = 'Missões em Andamento'
+
+  const inProgress = (heros.length && heros.filter(obj => obj.status === 'open')) || []
+  const isFinished = (heros.length && heros.filter(obj => obj.status === 'finish')) || []
+
   return (
     <div>
       <Header metaTitle='STH - Missões' metaDescription='teste' />
 
       {heros &&
         <div className='pt-16'>
-          <Missions heros={heros} />
+          <ContainerMissions items={inProgress} title={title} />
+          <ContainerMissions items={isFinished} title='Missões finalizadas' />
         </div>
       }
       <Footer />

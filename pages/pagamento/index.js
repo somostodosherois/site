@@ -1,5 +1,4 @@
-import { useState, useContext, useEffect } from 'react'
-import { BsTrash } from "react-icons/bs";
+import { useState } from 'react'
 import TextField from '@mui/material/TextField'
 import InputMask from "react-input-mask";
 import Select from '@mui/material/Select'
@@ -11,12 +10,6 @@ import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 import FormAddress from '../../components/Forms/Address';
 import FormPayment from '../../components/Forms/Payment';
-import formatCurrent from '../../hooks/formatCurrent'
-import {
-  CartStateContext,
-  CartDispatchContext,
-  removeFromCart,
-} from "../../contexts/cart";
 
 import { useCoins } from '../../contexts/coins';
 import swal from 'sweetalert';
@@ -24,27 +17,13 @@ import Router from 'next/router';
 
 export default function Pagamento() {
 
-  const { items: cartItems } = useContext(CartStateContext);
-  const dispatch = useContext(CartDispatchContext);
   const { coins, setCoins } = useCoins();
 
   const [cpf, setCpf] = useState('')
   const [amount, setAmount] = useState(0);
-  const [convertCoins, setConvertCoins] = useState(0)
   const [isOpenField, setIsOpenField] = useState(false);
   const [isDonationCheck, setIsDonationCheck] = useState(true);
 
-  // const cartQuantity = cartItems
-  //   .map((item) => item.quantity)
-  //   .reduce((prev, current) => prev + current, 0);
-
-  // const cartTotal = cartItems
-  //   .map((item) => item.price * item.quantity)
-  //   .reduce((prev, current) => prev + current, 0);
-
-  // const handleRemove = (productId) => {
-  //   return removeFromCart(dispatch, productId);
-  // };
 
   const handleCpf = (e) => (
     setCpf(e.target.value)

@@ -1,0 +1,52 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "FieldContent",
+        "value": "pitch",
+        "type": "Text"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "description",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "saved",
+              "type": "Text"
+            }
+          ],
+          [
+            "author",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "exchange",
+              "type": "Text"
+            }
+          ],
+          [
+            "subtitle",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "tell",
+              "type": "Text"
+            }
+          ],
+          [
+            "date",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Date",
+              "value": "2016-09-26"
+            }
+          ]
+        ]
+      }
+    ]
+  }
+]

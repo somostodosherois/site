@@ -1,10 +1,6 @@
 // ** React Imports
 import { useState } from 'react'
 
-
-import Footer from '../../components/Footer'
-import Header from '../../components/Header'
-
 // ** MUI Imports
 import Box from '@mui/material/Box'
 import Card from '@mui/material/Card'
@@ -14,27 +10,28 @@ import TabContext from '@mui/lab/TabContext'
 import { styled } from '@mui/material/styles'
 import MuiTab from '@mui/material/Tab'
 
+// ** MUI Imports
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
+import Button from '@mui/material/Button'
+
 // ** Icons Imports
 import AccountOutline from 'mdi-material-ui/AccountOutline'
 import LockOpenOutline from 'mdi-material-ui/LockOpenOutline'
 import AccountHeartOutline from 'mdi-material-ui/AccountHeartOutline'
 import Apps from 'mdi-material-ui/Apps'
 
+// ** Components Imports
+import Footer from '../../components/Footer'
+import Header from '../../components/Header'
+import TabAccount from '../../components/TabAccount/Account'
+import TabSecurity from '../../components/TabAccount/Security'
+import HistoricWithButton from '../../components/HistoricWithButton';
 
-// ** Demo Tabs Imports
-import TabAccount from '../../components/TabAccount'
-import TabSecurity from '../../components/TabSecurity'
-import MissionsList from '../../components/MissionsList'
-import PlataformNumbers from '../../components/PlataformNumbers'
-
-
-
-
-import Grid from '@mui/material/Grid'
+import imageSrc from '../../public/avatars/1.png'
 
 // ** Third Party Styles Imports
 import 'react-datepicker/dist/react-datepicker.css'
-import DonationHistory from '../../components/DonationHistory/DonationHistory';
 
 const Tab = styled(MuiTab)(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
@@ -54,9 +51,44 @@ const TabName = styled('span')(({ theme }) => ({
   }
 }))
 
+const ImgStyled = styled('img')(({ theme }) => ({
+  width: 120,
+  height: 120,
+  marginRight: theme.spacing(6.25),
+  borderRadius: theme.shape.borderRadius
+}))
+
+const ButtonStyled = styled(Button)(({ theme }) => ({
+  [theme.breakpoints.down('sm')]: {
+    width: '100%',
+    textAlign: 'center'
+  }
+}))
+
+const ResetButtonStyled = styled(Button)(({ theme }) => ({
+  marginLeft: theme.spacing(4.5),
+  [theme.breakpoints.down('sm')]: {
+    width: '100%',
+    marginLeft: 0,
+    textAlign: 'center',
+    marginTop: theme.spacing(4)
+  }
+}))
+
 const AccountSettings = () => {
   // ** State
-  const [value, setValue] = useState('dashboard')
+  const [value, setValue] = useState('myDonations')
+  // ** State
+  const [imgSrc, setImgSrc] = useState(imageSrc.src)
+
+  const onChange = file => {
+    const reader = new FileReader()
+    const { files } = file.target
+    if (files && files.length !== 0) {
+      reader.onload = () => setImgSrc(reader.result)
+      reader.readAsDataURL(files[0])
+    }
+  }
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
@@ -66,101 +98,82 @@ const AccountSettings = () => {
     <div className='bg-gray-100'>
       <Header metaTitle='STH - Minha conta' metaDescription='teste' />
 
-      <div className='pt-12'></div>
-      <div className="pt-20 pb-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className='shadow-none'>
-            <TabContext value={value} className='color-red-600'>
-              <TabList
-                onChange={handleChange}
-                aria-label='account-settings tabs'
-                className='bg-gray-100'
-                sx={{ borderBottom: theme => `1px solid ${theme.palette.divider}` }}
-              >
-                <Tab
-                  value='dashboard'
-                  className='color-red-600'
-                  label={
-                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                      <Apps />
-                      <TabName>Dashboard</TabName>
-                    </Box>
-                  }
-                />
-                <Tab
-                  value='myDonations'
-                  label={
-                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                      <AccountHeartOutline />
-                      <TabName>Minhas doações</TabName>
-                    </Box>
-                  }
-                />
-                <Tab
-                  value='account'
-                  label={
-                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                      <AccountOutline />
-                      <TabName>Perfil</TabName>
-                    </Box>
-                  }
-                />
-                <Tab
-                  value='security'
-                  label={
-                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                      <LockOpenOutline />
-                      <TabName>Segurança</TabName>
-                    </Box>
-                  }
-                />
-              </TabList>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Grid container spacing={7}>
+          <Grid item xs={12} sx={{ marginTop: 4.8, marginBottom: 3 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <ImgStyled src={imgSrc} alt='Profile Pic' />
+              <Box>
+                <ButtonStyled component='label' variant='contained' htmlFor='account-settings-upload-image'>
+                  Anexar imagem
+                  <input
+                    hidden
+                    type='file'
+                    onChange={onChange}
+                    accept='image/png, image/jpeg'
+                    id='account-settings-upload-image'
+                  />
+                </ButtonStyled>
+                <ResetButtonStyled color='error' variant='outlined' onClick={() => setImgSrc('/images/avatars/1.png')}>
+                  Remover
+                </ResetButtonStyled>
+                <Typography variant='body2' sx={{ marginTop: 5 }}>
+                  Permitido apenas nos formatos PNG ou JPEG, com tamanh máximo de 800Kb.
+                </Typography>
+              </Box>
+            </Box>
+          </Grid>
+        </Grid>
+
+        <Card className='shadow-none grid md:flex'>
+          <TabContext value={value} className='color-red-600'>
+            <TabList
+              onChange={handleChange}
+              className='bg-gray-100'
+              orientation="vertical"
+              variant="fullWidth"
+            >
+
+              {/* <Tab
+                value='donations'
+                icon={<Apps />}
+                label='Área do doador'
+              /> */}
+              <Tab
+                value='myDonations'
+                icon={<AccountHeartOutline />}
+                label='Minhas doações'
+              />
+              <Tab
+                value='account'
+                icon={<AccountOutline />}
+                label='Perfil'
+              />
+              <Tab
+                value='security'
+                icon={<LockOpenOutline />}
+                label='Segurança'
+              />
+            </TabList>
+
+            {/* <TabPanel sx={{ p: 0 }} value='donations' className='pl-12 bg-gray-100'>
+              <DonorArea />
+            </TabPanel> */}
+            <TabPanel sx={{ p: 0 }} value='myDonations' className='pl-12 bg-gray-100'>
+              <HistoricWithButton title='Histórico de Doações' />
+            </TabPanel>
+            <TabPanel sx={{ p: 0 }} value='account' className='pl-12 bg-gray-100'>
+              <TabAccount />
+            </TabPanel>
+            <TabPanel sx={{ p: 0 }} value='security' className='pl-12 bg-gray-100'>
+              <TabSecurity />
+            </TabPanel>
+          </TabContext>
+        </Card>
+
+        
 
 
-
-              <TabPanel sx={{ p: 0 }} value='dashboard' className='pt-8 bg-gray-100'>
-                <Grid container spacing={6}>
-                  <Grid item xs={12} md={6} lg={4}>
-                    <MissionsList />
-                  </Grid>
-                  <Grid item xs={12} md={6} lg={4}>
-                    <PlataformNumbers />
-                  </Grid>
-                </Grid>
-              </TabPanel>
-
-              <TabPanel sx={{ p: 0 }} value='myDonations' className='pt-8 bg-gray-100'>
-                <Grid container spacing={6}>
-                  <Grid item xs={12} md={6} lg={6}>
-                    <DonationHistory />
-                  </Grid>
-                  <Grid item xs={12} md={6} lg={6}>
-                    <h4 className="uppercase font-semibold mb-4 flex justify-center md:justify-start text-xl">
-                      Se torne um guardião
-                    </h4>
-                    <p className="mb-4 text-lg">
-                      Com menos de R$1,50 por dia você transforma a vida de uma criança todo mês. Ajude nossa ONG com gastos de manutenção para manter plataforma e impactar mais crianças.
-                    </p>
-                    <div className="flex items-center justify-center md:justify-start">
-                      <a
-                        href="/doar"
-                        className="inline-flex px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700"
-                      >
-                        Quero ser um guardião
-                      </a>
-                    </div>
-                  </Grid>
-                </Grid>
-              </TabPanel>
-              <TabPanel sx={{ p: 0 }} value='account'>
-                <TabAccount />
-              </TabPanel>
-              <TabPanel sx={{ p: 0 }} value='security'>
-                <TabSecurity />
-              </TabPanel>
-            </TabContext>
-          </Card>
-        </div>
       </div>
       <Footer />
     </div>
