@@ -13,12 +13,11 @@ const Banner = ({ banner }) => {
       showIndicators={false}
       showThumbs={false}
     >
-      {banner.map(({ image }) => {
+      {banner.map(({ image, link }) => {
         const url = isMobile ? image.mobile.url : image.url
         const altura = isMobile ? image.mobile.dimensions.height : image.dimensions.height
 
-        console.log(altura)
-        return <img src={url} height={altura} />
+        return <a href={link?.url} className='cursor-pointer'><img src={url} height={altura} /></a>
       })}
     </Carousel>
   )
