@@ -8,7 +8,7 @@ import TabsList from './TabsList'
 
 export const filterCampanhas = (items, campanha) =>
     items?.filter((item) => item?.category_1 === campanha || item?.category_2 === campanha)
-        .sort((a, b) => a.url.localeCompare(b.url))
+        .sort((a, b) => a.nameHero.localeCompare(b.nameHero))
 
 export const countValueCampanha = (items) => {
     let sum = 0
@@ -17,13 +17,13 @@ export const countValueCampanha = (items) => {
         sum += parseFloat(metaValue)
     })
 
-    return sum
+    return sum * 2
 }
 
 const renderTabPanel = (tabs, items) => {
     return tabs.map(({ id, description, value, progress }, index) => (
         <TabPanel sx={{ p: 0 }} value={id} key={index}>
-            <TabCampanha items={filterCampanhas(items, id)} value={countValueCampanha(filterCampanhas(items, id))} description={description} value={value} progress={progress} />
+            <TabCampanha items={filterCampanhas(items, id)} valueCampanha={countValueCampanha(filterCampanhas(items, id))} description={description} value={value} progress={progress} />
         </TabPanel>
     ))
 }

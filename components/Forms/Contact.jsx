@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { BsWhatsapp, BsFolder } from "react-icons/bs";
+import swal from 'sweetalert';
 
 // ** MUI Imports
 import Grid from '@mui/material/Grid'
@@ -8,10 +9,48 @@ import MenuItem from '@mui/material/MenuItem'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 
+import api from '../../pages/api/config'
+
 const FormContact = ({ data }) => {
 
-  if(!data) return null
-  const [setor, setSetor] = useState('0')
+  if (!data) return null
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [subject, setSubject] = useState('')
+  const [to, setTo] = useState('presidencia@sth.org.br')
+  const [text, setText] = useState('')
+
+  const cleanForm = () => {
+    setName('')
+    setEmail('')
+    setSubject('')
+    setTo('presidencia@sth.org.br')
+    setText('')
+  }
+
+  const handleClick = () => {
+    api
+      .post("/sendContact", {
+        name: name,
+        email: email,
+        subject: subject,
+        to: to,
+        text: text
+      })
+      .then((response) => {
+        swal({
+          title: "E-mail enviado com sucesso!",
+          text: "Em breve nossa equipe entrará em contato.",
+          icon: "success",
+          button: false,
+        })
+
+        cleanForm();
+      })
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+  }
 
   return (
     <div className="bg-red-600 pb-12 px-4">
@@ -48,7 +87,14 @@ const FormContact = ({ data }) => {
             <form action="#" method="POST">
               <Grid container spacing={5} className='p-8'>
                 <Grid item xs={12}>
-                  <TextField fullWidth label='Nome' size="small" color='error' />
+                  <TextField
+                    fullWidth
+                    label='Nome'
+                    size="small"
+                    color='error'
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
@@ -57,23 +103,35 @@ const FormContact = ({ data }) => {
                     label='Email'
                     size="small"
                     color='error'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <TextField fullWidth label='Assunto' size="small" color='error' />
+                  <TextField
+                    fullWidth
+                    label='Assunto'
+                    size="small"
+                    color='error'
+                    value={subject}
+                    onChange={(e) => setSubject(e.target.value)}
+                  />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <Select
                     label="Setor"
-                    value={setor}
+                    value={to}
                     size="small"
                     color='error'
+                    onChange={(e) => setTo(e.target.value)}
                   >
-                    <MenuItem value='0'>Selecione o setor responsável</MenuItem>
-                    <MenuItem value='rh'>RH</MenuItem>
-                    <MenuItem value='ti'>Tecnologia</MenuItem>
-                    <MenuItem value='missoes'>Missões</MenuItem>
-                    <MenuItem value='juridico'>Jurídico</MenuItem>
+                    <MenuItem value='presidencia@sth.org.br'>Selecione o setor responsável</MenuItem>
+                    <MenuItem value='financeiro@sth.org.br'>Financeiro</MenuItem>
+                    <MenuItem value='thays.correa@sth.org.br'>Tecnologia</MenuItem>
+                    <MenuItem value='luana.silva@sth.org.br'>Marketing</MenuItem>
+                    <MenuItem value='rafaela.raeski@sth.org.br'>Missões</MenuItem>
+                    <MenuItem value='natashapelizari@sth.org.br'>Jurídico</MenuItem>
+                    <MenuItem value='stephane.oliveira@sth.org.br'>Outros</MenuItem>
                   </Select>
                 </Grid>
                 <Grid item sm={12}>
@@ -82,10 +140,12 @@ const FormContact = ({ data }) => {
                     type='email'
                     label='Conteúdo'
                     color='error'
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
                   />
                 </Grid>
                 <Grid sm={12} className='flex align-center justify-center text-center mt-8'>
-                  <Button variant='outlined' color='error' sx={{ marginRight: 3.5 }}>
+                  <Button variant='outlined' color='error' sx={{ marginRight: 3.5 }} onClick={handleClick}>
                     Salvar
                   </Button>
                 </Grid>

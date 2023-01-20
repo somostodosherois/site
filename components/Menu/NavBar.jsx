@@ -106,7 +106,7 @@ const NavBar = (props) => {
 
         <div className="hidden space-x-2 lg:flex">
           <a
-            href="/"
+            href="/login"
             className="px-4 py-2 text-red-600 bg-white rounded-md shadow hover:bg-red-100"
           >
             Login

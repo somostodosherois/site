@@ -194,6 +194,9 @@
             },
             "news_list": {
               "type": "SharedSlice"
+            },
+            "grid_text_with_button": {
+              "type": "SharedSlice"
             }
           }
         }

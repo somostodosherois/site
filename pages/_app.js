@@ -11,7 +11,6 @@ import ProductsProvider from "../contexts/products";
 import CheckoutProvider from "../contexts/checkout";
 import { CoinsProvider } from '../contexts/coins';
 
-
 function MyApp({ Component, pageProps }) {
   const firebaseConfig = {
     apiKey: "AIzaSyB2hZgNvoEUYcqqih-DY1PDsG8T8SH_n2k",
