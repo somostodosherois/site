@@ -85,16 +85,16 @@ const tabs = (value) => {
     }
 }
 
-const DonationSession = ({ value }) => {
+const DonationSession = ({ value, setOpenSnack, setMessageSnack, setTypeSnack }) => {
     const items = tabs(value)
 
     return (
         <div className="bg-gray-100 mt-10 pb-16">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-6">
                 <TitleSession title={'Você topa fazer a diferença?'} />
-                <p class="text-lg md:text-xl text-gray-600 lg:mx-auto leading-8 mb-12">Seu ato heróico é mais do que necessário. Doe!</p>
+                <p className="text-lg md:text-xl text-gray-600 lg:mx-auto leading-8 mb-12">Seu ato heróico é mais do que necessário. Doe!</p>
 
-                <GridDonation items={items} />
+                <GridDonation items={items} campanha={value} setOpenSnack={setOpenSnack} setMessageSnack={setMessageSnack} setTypeSnack={setTypeSnack} />
             </div>
         </div>
     )

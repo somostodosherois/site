@@ -11,6 +11,7 @@ import TitlePage from '../../components/TitlePage'
 import DonationSession from '../../components/DonationSession/DonationSession'
 import Banner from '../../components/Banner'
 import Tabs from '../../components/Tabs'
+import Snackbar from '../../components/Snackbar/Snackbar';
 
 const tabs = [
     {
@@ -45,6 +46,9 @@ const Campanhas = ({ page, menu, metaTitle, metaDescription, banner, slices, ite
 
     const data = page?.data || {}
     const [campanha, setCampanha] = useState('food')
+    const [openSnack, setOpenSnack] = useState(false)
+    const [messageSnack, setMessageSnack] = useState('')
+    const [typeSnack, setTypeSnack] = useState('info')
 
     return (
         <div>
@@ -65,12 +69,14 @@ const Campanhas = ({ page, menu, metaTitle, metaDescription, banner, slices, ite
                     <Tabs campanha={campanha} setCampanha={setCampanha} tabs={tabs} items={items} />
                 </div>
 
-                <DonationSession value={campanha} />
+                <DonationSession value={campanha} setOpenSnack={setOpenSnack} setMessageSnack={setMessageSnack} setTypeSnack={setTypeSnack} />
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <SliceZone slices={slices} components={components} />
                 </div>
             </div>
+
+            {messageSnack && <Snackbar message={messageSnack} type={typeSnack} open={openSnack} setOpenSnack={setOpenSnack} />}
 
             <Footer />
         </div>

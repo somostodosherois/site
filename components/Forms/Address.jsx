@@ -2,12 +2,7 @@ import { useState } from 'react'
 import TextField from '@mui/material/TextField'
 import InputMask from "react-input-mask";
 
-const FormAddress = () => {
-    const [logradouro, setLogradouro] = useState('')
-    const [complemento, setComplemento] = useState('')
-    const [bairro, setBairro] = useState('')
-    const [localidade, setLocalidade] = useState('')
-    const [uf, setUf] = useState('')
+const FormAddress = ({ logradouro, setLogradouro, complemento, setComplemento, numero, setNumero, bairro, setBairro, localidade, setLocalidade, uf, setUf, setCep }) => {
 
     const showData = (result) => {
         for (const campo in result) {
@@ -28,6 +23,8 @@ const FormAddress = () => {
                 response.json()
                     .then(data => showData(data))
             })
+
+        setCep(cep)
     }
 
     return (
@@ -62,6 +59,7 @@ const FormAddress = () => {
                         color='error'
                         className='mb-2'
                         value={logradouro}
+                        onChange={(e) => setLogradouro(e.target.value)}
                         fullWidth={true}
                     />
                 </div>
@@ -74,21 +72,9 @@ const FormAddress = () => {
                         placeholder='Digite o número'
                         color='error'
                         className='mb-2'
+                        onChange={(e) => setNumero(e.target.value)}
                     />
 
-                    <TextField
-                        type='text'
-                        size='small'
-                        label='Bairro'
-                        placeholder='Digite o bairro'
-                        color='error'
-                        className='mb-2'
-                        fullWidth={true}
-                        value={bairro}
-                    />
-                </div>
-
-                <div className="sm:col-span-2 flex gap-x-4">
                     <TextField
                         type='text'
                         size='small'
@@ -98,6 +84,21 @@ const FormAddress = () => {
                         className='mb-2'
                         fullWidth={true}
                         value={complemento}
+                        onChange={(e) => setComplemento(e.target.value)}
+                    />
+                </div>
+
+                <div className="sm:col-span-2 flex gap-x-4">
+                    <TextField
+                        type='text'
+                        size='small'
+                        label='Bairro'
+                        placeholder='Digite o bairro'
+                        color='error'
+                        className='mb-2'
+                        fullWidth={true}
+                        value={bairro}
+                        onChange={(e) => setBairro(e.target.value)}
                     />
 
                     <TextField
@@ -109,10 +110,8 @@ const FormAddress = () => {
                         className='mb-2'
                         fullWidth={true}
                         value={localidade}
+                        disabled
                     />
-                </div>
-
-                <div className="sm:col-span-2 flex gap-x-4">
 
                     <TextField
                         type='text'
@@ -121,27 +120,12 @@ const FormAddress = () => {
                         placeholder='Digite o estado'
                         color='error'
                         className='mb-2'
-                        fullWidth={true}
+                        disabled
                         value={uf}
                     />
-
-                    <InputMask
-                        mask="(99) 99999-9999"
-                    >
-                        {() =>
-                            <TextField
-                                type='text'
-                                size='small'
-                                label='Telefone'
-                                placeholder='Digite o telefone'
-                                color='error'
-                                className='mb-2'
-                                required
-                                fullWidth={true}
-                            />
-                        }
-                    </InputMask>
                 </div>
+
+                
 
             </div>
         </div>

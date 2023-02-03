@@ -6,8 +6,8 @@ import TitleSession from '../../components/TitleSession/TitleSession';
 import QuotationImage from '../../public/quotation_marks.svg'
 
 const renderItems = (items) => {
-  return items.map(({ description, author, subtitle, date }) => (
-    <Event interval={Moment(date).format("DD/MM/YYYY")} title={author} subtitle={subtitle}>
+  return items.map(({ description, author, subtitle, date }, index) => (
+    <Event key={index} interval={Moment(date).format("DD/MM/YYYY")} title={author} subtitle={subtitle}>
       <div className='flex'>
         <img src={QuotationImage.src} width='20' style={{ marginRight: '1rem' }} />
         {description}

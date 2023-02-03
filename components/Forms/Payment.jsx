@@ -6,22 +6,21 @@ import FormControl from '@mui/material/FormControl';
 
 import FormCards from "./Cards"
 
-const FormPayment = () => {
+const FormPayment = ({ payment, setPayment, setCreditCard }) => {
 
-    const [payment, setPayment] = useState('credit-card')
     const [isOpen, setIsOpen] = useState(true)
 
     const paymentMethods = [
-        { id: 'credit-card', title: 'Cartão de crédito' },
-        { id: 'debit-card', title: 'Cartão de débito' },
-        { id: 'boleto', title: 'Boleto' },
-        { id: 'pix', title: 'PIX' },
+        { id: 'CREDIT_CARD', title: 'Cartão de crédito' },
+        { id: 'DEBIT_CARD', title: 'Cartão de débito' },
+        { id: 'BOLETO', title: 'Boleto' },
+        { id: 'PIX', title: 'PIX' },
     ]
 
     const handlePayment = (e) => {
         setPayment(e.target.value)
 
-        if (e.target.value === 'boleto' || e.target.value === 'pix') {
+        if (e.target.value === 'BOLETO' || e.target.value === 'PIX') {
             setIsOpen(false)
         }else{
             setIsOpen(true)
@@ -29,7 +28,7 @@ const FormPayment = () => {
     }
 
     return (
-        <div className="mt-10 border-t border-gray-200 pt-10">
+        <>
             <h2 className="text-lg font-medium text-gray-900">Pagamento</h2>
 
             <fieldset className="mt-4">
@@ -41,7 +40,7 @@ const FormPayment = () => {
                             aria-labelledby="demo-row-radio-buttons-group-label"
                             name="row-radio-buttons-group"
                             className='mt-4'
-                            defaultValue="credit-card"
+                            defaultValue={payment}
                         >
                             {paymentMethods.map((paymentMethod, index) => (
                                 <FormControlLabel value={paymentMethod.id} control={<Radio color='error' onChange={handlePayment} />} label={paymentMethod.title} />
@@ -51,8 +50,8 @@ const FormPayment = () => {
                 </div>
             </fieldset>
 
-            {isOpen && <FormCards />}
-        </div>
+            {isOpen && <FormCards setCreditCard={setCreditCard} />}
+        </>
     )
 }
 

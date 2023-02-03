@@ -1,12 +1,14 @@
 import * as React from 'react';
+import { isMobile } from 'react-device-detect';
+import { useState } from 'react';
+
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField'
-
 import Close from 'mdi-material-ui/Close'
-import { isMobile } from 'react-device-detect';
 
+import api from '../../pages/api/config'
 
 const style = {
     position: 'absolute',
@@ -24,6 +26,21 @@ const style = {
 const ModalDetails = ({ open, handleClose, mission }) => {
 
     const { nameHero, meta, description, id } = mission
+    const [valueDonationMission, setValueDonationMission] = useState()
+
+    const handleClick = () => {
+        api.post("/donation", {
+            email: 'thays.lacerdac@gmail.com',
+            date: new Date().toISOString(),
+            value: valueDonationMission,
+            missionId: id,
+            category: ''
+        }).then((response) => {
+            setMessageSnack('Doação realizada com sucesso!')
+        }).catch((err) => {
+            console.error("ops! ocorreu um erro" + err);
+        });
+    }
 
     return (
         <Modal
@@ -55,11 +72,12 @@ const ModalDetails = ({ open, handleClose, mission }) => {
                         color='error'
                         size="small"
                         className="mt-2"
+                        onChange={(e) => setValueDonationMission(e.target.value)}
                     />
 
                     <span className='text-sm mt-1'>100% do valor doado é direcionado para a missão.</span>
 
-                    <button className='bg-red-600 hover:bg-red-700 text-white mt-4 py-2' onClick={handleClose}>Doar</button>
+                    <button className='bg-red-600 hover:bg-red-700 text-white mt-4 py-2' onClick={handleClick}>Doar</button>
                 </div>
 
             </Box>

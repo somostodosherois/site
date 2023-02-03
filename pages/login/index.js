@@ -34,7 +34,7 @@ const FormToken = ({ setCode, handleLogin, handleCancel, loading }) => (
         onClick={handleLogin}
         loading={loading}
         variant='contained'
-        className="w-full mt-4 px-4 py-2 tracking-wide text-white text-xl md:text-2xl transition-colors duration-200 transform bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:bg-red-700 focus:ring focus:ring-red-700 focus:ring-opacity-50">
+        className="w-full mt-4 tracking-wide text-white text-xl md:text-2xl transition-colors duration-200 transform bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:bg-red-700 focus:ring focus:ring-red-700 focus:ring-opacity-50">
         Entrar
       </LoadingButton>
     </div>

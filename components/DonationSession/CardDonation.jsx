@@ -1,12 +1,12 @@
 import swal from 'sweetalert';
 import Router from 'next/router';
+import BeerOutline from 'mdi-material-ui/BeerOutline'
 
 import { useCoins } from "../../contexts/coins";
 import formatCurrent from "../../hooks/formatCurrent";
-import BeerOutline from 'mdi-material-ui/BeerOutline'
+import api from '../../pages/api/config'
 
-
-const CardDonation = ({ item, index }) => {
+const CardDonation = ({ item, setOpenSnack, setMessageSnack, setTypeSnack }) => {
     const { coins, setCoins } = useCoins();
     const { value, subtitle, description } = item
 
@@ -22,23 +22,26 @@ const CardDonation = ({ item, index }) => {
                 if (value) {
                     Router.push('/pagamento')
                 }
-              });
+            });
         } else {
             setCoins(total);
             localStorage.setItem('coins', total);
 
-            //chamar a API para realizar a doação
-
-            swal({
-                title: "Doação realizada com sucesso!",
-                text: "Nós agradecemos o ato heróico!",
-                icon: "success",
-                button: false,
-              });
-
-              setTimeout(() => {
-                swal.close()
-              }, 1500);
+            api.post("/donation", {
+                email: 'thays.lacerdac@gmail.com',
+                date: new Date().toISOString(),
+                value: total,
+                missionId: 0,
+                category: ''
+            }).then((response) => {
+                setOpenSnack(true)
+                setTypeSnack('success')
+                setMessageSnack('Doação realizada com sucesso!')
+            }).catch((err) => {
+                setOpenSnack(true)
+                setTypeSnack('error')
+                setMessageSnack(err?.response?.data.value?.message)
+            });
         }
     };
 
@@ -52,7 +55,7 @@ const CardDonation = ({ item, index }) => {
             if (value) {
                 handlePurchaseItem(total);
             }
-          });
+        });
     }
 
     const handleValue = (value) => {
@@ -60,13 +63,13 @@ const CardDonation = ({ item, index }) => {
 
         if (total < 0) {
             handlePurchaseItem(total);
-        }else {
+        } else {
             handleAlert(value, total);
         }
     }
 
     return (
-        <div key={index} className='bg-white border rounded-lg shadow p-6'>
+        <div className='bg-white border rounded-lg shadow p-6'>
             <div className='md:grid md:grid-cols-3 gap-x-4'>
                 <BeerOutline className="text-red-600 w-12 h-12" />
                 <div className="col-span-2">
