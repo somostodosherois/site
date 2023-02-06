@@ -1,15 +1,15 @@
 {
-  "id": "ong_numbers",
+  "id": "images_circle_list",
   "type": "SharedSlice",
-  "name": "OngNumbers",
-  "description": "OngNumbers",
+  "name": "ImagesCircleList",
+  "description": "ImagesCircleList",
   "variations": [
     {
       "id": "default",
       "name": "Default",
       "docURL": "...",
       "version": "sktwi1xtmkfgx8626",
-      "description": "OngNumbers",
+      "description": "ImagesCircleList",
       "primary": {
         "title": {
           "type": "Text",
@@ -18,6 +18,15 @@
             "placeholder": ""
           }
         },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
         "image": {
           "type": "Image",
           "config": {
@@ -25,28 +34,12 @@
             "constraint": {},
             "thumbnails": []
           }
-        }
-      },
-      "items": {
+        },
         "description": {
           "type": "Text",
           "config": {
             "label": "Description",
             "placeholder": ""
-          }
-        },
-        "icon": {
-          "type": "Select",
-          "config": {
-            "label": "Icon",
-            "placeholder": "",
-            "options": [
-              "Heart",
-              "Dolar",
-              "Bookmark Heart",
-              "People"
-            ],
-            "default_value": "Heart"
           }
         }
       },

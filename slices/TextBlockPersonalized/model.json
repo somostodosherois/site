@@ -1,21 +1,30 @@
 {
-  "id": "ong_numbers",
+  "id": "text_block_personalized",
   "type": "SharedSlice",
-  "name": "OngNumbers",
-  "description": "OngNumbers",
+  "name": "TextBlockPersonalized",
+  "description": "TextBlockPersonalized",
   "variations": [
     {
       "id": "default",
       "name": "Default",
       "docURL": "...",
       "version": "sktwi1xtmkfgx8626",
-      "description": "OngNumbers",
+      "description": "TextBlockPersonalized",
       "primary": {
         "title": {
           "type": "Text",
           "config": {
             "label": "Title",
             "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "strong,em,o-list-item,paragraph"
           }
         },
         "image": {
@@ -25,31 +34,31 @@
             "constraint": {},
             "thumbnails": []
           }
-        }
-      },
-      "items": {
-        "description": {
-          "type": "Text",
+        },
+        "imageSide": {
+          "type": "Boolean",
           "config": {
-            "label": "Description",
-            "placeholder": ""
+            "label": "Lado da imagem",
+            "placeholder_false": "esquerda",
+            "placeholder_true": "direita",
+            "default_value": true
           }
         },
-        "icon": {
+        "background": {
           "type": "Select",
           "config": {
-            "label": "Icon",
+            "label": "Background",
             "placeholder": "",
             "options": [
-              "Heart",
-              "Dolar",
-              "Bookmark Heart",
-              "People"
+              "Branco",
+              "Cinza",
+              "Vermelho"
             ],
-            "default_value": "Heart"
+            "default_value": "Branco"
           }
         }
       },
+      "items": {},
       "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
     }
   ]

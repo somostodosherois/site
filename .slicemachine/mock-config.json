@@ -106,6 +106,42 @@
         "items": {},
         "primary": {}
       }
+    },
+    "TextBlockPersonalized": {
+      "default": {
+        "primary": {
+          "description": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    },
+    "DiagramWithIcon": {
+      "default": {
+        "primary": {},
+        "items": {
+          "description": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          },
+          "subitems": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    },
+    "ImagesCircleList": {
+      "default": {
+        "primary": {}
+      }
     }
   },
   "_cts": {

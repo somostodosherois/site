@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        cartagena: ['Cartagena']
+      },
       backgroundImage: {
         'fundo-criancas': "url('../public/hero-relatorio.png')",
         'fundo-herois': "url('../public/background-2.jpeg')",

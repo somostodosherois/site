@@ -1,15 +1,15 @@
 {
-  "id": "ong_numbers",
+  "id": "diagram_with_icon",
   "type": "SharedSlice",
-  "name": "OngNumbers",
-  "description": "OngNumbers",
+  "name": "DiagramWithIcon",
+  "description": "DiagramWithIcon",
   "variations": [
     {
       "id": "default",
       "name": "Default",
       "docURL": "...",
       "version": "sktwi1xtmkfgx8626",
-      "description": "OngNumbers",
+      "description": "DiagramWithIcon",
       "primary": {
         "title": {
           "type": "Text",
@@ -17,7 +17,9 @@
             "label": "Title",
             "placeholder": ""
           }
-        },
+        }
+      },
+      "items": {
         "image": {
           "type": "Image",
           "config": {
@@ -25,28 +27,23 @@
             "constraint": {},
             "thumbnails": []
           }
-        }
-      },
-      "items": {
+        },
         "description": {
-          "type": "Text",
+          "type": "StructuredText",
           "config": {
             "label": "Description",
-            "placeholder": ""
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "strong"
           }
         },
-        "icon": {
-          "type": "Select",
+        "subitems": {
+          "type": "StructuredText",
           "config": {
-            "label": "Icon",
+            "label": "Subitems",
             "placeholder": "",
-            "options": [
-              "Heart",
-              "Dolar",
-              "Bookmark Heart",
-              "People"
-            ],
-            "default_value": "Heart"
+            "allowTargetBlank": true,
+            "single": "paragraph,strong,list-item"
           }
         }
       },
