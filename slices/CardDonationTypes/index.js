@@ -26,7 +26,7 @@ const CardDonationTypes = ({ slice }) => {
               </div>
               <h5 className="mt-2 px-6 text-2xl text-left tracking-tight text-gray-900 lg:text-2xl">
                 {description && description.map(({ text }, index) => (
-                  <div className="flex mt-4 gap-x-6">
+                  <div className="flex mt-4 gap-x-6" key={index}>
                     <h2 className="mt-4 mx-4 text-2xl items-center content-center font-bold tracking-tight text-gray-900 md:text-2xl lg:text-3xl">
                       <span className="block text-red-600">{index+1}</span>
                     </h2>

@@ -43,7 +43,7 @@ const FormPayment = ({ payment, setPayment, setCreditCard }) => {
                             defaultValue={payment}
                         >
                             {paymentMethods.map((paymentMethod, index) => (
-                                <FormControlLabel value={paymentMethod.id} control={<Radio color='error' onChange={handlePayment} />} label={paymentMethod.title} />
+                                <FormControlLabel value={paymentMethod.id} key={index} control={<Radio color='error' onChange={handlePayment} />} label={paymentMethod.title} />
                             ))}
                         </RadioGroup>
                     </FormControl>

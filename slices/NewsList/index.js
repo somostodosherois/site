@@ -17,8 +17,8 @@ const NewsList = ({ slice }) => {
         <TitleSession title={title} />
 
         <div className="pb-16 grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8">
-          {news.map(({ image, title, description, author, date, link }) => (
-            <a className="cursor-pointer shadow-lg justify-content align-center rounded-xl border:shadow" href={link.url} target='_blank'>
+          {news.map(({ image, title, description, author, date, link }, index) => (
+            <a className="cursor-pointer shadow-lg justify-content align-center rounded-xl border:shadow" href={link.url} target='_blank' key={index}>
               <div className="text-center p-4">
                 <img
                   src={image.url}

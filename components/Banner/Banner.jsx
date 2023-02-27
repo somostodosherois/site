@@ -19,11 +19,11 @@ const Banner = ({ banner }) => {
       className='cursor-pointer'
       onClickItem={handleClick}
     >
-      {banner.map(({ image, link }) => {
+      {banner.map(({ image, link }, index) => {
         const url = isMobile ? image.mobile.url : image.url
         const altura = isMobile ? image.mobile.dimensions.height : image.dimensions.height
 
-        return <img src={url} height={altura} />
+        return <img src={url} height={altura} key={index} />
       })}
     </Carousel>
   )

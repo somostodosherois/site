@@ -90,7 +90,7 @@ const DonationSession = ({ value, setOpenSnack, setMessageSnack, setTypeSnack })
 
     return (
         <div className="bg-gray-100 mt-10 pb-16">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-6">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
                 <TitleSession title={'Você topa fazer a diferença?'} />
                 <p className="text-lg md:text-xl text-gray-600 lg:mx-auto leading-8 mb-12">Seu ato heróico é mais do que necessário. Doe!</p>
 

@@ -20,7 +20,7 @@ const OngNumbersImage = ({ slice }) => {
       <div className="flex items-center justify-center pl-8 pr-8 lg:p-0">
         <Grid className="flex pb-12 gap-x-12 gap-y-4 sm:gap-y-8 md:gap-y-12  max-w-7xl grid grid-cols-2 lg:grid-cols-4 text-lg md:text-xl text-white text-center items-center justify-center">
           {items.map(({ description }, index) => (
-            <Grid className="rounded-lg border border-white min-h-full">
+            <Grid className="rounded-lg border border-white min-h-full" key={index}>
               <h2 className="lg:mt-4 text-3xl sm:text-4xl lg:text-6xl font-extrabold tracking-tight p-2 sm:p-4 lg:p-8">
                 <span className="block">{features[index]}</span>
               </h2>

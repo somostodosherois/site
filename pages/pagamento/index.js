@@ -227,9 +227,9 @@ export default function Pagamento() {
                 onChange={() => setIsDonationCheck(!isDonationCheck)}
                 sx={{
                   marginRight: '5px',
-                  color: '#DC2626',
+                  color: '#910000fa',
                   '&.Mui-checked': {
-                    color: '#DC2626',
+                    color: '#910000fa',
                   },
                 }}
               />}
@@ -347,7 +347,7 @@ export default function Pagamento() {
           </form>
         </div>
 
-        {messageSnack && <Snackbar message={messageSnack} open={openSnack} setOpenSnack={setOpenSnack} />}
+        {openSnack && messageSnack && <Snackbar message={messageSnack} open={openSnack} setOpenSnack={setOpenSnack} />}
 
       </main>
 

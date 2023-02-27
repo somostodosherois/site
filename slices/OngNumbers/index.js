@@ -24,7 +24,7 @@ const OngNumbers = ({ slice }) => {
 
           <div className='max-w-3xl'>
             {items && items.map(({ icon, description }, index) => (
-              <div className='mb-8 '>
+              <div className='mb-8' key={index}>
                 <h2 className="mt-4 text-3xl lg:text-4xl font-bold tracking-tight text-red-700 sm:text-4xl">
                   {features[index]}
                 </h2>

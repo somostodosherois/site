@@ -8,6 +8,18 @@
   src: url("../public/fonts/APOLLO.otf");
 }
 
+.bg-red-600 { 
+  background-color: #910000fa;
+}
+
+.text-red-600 { 
+  color: #910000fa;
+}
+
+.border-red-600 {
+  border-color: #910000fa;
+}
+
 .image-text-block{
   height: 50vh !important;
 }
@@ -50,12 +62,12 @@ p {
 }
 
 .slick-prev:before {
-  color: #DC2626 !important;
+  color: #910000fa !important;
   font-size: 30px !important;
 }
 
 .slick-next:before {
-  color: #DC2626 !important;
+  color: #910000fa !important;
   font-size: 30px !important;
 }
 
@@ -92,7 +104,7 @@ p {
 
 .active-button-white:active{
   color: #FFF;
-  background-color: #DC2626 !important;
+  background-color: #910000fa !important;
 }
 
 @media (min-width: 1024px) {
@@ -184,16 +196,16 @@ p {
 }
 
 .Mui-selected{
-  color: #DC2626 !important;
+  color: #910000fa !important;
 }
 
 
 .css-1cnilsh-MuiButtonBase-root-MuiTab-root.Mui-selected {
-  color: #DC2626 !important;
+  color: #910000fa !important;
 }
 
 .MuiTabs-indicator {
-  background-color: #DC2626 !important;
+  background-color: #910000fa !important;
 }
 
 /* TABS */

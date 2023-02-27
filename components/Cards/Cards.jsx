@@ -40,8 +40,8 @@ const Cards = ({ items }) => (
             </div>
         </a>
 
-        {items.map(({ id, name, image, slug, status, metadesc, meta, arrecadado, prazo }) => (
-            <a href={'missao/' + slug}>
+        {items.map(({ id, name, image, slug, status, metadesc, meta, arrecadado, prazo }, index) => (
+            <a href={'missao/' + slug} key={index}>
                 <div key={id} className="group relative bg-white border border-transparent rounded-xl h-full">
                     <div className="sm:block bg-white -group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 lg:aspect-w-1 lg:aspect-h-1">
                         <img

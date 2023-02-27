@@ -10,10 +10,10 @@ const CardsIconsText = ({ items }) => (
       </div>
 
       <div className="md:grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-x-12 gap-y-12">
-        {items.map(({icon, title, content }) => (
-          <div className='bg-white py-8 my-8 xl:my-0 items-center content-center text-center border border-transparent rounded-md'>
+        {items.map(({icon, title, content }, index) => (
+          <div key={index} className='bg-white py-8 my-8 xl:my-0 items-center content-center text-center border border-transparent rounded-md'>
             <div className='flex' style={{ justifyContent: 'center' }}>
-              {getIcon(icon, "h-10 w-10", "#DC2626")}
+              {getIcon(icon, "h-10 w-10", "#910000fa")}
             </div>
             <h2 className="mt-4 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
               <span className="block text-gray-700">{title}</span>

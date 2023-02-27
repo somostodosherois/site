@@ -1,19 +1,14 @@
 import React, { useState } from 'react';
-import swal from 'sweetalert';
 import Head from 'next/head'
 
 import api from '../../pages/api/config'
 import Logo from '../../public/logo.svg'
+import Snackbar from '../../components/Snackbar/Snackbar';
 
 // MUI
 import Grid from '@mui/material/Grid'
 import TextField from '@mui/material/TextField'
 import LoadingButton from '@mui/lab/LoadingButton';
-
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
 
 
 const FormToken = ({ setCode, handleLogin, handleCancel, loading }) => (
@@ -86,12 +81,14 @@ const FormEmail = ({ setEmail, handleNextStep, loading }) => (
 const Login = () => {
 
   const [email, setEmail] = useState('')
-  const [codeResponse, setCodeResponse] = useState('')
   const [code, setCode] = useState('')
   const [loading, setLoading] = useState(false)
-
+  const [openSnack, setOpenSnack] = useState(false)
+  const [messageSnack, setMessageSnack] = useState('')
+  const [typeSnack, setTypeSnack] = useState('success')
 
   const [isMenuVisible, setIsMenuVisible] = useState(true);
+
   // const [isPasswordLogin, setIsPasswordLogin] = useState(true);
   // const [isTokenLogin, setIsTokenLogin] = useState(true);
   const [nextStep, setNextStep] = useState(false)
@@ -108,30 +105,23 @@ const Login = () => {
 
   const handleLogin = () => {
     setLoading(true)
-    if (code === codeResponse) {
-      api
-        .post("/signinWithCode", {
-          email: email,
-          code: code
-        })
-        .then(() => {
-          window.location.href = '/'
-        })
-        .catch((err) => {
-          console.error("ops! ocorreu um erro" + err);
-        });
-    } else {
-      swal({
-        title: "Token inválido!",
-        text: "O token informado não corresponde com o token enviado em seu e-mail.",
-        icon: "error",
-        button: false,
+    api
+      .post("/signinWithCode", {
+        email: email,
+        code: code
       })
+      .then(() => {
+        window.location.href = '/'
+      })
+      .catch((err) => {
+        setMessageSnack("O token informado não corresponde com o token enviado em seu e-mail.")
+        setOpenSnack(true)
+        setTypeSnack('error')
 
-      setTimeout(() => {
-        swal.close()
-      }, 2000);
-    }
+        setTimeout(() => {
+          setOpenSnack(false)
+        }, 2000);
+      });
 
     setLoading(false)
   }
@@ -150,17 +140,19 @@ const Login = () => {
         email: email
       })
       .then((response) => {
-        setCodeResponse(response.data.code)
         setNextStep(!nextStep)
         setIsMenuVisible(false)
         setLoading(false)
       })
       .catch((err) => {
-        swal({
-          title: "Usuário não cadastrado!",
-          icon: "error",
-          buttons: false
-        })
+        setLoading(false)
+        setMessageSnack("Usuário não cadastrado!")
+        setTypeSnack('error')
+        setOpenSnack(true)
+
+        setTimeout(() => {
+          setOpenSnack(false)
+        }, 2000);
       });
   }
 
@@ -200,31 +192,7 @@ const Login = () => {
         <meta name="description" content="Somos Todos Heróis" />
         <link rel="icon" href="https://sth.org.br/wp-content/themes/sth/images/favicon.png" />
       </Head>
-      <div className='bg-gray-200'>
-        <div className="flex justify-center h-screen">
-          <div className="flex items-center justify-center w-full max-w-3xl px-6 mx-auto">
-
-            <div className="p-16 border rounded-lg shadow-2xl bg-white">
-              <div className='pb-2 flex items-center justify-center '>
-                <img src={Logo.src} width='300' />
-              </div>
-              <label className="pb-8 block text-md text-gray-700">Faça seu login e torne-se já o herói de alguém.</label>
-
-              {isMenuVisible &&
-                <FormEmail setEmail={setEmail} handleNextStep={handleNextStep} loading={loading} />
-              }
-
-              {/* {nextStep && isPasswordLogin &&
-                <FormPassword />
-              } */}
-
-              {nextStep &&
-                <FormToken setCode={setCode} handleLogin={handleLogin} handleCancel={handleCancel} loading={loading} />
-              }
-            </div>
-          </div>
-        </div>
-      </div>
+      
     </div>
   )
 }

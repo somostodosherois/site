@@ -21,6 +21,7 @@ const Accordion = ({ slice }) => {
                 index={index}
                 activeIndex={activeIndex}
                 setActiveIndex={setActiveIndex}
+                key={index}
               >
                 {description}
               </AccordionLayout>

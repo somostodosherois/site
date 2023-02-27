@@ -14,7 +14,7 @@ const ImagesList = ({ slice }) => {
 
         <div className="space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-y-8">
           {items && items.map(({ image, link }, index) => (
-            <div className='cursor-pointer'>
+            <div className='cursor-pointer' key={index}>
               <a href={link.url} target='_blank' key={index} className="flex justify-content align-center bg-white border border-transparent rounded-xl">
                 <img
                   src={image.url}
