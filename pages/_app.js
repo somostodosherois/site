@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 
+import React from 'react';
 import Link from 'next/link'
 import { PrismicProvider } from '@prismicio/react'
 import { PrismicPreview } from '@prismicio/next'
@@ -12,6 +13,7 @@ import CheckoutProvider from "../contexts/checkout";
 import { CoinsProvider } from '../contexts/coins';
 
 function MyApp({ Component, pageProps }) {
+
   const firebaseConfig = {
     apiKey: "AIzaSyB2hZgNvoEUYcqqih-DY1PDsG8T8SH_n2k",
     authDomain: "somostodosherois-sth.firebaseapp.com",

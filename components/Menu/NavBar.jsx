@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import { useCoins } from "../../contexts/coins";
+import getToken from "../../hooks/getToken";
 import ImageCoin from "../../public/moeda.gif"
 import Dropdown from "./Dropdown";
 
@@ -116,17 +117,16 @@ const NavBar = (props) => {
             </a>
           </div>
 
-
-          <a
-            href="/login"
-            className="px-4 py-2 text-red-600 bg-white rounded-md shadow hover:bg-red-100"
-          >
-            Login
-          </a>
-
-
-          <Dropdown />
-
+          {getToken() ?
+            <Dropdown />
+          :
+            <a
+              href="/login"
+              className="px-4 py-2 text-red-600 bg-white rounded-md shadow hover:bg-red-100"
+            >
+              Login
+            </a>
+          }
         </div>
       </div>
     </nav>

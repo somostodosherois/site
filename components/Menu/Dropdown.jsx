@@ -6,7 +6,13 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
+export default function Dropdown() {
+
+    function clearSession(){
+        sessionStorage.clear();
+        window.location.href = '/'
+      }
+
     return (
         <Menu as="div" className="relative inline-block text-left mt-2">
             <div>
@@ -55,21 +61,20 @@ export default function Example() {
                                 </a>
                             )}
                         </Menu.Item>
-                        <form method="POST" action="#">
-                            <Menu.Item>
-                                {({ active }) => (
-                                    <button
-                                        type="submit"
-                                        className={classNames(
-                                            active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                            'block w-full px-4 py-2 text-left text-sm'
-                                        )}
-                                    >
-                                        Sair
-                                    </button>
-                                )}
-                            </Menu.Item>
-                        </form>
+                        <Menu.Item>
+                            {({ active }) => (
+                                <button
+                                    type="submit"
+                                    className={classNames(
+                                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                                        'block w-full px-4 py-2 text-left text-sm'
+                                    )}
+                                    onClick={clearSession}
+                                >
+                                    Sair
+                                </button>
+                            )}
+                        </Menu.Item>
                     </div>
                 </Menu.Items>
             </Transition>

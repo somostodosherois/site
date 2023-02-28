@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Head from 'next/head'
 
 import api from '../../pages/api/config'
@@ -9,6 +10,11 @@ import Snackbar from '../../components/Snackbar/Snackbar';
 import Grid from '@mui/material/Grid'
 import TextField from '@mui/material/TextField'
 import LoadingButton from '@mui/lab/LoadingButton';
+
+function setSession(data) {
+  sessionStorage.setItem('token', JSON.stringify(data.token));
+  sessionStorage.setItem('email', JSON.stringify(data.email));
+}
 
 
 const FormToken = ({ setCode, handleLogin, handleCancel, loading }) => (
@@ -105,23 +111,53 @@ const Login = () => {
 
   const handleLogin = () => {
     setLoading(true)
-    api
-      .post("/signinWithCode", {
+
+    try {
+      api.post("/signinWithCode", {
         email: email,
         code: code
       })
-      .then(() => {
-        window.location.href = '/'
+      .then(function (response) {
+        if(response.status === 200){
+          setSession({
+            email: email,
+            token: response.data.accessToken
+          });
+          window.location.href = '/'
+        }
       })
-      .catch((err) => {
-        setMessageSnack("O token informado não corresponde com o token enviado em seu e-mail.")
-        setOpenSnack(true)
-        setTypeSnack('error')
+    } catch (error) {
+      setMessageSnack("O token informado não corresponde com o token enviado em seu e-mail.")
+      setOpenSnack(true)
+      setTypeSnack('error')
 
-        setTimeout(() => {
-          setOpenSnack(false)
-        }, 2000);
-      });
+      setTimeout(() => {
+        setOpenSnack(false)
+      }, 3000);
+    }
+
+    // api
+    //   .post("/signinWithCode", {
+    //     email: email,
+    //     code: code
+    //   })
+    //   .then(function (response) {
+    //     if(response.status === 200){
+    //       setToken(response.data.accessToken);
+    //       window.location.href = '/'
+    //     }
+    //   })
+    //   .catch(function (error) {
+    //     if (error) {
+    //       setMessageSnack("O token informado não corresponde com o token enviado em seu e-mail.")
+    //       setOpenSnack(true)
+    //       setTypeSnack('error')
+  
+    //       setTimeout(() => {
+    //         setOpenSnack(false)
+    //       }, 3000);
+    //     }
+    //   });
 
     setLoading(false)
   }
@@ -149,6 +185,7 @@ const Login = () => {
         setMessageSnack("Usuário não cadastrado!")
         setTypeSnack('error')
         setOpenSnack(true)
+
 
         setTimeout(() => {
           setOpenSnack(false)
@@ -192,9 +229,38 @@ const Login = () => {
         <meta name="description" content="Somos Todos Heróis" />
         <link rel="icon" href="https://sth.org.br/wp-content/themes/sth/images/favicon.png" />
       </Head>
-      
+      <div className='bg-gray-200'>
+        <div className="flex justify-center h-screen">
+          <div className="flex items-center justify-center w-full max-w-3xl px-6 mx-auto">
+
+            <div className="p-16 border rounded-lg shadow-2xl bg-white">
+              <div className='pb-2 flex items-center justify-center '>
+                <img src={Logo.src} width='300' />
+              </div>
+              <label className="pb-8 block text-md text-gray-700">Faça seu login e torne-se já o herói de alguém.</label>
+
+              {isMenuVisible &&
+                <FormEmail setEmail={setEmail} handleNextStep={handleNextStep} loading={loading} />
+              }
+
+              {/* {nextStep && isPasswordLogin &&
+                <FormPassword />
+              } */}
+
+              {nextStep &&
+                <FormToken setCode={setCode} handleLogin={handleLogin} handleCancel={handleCancel} loading={loading} />
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+      {openSnack && messageSnack && <Snackbar message={messageSnack} open={openSnack} setOpenSnack={setOpenSnack} type={typeSnack} />}
     </div>
   )
 }
+
+Login.propTypes = {
+  setToken: PropTypes.func.isRequired
+};
 
 export default Login
