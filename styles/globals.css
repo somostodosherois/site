@@ -9,15 +9,15 @@
 }
 
 .bg-red-600 { 
-  background-color: #910000fa;
+  background-color: #9b0624;
 }
 
 .text-red-600 { 
-  color: #910000fa;
+  color: #9b0624;
 }
 
 .border-red-600 {
-  border-color: #910000fa;
+  border-color: #9b0624;
 }
 
 .image-text-block{
@@ -62,12 +62,12 @@ p {
 }
 
 .slick-prev:before {
-  color: #910000fa !important;
+  color: #9b0624 !important;
   font-size: 30px !important;
 }
 
 .slick-next:before {
-  color: #910000fa !important;
+  color: #9b0624 !important;
   font-size: 30px !important;
 }
 
@@ -104,7 +104,7 @@ p {
 
 .active-button-white:active{
   color: #FFF;
-  background-color: #910000fa !important;
+  background-color: #9b0624 !important;
 }
 
 @media (min-width: 1024px) {
@@ -196,16 +196,16 @@ p {
 }
 
 .Mui-selected{
-  color: #910000fa !important;
+  color: #9b0624 !important;
 }
 
 
 .css-1cnilsh-MuiButtonBase-root-MuiTab-root.Mui-selected {
-  color: #910000fa !important;
+  color: #9b0624 !important;
 }
 
 .MuiTabs-indicator {
-  background-color: #910000fa !important;
+  background-color: #9b0624 !important;
 }
 
 /* TABS */

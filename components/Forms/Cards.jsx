@@ -159,9 +159,9 @@ const FormCards = ({ setCreditCard }) => {
                     onChange={() => setIsCardCheck(!isCardCheck)}
                     defaultChecked
                     sx={{
-                        color: '#910000fa',
+                        color: '#9b0624',
                         '&.Mui-checked': {
-                            color: '#910000fa',
+                            color: '#9b0624',
                         },
                     }}
                 />}

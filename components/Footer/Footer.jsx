@@ -9,15 +9,14 @@ const Footer = () => {
       <div className="mx-6 py-12 lg:px-32">
         <div className="gap-8 grid grid-1 grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
           <div className="">
-            <img src={Logo.src} width='300' />
-            <p className='mt-6 text-lg lg:pr-32'>
+            <p className='text-lg lg:pr-32'>
               A ONG jovem e digital que transforma a vida de crianças que necessitam de tratamentos médicos ao redor do país.
             </p>
 
             <div className='flex mt-6 gap-4'>
-              <a href='#' className='hover:text-red-600'><BsInstagram className='text-2xl' /></a>
-              <a href='#' className='hover:text-red-600'><BsFacebook className='text-2xl' /></a>
-              <a href='#' className='hover:text-red-600'><BsLinkedin className='text-2xl' /></a>
+              <a href='https://www.instagram.com/somostodosheroisbr/' target='_blank' className='hover:text-red-600'><BsInstagram className='text-2xl' /></a>
+              <a href='https://www.facebook.com/somostodosheroiss' target='_blank' className='hover:text-red-600'><BsFacebook className='text-2xl' /></a>
+              <a href='https://www.linkedin.com/company/somos-todos-her%C3%B3is/' target='_blank' className='hover:text-red-600'><BsLinkedin className='text-2xl' /></a>
             </div>
           </div>
 
@@ -26,13 +25,13 @@ const Footer = () => {
               A STH
             </h4>
             <p className="mb-4">
-              <a href="#!" className="text-gray-600 text-lg">Quem somos</a>
+              <a href="/sobre-nos" className="text-gray-600 text-lg">Quem somos</a>
             </p>
             <p className="mb-4">
-              <a href="#!" className="text-gray-600 text-lg">Nossa equipe</a>
+              <a href="/sobre-nos" className="text-gray-600 text-lg">Nossa equipe</a>
             </p>
             <p className="mb-4">
-              <a href="#!" className="text-gray-600 text-lg">Portal Transparência</a>
+              <a href="/portal-transparencia" className="text-gray-600 text-lg">Portal Transparência</a>
             </p>
             <p>
               <a href="#!" className="text-gray-600 text-lg">Política de Privacidade</a>
@@ -44,16 +43,13 @@ const Footer = () => {
               Como ajudar
             </h4>
             <p className="mb-4">
-              <a href="#!" className="text-gray-600 text-lg">Nossas missões</a>
+              <a href="/campanhas" className="text-gray-600 text-lg">Nossas missões</a>
             </p>
             <p className="mb-4">
-              <a href="#!" className="text-gray-600 text-lg">Seja um guardião</a>
+              <a href="/pagamento" className="text-gray-600 text-lg">Seja um guardião</a>
             </p>
             <p className="mb-4">
-              <a href="#!" className="text-gray-600 text-lg">Seja voluntário</a>
-            </p>
-            <p className="mb-4">
-              <a href="#!" className="text-gray-600 text-lg">Dúvidas Frequentes</a>
+              <a href="/ajuda" className="text-gray-600 text-lg">Dúvidas Frequentes</a>
             </p>
           </div>
 
@@ -66,7 +62,7 @@ const Footer = () => {
             </p>
             <div className="flex items-center justify-center md:justify-start">
               <a
-                href="#"
+                href="/pagamento"
                 className="inline-flex px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700"
               >
                 Realizar doação
@@ -80,16 +76,16 @@ const Footer = () => {
             Contato
           </h4>
           <div className='lg:flex gap-x-12'>
-            <a href="#!" className="text-gray-600 text-lg">
+            <a href="https://wa.me/553298688513" className="text-gray-600 text-lg">
               <span className="flex gap-2">
                 <BsWhatsapp className='mt-1' /> WhatsApp
                 <span className="lg:grid font-bold hover:text-red-600" style={{ alignItems: 'center' }}>
-                  (32) 9 9954-5487
+                  (32) 9 9868-8513
                 </span>
               </span>
             </a>
 
-            <a href="#!" className="text-gray-600 text-lg">
+            <a href="/ajuda" className="text-gray-600 text-lg">
               <span className="flex gap-2">
                 <BsFolder className='mt-1' /> E-mail
                 <span className="mb-4 font-bold hover:text-red-600" style={{ alignItems: 'center' }}>
@@ -104,7 +100,7 @@ const Footer = () => {
       <span className="w-100 my-2 mx-72 h-1 border-b border-b-1 border-gray-500 block"></span>
 
       <div className="text-center p-6 bg-gray-300">
-        <span className='mx-2'>© 2021 Copyright -</span>
+        <span className='mx-2'>© 2023 Copyright -</span>
         <a className="text-gray-600 font-semibold" href="#">CNPJ: 29.229.489/0001-50</a>
       </div>
     </footer>

@@ -27,7 +27,7 @@ const CallToAction = ({ slice }) => {
 
           {reference &&
           <div className='flex mt-8 md:mt-4'>
-            <GoQuote className="h-6 w-6 lg:h-8 lg:w-8" fill="#910000fa" />
+            <GoQuote className="h-6 w-6 lg:h-8 lg:w-8" fill="#9b0624" />
             <span className="block text-gray-800 ml-2 text-3xl font-extrabold">{reference}</span>
           </div>
         }

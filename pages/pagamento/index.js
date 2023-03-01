@@ -12,6 +12,8 @@ import FormPersonalData from '../../components/Forms/PersonalData';
 import CopyToClipboardButton from '../../components/CopyToClipboardButton';
 import Snackbar from '../../components/Snackbar/Snackbar';
 import TabsCustomized from '../../components/TabsCustomized/TabsCustomized'
+import getToken from '../../hooks/getToken';
+import Login from '../login'
 
 const items = [
   {
@@ -33,6 +35,11 @@ const items = [
 ]
 
 export default function Pagamento() {
+
+  if(getToken() === undefined){
+    return <Login />
+  }
+
 
   const { coins, setCoins } = useCoins()
   const [amount, setAmount] = useState(30);
@@ -227,9 +234,9 @@ export default function Pagamento() {
                 onChange={() => setIsDonationCheck(!isDonationCheck)}
                 sx={{
                   marginRight: '5px',
-                  color: '#910000fa',
+                  color: '#9b0624',
                   '&.Mui-checked': {
-                    color: '#910000fa',
+                    color: '#9b0624',
                   },
                 }}
               />}
