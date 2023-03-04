@@ -1,15 +1,15 @@
 {
-  "id": "images_circle_list",
+  "id": "text_block_with_icons",
   "type": "SharedSlice",
-  "name": "ImagesCircleList",
-  "description": "ImagesCircleList",
+  "name": "TextBlockWithIcons",
+  "description": "TextBlockWithIcons",
   "variations": [
     {
       "id": "default",
       "name": "Default",
       "docURL": "...",
       "version": "sktwi1xtmkfgx8626",
-      "description": "ImagesCircleList",
+      "description": "TextBlockWithIcons",
       "primary": {
         "title": {
           "type": "Text",
@@ -27,19 +27,12 @@
         }
       },
       "items": {
-        "image": {
+        "icon": {
           "type": "Image",
           "config": {
-            "label": "Image",
+            "label": "Icon",
             "constraint": {},
             "thumbnails": []
-          }
-        },
-        "title": {
-          "type": "Text",
-          "config": {
-            "label": "Title",
-            "placeholder": ""
           }
         },
         "description": {

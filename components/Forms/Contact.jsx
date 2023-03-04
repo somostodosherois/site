@@ -11,7 +11,7 @@ import Button from '@mui/material/Button'
 
 import api from '../../pages/api/config'
 
-const FormContact = ({ data }) => {
+const FormContact = ({ data, setOpenSnack, setMessageSnack }) => {
 
   if (!data) return null
   const [name, setName] = useState('')
@@ -37,14 +37,14 @@ const FormContact = ({ data }) => {
         to: to,
         text: text
       })
-      .then((response) => {
-        swal({
-          title: "E-mail enviado com sucesso!",
-          text: "Em breve nossa equipe entrará em contato.",
-          icon: "success",
-          button: false,
-        })
+      .then(() => {
+        setMessageSnack('E-mail enviado com sucesso!')
+        setOpenSnack(true)
 
+        setTimeout(() => {
+          setOpenSnack(false)
+        }, 3000);
+       
         cleanForm();
       })
       .catch((err) => {
@@ -127,7 +127,7 @@ const FormContact = ({ data }) => {
                   >
                     <MenuItem value='presidencia@sth.org.br'>Selecione o setor responsável</MenuItem>
                     <MenuItem value='financeiro@sth.org.br'>Financeiro</MenuItem>
-                    <MenuItem value='thays.correa@sth.org.br'>Tecnologia</MenuItem>
+                    <MenuItem value='thays.lacerda@sth.org.br'>Tecnologia</MenuItem>
                     <MenuItem value='luana.silva@sth.org.br'>Marketing</MenuItem>
                     <MenuItem value='rafaela.raeski@sth.org.br'>Missões</MenuItem>
                     <MenuItem value='natashapelizari@sth.org.br'>Jurídico</MenuItem>
@@ -146,7 +146,7 @@ const FormContact = ({ data }) => {
                 </Grid>
                 <Grid sm={12} className='flex align-center justify-center text-center mt-8'>
                   <Button variant='outlined' color='error' sx={{ marginRight: 3.5 }} onClick={handleClick}>
-                    Salvar
+                    Enviar
                   </Button>
                 </Grid>
               </Grid>

@@ -142,6 +142,11 @@
       "default": {
         "primary": {}
       }
+    },
+    "TextBlockWithIcons": {
+      "default": {
+        "primary": {}
+      }
     }
   },
   "_cts": {

@@ -3,7 +3,7 @@ import TitleSession from '../../components/TitleSession/TitleSession';
 
 import getIcon from '../../hooks/getIcon';
 
-const features = ['135', '15', '+ R$ 300.000,00', '50']
+const features = ['135', '19', '+ R$ 300.000,00', '50']
 
 const OngNumbers = ({ slice }) => {
   if (!slice) return null
@@ -22,10 +22,10 @@ const OngNumbers = ({ slice }) => {
             <img src={image.url} height={500} />
           </div>
 
-          <div className='max-w-3xl'>
+          <div className='max-w-3xl pt-12'>
             {items && items.map(({ icon, description }, index) => (
               <div className='mb-8' key={index}>
-                <h2 className="mt-4 text-3xl lg:text-4xl font-bold tracking-tight text-red-700 sm:text-4xl">
+                <h2 className="mt-4 text-3xl lg:text-4xl font-bold tracking-tight text-red-600 sm:text-4xl">
                   {features[index]}
                 </h2>
                 <h5 className="mt-2 px-2 text-xl lg:text-xl tracking-tight text-gray-900 sm:text-2xl">

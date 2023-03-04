@@ -17,6 +17,7 @@ import OngNumbers from './OngNumbers';
 import OngNumbersImage from './OngNumbersImage';
 import TextBlock from './TextBlock';
 import TextBlockPersonalized from './TextBlockPersonalized';
+import TextBlockWithIcons from './TextBlockWithIcons';
 import Timeline from './Timeline';
 
 export {
@@ -37,6 +38,7 @@ export {
 	OngNumbersImage,
 	TextBlock,
 	TextBlockPersonalized,
+	TextBlockWithIcons,
 	Timeline,
 };
 
@@ -44,7 +46,7 @@ export const components = {
 	accordion: Accordion,
 	call_to_action: CallToAction,
 	card_donation_types: CardDonationTypes,
-	testimonial_carousel: Carousel,
+	carousel: Carousel,
 	diagram_with_icon: DiagramWithIcon,
 	files: Files,
 	grid_text: GridText,
@@ -55,8 +57,9 @@ export const components = {
 	news_list: NewsList,
 	ods: Ods,
 	ong_numbers: OngNumbers,
-	// ong_numbers_image: OngNumbersImage,
+	ong_numbers_image: OngNumbersImage,
 	text_image_block: TextBlock,
 	text_block_personalized: TextBlockPersonalized,
+	text_block_with_icons: TextBlockWithIcons,
 	timeline: Timeline,
 };
