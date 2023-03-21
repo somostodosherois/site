@@ -5,6 +5,7 @@ import HandHeartOutline from 'mdi-material-ui/HandHeartOutline'
 
 import CardDonation from './CardDonation'
 import api from '../../pages/api/config'
+import getUser from "../../hooks/getSession"
 
 const GridDonation = ({ items, campanha, setOpenSnack, setMessageSnack, setTypeSnack  }) => {
 
@@ -12,7 +13,7 @@ const GridDonation = ({ items, campanha, setOpenSnack, setMessageSnack, setTypeS
 
     const handleValue = () => {
         api.post("/donation", {
-            email: 'thays.lacerdac@gmail.com',
+            email: getUser().email,
             date: new Date().toISOString(),
             value: valuePersonalized,
             missionId: 0,

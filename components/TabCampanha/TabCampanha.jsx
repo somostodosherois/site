@@ -1,7 +1,16 @@
 import GridCampanhas from "../GridCampanhas/GridCampanhas"
 import ProgressBarHorizontal from '../ProgressBarHorizontal'
 
-const TabCampanha = ({ items, description, valueCampanha, value, progress }) => {
+const TabCampanha = ({ id, items, description, valueCampanha, valueTotal }) => {
+    
+    const progress = parseInt((valueTotal * 100) / valueCampanha);
+
+    const handleRedirect = () => {
+        localStorage.setItem('completar-campanha-valor', valueCampanha - valueTotal)
+        localStorage.setItem('completar-campanha', id)
+
+        return window.location.href = '/pagamento'
+    }
 
     return (
         <div className='pt-8'>
@@ -10,7 +19,7 @@ const TabCampanha = ({ items, description, valueCampanha, value, progress }) => 
             </p>
 
             <div className="max-w-7xl p-4 bg-gray-100 rounded-xl mx-auto grid md:grid-cols-4 gap-x-8 gap-y-8 items-center justify-center md:justify-between">
-                <h2 className="text-3xl tracking-tight text-gray-900 flex gap-x-2">
+                <h2 className="text-3xl tracking-tight text-gray-900 gap-x-2">
                     <span className="block text-gray-800 font-bold text-3xl"><b>{valueCampanha}</b> moedas</span>
                 </h2>
 
@@ -20,8 +29,8 @@ const TabCampanha = ({ items, description, valueCampanha, value, progress }) => 
 
                 <div className='flex justify-end'>
                     <a
-                        href=''
-                        className="text-center px-8 py-2 text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700"
+                        onClick={handleRedirect}
+                        className="cursor-pointer text-center px-8 py-2 text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700"
                     >
                         Finalizar campanha
                     </a>

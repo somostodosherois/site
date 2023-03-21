@@ -3,6 +3,7 @@ import React from 'react';
 import TitleSession from '../../components/TitleSession/TitleSession';
 
 import { BsArrowRightShort } from "react-icons/bs"
+import Link from 'next/link';
 
 const NewsList = ({ slice }) => {
 
@@ -11,6 +12,10 @@ const NewsList = ({ slice }) => {
   const title = slice?.primary?.title || ''
   const news = slice?.items || []
 
+  const handleArticle = (link) => {
+    window. open(link,"_blank");
+  }
+
   return (
     <div className="pb-8 px-4">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:items-center">
@@ -18,7 +23,7 @@ const NewsList = ({ slice }) => {
 
         <div className="pb-16 grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8">
           {news.map(({ image, title, description, author, date, link }, index) => (
-            <a className="cursor-pointer shadow-lg justify-content align-center rounded-xl border:shadow" href={link.url} target='_blank' key={index}>
+            <div className="cursor-pointer shadow-lg justify-content align-center rounded-xl border:shadow" onClick={() => handleArticle(link.url)} key={index}>
               <div className="text-center p-4">
                 <img
                   src={image.url}
@@ -33,9 +38,9 @@ const NewsList = ({ slice }) => {
                 </div>
                 <p className="text-sm text-gray-700">{author}</p>
                 <p className="text-sm text-gray-700 mt-2 mb-4">{date}</p>
-                <a className="text-md text-blue-600 flex">Ler mais <BsArrowRightShort className='h-6'/></a>
+                <a className="text-md text-blue-600 flex">Ler mais <BsArrowRightShort className='h-6' /></a>
               </div>
-            </a>
+            </div>
           ))}
         </div>
 

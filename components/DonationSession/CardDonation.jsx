@@ -1,10 +1,9 @@
 import swal from 'sweetalert';
 import Router from 'next/router';
-import BeerOutline from 'mdi-material-ui/BeerOutline'
-
 import { useCoins } from "../../contexts/coins";
 import formatCurrent from "../../hooks/formatCurrent";
 import api from '../../pages/api/config'
+import getUser from '../../hooks/getSession';
 
 const CardDonation = ({ item, setOpenSnack, setMessageSnack, setTypeSnack }) => {
     const { coins, setCoins } = useCoins();
@@ -28,7 +27,7 @@ const CardDonation = ({ item, setOpenSnack, setMessageSnack, setTypeSnack }) => 
             localStorage.setItem('coins', total);
 
             api.post("/donation", {
-                email: 'thays.lacerdac@gmail.com',
+                email: getUser().email,
                 date: new Date().toISOString(),
                 value: total,
                 missionId: 0,
@@ -71,13 +70,14 @@ const CardDonation = ({ item, setOpenSnack, setMessageSnack, setTypeSnack }) => 
     return (
         <div className='bg-white border rounded-lg shadow p-6'>
             <div className='md:grid md:grid-cols-3 gap-x-4'>
-                <BeerOutline className="text-red-600 w-12 h-12" />
+                <img src="https://somos-todos-herois.cdn.prismic.io/somos-todos-herois/926f42ed-9010-415f-87da-b62c07b81e3e_Handshake.svg" />
+                
                 <div className="col-span-2">
                     <span className='mt-2 text-2xl text-red-600 font-semibold'>{value} moedas</span><br></br>
                     <span className='text-sm font-semibold'>{subtitle}</span>
                 </div>
             </div>
-            <span className="w-16 my-4 h-1 bg-red-600 border rounded-xl block"></span>
+            <span className="w-16 my-8 rounded-xl block"></span>
             <div className='h-12'>
                 <span className='text-base'>{description}</span>
             </div>

@@ -16,33 +16,25 @@ import Snackbar from '../../components/Snackbar/Snackbar';
 const tabs = [
     {
         id: 'food',
-        description: 'A campanha de Alimentos reúne crianças que necessitam de latas de leite.',
-        value: 1200,
-        progress: 45,
+        description: 'A campanha de Alimentos reúne crianças que necessitam de latas de leite.'
     },
     {
         id: 'personal hygiene',
         description: 'A campanha de Higiene Pessoal reúne crianças que necessitam de fraldas; pomadas; lenços umedecidos; entre outros.',
-        value: 2200,
-        progress: 24,
     },
     {
         id: 'accessories',
         description: 'A campanha de Acessórios reúne crianças que necessitam de cadeiras de rodas; andadores; banheiras; entre outros.',
-        value: 5000,
-        progress: 56,
     },
     {
         id: 'medical treatments',
         description: 'A campanha de Tratamentos Médicos reúne crianças que necessitam de sessões de fisioterapia; fonoaudiologia; entre outros.',
-        value: 8000,
-        progress: 30,
     }
 ]
 
-const Campanhas = ({ page, menu, metaTitle, metaDescription, banner, slices, items }) => {
+const Campanhas = ({ page, metaTitle, metaDescription, banner, slices, items, progress }) => {
     // ** State
-    if (!page || !menu || !items) return null
+    if (!page || !items) return null
 
     const data = page?.data || {}
     const [campanha, setCampanha] = useState('food')
@@ -66,7 +58,7 @@ const Campanhas = ({ page, menu, metaTitle, metaDescription, banner, slices, ite
                         A Somos Todos Heróis reúne crianças com necessidades de todo o Brasil em uma campanha com o intuito de levantar fundos para suprir essa necessidade de alguma forma. Abaixo você consegue ver todas as missões que estão abertas em nosso site de cada campanha.
                     </p>
 
-                    <Tabs campanha={campanha} setCampanha={setCampanha} tabs={tabs} items={items} />
+                    <Tabs campanha={campanha} setCampanha={setCampanha} tabs={tabs} items={items} progress={progress} />
                 </div>
 
                 <DonationSession value={campanha} setOpenSnack={setOpenSnack} setMessageSnack={setMessageSnack} setTypeSnack={setTypeSnack} />
@@ -87,18 +79,18 @@ export async function getStaticProps({ previewData }) {
     const client = createClient({ previewData })
 
     const page = await client.getSingle('campaigns')
-    const menu = await client.getSingle("menu");
     const items = await fetch(`http://sth-api.herokuapp.com/api/missions`).then(res => res.json());
+    const progress = await fetch(`http://sth-api-teste.herokuapp.com/api/progress`).then(res => res.json());
 
     return {
         props: {
             page,
-            menu: menu.data,
             metaTitle: page.data.meta_title,
             metaDescription: page.data.meta_description,
             banner: page.data.banner,
             slices: page.data.body || [],
-            items: items
+            items: items,
+            progress: progress
         },
     }
 }

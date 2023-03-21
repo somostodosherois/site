@@ -14,7 +14,7 @@ export default function Dropdown() {
       }
 
     return (
-        <Menu as="div" className="relative inline-block text-left mt-2">
+        <Menu as="div" className="relative inline-block text-left mt-3">
             <div>
                 <Menu.Button className="text-white">
                     <EllipsisVerticalIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
@@ -31,7 +31,7 @@ export default function Dropdown() {
                 leaveTo="transform opacity-0 scale-95"
             >
                 <Menu.Items className="fixed right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                    <div className="py-1">
+                    <div className="pt-2">
                         <Menu.Item>
                             {({ active }) => (
                                 <a

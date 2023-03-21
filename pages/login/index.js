@@ -11,12 +11,11 @@ import { Grid, Button } from '@mui/material'
 import TextField from '@mui/material/TextField'
 import LoadingButton from '@mui/lab/LoadingButton';
 
-function setSession(data) {
-  sessionStorage.setItem('token', JSON.stringify(data.token));
-  sessionStorage.setItem('email', JSON.stringify(data.email));
-  sessionStorage.setItem('id', JSON.stringify(data.id));
+function setSession({ email, token, id }) {
+  sessionStorage.setItem('token', JSON.stringify(token));
+  sessionStorage.setItem('email', JSON.stringify(email));
+  sessionStorage.setItem('id', JSON.stringify(id));
 }
-
 
 const Login = () => {
 
@@ -132,113 +131,6 @@ const Login = () => {
   }
 
 
-  const FormToken = () => (
-    <>
-      <Grid item xs={12} sm={6}>
-        <TextField
-          fullWidth
-          type='text'
-          label='Token'
-          placeholder='Digite o token'
-          color='error'
-          onChange={(e) => setCode(e.target.value)}
-        />
-      </Grid>
-
-      <div className="mt-2">
-        <LoadingButton
-          onClick={handleLogin}
-          loading={loading}
-          variant='contained'
-          className="w-full mt-4 tracking-wide text-white text-xl md:text-2xl transition-colors duration-200 transform bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:bg-red-700 focus:ring focus:ring-red-700 focus:ring-opacity-50">
-          Entrar
-        </LoadingButton>
-      </div>
-
-      <div className="text-center mt-2">
-        <button onClick={handleCancel} className="text-md text-gray-400">Voltar</button>
-      </div>
-    </>
-  )
-
-  const FormEmail = () => (
-    <>
-      <Grid item xs={12} sm={6}>
-        <TextField
-          fullWidth
-          type='email'
-          label='Email'
-          placeholder='tony-stark@email.com'
-          color='error'
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </Grid>
-
-      <Grid item xs={12} sm={6} className="mt-2">
-        <LoadingButton
-          onClick={handleNextStep}
-          loading={loading}
-          variant='contained'
-          className="w-full mt-4 tracking-wide text-white text-xl md:text-2xl transition-colors duration-200 transform bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:bg-red-700 focus:ring focus:ring-red-700 focus:ring-opacity-50">
-          Continuar
-        </LoadingButton>
-      </Grid>
-
-      <div className='pt-4'>
-        Não tem uma conta? <a className='text-blue-700 cursor-pointer' onClick={() => setCadStep(true)}>Cadastre-se</a>
-      </div>
-    </>
-  )
-
-  const FormCad = () => (
-    <>
-      <Grid item xs={12} sm={6} className="flex gap-x-4">
-        <TextField
-          type='text'
-          label='Nome'
-          placeholder='Tony'
-          color='error'
-          onChange={(e) => setName(e.target.value)}
-        />
-        <TextField
-          type='text'
-          label='Sobrenome'
-          placeholder='Stark'
-          color='error'
-          onChange={(e) => setLastName(e.target.value)}
-        />
-      </Grid>
-      <Grid item xs={12} sm={6} className="mt-4">
-        <TextField
-          fullWidth
-          type='email'
-          label='Email'
-          placeholder='tony-stark@email.com'
-          color='error'
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </Grid>
-
-      <Grid item xs={6} sm={6} className="flex gap-x-4 mt-2">
-        <Button
-          onClick={() => setCadStep(false)}
-          loading={loading}
-          variant='contained'
-          className="w-full mt-4 text-white text-xl md:text-2xl transition-colors duration-200 transform bg-gray-400 rounded-md hover:bg-gray-500">
-          Voltar
-        </Button>
-
-        <LoadingButton
-          onClick={handleCadastro}
-          loading={loading}
-          variant='contained'
-          className="w-full mt-4 tracking-wide text-white text-xl md:text-2xl transition-colors duration-200 transform bg-red-600 rounded-md hover:bg-red-700">
-          Cadastrar
-        </LoadingButton>
-      </Grid>
-    </>
-  )
-
   return (
     <div>
       <Head>
@@ -257,15 +149,109 @@ const Login = () => {
               <label className="pb-8 block text-md text-gray-700">Faça seu login e torne-se já o herói de alguém.</label>
 
               {!cadStep && isMenuVisible &&
-                <FormEmail setEmail={setEmail} handleNextStep={handleNextStep} loading={loading} setCadStep={setCadStep} />
+                <>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      fullWidth
+                      label='Email'
+                      placeholder='tony-stark@email.com'
+                      color='error'
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </Grid>
+
+                  <Grid item xs={12} sm={6} className="mt-2">
+                    <LoadingButton
+                      onClick={handleNextStep}
+                      loading={loading}
+                      variant='contained'
+                      className="w-full mt-4 tracking-wide text-white text-xl md:text-2xl transition-colors duration-200 transform bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:bg-red-700 focus:ring focus:ring-red-700 focus:ring-opacity-50">
+                      Continuar
+                    </LoadingButton>
+                  </Grid>
+
+                  <div className='pt-4'>
+                    Não tem uma conta? <a className='text-blue-700 cursor-pointer' onClick={() => setCadStep(true)}>Cadastre-se</a>
+                  </div>
+                </>
               }
 
               {nextStep &&
-                <FormToken setCode={setCode} handleLogin={handleLogin} handleCancel={handleCancel} loading={loading} />
+                <>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      fullWidth
+                      type='text'
+                      label='Token'
+                      placeholder='Digite o token'
+                      color='error'
+                      onChange={(e) => setCode(e.target.value)}
+                    />
+                  </Grid>
+
+                  <div className="mt-2">
+                    <LoadingButton
+                      onClick={handleLogin}
+                      loading={loading}
+                      variant='contained'
+                      className="w-full mt-4 tracking-wide text-white text-xl md:text-2xl transition-colors duration-200 transform bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:bg-red-700 focus:ring focus:ring-red-700 focus:ring-opacity-50">
+                      Entrar
+                    </LoadingButton>
+                  </div>
+
+                  <div className="text-center mt-2">
+                    <button onClick={handleCancel} className="text-md text-gray-400">Voltar</button>
+                  </div>
+                </>
               }
 
               {cadStep &&
-                <FormCad />
+                <>
+                  <Grid item xs={12} sm={6} className="flex gap-x-4">
+                    <TextField
+                      type='text'
+                      label='Nome'
+                      placeholder='Tony'
+                      color='error'
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                    <TextField
+                      type='text'
+                      label='Sobrenome'
+                      placeholder='Stark'
+                      color='error'
+                      onChange={(e) => setLastName(e.target.value)}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={6} className="mt-4">
+                    <TextField
+                      fullWidth
+                      type='email'
+                      label='Email'
+                      placeholder='tony-stark@email.com'
+                      color='error'
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </Grid>
+
+                  <Grid item xs={6} sm={6} className="flex gap-x-4 mt-2">
+                    <Button
+                      onClick={() => setCadStep(false)}
+                      loading={loading}
+                      variant='contained'
+                      className="w-full mt-4 text-white text-xl md:text-2xl transition-colors duration-200 transform bg-gray-400 rounded-md hover:bg-gray-500">
+                      Voltar
+                    </Button>
+
+                    <LoadingButton
+                      onClick={handleCadastro}
+                      loading={loading}
+                      variant='contained'
+                      className="w-full mt-4 tracking-wide text-white text-xl md:text-2xl transition-colors duration-200 transform bg-red-600 rounded-md hover:bg-red-700">
+                      Cadastrar
+                    </LoadingButton>
+                  </Grid>
+                </>
               }
             </div>
           </div>
@@ -275,9 +261,5 @@ const Login = () => {
     </div>
   )
 }
-
-Login.propTypes = {
-  setToken: PropTypes.func.isRequired
-};
 
 export default Login

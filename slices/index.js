@@ -46,7 +46,7 @@ export const components = {
 	accordion: Accordion,
 	call_to_action: CallToAction,
 	card_donation_types: CardDonationTypes,
-	carousel: Carousel,
+	testimonial_carousel: Carousel,
 	diagram_with_icon: DiagramWithIcon,
 	files: Files,
 	grid_text: GridText,

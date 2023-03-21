@@ -37,15 +37,15 @@ function MyApp({ Component, pageProps }) {
       )}
     >
       <PrismicPreview repositoryName={repositoryName}>
-        <CommonProvider>
-          <ProductsProvider>
+        {/* <CommonProvider> */}
+          {/* <ProductsProvider> */}
             <CoinsProvider>
               <CheckoutProvider>
                 <Component {...pageProps} />
               </CheckoutProvider>
             </CoinsProvider>
-          </ProductsProvider>
-        </CommonProvider>
+          {/* </ProductsProvider> */}
+        {/* </CommonProvider> */}
       </PrismicPreview>
     </PrismicProvider>
   )

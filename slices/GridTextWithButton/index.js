@@ -18,13 +18,13 @@ const GridTextWithButton = ({ slice }) => {
         </div>
 
         <div className="mt-16">
-          <dl className={`space-y-10 md:space-y-0 grid md:grid-cols-${items.length} md:gap-x-16 md:gap-y-10`}>
+          <div className={`space-y-10 md:space-y-0 grid md:grid-cols-${items.length} md:gap-x-16 md:gap-y-10`}>
             {items && items.map(({ title, description, image, button_link, button_label }, index) => (
               <div key={index} className="text-center justify-center items-center">
                 <div>
                   <img src={image?.url} className='inline' style={{ height: '60px' }} />
                   <p className="text-xl md:text-2xl font-medium text-gray-800">{title}</p>
-                  <dd className="mt-2 text-lg md:text-xl text-gray-500">{description}</dd>
+                  <span className="mt-2 text-lg md:text-xl text-gray-500">{description}</span>
                 </div>
                 <div className="mt-5 sm:mt-8 flex justify-center">
                   <div className="rounded-md shadow">
@@ -39,7 +39,7 @@ const GridTextWithButton = ({ slice }) => {
                 </div>
               </div>
             ))}
-          </dl>
+          </div>
         </div>
       </div>
     </div>

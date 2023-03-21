@@ -10,6 +10,10 @@ export const filterCampanhas = (items, campanha) =>
     items?.filter((item) => item?.category_1 === campanha || item?.category_2 === campanha)
         .sort((a, b) => a.nameHero.localeCompare(b.nameHero))
 
+export const filterProgress = (progress, campanha) =>
+    progress?.filter((item) => item?.category === campanha)
+        .sort((a, b) => a.category.localeCompare(b.category))
+
 export const countValueCampanha = (items) => {
     let sum = 0
 
@@ -20,15 +24,15 @@ export const countValueCampanha = (items) => {
     return sum * 2
 }
 
-const renderTabPanel = (tabs, items) => {
-    return tabs.map(({ id, description, value, progress }, index) => (
+const renderTabPanel = (tabs, items, progress) => {
+    return tabs.map(({ id, description }, index) => (
         <TabPanel sx={{ p: 0 }} value={id} key={index}>
-            <TabCampanha items={filterCampanhas(items, id)} valueCampanha={countValueCampanha(filterCampanhas(items, id))} description={description} value={value} progress={progress} />
+            <TabCampanha id={id} items={filterCampanhas(items, id)} valueCampanha={countValueCampanha(filterCampanhas(items, id))} description={description} valueTotal={filterProgress(progress, id)[0].valueTotal} />
         </TabPanel>
     ))
 }
 
-const Tabs = ({ campanha, tabs, items, setCampanha }) => {
+const Tabs = ({ campanha, tabs, items, setCampanha, progress }) => {
 
     return (
         <Card className='card-tabs'>
@@ -36,7 +40,7 @@ const Tabs = ({ campanha, tabs, items, setCampanha }) => {
 
                 <TabsList setCampanha={setCampanha} />
 
-                {renderTabPanel(tabs, items)}
+                {renderTabPanel(tabs, items, progress)}
             </TabContext>
         </Card>
     )

@@ -9,6 +9,7 @@ import TextField from '@mui/material/TextField'
 import Close from 'mdi-material-ui/Close'
 
 import api from '../../pages/api/config'
+import getUser from '../../hooks/getSession';
 
 const style = {
     position: 'absolute',
@@ -30,7 +31,7 @@ const ModalDetails = ({ open, handleClose, mission }) => {
 
     const handleClick = () => {
         api.post("/donation", {
-            email: 'thays.lacerdac@gmail.com',
+            email: getUser().email,
             date: new Date().toISOString(),
             value: valueDonationMission,
             missionId: id,

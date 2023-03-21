@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import { useCoins } from "../../contexts/coins";
-import getToken from "../../hooks/getToken";
+import getUser from "../../hooks/getSession";
 import ImageCoin from "../../public/moeda.gif"
 import Dropdown from "./Dropdown";
 
@@ -89,17 +89,24 @@ const NavBar = (props) => {
             {/* MOBILE */}
 
             <div className="m-2 grid grid-cols-2 space-x-3 lg:hidden inline-block ">
-              <div className="flex mt-6">
-                <img src={ImageCoin.src} style={{ height: '25px', width: '25px' }} />
-                <span className="coins text-white ml-2 text-xl">{coins}</span>
-              </div>
+              {getUser() ?
+                <>
+                  <div className="flex mt-6">
+                    <img src={ImageCoin.src} style={{ height: '25px', width: '25px' }} />
+                    <span className="coins text-white ml-2 text-xl">{coins}</span>
+                  </div>
 
-              <a
-                href="/login"
-                className="px-2 py-2 text-center text-red-600 bg-white rounded-md shadow hover:bg-red-100"
-              >
-                Login
-              </a>
+
+                  <Dropdown />
+                </>
+                :
+                <a
+                  href="/login"
+                  className="px-2 py-2 text-center text-red-600 bg-white rounded-md shadow hover:bg-red-100"
+                >
+                  Login
+                </a>
+              }
             </div>
           </div>
         </div>
@@ -107,19 +114,21 @@ const NavBar = (props) => {
         {/* DESKTOP */}
 
         <div className="hidden space-x-2 lg:flex">
-
-          <div className="coins mt-1">
-            <a className="coins-icon" href="#" >
-              <div className="flex py-1">
-                <img src={ImageCoin.src} className="moeda-gif ml-4 " />
-                <span className="coins text-white ml-2 text-xl">{coins}</span>
+          {getUser() ?
+            <>
+              <div className="coins mt-1">
+                <a className="coins-icon" href="#" >
+                  <div className="flex py-1">
+                    <img src={ImageCoin.src} className="moeda-gif ml-4 " />
+                    <span className="coins text-white ml-2 text-xl">{coins}</span>
+                  </div>
+                </a>
               </div>
-            </a>
-          </div>
 
-          {getToken() ?
-            <Dropdown />
-          :
+
+              <Dropdown />
+            </>
+            :
             <a
               href="/login"
               className="px-4 py-2 text-red-600 bg-white rounded-md shadow hover:bg-red-100"

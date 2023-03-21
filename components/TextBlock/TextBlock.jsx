@@ -1,6 +1,6 @@
-import { PrismicRichText } from '@prismicio/react'
 import React from 'react'
-import ReactPlayer from 'react-player'
+import ReactPlayer from 'react-player/lazy'
+import { PrismicRichText } from '@prismicio/react'
 
 import TitleSession from '../TitleSession/TitleSession'
 
@@ -22,7 +22,7 @@ const TextBlock = ({ title, description, isRichText, background, video }) => {
 
         {video &&
           <div className='flex justify-center mt-8'>
-            <ReactPlayer url={video} className='w-10' />
+            <ReactPlayer url={video} />
           </div>
         }
       </div>

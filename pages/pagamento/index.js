@@ -12,7 +12,7 @@ import FormPersonalData from '../../components/Forms/PersonalData';
 import CopyToClipboardButton from '../../components/CopyToClipboardButton';
 import Snackbar from '../../components/Snackbar/Snackbar';
 import TabsCustomized from '../../components/TabsCustomized/TabsCustomized'
-import getToken from '../../hooks/getToken';
+import getUser from '../../hooks/getSession';
 import Login from '../login'
 
 const items = [
@@ -36,10 +36,9 @@ const items = [
 
 export default function Pagamento() {
 
-  if(getToken() === undefined){
+  if(!getUser()){
     return <Login />
   }
-
 
   const { coins, setCoins } = useCoins()
   const [amount, setAmount] = useState(30);
@@ -176,12 +175,10 @@ export default function Pagamento() {
       value: donationValue,
       coins: coins,
       dueDate: new Date().toISOString(),
-      description: '',
+      description: localStorage.getItem('completar-campanha') ? 'Finalizando a campanha: ' + localStorage.getItem('completar-campanha') : 'Doação',
       creditCard: creditCardData,
       creditCardHolderInfo: creditCardHolderInfo
     }
-
-    console.log(paymentData)
 
     api
       .post("/tempOp", {
@@ -267,6 +264,15 @@ export default function Pagamento() {
       }
     </>
   )
+
+  if(localStorage.getItem('completar-campanha') && localStorage.getItem('completar-campanha-valor')){
+    let value = parseFloat(localStorage.getItem('completar-campanha-valor'))
+    value = value / 2
+    // Atribui 20% p ONG + completa todas as missões de uma determinada campanha
+    value = value * 0.2
+    setAmount(value)
+    setRecorrencia('pontual')
+  }
 
   return (
     <div className="bg-gray-50">
