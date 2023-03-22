@@ -28,7 +28,7 @@ import TabAccount from '../../components/TabAccount/Account'
 import TabSecurity from '../../components/TabAccount/Security'
 import HistoricWithButton from '../../components/HistoricWithButton';
 
-import imageSrc from '../../public/avatars/1.png'
+import imageSrc from '../../public/avatar.png'
 
 // ** Third Party Styles Imports
 import 'react-datepicker/dist/react-datepicker.css'
