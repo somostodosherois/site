@@ -111,7 +111,7 @@ export default function Pagamento() {
   }
 
   const handleCoins = (value) => {
-    localStorage.setItem('coins', value);
+    // localStorage.setItem('coins', value);
     setCoins(parseFloat(value));
   }
 
@@ -265,13 +265,15 @@ export default function Pagamento() {
     </>
   )
 
-  if(localStorage.getItem('completar-campanha') && localStorage.getItem('completar-campanha-valor')){
-    let value = parseFloat(localStorage.getItem('completar-campanha-valor'))
-    value = value / 2
-    // Atribui 20% p ONG + completa todas as missões de uma determinada campanha
-    value = value * 0.2
-    setAmount(value)
-    setRecorrencia('pontual')
+  if (typeof window !== 'undefined') {
+    if(localStorage.getItem('completar-campanha') && localStorage.getItem('completar-campanha-valor')){
+      let value = parseFloat(localStorage.getItem('completar-campanha-valor'))
+      value = value / 2
+      // Atribui 20% p ONG + completa todas as missões de uma determinada campanha
+      value = value * 0.2
+      setAmount(value)
+      setRecorrencia('pontual')
+    }
   }
 
   return (

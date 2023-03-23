@@ -16,7 +16,7 @@ const red = {
 
 const Tab = styled(TabUnstyled)`
   font-family: IBM Plex Sans, sans-serif;
-  color: ${red[600]};
+  color: #9b0624;
   cursor: pointer;
   font-size: 0.875rem;
   font-weight: bold;
@@ -24,7 +24,7 @@ const Tab = styled(TabUnstyled)`
   width: 100%;
   padding: 12px;
   margin: 6px 6px;
-  border: 1px solid ${red[600]};
+  border: 1px solid #9b0624;
   border-radius: 7px;
   display: flex;
   justify-content: center;
@@ -34,14 +34,14 @@ const Tab = styled(TabUnstyled)`
   }
 
   &:focus {
-    color: ${red[600]};
-    border: 1px solid ${red[600]};
+    color: #9b0624;
+    border: 1px solid #9b0624;
   }
 
   &.${tabUnstyledClasses.selected} {
-    background-color: ${red[600]} !important;
+    background-color: #9b0624 !important;
     color: #fff !important;
-    border: 1px solid ${red[600]};
+    border: 1px solid #9b0624;
   }
 
   &.${buttonUnstyledClasses.disabled} {

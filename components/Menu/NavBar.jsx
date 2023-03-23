@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useCoins } from "../../contexts/coins";
 import getUser from "../../hooks/getSession";
 import ImageCoin from "../../public/moeda.gif"
+import api from '../../pages/api/config'
 import Dropdown from "./Dropdown";
 
 const NavBar = (props) => {
@@ -10,10 +11,15 @@ const NavBar = (props) => {
   const { coins, setCoins } = useCoins();
 
   useEffect(() => {
-    const coinsQtd = localStorage.getItem('coins');
-
-    if (coinsQtd) {
-      setCoins(coinsQtd);
+    if(getUser().token){
+      api.post("/getCoins", {
+          email: getUser().id
+      }).then((response) => {
+        const coinsQtd = response.data.coinsTotal - response.data.coinsDonated
+        setCoins(coinsQtd)
+      }).catch((err) => {
+          console.log(err)
+      });
     }
   }, []);
 
