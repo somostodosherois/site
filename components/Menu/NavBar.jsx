@@ -89,7 +89,7 @@ const NavBar = (props) => {
             {/* MOBILE */}
 
             <div className="m-2 grid grid-cols-2 space-x-3 lg:hidden inline-block ">
-              {getUser() ?
+              {getUser().token ?
                 <>
                   <div className="flex mt-6">
                     <img src={ImageCoin.src} style={{ height: '25px', width: '25px' }} />
@@ -114,7 +114,7 @@ const NavBar = (props) => {
         {/* DESKTOP */}
 
         <div className="hidden space-x-2 lg:flex">
-          {getUser() ?
+          {getUser().token ?
             <>
               <div className="coins mt-1">
                 <a className="coins-icon" href="#" >
