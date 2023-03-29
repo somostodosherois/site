@@ -150,7 +150,7 @@ const Login = () => {
 
               {!cadStep && isMenuVisible &&
                 <>
-                  <Grid item xs={12} sm={6} className="mb-2">
+                  <Grid xs={12} sm={6} className="mb-2">
                     <TextField
                       fullWidth
                       label='Email'
@@ -160,7 +160,7 @@ const Login = () => {
                     />
                   </Grid>
 
-                  <Grid item xs={12} sm={6} className="mt-2">
+                  <Grid xs={12} sm={6} className="mt-2">
                     <LoadingButton
                       onClick={handleNextStep}
                       loading={loading}
