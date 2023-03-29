@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { TextField, Select, MenuItem, FormControl, InputLabel, FormControlLabel, Checkbox } from '@mui/material'
 
 import { useCoins } from '../../contexts/coins';
@@ -36,7 +36,7 @@ const items = [
 
 export default function Pagamento() {
 
-  if(!getUser()){
+  if (!getUser().email) {
     return <Login />
   }
 
@@ -121,16 +121,16 @@ export default function Pagamento() {
     const donationValue = parseFloat(amount)
     const sum = parseFloat(coins) + parseFloat(amount);
 
-    if(recorrencia === 'pontual'){
-      if(isDonationCheck){
+    if (recorrencia === 'pontual') {
+      if (isDonationCheck) {
         handleCoins(sum / 2)
-      }else{
+      } else {
         handleCoins(sum)
       }
-    }else{
-      if(isDonationCheck){
+    } else {
+      if (isDonationCheck) {
         handleCoins(sum * 0.2)
-      }else{
+      } else {
         handleCoins(sum)
       }
     }
@@ -202,9 +202,13 @@ export default function Pagamento() {
       return (
         <>
           <FormPersonalData
+            nome={nome}
             setNome={setNome}
+            sobrenome={sobrenome}
             setSobrenome={setSobrenome}
+            cpf={cpf}
             setCpf={setCpf}
+            celular={celular}
             setCelular={setCelular}
           />
 
@@ -221,6 +225,7 @@ export default function Pagamento() {
             setLocalidade={setLocalidade}
             uf={uf}
             setUf={setUf}
+            cep={cep}
             setCep={setCep}
           />
 
@@ -266,7 +271,7 @@ export default function Pagamento() {
   )
 
   if (typeof window !== 'undefined') {
-    if(localStorage.getItem('completar-campanha') && localStorage.getItem('completar-campanha-valor')){
+    if (localStorage.getItem('completar-campanha') && localStorage.getItem('completar-campanha-valor')) {
       let value = parseFloat(localStorage.getItem('completar-campanha-valor'))
       value = value / 2
       // Atribui 20% p ONG + completa todas as missões de uma determinada campanha
@@ -275,6 +280,29 @@ export default function Pagamento() {
       setRecorrencia('pontual')
     }
   }
+
+  useEffect(() => {
+    api
+      .post("/getUser", {
+        email: getUser().email
+      })
+      .then((response) => {
+        setNome(response.data.user.name.firstName)
+        setSobrenome(response.data.user.name.lastName)
+        setCpf(response.data.user.document)
+        setCelular(response.data.user.mobilePhone)
+        setCep(response.data.user.address.zipCode)
+        setLogradouro(response.data.user.address.address)
+        setNumero(response.data.user.address.addressNumber)
+        setBairro(response.data.user.address.province)
+        setComplemento(response.data.user.address.complement)
+        setLocalidade(response.data.user.address.city)
+        setUf(response.data.user.address.state)
+      })
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+  });
 
   return (
     <div className="bg-gray-50">

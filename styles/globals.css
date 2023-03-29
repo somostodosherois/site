@@ -9,15 +9,15 @@
 }
 
 .bg-red-600 { 
-  background-color: #9b0624;
+  background-color: #9b0624 !important;
 }
 
 .text-red-600 { 
-  color: #9b0624;
+  color: #9b0624 !important;
 }
 
 .border-red-600 {
-  border-color: #9b0624;
+  border-color: #9b0624 !important;
 }
 
 .image-text-block{

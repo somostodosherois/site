@@ -2,7 +2,7 @@ import { useState } from 'react'
 import TextField from '@mui/material/TextField'
 import InputMask from "react-input-mask";
 
-const FormPersonalData = ({ setNome, setSobrenome, setCpf, setCelular }) => {
+const FormPersonalData = ({ nome, setNome, sobrenome, setSobrenome, cpf, setCpf, celular, setCelular }) => {
     return (
         <div className='mt-10 border-t border-gray-200'>
             <h2 className="text-lg font-medium mt-8 text-gray-900">Dados pessoais</h2>
@@ -19,6 +19,8 @@ const FormPersonalData = ({ setNome, setSobrenome, setCpf, setCelular }) => {
                         className='mb-2'
                         fullWidth={true}
                         required
+                        value={nome}
+                        disabled={nome ? true : false}
                         onChange={(e) => setNome(e.target.value)}
                     />
 
@@ -31,6 +33,8 @@ const FormPersonalData = ({ setNome, setSobrenome, setCpf, setCelular }) => {
                         className='mb-2'
                         fullWidth={true}
                         required
+                        value={sobrenome}
+                        disabled={sobrenome ? true : false}
                         onChange={(e) => setSobrenome(e.target.value)}
                     />
                 </div>
@@ -51,6 +55,8 @@ const FormPersonalData = ({ setNome, setSobrenome, setCpf, setCelular }) => {
                                 color='error'
                                 className='mb-2'
                                 required
+                                value={cpf}
+                                disabled={cpf ? true : false}
                             />
                         }
                     </InputMask>
@@ -69,6 +75,7 @@ const FormPersonalData = ({ setNome, setSobrenome, setCpf, setCelular }) => {
                                 className='mb-2'
                                 required
                                 fullWidth={true}
+                                value={celular}
                             />
                         }
                     </InputMask>

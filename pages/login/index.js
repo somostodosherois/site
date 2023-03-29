@@ -150,7 +150,7 @@ const Login = () => {
 
               {!cadStep && isMenuVisible &&
                 <>
-                  <Grid item xs={12} sm={6}>
+                  <Grid item xs={12} sm={6} className="mb-2">
                     <TextField
                       fullWidth
                       label='Email'

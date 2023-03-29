@@ -2,7 +2,7 @@ import { useState } from 'react'
 import TextField from '@mui/material/TextField'
 import InputMask from "react-input-mask";
 
-const FormAddress = ({ logradouro, setLogradouro, complemento, setComplemento, numero, setNumero, bairro, setBairro, localidade, setLocalidade, uf, setUf, setCep }) => {
+const FormAddress = ({ logradouro, setLogradouro, complemento, setComplemento, numero, setNumero, bairro, setBairro, localidade, setLocalidade, uf, setUf, cep, setCep }) => {
 
     const showData = (result) => {
         for (const campo in result) {
@@ -47,6 +47,7 @@ const FormAddress = ({ logradouro, setLogradouro, complemento, setComplemento, n
                                 color='error'
                                 className='mb-2'
                                 required
+                                value={cep}
                             />
                         }
                     </InputMask>
@@ -73,6 +74,7 @@ const FormAddress = ({ logradouro, setLogradouro, complemento, setComplemento, n
                         color='error'
                         className='mb-2'
                         onChange={(e) => setNumero(e.target.value)}
+                        value={numero}
                     />
 
                     <TextField
