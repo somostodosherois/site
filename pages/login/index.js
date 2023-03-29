@@ -178,7 +178,7 @@ const Login = () => {
 
               {nextStep &&
                 <>
-                  <Grid item xs={12} sm={6}>
+                  <Grid xs={12} sm={6}>
                     <TextField
                       fullWidth
                       type='text'
@@ -207,7 +207,7 @@ const Login = () => {
 
               {cadStep &&
                 <>
-                  <Grid item xs={12} sm={6} className="flex gap-x-4">
+                  <Grid xs={12} sm={6} className="flex gap-x-4">
                     <TextField
                       type='text'
                       label='Nome'
@@ -223,7 +223,7 @@ const Login = () => {
                       onChange={(e) => setLastName(e.target.value)}
                     />
                   </Grid>
-                  <Grid item xs={12} sm={6} className="mt-4">
+                  <Grid xs={12} sm={6} className="mt-4">
                     <TextField
                       fullWidth
                       type='email'
@@ -234,7 +234,7 @@ const Login = () => {
                     />
                   </Grid>
 
-                  <Grid item xs={6} sm={6} className="flex gap-x-4 mt-2">
+                  <Grid xs={6} sm={6} className="flex gap-x-4 mt-2">
                     <Button
                       onClick={() => setCadStep(false)}
                       loading={loading}
