@@ -156,6 +156,7 @@ const Login = () => {
                       label='Email'
                       placeholder='tony-stark@email.com'
                       color='error'
+                      size='small'
                       onChange={(e) => setEmail(e.target.value)}
                     />
                   </Grid>
@@ -185,6 +186,7 @@ const Login = () => {
                       label='Token'
                       placeholder='Digite o token'
                       color='error'
+                      size='small'
                       onChange={(e) => setCode(e.target.value)}
                     />
                   </Grid>
@@ -213,6 +215,7 @@ const Login = () => {
                       label='Nome'
                       placeholder='Tony'
                       color='error'
+                      size='small'
                       onChange={(e) => setName(e.target.value)}
                     />
                     <TextField
@@ -220,6 +223,7 @@ const Login = () => {
                       label='Sobrenome'
                       placeholder='Stark'
                       color='error'
+                      size='small'
                       onChange={(e) => setLastName(e.target.value)}
                     />
                   </Grid>
@@ -230,6 +234,7 @@ const Login = () => {
                       label='Email'
                       placeholder='tony-stark@email.com'
                       color='error'
+                      size='small'
                       onChange={(e) => setEmail(e.target.value)}
                     />
                   </Grid>
