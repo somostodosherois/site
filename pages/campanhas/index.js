@@ -79,8 +79,8 @@ export async function getStaticProps({ previewData }) {
     const client = createClient({ previewData })
 
     const page = await client.getSingle('campaigns')
-    const items = await fetch(`http://sth-api.herokuapp.com/api/missions`).then(res => res.json());
-    const progress = await fetch(`http://sth-api.herokuapp.com/api/progress`).then(res => res.json());
+    const items = await fetch(`https://sth-api.herokuapp.com/api/missions`).then(res => res.json());
+    const progress = await fetch(`https://sth-api.herokuapp.com/api/progress`).then(res => res.json());
 
     return {
         props: {
