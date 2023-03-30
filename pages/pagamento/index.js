@@ -111,7 +111,6 @@ export default function Pagamento() {
   }
 
   const handleCoins = (value) => {
-    // localStorage.setItem('coins', value);
     setCoins(parseFloat(value));
   }
 

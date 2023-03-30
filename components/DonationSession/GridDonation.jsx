@@ -6,28 +6,51 @@ import HandHeartOutline from 'mdi-material-ui/HandHeartOutline'
 import CardDonation from './CardDonation'
 import api from '../../pages/api/config'
 import getUser from "../../hooks/getSession"
+import { useCoins } from "../../contexts/coins"
 
-const GridDonation = ({ items, campanha, setOpenSnack, setMessageSnack, setTypeSnack  }) => {
+const GridDonation = ({ items, campanha, setOpenSnack, setMessageSnack, setTypeSnack }) => {
 
+    const coins = useCoins();
     const [valuePersonalized, setValuePersonalized] = useState(0)
 
     const handleValue = () => {
-        api.post("/donation", {
-            email: getUser().email,
-            date: new Date().toISOString(),
-            value: valuePersonalized,
-            missionId: 0,
-            category: campanha
-        }).then((response) => {
-            setOpenSnack(true)
-            setTypeSnack('success')
-            setMessageSnack('Doação realizada com sucesso!')
-        }).catch((err) => {
-            console.log(err)
-            setOpenSnack(true)
-            setTypeSnack('error')
-            setMessageSnack(err?.response?.data.value?.message)
-        });
+
+        if (getUser().token) {
+            const saldo = coins - valuePersonalized
+
+            if (coins < 0 || saldo < 0) {
+                swal({
+                    title: "Moedas insuficientes. Deseja recarregar?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                    buttons: ["Agora não", "Sim"],
+                }).then((value) => {
+                    if (value) {
+                        Router.push('/pagamento')
+                    }
+                });
+            } else {
+                api.post("/donation", {
+                    email: getUser().email,
+                    date: new Date().toISOString(),
+                    value: valuePersonalized,
+                    missionId: 0,
+                    category: campanha
+                }).then((response) => {
+                    setOpenSnack(true)
+                    setTypeSnack('success')
+                    setMessageSnack('Doação realizada com sucesso!')
+                }).catch((err) => {
+                    console.log(err)
+                    setOpenSnack(true)
+                    setTypeSnack('error')
+                    setMessageSnack(err?.response?.data.value?.message)
+                });
+            }
+        }else{
+            window.location.href = '/login'
+        }
     }
 
     return (

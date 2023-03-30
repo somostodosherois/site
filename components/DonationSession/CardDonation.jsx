@@ -6,7 +6,7 @@ import api from '../../pages/api/config'
 import getUser from '../../hooks/getSession';
 
 const CardDonation = ({ item, setOpenSnack, setMessageSnack, setTypeSnack }) => {
-    const { coins, setCoins } = useCoins();
+    const coins = useCoins();
     const { value, subtitle, description } = item
 
     const handlePurchaseItem = (total) => {
@@ -23,9 +23,6 @@ const CardDonation = ({ item, setOpenSnack, setMessageSnack, setTypeSnack }) => 
                 }
             });
         } else {
-            setCoins(total);
-            localStorage.setItem('coins', total);
-
             api.post("/donation", {
                 email: getUser().email,
                 date: new Date().toISOString(),
@@ -45,16 +42,20 @@ const CardDonation = ({ item, setOpenSnack, setMessageSnack, setTypeSnack }) => 
     };
 
     const handleAlert = (value, total) => {
-        swal({
-            title: `Deseja confirmar a doação de ${formatCurrent(value)} moedas?`,
-            buttons: true,
-            dangerMode: true,
-            buttons: ["Cancelar", "Confirmar"],
-        }).then((value) => {
-            if (value) {
-                handlePurchaseItem(total);
-            }
-        });
+        if(getUser().token){
+            swal({
+                title: `Deseja confirmar a doação de ${formatCurrent(value)} moedas?`,
+                buttons: true,
+                dangerMode: true,
+                buttons: ["Cancelar", "Confirmar"],
+            }).then((value) => {
+                if (value) {
+                    handlePurchaseItem(total);
+                }
+            });
+        }else{
+            window.location.href = '/login'
+        }
     }
 
     const handleValue = (value) => {

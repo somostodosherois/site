@@ -8,20 +8,7 @@ import Dropdown from "./Dropdown";
 
 const NavBar = (props) => {
   const [navbar, setNavbar] = useState(false);
-  const { coins, setCoins } = useCoins();
-
-  useEffect(() => {
-    if(getUser().token){
-      api.post("/getCoins", {
-          email: getUser().id
-      }).then((response) => {
-        const coinsQtd = response.data.coinsTotal - response.data.coinsDonated
-        setCoins(coinsQtd)
-      }).catch((err) => {
-          console.log(err)
-      });
-    }
-  }, []);
+  const coins = useCoins();
 
   return (
     <nav className="w-full bg-red-600 shadow sticky top-0 z-50">
