@@ -115,19 +115,27 @@ const Login = () => {
       .then((response) => {
         setNextStep(!nextStep)
         setIsMenuVisible(false)
-        setLoading(false)
+
+        setMessageSnack("O token foi enviado para o seu e-mail!")
+        setTypeSnack('success')
+        setOpenSnack(true)
+
+        setTimeout(() => {
+          setOpenSnack(false)
+        }, 2000);
+
       })
       .catch((err) => {
-        setLoading(false)
         setMessageSnack("Usuário não cadastrado!")
         setTypeSnack('error')
         setOpenSnack(true)
-
 
         setTimeout(() => {
           setOpenSnack(false)
         }, 2000);
       });
+
+      setLoading(false)
   }
 
 
