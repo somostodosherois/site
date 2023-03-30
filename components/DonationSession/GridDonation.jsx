@@ -62,9 +62,9 @@ const GridDonation = ({ items, campanha, setOpenSnack, setMessageSnack, setTypeS
             ))}
 
             <div className='bg-white border rounded-lg shadow p-6'>
-                <div className='md:grid md:grid-cols-3 gap-x-4'>
+                <div className='md:grid md:grid-cols-3 gap-x-4 mb-14'>
                     <div className="col-span-3 mt-2 text-center">
-                        <span className='text-xl font-semibold'>Doação personalizada</span>
+                        <span className='text-xl font-semibold"'>Doação personalizada</span>
                     </div>
                 </div>
 
@@ -75,7 +75,6 @@ const GridDonation = ({ items, campanha, setOpenSnack, setMessageSnack, setTypeS
                     prefix={'R$ '}
                     size="small"
                     color='error'
-                    className="mt-14"
                     label='Valor'
                     fullWidth
                     onChange={(e) => setValuePersonalized(e.target.value)}
