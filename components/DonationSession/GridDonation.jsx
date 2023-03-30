@@ -2,11 +2,13 @@ import { useState } from "react"
 import { Grid } from "@mui/material"
 import TextField from '@mui/material/TextField'
 import HandHeartOutline from 'mdi-material-ui/HandHeartOutline'
+import { NumericFormat } from 'react-number-format';
 
 import CardDonation from './CardDonation'
 import api from '../../pages/api/config'
 import getUser from "../../hooks/getSession"
 import { useCoins } from "../../contexts/coins"
+
 
 const GridDonation = ({ items, campanha, setOpenSnack, setMessageSnack, setTypeSnack }) => {
 
@@ -48,7 +50,7 @@ const GridDonation = ({ items, campanha, setOpenSnack, setMessageSnack, setTypeS
                     setMessageSnack(err?.response?.data.value?.message)
                 });
             }
-        }else{
+        } else {
             window.location.href = '/login'
         }
     }
@@ -66,15 +68,20 @@ const GridDonation = ({ items, campanha, setOpenSnack, setMessageSnack, setTypeS
                         <span className='text-lg font-semibold'>Doação personalizada</span>
                     </div>
                 </div>
-                <TextField
-                    fullWidth
-                    type='text'
-                    label='Valor'
+
+                <NumericFormat 
+                    customInput={TextField} 
+                    decimalScale={2} 
+                    fixedDecimalScale 
+                    prefix={'R$ '}
                     size="small"
                     color='error'
                     className="mt-7"
+                    label='Valor'
+                    fullWidth
                     onChange={(e) => setValuePersonalized(e.target.value)}
                 />
+
                 <div className="rounded-md mt-8 shadow cursor-pointer">
                     <a
                         onClick={handleValue}

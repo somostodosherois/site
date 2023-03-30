@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { TextField, Select, MenuItem, FormControl, InputLabel, FormControlLabel, Checkbox } from '@mui/material'
+import { NumericFormat } from 'react-number-format';
 
 import { useCoins } from '../../contexts/coins';
 import api from '../api/config'
@@ -256,12 +257,16 @@ export default function Pagamento() {
 
       {isOpenField &&
         <div className="sm:col-span-2 flex gap-x-4 mt-8 mb-8">
-          <TextField
-            type='value'
-            size='small'
-            label='Valor'
+          <NumericFormat 
+            customInput={TextField} 
+            decimalScale={2} 
+            fixedDecimalScale 
+            prefix={'R$ '}
+            size="small"
             color='error'
             className='mb-2'
+            label='Valor'
+            fullWidth
             onChange={(e) => setAmount(e.target.value)}
           />
         </div>

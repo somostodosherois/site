@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { isMobile } from 'react-device-detect';
 import { useState } from 'react';
+import { NumericFormat } from 'react-number-format';
 
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -67,12 +68,16 @@ const ModalDetails = ({ open, handleClose, mission }) => {
                 <div className='grid bg-white mt-6'>
                     <span className='text-lg font-semibold'>Doação personalizada</span>
 
-                    <TextField
-                        type='text'
-                        label='Valor'
-                        color='error'
+                    <NumericFormat 
+                        customInput={TextField} 
+                        decimalScale={2} 
+                        fixedDecimalScale 
+                        prefix={'R$ '}
                         size="small"
+                        color='error'
                         className="mt-2"
+                        label='Valor'
+                        fullWidth
                         onChange={(e) => setValueDonationMission(e.target.value)}
                     />
 
