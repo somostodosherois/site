@@ -12,6 +12,7 @@ import DonationSession from '../../components/DonationSession/DonationSession'
 import Banner from '../../components/Banner'
 import Tabs from '../../components/Tabs'
 import Snackbar from '../../components/Snackbar/Snackbar';
+import api from '../../pages/api/config'
 
 const tabs = [
     {
@@ -79,8 +80,8 @@ export async function getStaticProps({ previewData }) {
     const client = createClient({ previewData })
 
     const page = await client.getSingle('campaigns')
-    const items = await fetch(`https://sth-api.herokuapp.com/api/missions`).then(res => res.json());
-    const progress = await fetch(`https://sth-api.herokuapp.com/api/progress`).then(res => res.json());
+    const items = await fetch(api + `missions`).then(res => res.json());
+    const progress = await fetch(api + `progress`).then(res => res.json());
 
     return {
         props: {

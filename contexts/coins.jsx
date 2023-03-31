@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import getUser from "../hooks/getSession";
+import api from '../pages/api/config'
 
 export const CoinsContext = React.createContext({});
 
