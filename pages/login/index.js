@@ -10,14 +10,30 @@ import Snackbar from '../../components/Snackbar/Snackbar';
 import { Grid, Button } from '@mui/material'
 import TextField from '@mui/material/TextField'
 import LoadingButton from '@mui/lab/LoadingButton';
+import { useCoins } from '../../contexts/coins';
 
-function setSession({ email, token, id }) {
+function setSession({ email, token, id, setCoins }) {
   sessionStorage.setItem('token', token);
   sessionStorage.setItem('email', email);
   sessionStorage.setItem('id', id);
+
+  await api.post("/getCoins", {
+    userData: {
+      email: email
+    }
+  }).then((response) => {
+    const coinsQtd = response.data.coinsTotal - response.data.coinsDonated
+    setCoins(coinsQtd)
+    localStorage.setItem('coins', coinsQtd);
+  }).catch((err) => {
+      console.log(err)
+  });
+
 }
 
 const Login = () => {
+
+  const [coins, setCoins] = useCoins()
 
   const [name, setName] = useState('')
   const [lastName, setLastName] = useState('')
@@ -45,7 +61,8 @@ const Login = () => {
             setSession({
               email: email,
               token: response.data.accessToken,
-              id: response.data.id
+              id: response.data.id,
+              setCoins: setCoins
             });
             window.location.href = '/'
           }
