@@ -12,7 +12,7 @@ import { Grid, Button } from '@mui/material'
 import TextField from '@mui/material/TextField'
 import LoadingButton from '@mui/lab/LoadingButton';
 
-function setSession({ email, token, id, setCoins }) {
+function setSession({ email, token, id }) {
   sessionStorage.setItem('token', token);
   sessionStorage.setItem('email', email);
   sessionStorage.setItem('id', id);
@@ -62,7 +62,7 @@ const Login = () => {
               email: email,
               token: response.data.accessToken,
               id: response.data.id,
-              setCoins: setCoins
+              // setCoins: setCoins
             });
             window.location.href = '/'
           }
