@@ -12,9 +12,9 @@ import TextField from '@mui/material/TextField'
 import LoadingButton from '@mui/lab/LoadingButton';
 
 function setSession({ email, token, id }) {
-  sessionStorage.setItem('token', JSON.stringify(token));
-  sessionStorage.setItem('email', JSON.stringify(email));
-  sessionStorage.setItem('id', JSON.stringify(id));
+  sessionStorage.setItem('token', token);
+  sessionStorage.setItem('email', email);
+  sessionStorage.setItem('id', id);
 }
 
 const Login = () => {
