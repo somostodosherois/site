@@ -23,7 +23,7 @@ function setSession({ email, token, id, setCoins }) {
     }
   }).then((response) => {
     const coinsQtd = response.data.coinsTotal - response.data.coinsDonated
-    setCoins(parseFloat(coinsQtd))
+    // setCoins(parseFloat(coinsQtd))
     localStorage.setItem('coins', parseFloat(coinsQtd));
   }).catch((err) => {
       console.log(err)
@@ -33,7 +33,7 @@ function setSession({ email, token, id, setCoins }) {
 
 const Login = () => {
 
-  const { coins, setCoins } = useContext(CoinsContext)
+  // const { coins, setCoins } = useContext(CoinsContext)
 
   const [name, setName] = useState('')
   const [lastName, setLastName] = useState('')
