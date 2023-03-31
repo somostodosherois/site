@@ -5,19 +5,19 @@ import Head from 'next/head'
 import api from '../../pages/api/config'
 import Logo from '../../public/logo.svg'
 import Snackbar from '../../components/Snackbar/Snackbar';
+import { useCoins } from '../../contexts/coins';
 
 // MUI
 import { Grid, Button } from '@mui/material'
 import TextField from '@mui/material/TextField'
 import LoadingButton from '@mui/lab/LoadingButton';
-import { useCoins } from '../../contexts/coins';
 
 function setSession({ email, token, id, setCoins }) {
   sessionStorage.setItem('token', token);
   sessionStorage.setItem('email', email);
   sessionStorage.setItem('id', id);
 
-  await api.post("/getCoins", {
+  api.post("/getCoins", {
     userData: {
       email: email
     }
