@@ -11,7 +11,9 @@ export const CoinsProvider = (props) => {
     useEffect(() => {
         if(getUser().token){
           api.post("/getCoins", {
+            userData: {
               email: getUser().email
+            }
           }).then((response) => {
             const coinsQtd = response.data.coinsTotal - response.data.coinsDonated
             setCoins(coinsQtd)
