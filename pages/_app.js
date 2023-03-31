@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link'
 import { PrismicProvider } from '@prismicio/react'
 import { PrismicPreview } from '@prismicio/next'

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { TextField, Select, MenuItem, FormControl, InputLabel, FormControlLabel, Checkbox } from '@mui/material'
 import { NumericFormat } from 'react-number-format';
 
-import { useCoins } from '../../contexts/coins';
+import { CoinsContext, useCoins } from '../../contexts/coins';
 import api from '../api/config'
 
 import Footer from '../../components/Footer'
@@ -41,7 +41,7 @@ export default function Pagamento() {
     return <Login />
   }
 
-  const { coins, setCoins } = useCoins()
+  const { coins, setCoins } = useContext(CoinsContext)
   const [amount, setAmount] = useState(30);
 
   const [openSnack, setOpenSnack] = useState(false)

@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head'
 
 import api from '../../pages/api/config'
 import Logo from '../../public/logo.svg'
 import Snackbar from '../../components/Snackbar/Snackbar';
-import { useCoins } from '../../contexts/coins';
+import { CoinsContext, useCoins } from '../../contexts/coins';
 
 // MUI
 import { Grid, Button } from '@mui/material'
@@ -23,8 +23,8 @@ function setSession({ email, token, id, setCoins }) {
     }
   }).then((response) => {
     const coinsQtd = response.data.coinsTotal - response.data.coinsDonated
-    setCoins(coinsQtd)
-    localStorage.setItem('coins', coinsQtd);
+    setCoins(parseFloat(coinsQtd))
+    localStorage.setItem('coins', parseFloat(coinsQtd));
   }).catch((err) => {
       console.log(err)
   });
@@ -33,7 +33,7 @@ function setSession({ email, token, id, setCoins }) {
 
 const Login = () => {
 
-  const [coins, setCoins] = useCoins()
+  const { coins, setCoins } = useContext(CoinsContext)
 
   const [name, setName] = useState('')
   const [lastName, setLastName] = useState('')
