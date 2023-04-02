@@ -3,6 +3,7 @@ import { SliceZone } from '@prismicio/react'
 import Banner from '../components/Banner'
 import Footer from '../components/Footer'
 import Header from '../components/Header/Header'
+import getUser from '../hooks/getSession'
 
 import { createClient } from '../prismicio'
 import { components } from '../slices'
@@ -30,6 +31,17 @@ export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData })
 
   const page = await client.getSingle('homepage')
+  
+  if(getUser().email){
+    const coinsUser = await fetch(`https://sth-api.herokuapp.com/api/getCoins`,{
+      userData: {
+        email: email
+      }
+    }).then(res => res.json());
+
+    console.log('coins')
+    console.log(coinsUser)
+  }
 
   return {
     props: {

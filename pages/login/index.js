@@ -16,19 +16,6 @@ function setSession({ email, token, id }) {
   sessionStorage.setItem('token', token);
   sessionStorage.setItem('email', email);
   sessionStorage.setItem('id', id);
-
-  api.post("/getCoins", {
-    userData: {
-      email: email
-    }
-  }).then((response) => {
-    const coinsQtd = response.data.coinsTotal - response.data.coinsDonated
-    // setCoins(parseFloat(coinsQtd))
-    localStorage.setItem('coins', parseFloat(coinsQtd));
-  }).catch((err) => {
-      console.log(err)
-  });
-
 }
 
 const Login = () => {
@@ -58,12 +45,13 @@ const Login = () => {
       })
         .then(function (response) {
           if (response.status === 200) {
-            setSession({
+            await setSession({
               email: email,
               token: response.data.accessToken,
               id: response.data.id,
               // setCoins: setCoins
             });
+            
             window.location.href = '/'
           }
         })
@@ -152,7 +140,7 @@ const Login = () => {
         }, 2000);
       });
 
-      setLoading(false)
+    setLoading(false)
   }
 
 
