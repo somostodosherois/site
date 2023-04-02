@@ -32,16 +32,16 @@ export async function getStaticProps({ previewData }) {
 
   const page = await client.getSingle('homepage')
   
-  if(getUser().email){
-    const coinsUser = await fetch(`https://sth-api.herokuapp.com/api/getCoins`,{
-      userData: {
-        email: getUser().email
-      }
-    }).then(res => res.json());
+  // if(getUser().email){
+  //   const coinsUser = await fetch(`https://sth-api.herokuapp.com/api/getCoins`,{
+  //     userData: {
+  //       email: getUser().email
+  //     }
+  //   }).then(res => res.json());
 
-    console.log('coins')
-    console.log(coinsUser)
-  }
+  //   console.log('coins')
+  //   console.log(coinsUser)
+  // }
 
   return {
     props: {

@@ -5,7 +5,6 @@ import Head from 'next/head'
 import api from '../../pages/api/config'
 import Logo from '../../public/logo.svg'
 import Snackbar from '../../components/Snackbar/Snackbar';
-import { CoinsContext, useCoins } from '../../contexts/coins';
 
 // MUI
 import { Grid, Button } from '@mui/material'
@@ -19,8 +18,6 @@ function setSession({ email, token, id }) {
 }
 
 const Login = () => {
-
-  // const { coins, setCoins } = useContext(CoinsContext)
 
   const [name, setName] = useState('')
   const [lastName, setLastName] = useState('')
@@ -48,8 +45,7 @@ const Login = () => {
             setSession({
               email: email,
               token: response.data.accessToken,
-              id: response.data.id,
-              // setCoins: setCoins
+              id: response.data.id
             });
 
             window.location.href = '/'
