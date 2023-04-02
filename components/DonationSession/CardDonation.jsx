@@ -9,6 +9,8 @@ import getUser from '../../hooks/getSession';
 
 const CardDonation = ({ item, setOpenSnack, setMessageSnack, setTypeSnack }) => {
     const [coins, setCoins] = useContext(CoinsContext)
+    console.log('coins CardDonation: ')
+    console.log(coins)
     const { value, subtitle, description } = item
 
     const handlePurchaseItem = (total) => {
@@ -63,7 +65,7 @@ const CardDonation = ({ item, setOpenSnack, setMessageSnack, setTypeSnack }) => 
     const handleValue = (value) => {
         const total = coins - value;
 
-        if (total < 0) {
+        if (coins > 0 && total < 0) {
             handlePurchaseItem(total);
         } else {
             handleAlert(value, total);
