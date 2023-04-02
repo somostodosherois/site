@@ -1,5 +1,7 @@
 import swal from 'sweetalert';
 import Router from 'next/router';
+import { useContext } from "react"
+
 import { CoinsContext } from "../../contexts/coins";
 import formatCurrent from "../../hooks/formatCurrent";
 import api from '../../pages/api/config'
