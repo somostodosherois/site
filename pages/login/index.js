@@ -45,13 +45,13 @@ const Login = () => {
       })
         .then(function (response) {
           if (response.status === 200) {
-            await setSession({
+            setSession({
               email: email,
               token: response.data.accessToken,
               id: response.data.id,
               // setCoins: setCoins
             });
-            
+
             window.location.href = '/'
           }
         })

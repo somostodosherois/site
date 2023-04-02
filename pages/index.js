@@ -35,7 +35,7 @@ export async function getStaticProps({ previewData }) {
   if(getUser().email){
     const coinsUser = await fetch(`https://sth-api.herokuapp.com/api/getCoins`,{
       userData: {
-        email: email
+        email: getUser().email
       }
     }).then(res => res.json());
 
