@@ -6,9 +6,9 @@ import ImageCoin from "../../public/moeda.gif"
 import api from '../../pages/api/config'
 import Dropdown from "./Dropdown";
 
-const NavBar = (props) => {
+const NavBar = () => {
   const [navbar, setNavbar] = useState(false);
-  const coins = useCoins();
+  const coins = 0;
 
   return (
     <nav className="w-full bg-red-600 shadow sticky top-0 z-50">
