@@ -8,12 +8,12 @@ import getUser from '../hooks/getSession'
 import { createClient } from '../prismicio'
 import { components } from '../slices'
 
-const Page = ({ page, metaTitle, metaDescription, banner, slices }) => {
+const Page = ({ page, metaTitle, metaDescription, banner, slices, coins }) => {
   if (!page) return null
 
   return (
     <>
-      <Header metaTitle={metaTitle} metaDescription={metaDescription} />
+      <Header metaTitle={metaTitle} metaDescription={metaDescription} coins={coins} />
 
       {banner &&
         <Banner banner={banner} />
@@ -31,17 +31,18 @@ export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData })
 
   const page = await client.getSingle('homepage')
+  let coinsUser = 0
   
-  // if(getUser().email){
-  //   const coinsUser = await fetch(`https://sth-api.herokuapp.com/api/getCoins`,{
-  //     userData: {
-  //       email: getUser().email
-  //     }
-  //   }).then(res => res.json());
+  if(getUser().email){
+    coinsUser = await fetch(`https://sth-api.herokuapp.com/api/getCoins`,{
+      userData: {
+        email: getUser().email
+      }
+    }).then(res => res.json());
 
-  //   console.log('coins')
-  //   console.log(coinsUser)
-  // }
+    console.log('coins')
+    console.log(coinsUser)
+  }
 
   return {
     props: {
@@ -49,7 +50,8 @@ export async function getStaticProps({ previewData }) {
       metaTitle: page.data.meta_title,
       metaDescription: page.data.meta_description,
       banner: page.data.banner,
-      slices: page.data.page_content
+      slices: page.data.page_content,
+      coins: coinsUser
     },
   }
 }

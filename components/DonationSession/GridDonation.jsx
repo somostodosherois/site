@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { Grid } from "@mui/material"
 import TextField from '@mui/material/TextField'
 import HandHeartOutline from 'mdi-material-ui/HandHeartOutline'
@@ -7,12 +7,12 @@ import { NumericFormat } from 'react-number-format';
 import CardDonation from './CardDonation'
 import api from '../../pages/api/config'
 import getUser from "../../hooks/getSession"
-import { useCoins } from "../../contexts/coins"
+import { CoinsContext, useCoins } from "../../contexts/coins"
 
 
 const GridDonation = ({ items, campanha, setOpenSnack, setMessageSnack, setTypeSnack }) => {
 
-    const coins = useCoins();
+    const [coins, setCoins] = useContext(CoinsContext)
     const [valuePersonalized, setValuePersonalized] = useState(0)
 
     const handleValue = () => {

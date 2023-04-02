@@ -1,12 +1,12 @@
 import swal from 'sweetalert';
 import Router from 'next/router';
-import { useCoins } from "../../contexts/coins";
+import { CoinsContext } from "../../contexts/coins";
 import formatCurrent from "../../hooks/formatCurrent";
 import api from '../../pages/api/config'
 import getUser from '../../hooks/getSession';
 
 const CardDonation = ({ item, setOpenSnack, setMessageSnack, setTypeSnack }) => {
-    const coins = useCoins();
+    const [coins, setCoins] = useContext(CoinsContext)
     const { value, subtitle, description } = item
 
     const handlePurchaseItem = (total) => {
